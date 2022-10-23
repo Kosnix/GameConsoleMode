@@ -1,7 +1,7 @@
 ## GameConsoleMode
 this program allows to switch from explorer to playnite as a shell for windows, then switch back to explorer when playnite is closed
 
-# Warning
+# Warning this program is experimental
 this program modifies the registry and can block your pc without explorer.
 I decline all responsibility if that happens.
 
