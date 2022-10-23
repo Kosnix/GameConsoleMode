@@ -34,4 +34,7 @@ To do this :
 - In the file "DisplayOnSecondScreen.txt" put 1 if you want to switch to the secondary screen when launching the program, 0 if you want to stay on your main screen
 - Go to the "Sound" folder to change audio device (same method). You must also indicate the default audio device in "Default.txt" (the one you usually use) and the one that will be used when the program is launched in "SetDevice.txt"
 you can find the name of your devices in the audio device manager (don't forget the number)
+
 ![](https://i.imgur.com/Zyo9QSn.png)
+
+I invite people interested in the project to propose their modifications, the program is composed of "Bat" files which are converted into "exe". The set is present in the archive.
