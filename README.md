@@ -2,6 +2,8 @@
 
 GameConsoleMode is a C# application designed to turn your PC into a gaming console while keeping Windows. Once launched, GameConsoleMode hides the Windows interface and launches a selected game launcher, such as Steam, Playnite, or a custom launcher.
 
+**Please Note: This software is still experimental and manipulates the Windows registry. I am not responsible for any issues that may arise from its use. Use at your own risk.**
+
 ## Features
 
 - **Shell Replacement**: Hides the Windows interface and launches a selected game launcher.
