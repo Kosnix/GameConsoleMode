@@ -9,11 +9,9 @@ GameConsoleMode is a C# application designed to turn your PC into a gaming conso
 - **Shell Replacement**: Hides the Windows interface and launches a selected game launcher.
 - **Support for Multiple Launchers**: Supports Steam, Playnite, and custom launchers.
 - **Mouse Visibility**: Hides or shows the mouse cursor as needed.
-
-### Future Features
-
 - **Screen Management**: Configures and restores multi-screen configurations.
 - **Audio Management**: Adjusts system volume based on configuration.
+- **Startup Video**: A startup video to give your launcher time to launch.
 
 ## Configuration
 
