@@ -41,7 +41,7 @@ namespace SteamOS
                 {
                     if (!VerifyFolder())
                     {
-                        MessageBox.Show("Des fichiers sont manquants, veuillez réinstaller le programme.");
+                        MessageBox.Show("Files are missing, please reinstall the program.");
                         BackToWindows();
                         CleanupLogging();
                         Environment.Exit(0);
@@ -187,7 +187,7 @@ namespace SteamOS
             string launcher = ReadConfig("Launcher");
             if (launcher == "steam" || launcher == "Playnite.FullscreenApp" || launcher == "Other")
             {
-                Console.WriteLine("Le launcher selectionné est valide");
+                Console.WriteLine("The selected launcher is valid");
 
 
 
@@ -196,11 +196,11 @@ namespace SteamOS
                     string steamPath = ReadConfig("SteamPath");
                     if (!string.IsNullOrEmpty(steamPath) && File.Exists(steamPath))
                     {
-                        Console.WriteLine("Le chemin Steam est valide.");
+                        Console.WriteLine("The Steam path is valid.");
                     }
                     else
                     {
-                        MessageBox.Show("Le chemin Steam n'est pas valide ou inexistant. Utilisez le fichier Settings.exe pour corriger cela.");
+                        MessageBox.Show("The Steam path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         CleanupLogging();
                         Environment.Exit(0);
                     }
@@ -211,11 +211,11 @@ namespace SteamOS
                     string PlaynitePath = ReadConfig("PlaynitePath");
                     if (!string.IsNullOrEmpty(PlaynitePath) && File.Exists(PlaynitePath))
                     {
-                        Console.WriteLine("Le chemin playnite est valide.");
+                        Console.WriteLine("The playnite path is valid.");
                     }
                     else
                     {
-                        Console.WriteLine("Le chemin de playnite n'est pas valide ou inexistant. Utilisez le fichier Settings.exe pour corriger cela.");
+                        Console.WriteLine("The playnite path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         CleanupLogging();
                         Environment.Exit(0);
                     }
@@ -226,18 +226,18 @@ namespace SteamOS
                     string OtherLauncherPath = ReadConfig("OtherLauncherPath");
                     if (!string.IsNullOrEmpty(OtherLauncherPath) && File.Exists(OtherLauncherPath))
                     {
-                        Console.WriteLine("Le chemin du launcher est valide.");
+                        Console.WriteLine("The launcher path is valid.");
                     }
                     else
                     {
-                        MessageBox.Show("Le chemin du launcher n'est pas valide ou inexistant. Utilisez le fichier Settings.exe pour corriger cela.");
+                        MessageBox.Show("The launcher path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         Environment.Exit(0);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Le launcher selectionné n'est pas valide ou inexistant. Utilisez le fichier Settings.exe pour corriger cela");
+                MessageBox.Show("The selected launcher is invalid or non-existent. Use the Settings.exe file to fix this");
                 CleanupLogging();
                 Environment.Exit(0);
             }
@@ -249,7 +249,7 @@ namespace SteamOS
                 int audioVolume = int.Parse(ReadConfig("AudioVolume"));
                 if (audioVolume < 0 || audioVolume > 100)
                 {
-                    MessageBox.Show("Le volume audio est en dehors de la plage autorisée (0-100). Utilisez le fichier Settings.exe pour corriger cela.");
+                    MessageBox.Show("The audio volume is outside the allowed range (0-100). Use the Settings.exe file to correct this.");
                     CleanupLogging();
                     Environment.Exit(0);
                 }
@@ -281,7 +281,6 @@ namespace SteamOS
             if (logWriter != null)
             {
                 Console.WriteLine("Application stopped...");
-                Console.WriteLine("_______________________________________________");
                 logWriter.Close();
             }
 
@@ -754,7 +753,7 @@ namespace SteamOS
                 process.Start();
                 process.WaitForExit();
 
-                Console.WriteLine("Écran passé en mode étendu.");
+                Console.WriteLine("Screen switched to extended mode.");
 
                 if (!int.TryParse(ReadConfig("SelectedScreen"), out int screenIndex))
                 {
@@ -982,7 +981,7 @@ namespace SteamOS
                     string introPath = ReadConfig("IntroPath");
                     if (!File.Exists(introPath))
                     {
-                        Console.WriteLine("La vidéo d'introduction n'est pas disponible. La lecture est ignorée.");
+                        Console.WriteLine("The introductory video is not available. The reading is skipped.");
                         return;
                     }
 
@@ -992,7 +991,7 @@ namespace SteamOS
 
                     if (!videoExtensions.Contains(extension))
                     {
-                        Console.WriteLine("Le fichier spécifié n'est pas une vidéo. La lecture est ignorée.");
+                        Console.WriteLine("The specified file is not a video. The reading is skipped.");
                         return;
                     }
 
@@ -1018,7 +1017,7 @@ namespace SteamOS
                             { mediaPlayer.Volume = 100;}
                         
                         mediaPlayer.Play();
-                        Console.WriteLine("Lecture de la vidéo d'intro.");
+                        Console.WriteLine("Playing the intro video.");
 
                         // Marquer que l'introduction a été lue une fois
                         introForm.ShowDialog();
