@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsoleMode", "GameCons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "..\Settings\Settings.csproj", "{E9A8C892-2483-463F-9CC6-0EA5F889CA18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsoleModeGamepad", "..\Xbox_start_button\GameConsoleModeGamepad.csproj", "{2E284F6A-7970-48D3-9589-EEDBB24F1811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
