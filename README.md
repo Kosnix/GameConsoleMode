@@ -12,10 +12,11 @@ GameConsoleMode is a C# application designed to turn your PC into a gaming conso
 - **Screen Management**: Configures and restores multi-screen configurations.
 - **Audio Management**: Adjusts system volume based on configuration.
 - **Startup Video**: A startup video to give your launcher time to launch.
+- **Shortcut**: Shortcuts to change windows or launch the program directly from your controller.
 
 ## Configuration
 
-You can specify the launcher, file paths, and other settings.
+Use `Settings.exe` (C:\GameConsoleMode) to configure the application settings. You can specify the launcher, file paths, and other settings.
 
 ![Settings Illustration](https://raw.githubusercontent.com/Kosnix/GameConsoleMode/main/settings.png)
 
@@ -23,20 +24,18 @@ You can specify the launcher, file paths, and other settings.
 
 1. **Run the Application**
    Execute the GameConsoleMode application.
-2. **Transformation into Gaming Console**
+2. **Verification and Configuration**
+   The application will check for necessary files and configure logging.
+3. **Transformation into Gaming Console**
    The application hides the Windows interface and launches the selected game launcher.
-3. **Gaming Experience**
+4. **Gaming Experience**
    Enjoy your gaming experience without the Windows interface visible.
-4. **Return to Windows**
+5. **Return to Windows**
    To return to the Windows interface, close the game launcher, and the GameConsoleMode application will restore the Windows interface.
-
-## Logging
-
-Logs are written to `log.txt` in the executable directory. The log file is created at the beginning and closed at the end of the application execution.
-
+   
 ## Contributing
 
-Contributions are welcome! Feel free to submit a pull request or open an issue to discuss enhancements or bugs.
+With the active participation of **toonymak1993**
 
 ## Contact
 
