@@ -15,7 +15,7 @@ GameConsoleMode is a C# application designed to turn your PC into a gaming conso
 
 ## Configuration
 
-Use `Settings.exe` (C:\GameConsoleMode) to configure the application settings. You can specify the launcher, file paths, and other settings.
+You can specify the launcher, file paths, and other settings.
 
 ![Settings Illustration](https://raw.githubusercontent.com/Kosnix/GameConsoleMode/main/settings.png)
 
@@ -23,13 +23,11 @@ Use `Settings.exe` (C:\GameConsoleMode) to configure the application settings. Y
 
 1. **Run the Application**
    Execute the GameConsoleMode application.
-2. **Verification and Configuration**
-   The application will check for necessary files and configure logging.
-3. **Transformation into Gaming Console**
+2. **Transformation into Gaming Console**
    The application hides the Windows interface and launches the selected game launcher.
-4. **Gaming Experience**
+3. **Gaming Experience**
    Enjoy your gaming experience without the Windows interface visible.
-5. **Return to Windows**
+4. **Return to Windows**
    To return to the Windows interface, close the game launcher, and the GameConsoleMode application will restore the Windows interface.
 
 ## Logging
