@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34301.259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsoleMode", "GameConsoleMode.csproj", "{4C30B0CB-B251-41E6-AA84-7367B4AC13FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811} = {2E284F6A-7970-48D3-9589-EEDBB24F1811}
+		{E9A8C892-2483-463F-9CC6-0EA5F889CA18} = {E9A8C892-2483-463F-9CC6-0EA5F889CA18}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "..\Settings\Settings.csproj", "{E9A8C892-2483-463F-9CC6-0EA5F889CA18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameConsoleModeGamepad", "..\GameConsoleModeGamepad\GameConsoleModeGamepad.csproj", "{2E284F6A-7970-48D3-9589-EEDBB24F1811}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C30B0CB-B251-41E6-AA84-7367B4AC13FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C30B0CB-B251-41E6-AA84-7367B4AC13FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C30B0CB-B251-41E6-AA84-7367B4AC13FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C30B0CB-B251-41E6-AA84-7367B4AC13FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A8C892-2483-463F-9CC6-0EA5F889CA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E284F6A-7970-48D3-9589-EEDBB24F1811}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2316F4AF-C08E-483A-828B-A697742664B6}
+	EndGlobalSection
+EndGlobal
