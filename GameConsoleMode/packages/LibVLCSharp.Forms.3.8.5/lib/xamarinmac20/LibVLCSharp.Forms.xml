@@ -1,0 +1,929 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibVLCSharp.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:LibVLCSharp.Forms.Shared.Converters.BufferingProgressToBoolConverter">
+            <summary>
+            Converts a value not equals to 0 and 1 to true.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Converters.BufferingProgressToBoolConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Modifies the source data before passing it to the target for display in the UI.
+            </summary>
+            <param name="value">The source data being passed to the target.</param>
+            <param name="targetType">The type of the target property.</param>
+            <param name="parameter">An optional parameter to be used in the converter logic.</param>
+            <param name="culture">The culture of the conversion.</param>
+            <returns>true if value is not equals to 0 or 1, false otherwise</returns>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Converters.BufferingProgressToBoolConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.Converters.ObjectToBoolConverter">
+            <summary>
+            Converts not null object to true.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Converters.ObjectToBoolConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Modifies the source data before passing it to the target for display in the UI.
+            </summary>
+            <param name="value">The source data being passed to the target.</param>
+            <param name="targetType">The type of the target property.</param>
+            <param name="parameter">An optional parameter to be used in the converter logic.</param>
+            <param name="culture">The culture of the conversion.</param>
+            <returns>true if value is not null, false otherwise</returns>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Converters.ObjectToBoolConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.Dispatcher">
+            <summary>
+            Object that provides services for managing the queue of work items for a thread
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Dispatcher.InvokeAsync(System.Action)">
+            <summary>
+            Schedules the provided callback on the UI thread from a worker threa
+            </summary>
+            <param name="action">The callback on which the dispatcher returns when the event is dispatched</param>
+            <returns>The task object representing the asynchronous operation</returns>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.DisplayInformation">
+            <summary>
+            Monitors display-related information for an application view.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.DisplayInformation.ScalingFactor">
+            <summary>
+            Gets the scale factor
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.DisplayRequest">
+            <summary>
+            Represents a display request
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.DisplayRequest.RequestActive">
+            <summary>
+            Activates a display request
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.DisplayRequest.RequestRelease">
+            <summary>
+            Deactivates a display request
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.Effects.ClickEffect">
+            <summary>
+            Click effect.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Effects.ClickEffect.Invoke(Xamarin.Forms.VisualElement)">
+            <summary>
+            Apply a click effect.
+            </summary>
+            <param name="sender">The object on which to invoke the trigger action.</param>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.IOrientationHandler">
+            <summary>
+            Force Device Orientation.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.IOrientationHandler.LockOrientation">
+            <summary>
+            Lock device's orientation.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.IOrientationHandler.UnLockOrientation">
+            <summary>
+            Unlock device's orientation.
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.IPowerManager">
+            <summary>
+            Interface for power management.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.IPowerManager.KeepScreenOn">
+            <summary>
+            Gets or sets a value indicating whether the screen should be kept on.
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.LibVLCSharpFormsRenderer">
+            <summary>
+            Empty shell used to load the custom renderer assembly
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.LibVLCSharpFormsRenderer.Init">
+            <summary>
+            Call this to load the custom renderer assembly
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.LifecycleMessage">
+            <summary>
+            Lifecycle message
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.MediaPlayerElement">
+            <summary>
+            Represents an object that uses a <see cref="T:LibVLCSharp.Shared.MediaPlayer"/> to render audio and video to the display.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.MediaPlayerElement.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LibVLCSharp.Forms.Shared.MediaPlayerElement"/> class.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.MediaPlayerElement.LibVLCProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.LibVLC"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.LibVLC">
+            <summary>
+            Gets the <see cref="T:LibVLCSharp.Shared.LibVLC"/> instance.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.MediaPlayerElement.MediaPlayerProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.MediaPlayer"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.MediaPlayer">
+            <summary>
+            Gets the <see cref="T:LibVLCSharp.Shared.MediaPlayer"/> instance.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.PlaybackControls">
+            <summary>
+            Gets or sets the playback controls for the media.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.MediaPlayerElement.VideoViewProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.VideoView"/> dependency property
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.VideoView">
+            <summary>
+            Gets or sets the video view.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.MediaPlayerElement.EnableRendererDiscovery">
+            <summary>
+            Enable or disable renderer discovery
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.MediaPlayerElement.OnParentSet">
+            <summary>
+            Invoked whenever the <see cref="P:Xamarin.Forms.Element.Parent"/> of an element is set. 
+            Implement this method in order to add behavior when the element is added to a parent.
+            </summary>
+            <remarks>Implementors must call the base method.</remarks>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.PlaybackControls">
+            <summary>
+            Represents the playback controls for a <see cref="T:LibVLCSharp.Shared.MediaPlayer"/>.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:LibVLCSharp.Forms.Shared.PlaybackControls"/> class.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.Finalize">
+            <summary>
+            Finalizer
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonColorProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonColor">
+            <summary>
+            Gets or sets the button color.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ForegroundProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.Foreground"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.Foreground">
+            <summary>
+            Gets or sets the button color.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.MainColorProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.MainColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.MainColor">
+            <summary>
+            Gets or sets the main color.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.TracksButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.TracksButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.TracksButtonStyle">
+            <summary>
+            Gets or sets the tracks button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgressBarStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgressBarStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgressBarStyle">
+            <summary>
+            Gets or sets the controls panel style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStyle">
+            <summary>
+            Gets or sets the button bar style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.CastButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.CastButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.CastButtonStyle">
+            <summary>
+            Gets or sets the cast button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ControlsPanelStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ControlsPanelStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ControlsPanelStyle">
+            <summary>
+            Gets or sets the controls panel style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockControlsPanelStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockControlsPanelStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockControlsPanelStyle">
+            <summary>
+            Gets or sets the unlock controls panel style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.UnLockButtonStyle">
+            <summary>
+            Gets or sets the unlock controls panel style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.MessageStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.MessageStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.MessageStyle">
+            <summary>
+            Gets or sets the message style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.PlayPauseButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.PlayPauseButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.PlayPauseButtonStyle">
+            <summary>
+            Gets or sets the play/pause button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.RemainingTimeLabelStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.RemainingTimeLabelStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.RemainingTimeLabelStyle">
+            <summary>
+            Gets or sets the remaining time label style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ElapsedTimeLabelStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ElapsedTimeLabelStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ElapsedTimeLabelStyle">
+            <summary>
+            Gets or sets the elapsed time label style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.SeekBarStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.SeekBarStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.SeekBarStyle">
+            <summary>
+            Gets or sets the seek bar style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.StopButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.StopButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.StopButtonStyle">
+            <summary>
+            Gets or sets the stop button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.VideoViewProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.VideoView"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.VideoView">
+            <summary>
+            Gets or sets the associated <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.VideoView"/>.
+            </summary>
+            <remarks>It is only useful to set this property for the aspect ratio feature.</remarks>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.LockButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.LockButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.LockButtonStyle">
+            <summary>
+            Gets or sets the Lock button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.AspectRatioButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.AspectRatioButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.AspectRatioButtonStyle">
+            <summary>
+            Gets or sets the aspect ratio button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.RewindButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.RewindButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.RewindButtonStyle">
+            <summary>
+            Gets or sets the rewind button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.SeekButtonStyleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.SeekButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.SeekButtonStyle">
+            <summary>
+            Gets or sets the rewind button style.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStartAreaProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStartArea"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarStartArea">
+            <summary>
+            Gets or sets the view in the button bar start area.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarEndAreaProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarEndArea"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ButtonBarEndArea">
+            <summary>
+            Gets or sets the view in the button bar end area.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.LibVLCProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.LibVLC"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.LibVLC">
+            <summary>
+            Gets or sets the <see cref="T:LibVLCSharp.Shared.LibVLC"/> instance.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.MediaPlayerProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.MediaPlayer"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.MediaPlayer">
+            <summary>
+            Gets or sets the <see cref="T:LibVLCSharp.Shared.MediaPlayer"/> instance.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgressProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgress"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.BufferingProgress">
+            <summary>
+            Gets or sets a value corresponding to the buffering progress.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ErrorMessageProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ErrorMessage"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ErrorMessage">
+            <summary>
+            Gets the last error message.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.KeepScreenOnProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.KeepScreenOn"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.KeepScreenOn">
+            <summary>
+            Gets or sets a value indicating whether the screen must be kept on when playing.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.PositionProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.Position"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.Position">
+            <summary>
+            Gets or sets the playback position within the media.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ResourceManagerProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ResourceManager"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ResourceManager">
+            <summary>
+            Gets or sets the resource manager to localize strings.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.ShowAndHideAutomaticallyProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.ShowAndHideAutomatically"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.ShowAndHideAutomatically">
+            <summary>
+            Gets or sets a value that indicates whether the controls are shown and hidden automatically.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsLockButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsLockButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsLockButtonVisible">
+            <summary>
+            Gets or sets a value that indicates whether the lock button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsTracksButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsTracksButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsTracksButtonVisible">
+            <summary>
+            Gets or sets a value that indicates whether the tracks button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsCastButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsCastButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsCastButtonVisible">
+            <summary>
+            Gets or sets a value indicating whether the cast button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsPlayPauseButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsPlayPauseButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsPlayPauseButtonVisible">
+            <summary>
+            Gets or sets a value indicating whether the play/pause button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekEnabledProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekEnabled"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekEnabled">
+            <summary>
+            Gets or sets a value that indicates whether a user can use the seek bar to find a location in the media.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekBarVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekBarVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekBarVisible">
+            <summary>
+            Gets or sets a value that indicates whether the seek bar is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsStopButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsStopButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsStopButtonVisible">
+            <summary>
+            Gets or sets a value that indicates whether the stop button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsAspectRatioButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsAspectRatioButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsAspectRatioButtonVisible">
+            <summary>
+            Gets or sets a value indicating whether the aspect ratio button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsRewindButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsRewindButtonVisible"/> dependency property.
+            </summary>s
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsRewindButtonVisible">
+            <summary>
+            Gets or sets a value indicating whether the rewind button is shown.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekButtonVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekButtonVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.PlaybackControls.IsSeekButtonVisible">
+            <summary>
+            Gets or sets a value indicating whether the seek button is shown.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.OnParentSet">
+            <summary>
+            Called when the <see cref="P:Xamarin.Forms.Element.Parent"/> property has changed.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.ShowErrorMessageBox(System.Exception)">
+            <summary>
+            Show an error message box.
+            </summary>
+            <param name="ex">The exception to show.</param>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.Show">
+            <summary>
+            Shows the tranport controls if they're hidden
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.Hide">
+            <summary>
+            Hides the playback controls if they're shown
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.LockButton_ClickedAsync(System.Object,System.EventArgs)">
+            <summary>
+            Trigger whhen uer clicks on the Loock screen Button.
+            </summary>
+            <param name="sender">The control on which the event is triggered</param>
+            <param name="e">Then event's arguments</param>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.PlaybackControls.Handle_SlideCompletedAsync(System.Object,System.EventArgs)">
+            <summary>
+            Tigger when user clicks finished to move the swipe button that unlocks the view.
+            </summary>
+            <param name="sender">The control on which the event is triggered</param>
+            <param name="e">Then event's arguments</param>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.Resources.Strings">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatio_16_9">
+            <summary>
+              Looks up a localized string similar to 16:9.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatio_4_3">
+            <summary>
+              Looks up a localized string similar to 4:3.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatioBestFit">
+            <summary>
+              Looks up a localized string similar to Best fit.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatioFill">
+            <summary>
+              Looks up a localized string similar to Fill.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatioFitScreen">
+            <summary>
+              Looks up a localized string similar to Fit screen.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AspectRatioOriginal">
+            <summary>
+              Looks up a localized string similar to Original.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.AudioTracks">
+            <summary>
+              Looks up a localized string similar to Audio tracks.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.CastTo">
+            <summary>
+              Looks up a localized string similar to Cast to.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.ClosedCaptions">
+            <summary>
+              Looks up a localized string similar to Subtitles.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.Disable">
+            <summary>
+              Looks up a localized string similar to Disable.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.Error">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.ErrorWithMedia">
+            <summary>
+              Looks up a localized string similar to Error with media {0}.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.NoTrackFoundMessage">
+            <summary>
+              Looks up a localized string similar to No track found.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.OK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.Track">
+            <summary>
+              Looks up a localized string similar to Track {0}.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.Unlock">
+            <summary>
+              Looks up a localized string similar to SWIPE TO UNLOCK.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.Resources.Strings.VideoTracks">
+            <summary>
+              Looks up a localized string similar to Video tracks.
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.SwipeToUnLockView">
+            <summary>
+            Custom view that allows user to unlock the MediaPlayerElement View.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView.ThumbProperty">
+            <summary>
+            Defines the ThumbProperty.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.SwipeToUnLockView.Thumb">
+            <summary>
+            Gets or sets the Thumb.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView.TrackBarProperty">
+            <summary>
+            Defines the TrackBar Property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.SwipeToUnLockView.TrackBar">
+            <summary>
+            Gets or sets the TrackBar.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView.FillBarProperty">
+            <summary>
+            Defines the FillBar Property.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.SwipeToUnLockView.FillBar">
+            <summary>
+            Gets or sets the FillBar.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView._panGesture">
+            <summary>
+            Defines the PanGesture.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView._gestureListener">
+            <summary>
+            Defines the Gesture Listener.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.SwipeToUnLockView.#ctor">
+            <summary>
+            Defaut Constructor.
+            </summary>
+        </member>
+        <member name="E:LibVLCSharp.Forms.Shared.SwipeToUnLockView.SlideCompleted">
+            <summary>
+            The event wich will trigger when the view is completely swiped.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView.FadeEffect">
+            <summary>
+            Defines the FadeEffect default value.
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.SwipeToUnLockView.AnimLength">
+            <summary>
+            Defines the Animation Length.
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.Themes.Generic">
+            <summary>
+            Resource dictionary for the default style.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.Themes.Generic.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:LibVLCSharp.Forms.Shared.Themes.Generic"/> class.
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.TrackViewModel">
+            <summary>
+            Defines the <see cref="T:LibVLCSharp.Forms.Shared.TrackViewModel" />.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.TrackViewModel.Id">
+            <summary>
+            Track description Id
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.TrackViewModel.Name">
+            <summary>
+            Track description
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.TrackViewModel.Selected">
+            <summary>
+            The track is selected or not.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.TrackViewModel.#ctor(System.Int32,System.String)">
+            <summary>
+            TrackViewModel constructor
+            </summary>
+            <param name="id">Track description Id</param>
+            <param name="name">Track description</param>
+        </member>
+        <member name="E:LibVLCSharp.Forms.Shared.TrackViewModel.PropertyChanged">
+            <summary>
+            Occurs when a property value changes
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.VideoView">
+            <summary>
+            Generic Xamarin.Forms VideoView
+            </summary>
+        </member>
+        <member name="E:LibVLCSharp.Forms.Shared.VideoView.MediaPlayerChanging">
+            <summary>
+            Raised when a new MediaPlayer is set and will be attached to the view
+            </summary>
+        </member>
+        <member name="E:LibVLCSharp.Forms.Shared.VideoView.MediaPlayerChanged">
+            <summary>
+            Raised when a new MediaPlayer is set and attached to the view
+            </summary>
+        </member>
+        <member name="F:LibVLCSharp.Forms.Shared.VideoView.MediaPlayerProperty">
+            <summary>
+            Xamarin.Forms MediaPlayer databinded property
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.Forms.Shared.VideoView.MediaPlayer">
+            <summary>
+            The MediaPlayer object attached to this view
+            </summary>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Shared.VisualTreeHelper">
+            <summary>
+            Provides utility methods that can be used to traverse object relationships (along child-object or parent-object axes) 
+            in the visual tree of your app.
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.VisualTreeHelper.FindChild``1(Xamarin.Forms.Element)">
+            <summary>
+            Obtains a child object of a given type of the provided parent element by examining the visual tree.
+            </summary>
+            <typeparam name="T">Element type to find.</typeparam>
+            <param name="parent">The parent element.</param>
+            <returns>The child element, or null if not found.</returns>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.VisualTreeHelper.FindChild``1(Xamarin.Forms.Element,System.String)">
+            <summary>
+            Using the provided name, obtains a specific child object of the provided parent element by examining the visual tree.
+            </summary>
+            <typeparam name="T">The element type to obtain.</typeparam>
+            <param name="parent">The parent element.</param>
+            <param name="name">The searched name</param>
+            <returns>The child element, or null if not found.</returns>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Shared.VisualTreeHelper.FindAncestor``1(Xamarin.Forms.Element)">
+            <summary>
+            Gets the ancestor of a given type to which an element belongs.
+            </summary>
+            <typeparam name="T">Ancestor element type.</typeparam>
+            <param name="element">The element.</param>
+            <returns>The ancestor element of the given type, or null if not found.</returns>
+        </member>
+        <member name="T:LibVLCSharp.Forms.Platforms.Mac.VideoViewRenderer">
+            <summary>
+            Xamarin.Forms custom renderer for the Apple VideoView
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.Forms.Platforms.Mac.VideoViewRenderer.OnElementChanged(Xamarin.Forms.Platform.MacOS.ElementChangedEventArgs{LibVLCSharp.Forms.Shared.VideoView})">
+            <summary>
+            Native control management during lifecycle events
+            </summary>
+            <param name="e">lifecycle event</param>
+        </member>
+    </members>
+</doc>

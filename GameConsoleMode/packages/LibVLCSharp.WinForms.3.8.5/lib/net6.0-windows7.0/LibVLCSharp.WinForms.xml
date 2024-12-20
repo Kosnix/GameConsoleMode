@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibVLCSharp.WinForms</name>
+    </assembly>
+    <members>
+        <member name="T:LibVLCSharp.WinForms.VideoView">
+            <summary>
+            WinForms VideoView control with a LibVLCSharp MediaPlayer
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.WinForms.VideoView.#ctor">
+            <summary>
+            The VideoView constructor.
+            </summary>
+        </member>
+        <member name="P:LibVLCSharp.WinForms.VideoView.MediaPlayer">
+            <summary>
+            The MediaPlayer attached to this view (or null)
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.WinForms.VideoView.System#ComponentModel#ISupportInitialize#BeginInit">
+            <summary>
+            This currently does not do anything
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.WinForms.VideoView.System#ComponentModel#ISupportInitialize#EndInit">
+            <summary>
+            This attaches the mediaplayer to the view (if any)
+            </summary>
+        </member>
+        <member name="M:LibVLCSharp.WinForms.VideoView.Dispose(System.Boolean)">
+            <summary>
+            Detaches the MediaPlayer from this VideoView
+            </summary>
+            <param name="disposing"></param>
+        </member>
+    </members>
+</doc>
