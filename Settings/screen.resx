@@ -120,12 +120,12 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="guna2PictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAQtJREFUeF7t
-        1bFRxFAUBMELjfyTgBDIAPQNvLFZIXqr2hlLr1S6e5mZmZmZmZmZmZnZQ/bFrWRkJyM7GdnJyE5GdjKy
-        k5GdjOxkZCcjOxnZychORnYyspORnYzsZGQnIzsZ2cnITkZ2MrKTkZ2M7GRkJyM7GdnJyE5GdjKyk5Gd
-        jOxkZCcjOxnZychORnYyspORnYzsZGQnIzsZ2cnITkZ2MrKTkZ2M7GRkJyM7GdnJyE5GdjKyk5GdjOxk
-        ZCcjOxnZychORnYyspORHTMzs9vs7fJ+qT+sJzk3nltvv//wMn6cW2+/z0s9/BN9XG6/8xmfB60DnuTc
-        +Cd+sszMzMzMzMzMzMzsd/d6fQOUrdOgDycLgQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAQxJREFUeF7t
+        3csNwjAABUGXRpOI8pIS6CB85FPEGRZrnjR3Wys5xwwzMzMzMzMzMzMzW2HHdRx0CBIjSIwgMYLECBIj
+        SIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLE
+        CBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwgMYLECBIjSIwg
+        MYLECBIjSIwgMfMvImZmZr/fcRuX58dpO3+sFrS97jqv3d37oJ8vsKJtXru75yHvp0OvbJ/X7m4+Wfvp
+        4Cva/+LJMjMzMzMzMzMzM7Ovb4wH0trEz8iXEJEAAAAASUVORK5CYII=
 </value>
   </data>
 </root>
