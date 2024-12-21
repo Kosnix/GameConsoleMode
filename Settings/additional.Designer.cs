@@ -421,6 +421,7 @@ namespace Settings
             this.gcmend_list.Size = new System.Drawing.Size(465, 200);
             this.gcmend_list.TabIndex = 0;
             this.gcmend_list.UseCompatibleStateImageBehavior = false;
+            this.gcmend_list.View = System.Windows.Forms.View.List;
             // 
             // gcmstart_list
             // 
@@ -430,7 +431,7 @@ namespace Settings
             this.gcmstart_list.Size = new System.Drawing.Size(465, 181);
             this.gcmstart_list.TabIndex = 1;
             this.gcmstart_list.UseCompatibleStateImageBehavior = false;
-            this.gcmstart_list.View = System.Windows.Forms.View.SmallIcon;
+            this.gcmstart_list.View = System.Windows.Forms.View.List;
             // 
             // guna2PictureBox4
             // 
