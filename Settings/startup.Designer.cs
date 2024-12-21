@@ -241,7 +241,7 @@ namespace Settings
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(0, 211);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(15);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(512, 100);
             this.guna2HtmlLabel1.TabIndex = 37;
@@ -350,7 +350,7 @@ namespace Settings
             this.label_shortcut_information.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
             this.label_shortcut_information.ForeColor = System.Drawing.Color.Black;
             this.label_shortcut_information.Location = new System.Drawing.Point(0, 211);
-            this.label_shortcut_information.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.label_shortcut_information.Margin = new System.Windows.Forms.Padding(15);
             this.label_shortcut_information.Name = "label_shortcut_information";
             this.label_shortcut_information.Size = new System.Drawing.Size(512, 100);
             this.label_shortcut_information.TabIndex = 32;

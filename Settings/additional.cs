@@ -20,6 +20,7 @@ namespace Settings
         public additional()
         {
             InitializeComponent();
+            LoadStartList();
         }
         #region need variable and methodes
         static string exeFolder()
@@ -28,6 +29,190 @@ namespace Settings
             string dossierExecutable = Path.GetDirectoryName(cheminExecutable);
             return dossierExecutable;
         }
+
+
+        #region funktion start_and_end
+
+        private void LoadStartList()
+        {
+            //start
+            try
+            {
+                List<string> startList = GetList("start");
+
+                // Vorhandene Einträge in der ListView löschen
+                gcmstart_list.Items.Clear();
+             
+                // ListView mit den Einträgen füllen
+                foreach (var item in startList)
+                {
+                    gcmstart_list.Items.Add(item);
+                }
+
+                Console.WriteLine("Start-Liste erfolgreich geladen.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Laden der Start-Liste: {ex.Message}");
+            }
+            //end
+            try
+            {
+                List<string> endList = GetList("end");
+
+                // Vorhandene Einträge in der ListView löschen
+                gcmend_list.Items.Clear();
+
+                // ListView mit den Einträgen füllen
+                foreach (var item in endList)
+                {
+                    gcmend_list.Items.Add(item);
+                }
+
+                Console.WriteLine("Start-Liste erfolgreich geladen.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Laden der Start-Liste: {ex.Message}");
+            }
+        }
+
+
+        public static List<string> GetList(string key)
+        {
+            string filePath = ConfigFilePath();
+            InitializeConfigFile();
+
+            try
+            {
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObj = JObject.Parse(jsonContent);
+
+                if (jsonObj[key] is JArray array)
+                {
+                    return array.ToObject<List<string>>();
+                }
+                else
+                {
+                    Console.WriteLine($"Die Schlüssel '{key}' ist keine Liste.");
+                    return new List<string>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Lesen der Liste: {ex.Message}");
+                return new List<string>();
+            }
+        }
+
+        static string ConfigFilePath()
+        {
+            string exeFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            return Path.Combine(exeFolder, "start_and_end_config.json");
+        }
+
+        // Initialisiert die JSON-Datei, falls sie nicht existiert
+        static void InitializeConfigFile()
+        {
+            string filePath = ConfigFilePath();
+
+            if (!File.Exists(filePath))
+            {
+                var defaultConfig = new JObject
+                {
+                    ["start"] = new JArray(),
+                    ["end"] = new JArray()
+                };
+
+                File.WriteAllText(filePath, defaultConfig.ToString(Formatting.Indented));
+            }
+        }
+
+        // Fügt einen Eintrag (Start oder End) hinzu
+        public static void AddEntry(string key, string value)
+        {
+            string filePath = ConfigFilePath();
+            InitializeConfigFile();
+
+            try
+            {
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObj = JObject.Parse(jsonContent);
+
+                if (jsonObj[key] is JArray array)
+                {
+                    if (!array.Contains(value))
+                    {
+                        array.Add(value);
+                        Console.WriteLine($"Eintrag '{value}' wurde zur Liste '{key}' hinzugefügt.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Eintrag '{value}' existiert bereits in der Liste '{key}'.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Die Schlüssel '{key}' ist keine Liste.");
+                }
+
+                File.WriteAllText(filePath, jsonObj.ToString(Formatting.Indented));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Hinzufügen: {ex.Message}");
+            }
+        }
+
+        // Entfernt einen Eintrag aus der Liste
+        public static void RemoveEntry(string key, string value)
+        {
+            string filePath = ConfigFilePath(); // Pfad zur JSON-Datei
+            InitializeConfigFile(); // Stellt sicher, dass die Datei existiert
+
+            try
+            {
+                // JSON-Datei einlesen
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObj = JObject.Parse(jsonContent);
+
+                // Prüfen, ob der Schlüssel existiert und eine Liste ist
+                if (jsonObj[key] is JArray array)
+                {
+                    // Kopiere die Liste und entferne manuell alle Vorkommen
+                    var itemsToRemove = array.Where(item => item.ToString() == value).ToList();
+
+                    foreach (var item in itemsToRemove)
+                    {
+                        array.Remove(item);
+                    }
+
+                    if (itemsToRemove.Count > 0)
+                    {
+                        Console.WriteLine($"Eintrag '{value}' wurde {itemsToRemove.Count} Mal aus der Liste '{key}' entfernt.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Eintrag '{value}' wurde nicht in der Liste '{key}' gefunden.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Die Schlüssel '{key}' ist keine Liste oder existiert nicht.");
+                }
+
+                // Änderungen zurückschreiben
+                File.WriteAllText(filePath, jsonObj.ToString(Formatting.Indented));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Entfernen des Eintrags: {ex.Message}");
+            }
+        }
+
+        #endregion funktion start_and_end
+
+
         static string Readconfig(string key)
         {
             string filePath = Path.Combine(exeFolder(), "settings.json");
@@ -223,6 +408,88 @@ namespace Settings
             catch (Exception ex)
             {
                 throw new Exception("Unable to restore default UAC settings: " + ex.Message);
+            }
+        }
+
+        private void ad_program_start_add_Click(object sender, EventArgs e)
+        {
+
+            // OpenFileDialog initialisieren
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                // Dialogeinstellungen
+                openFileDialog.Filter = "Programme (*.exe)|*.exe|Alle Dateien (*.*)|*.*";
+                openFileDialog.Title = "Wähle eine Datei aus";
+
+                // Dialog anzeigen und prüfen, ob der Benutzer eine Datei ausgewählt hat
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Ausgewählten Dateipfad in die Textbox schreiben
+                    AddEntry("start", openFileDialog.FileName);
+                    LoadStartList();
+                }
+            }
+
+            
+        }
+
+        private void ad_program_start_clear_Click(object sender, EventArgs e)
+        {
+            
+
+            // OpenFileDialog initialisieren
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                // Dialogeinstellungen
+                openFileDialog.Filter = "Programme (*.exe)|*.exe|Alle Dateien (*.*)|*.*";
+                openFileDialog.Title = "Wähle eine Datei aus";
+
+                // Dialog anzeigen und prüfen, ob der Benutzer eine Datei ausgewählt hat
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Ausgewählten Dateipfad in die Textbox schreiben
+                    RemoveEntry("start", openFileDialog.FileName);
+                    LoadStartList();
+                }
+            }
+        }
+
+        private void ad_program_end_add_Click(object sender, EventArgs e)
+        {
+            // OpenFileDialog initialisieren
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                // Dialogeinstellungen
+                openFileDialog.Filter = "Programme (*.exe)|*.exe|Alle Dateien (*.*)|*.*";
+                openFileDialog.Title = "Wähle eine Datei aus";
+
+                // Dialog anzeigen und prüfen, ob der Benutzer eine Datei ausgewählt hat
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Ausgewählten Dateipfad in die Textbox schreiben
+                    AddEntry("end", openFileDialog.FileName);
+                    LoadStartList();
+                }
+            }
+        }
+
+        private void ad_program_end_clear_Click(object sender, EventArgs e)
+        {
+
+            // OpenFileDialog initialisieren
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                // Dialogeinstellungen
+                openFileDialog.Filter = "Programme (*.exe)|*.exe|Alle Dateien (*.*)|*.*";
+                openFileDialog.Title = "Wähle eine Datei aus";
+
+                // Dialog anzeigen und prüfen, ob der Benutzer eine Datei ausgewählt hat
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Ausgewählten Dateipfad in die Textbox schreiben
+                    RemoveEntry("end", openFileDialog.FileName);
+                    LoadStartList();
+                }
             }
         }
     }

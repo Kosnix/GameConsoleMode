@@ -40,7 +40,6 @@ namespace Settings
             this.guna2ShadowPanel7 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel6 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel5 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.SelectedAudioVolumeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -52,13 +51,24 @@ namespace Settings
             this.label_shortcut_information = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.HideMouse = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.gcmend_list = new System.Windows.Forms.ListView();
+            this.gcmstart_list = new System.Windows.Forms.ListView();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ad_program_start_add = new Guna.UI2.WinForms.Guna2Button();
+            this.ad_program_start_clear = new Guna.UI2.WinForms.Guna2Button();
+            this.ad_program_end_clear = new Guna.UI2.WinForms.Guna2Button();
+            this.ad_program_end_add = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2ShadowPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            this.guna2ShadowPanel3.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -68,7 +78,6 @@ namespace Settings
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel7);
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel6);
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel5);
-            this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel4);
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel3);
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel2);
             this.guna2GradientPanel1.Controls.Add(this.guna2ShadowPanel1);
@@ -147,7 +156,7 @@ namespace Settings
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(0, 154);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(15);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(512, 157);
             this.guna2HtmlLabel2.TabIndex = 35;
@@ -228,24 +237,18 @@ namespace Settings
             this.guna2ShadowPanel5.TabIndex = 37;
             this.guna2ShadowPanel5.Visible = false;
             // 
-            // guna2ShadowPanel4
-            // 
-            this.guna2ShadowPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel4.FillColor = System.Drawing.SystemColors.Menu;
-            this.guna2ShadowPanel4.Location = new System.Drawing.Point(51, 688);
-            this.guna2ShadowPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2ShadowPanel4.Name = "guna2ShadowPanel4";
-            this.guna2ShadowPanel4.Radius = 10;
-            this.guna2ShadowPanel4.ShadowColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel4.ShadowDepth = 150;
-            this.guna2ShadowPanel4.ShadowShift = 10;
-            this.guna2ShadowPanel4.Size = new System.Drawing.Size(512, 311);
-            this.guna2ShadowPanel4.TabIndex = 37;
-            this.guna2ShadowPanel4.Visible = false;
-            // 
             // guna2ShadowPanel3
             // 
             this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.ad_program_end_clear);
+            this.guna2ShadowPanel3.Controls.Add(this.ad_program_end_add);
+            this.guna2ShadowPanel3.Controls.Add(this.ad_program_start_clear);
+            this.guna2ShadowPanel3.Controls.Add(this.ad_program_start_add);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel4);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox4);
+            this.guna2ShadowPanel3.Controls.Add(this.gcmstart_list);
+            this.guna2ShadowPanel3.Controls.Add(this.gcmend_list);
             this.guna2ShadowPanel3.FillColor = System.Drawing.SystemColors.Menu;
             this.guna2ShadowPanel3.Location = new System.Drawing.Point(51, 368);
             this.guna2ShadowPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -254,9 +257,8 @@ namespace Settings
             this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.White;
             this.guna2ShadowPanel3.ShadowDepth = 150;
             this.guna2ShadowPanel3.ShadowShift = 10;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(512, 311);
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(512, 631);
             this.guna2ShadowPanel3.TabIndex = 36;
-            this.guna2ShadowPanel3.Visible = false;
             // 
             // guna2ShadowPanel2
             // 
@@ -306,7 +308,7 @@ namespace Settings
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(0, 169);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(15);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(512, 142);
             this.guna2HtmlLabel1.TabIndex = 32;
@@ -371,7 +373,7 @@ namespace Settings
             this.label_shortcut_information.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
             this.label_shortcut_information.ForeColor = System.Drawing.Color.Black;
             this.label_shortcut_information.Location = new System.Drawing.Point(0, 154);
-            this.label_shortcut_information.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.label_shortcut_information.Margin = new System.Windows.Forms.Padding(15);
             this.label_shortcut_information.Name = "label_shortcut_information";
             this.label_shortcut_information.Size = new System.Drawing.Size(512, 157);
             this.label_shortcut_information.TabIndex = 32;
@@ -411,6 +413,144 @@ namespace Settings
             this.guna2PictureBox1.TabIndex = 9;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // gcmend_list
+            // 
+            this.gcmend_list.HideSelection = false;
+            this.gcmend_list.Location = new System.Drawing.Point(25, 408);
+            this.gcmend_list.Name = "gcmend_list";
+            this.gcmend_list.Size = new System.Drawing.Size(465, 200);
+            this.gcmend_list.TabIndex = 0;
+            this.gcmend_list.UseCompatibleStateImageBehavior = false;
+            // 
+            // gcmstart_list
+            // 
+            this.gcmstart_list.HideSelection = false;
+            this.gcmstart_list.Location = new System.Drawing.Point(25, 167);
+            this.gcmstart_list.Name = "gcmstart_list";
+            this.gcmstart_list.Size = new System.Drawing.Size(465, 181);
+            this.gcmstart_list.TabIndex = 1;
+            this.gcmstart_list.UseCompatibleStateImageBehavior = false;
+            this.gcmstart_list.View = System.Windows.Forms.View.SmallIcon;
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(39, 22);
+            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(104, 100);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 33;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // guna2HtmlLabel3
+            // 
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(25, 139);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(96, 22);
+            this.guna2HtmlLabel3.TabIndex = 38;
+            this.guna2HtmlLabel3.Text = "GCM START";
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(25, 380);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(78, 22);
+            this.guna2HtmlLabel4.TabIndex = 39;
+            this.guna2HtmlLabel4.Text = "GCM END";
+            // 
+            // ad_program_start_add
+            // 
+            this.ad_program_start_add.Animated = true;
+            this.ad_program_start_add.BorderColor = System.Drawing.Color.Transparent;
+            this.ad_program_start_add.BorderRadius = 10;
+            this.ad_program_start_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_start_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_start_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ad_program_start_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ad_program_start_add.FillColor = System.Drawing.Color.Empty;
+            this.ad_program_start_add.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ad_program_start_add.ForeColor = System.Drawing.Color.White;
+            this.ad_program_start_add.Image = ((System.Drawing.Image)(resources.GetObject("ad_program_start_add.Image")));
+            this.ad_program_start_add.ImageSize = new System.Drawing.Size(30, 30);
+            this.ad_program_start_add.Location = new System.Drawing.Point(221, 127);
+            this.ad_program_start_add.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ad_program_start_add.Name = "ad_program_start_add";
+            this.ad_program_start_add.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ad_program_start_add.Size = new System.Drawing.Size(38, 34);
+            this.ad_program_start_add.TabIndex = 38;
+            this.ad_program_start_add.Click += new System.EventHandler(this.ad_program_start_add_Click);
+            // 
+            // ad_program_start_clear
+            // 
+            this.ad_program_start_clear.Animated = true;
+            this.ad_program_start_clear.BorderColor = System.Drawing.Color.Transparent;
+            this.ad_program_start_clear.BorderRadius = 10;
+            this.ad_program_start_clear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_start_clear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_start_clear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ad_program_start_clear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ad_program_start_clear.FillColor = System.Drawing.Color.Empty;
+            this.ad_program_start_clear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ad_program_start_clear.ForeColor = System.Drawing.Color.White;
+            this.ad_program_start_clear.Image = ((System.Drawing.Image)(resources.GetObject("ad_program_start_clear.Image")));
+            this.ad_program_start_clear.ImageSize = new System.Drawing.Size(30, 30);
+            this.ad_program_start_clear.Location = new System.Drawing.Point(264, 127);
+            this.ad_program_start_clear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ad_program_start_clear.Name = "ad_program_start_clear";
+            this.ad_program_start_clear.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ad_program_start_clear.Size = new System.Drawing.Size(38, 34);
+            this.ad_program_start_clear.TabIndex = 40;
+            this.ad_program_start_clear.Click += new System.EventHandler(this.ad_program_start_clear_Click);
+            // 
+            // ad_program_end_clear
+            // 
+            this.ad_program_end_clear.Animated = true;
+            this.ad_program_end_clear.BorderColor = System.Drawing.Color.Transparent;
+            this.ad_program_end_clear.BorderRadius = 10;
+            this.ad_program_end_clear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_end_clear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_end_clear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ad_program_end_clear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ad_program_end_clear.FillColor = System.Drawing.Color.Empty;
+            this.ad_program_end_clear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ad_program_end_clear.ForeColor = System.Drawing.Color.White;
+            this.ad_program_end_clear.Image = ((System.Drawing.Image)(resources.GetObject("ad_program_end_clear.Image")));
+            this.ad_program_end_clear.ImageSize = new System.Drawing.Size(30, 30);
+            this.ad_program_end_clear.Location = new System.Drawing.Point(264, 368);
+            this.ad_program_end_clear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ad_program_end_clear.Name = "ad_program_end_clear";
+            this.ad_program_end_clear.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ad_program_end_clear.Size = new System.Drawing.Size(38, 34);
+            this.ad_program_end_clear.TabIndex = 42;
+            this.ad_program_end_clear.Click += new System.EventHandler(this.ad_program_end_clear_Click);
+            // 
+            // ad_program_end_add
+            // 
+            this.ad_program_end_add.Animated = true;
+            this.ad_program_end_add.BorderColor = System.Drawing.Color.Transparent;
+            this.ad_program_end_add.BorderRadius = 10;
+            this.ad_program_end_add.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_end_add.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ad_program_end_add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ad_program_end_add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ad_program_end_add.FillColor = System.Drawing.Color.Empty;
+            this.ad_program_end_add.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ad_program_end_add.ForeColor = System.Drawing.Color.White;
+            this.ad_program_end_add.Image = ((System.Drawing.Image)(resources.GetObject("ad_program_end_add.Image")));
+            this.ad_program_end_add.ImageSize = new System.Drawing.Size(30, 30);
+            this.ad_program_end_add.Location = new System.Drawing.Point(221, 368);
+            this.ad_program_end_add.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ad_program_end_add.Name = "ad_program_end_add";
+            this.ad_program_end_add.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ad_program_end_add.Size = new System.Drawing.Size(38, 34);
+            this.ad_program_end_add.TabIndex = 41;
+            this.ad_program_end_add.Click += new System.EventHandler(this.ad_program_end_add_Click);
+            // 
             // additional
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -423,12 +563,15 @@ namespace Settings
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2ShadowPanel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            this.guna2ShadowPanel3.PerformLayout();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,7 +592,6 @@ namespace Settings
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel7;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel6;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel5;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel4;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel SelectedAudioVolumeLabel;
         private Guna.UI2.WinForms.Guna2TrackBar VolumeTrackBar;
@@ -457,5 +599,14 @@ namespace Settings
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2Button EnableUAC;
         private Guna.UI2.WinForms.Guna2Button DisableUAC;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private System.Windows.Forms.ListView gcmstart_list;
+        private System.Windows.Forms.ListView gcmend_list;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2Button ad_program_start_clear;
+        private Guna.UI2.WinForms.Guna2Button ad_program_start_add;
+        private Guna.UI2.WinForms.Guna2Button ad_program_end_clear;
+        private Guna.UI2.WinForms.Guna2Button ad_program_end_add;
     }
 }
