@@ -50,6 +50,7 @@ namespace GameConsoleMode
                     SetVolume();
                     ChangeScreen();
                     HideMouse();
+                    kill_list();
                     StartLauncher();
                     ConsoleModeToShell();
                     HideMouse();
@@ -59,9 +60,9 @@ namespace GameConsoleMode
                         introPlayed = true; // Set the flag to true after playing the intro
                     }
                     WaitForLauncherToClose();
-
                     RestoreScreen();
                     BackToWindows();
+                    start_list();
                 }
                 finally
                 {
@@ -77,6 +78,154 @@ namespace GameConsoleMode
             Process[] processes = Process.GetProcessesByName(currentProcessName);
             return processes.Length > 1;
         }
+
+        #region kill list / start list Function
+        private static List<string> GetEntries(string art)
+        {
+            string jsonFileName = "start_and_end_config.json";
+            string exeFolder = AppDomain.CurrentDomain.BaseDirectory; // Directory of the executing assembly
+            string filePath = Path.Combine(exeFolder, jsonFileName);
+
+            // Initialize the list to return
+            List<string> entries = new List<string>();
+
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    // Return an empty list if the file does not exist
+                    return entries;
+                }
+
+                string jsonContent = File.ReadAllText(filePath);
+                JObject jsonObj = JObject.Parse(jsonContent);
+
+                // Process based on the type specified in `art`
+                if (art == "start" && jsonObj["start"] is JArray startArray)
+                {
+                    foreach (var item in startArray)
+                    {
+                        string start = item.ToString().Trim();
+                        if (!string.IsNullOrEmpty(start) && (File.Exists(start) || Uri.IsWellFormedUriString(start, UriKind.Absolute)))
+                        {
+                            entries.Add(start);
+                        }
+                    }
+                }
+                else if (art == "end" && jsonObj["end"] is JArray endArray)
+                {
+                    foreach (var item in endArray)
+                    {
+                        string end = item.ToString().Trim();
+                        if (!string.IsNullOrEmpty(end) && (File.Exists(end) || Uri.IsWellFormedUriString(end, UriKind.Absolute)))
+                        {
+                            entries.Add(end);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error processing JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Ensure a list is always returned
+            return entries;
+        }
+        static void start_list()
+        {
+            List<string> startEntries = GetEntries("end");
+
+
+            if (startEntries.Count == 0)
+            {
+                Console.WriteLine("No start entries found or JSON file is missing.");
+                return; // Skip processing if no entries found
+            }
+
+            Console.WriteLine("Start entries:");
+            foreach (var entry in startEntries)
+            {
+                Console.WriteLine($"Processing start: {entry}");
+
+                try
+                {
+                    if (File.Exists(entry))
+                    {
+                        // Start file if it exists
+                        Process.Start(entry);
+                    }
+                    else if (Uri.IsWellFormedUriString(entry, UriKind.Absolute))
+                    {
+                        // Start URL if it's a valid URI
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = entry,
+                            UseShellExecute = true,
+                            RedirectStandardOutput = false
+                        });
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Invalid entry detected: {entry}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error processing start entry '{entry}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        static void kill_list()
+        {
+            List<string> endEntries = GetEntries("start");
+
+
+            if (endEntries.Count == 0)
+            {
+                return; // Skip processing if no entries found
+            }
+            
+            foreach (var kill in endEntries)
+            {
+
+                MessageBox.Show(kill, kill, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    if (File.Exists(kill))
+                    {
+                        // Extract process name from the file path
+                        string processName = Path.GetFileNameWithoutExtension(kill);
+
+                        // Get all processes with a matching name
+                        var processes = Process.GetProcessesByName(processName);
+                        if (processes.Length > 0)
+                        {
+                            foreach (var process in processes)
+                            {
+                                process.Kill();
+                            }
+                        }
+                        else
+                        {
+                        }
+                    }
+                    else if (Uri.IsWellFormedUriString(kill, UriKind.Absolute))
+                    {
+                        MessageBox.Show($"Cannot close URL: {kill}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Invalid entry detected: {kill}", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error processing end entry '{kill}': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        #endregion kill list / start list Function
 
         static bool VerifyFolder()
         {

@@ -451,18 +451,18 @@ namespace Settings
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(25, 139);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(96, 22);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(157, 22);
             this.guna2HtmlLabel3.TabIndex = 38;
-            this.guna2HtmlLabel3.Text = "GCM START";
+            this.guna2HtmlLabel3.Text = "GCM KILL AT START";
             // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(25, 380);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(78, 22);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(158, 22);
             this.guna2HtmlLabel4.TabIndex = 39;
-            this.guna2HtmlLabel4.Text = "GCM END";
+            this.guna2HtmlLabel4.Text = "GCM START AT END";
             // 
             // ad_program_start_add
             // 
