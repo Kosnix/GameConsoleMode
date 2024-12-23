@@ -20,11 +20,28 @@ namespace ButtonListener
     {
         [DllImport("user32.dll")]
     private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+        [DllImport("user32.dll")]
+        private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, UIntPtr dwExtraInfo);
 
-    private const byte VK_MENU = 0x12; // Alt key
+        private const byte VK_MENU = 0x12; // Alt key
     private const byte VK_TAB = 0x09;  // Tab key
     private const uint KEYEVENTF_KEYDOWN = 0x0000; // Key down flag
     private const uint KEYEVENTF_KEYUP = 0x0002;   // Key up flag
+        #region Mouse klick variable
+        // Mouse event constants
+        private const int MOUSEEVENTF_RIGHTDOWN = 0x0008;
+    private const int MOUSEEVENTF_RIGHTUP = 0x0010;
+        // Mouse event constants
+        private const int MOUSEEVENTF_LEFTDOWN = 0x0002;
+        private const int MOUSEEVENTF_LEFTUP = 0x0004;
+        // Variable to track the state of mouse buttons
+        private static bool isLeftMouseDown = false;
+        private static bool isRightMouseDown = false;
+        //Move Mouse
+        [DllImport("user32.dll")]
+        private static extern bool SetCursorPos(int X, int Y);
+
+        #endregion Mouse klick variable
         static bool AltTab = false;
 
         static NotifyIcon notifyIcon;
@@ -142,35 +159,97 @@ namespace ButtonListener
 
                 }
 
+
+
+
                 //Mouse movement 
+                const float SENSITIVITY = 15;
+                float[] ApplyDeadzoneAndNormalize(float x, float y)
+                {
+                    const short DEADZONE = 10000;
+                    float magnitude = (float)Math.Sqrt(x * x + y * y); // Magnitude of the joystick vector
+
+                    // Ignore small movements within the dead zone
+                    if (magnitude < DEADZONE)
+                        return new float[] { 0, 0 };
+
+                    // Scale magnitude to range [0, 1] and preserve direction
+                    float scaledMagnitude = (magnitude - DEADZONE) / (32767.0f - DEADZONE);
+                    scaledMagnitude = scaledMagnitude * scaledMagnitude; // Nonlinear scaling for smoother control
+
+                    // Normalize X and Y components
+                    return new float[]
+                    {
+        (x / magnitude) * scaledMagnitude,
+        (y / magnitude) * scaledMagnitude
+                    };
+                }
+                // if (controller.IsConnected && !GCMLaunched()) // controller.IsConnected && GCMLaunched()
+                if (true)
+                {
+                    var state = controller.GetState();
+
+                    if (state.Gamepad.Buttons.HasFlag(GamepadButtonFlags.Back))
+                    {
+                        var gamepad = state.Gamepad;
+
+                        // Joystick axes
+                        float leftThumbX = gamepad.RightThumbX;
+                        float leftThumbY = gamepad.RightThumbY;
+
+                        // Apply dead zone and normalize input
+                        float[] normalizedInput = ApplyDeadzoneAndNormalize(leftThumbX, leftThumbY);
+                        float deltaX = normalizedInput[0] * SENSITIVITY;
+                        float deltaY = -normalizedInput[1] * SENSITIVITY; // Invert Y-axis for screen coordinates
+
+                        // Move the mouse if there is significant movement
+                        if (Math.Abs(deltaX) > 0.1f || Math.Abs(deltaY) > 0.1f)
+                        {
+                            MoveMouse(deltaX, deltaY);
+                        }
+                    }
+                }
+
+                //Right click // Left Click
                 // if (controller.IsConnected && !GCMLaunched()) // controller.IsConnected && GCMLaunched()
                 if (true)
                 {
                     try
                     {
                         var state = controller.GetState();
-                        if (state.Gamepad.Buttons.HasFlag(GamepadButtonFlags.Back))
+
+                        // Check for Right Shoulder (simulate right mouse button hold)
+                        if (state.Gamepad.Buttons.HasFlag(GamepadButtonFlags.RightShoulder))
                         {
-                            var gamepad = state.Gamepad;
-
-                            // Values ​​of the X and Y axes of the left joystick
-                            float leftThumbX = gamepad.LeftThumbX;
-                            float leftThumbY = gamepad.LeftThumbY;
-
-                            // Apply a dead zone to avoid small movements
-                            const short DEADZONE = 8000; // Zone morte
-                            if (Math.Abs(leftThumbX) < DEADZONE) leftThumbX = 0;
-                            if (Math.Abs(leftThumbY) < DEADZONE) leftThumbY = 0;
-                            if (leftThumbY != 0 || leftThumbX != 0)
+                            if (!isRightMouseDown)
                             {
-                                // Calculate movements for the mouse
-                                const float SENSITIVITY = 20; // Mouse movement sensitivity
-                                float deltaX = leftThumbX * SENSITIVITY / 32767; // Normalization
-                                float deltaY = -leftThumbY * SENSITIVITY / 32767; // Invert Y to match screen
-
-                                // Move the mouse
-                                MoveMouse(deltaX, deltaY);
+                                // Press right mouse button
+                                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, UIntPtr.Zero);
+                                isRightMouseDown = true;
                             }
+                        }
+                        else if (isRightMouseDown)
+                        {
+                            // Release right mouse button
+                            mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, UIntPtr.Zero);
+                            isRightMouseDown = false;
+                        }
+
+                        // Check for Left Shoulder (simulate left mouse button hold)
+                        if (state.Gamepad.Buttons.HasFlag(GamepadButtonFlags.LeftShoulder))
+                        {
+                            if (!isLeftMouseDown)
+                            {
+                                // Press left mouse button
+                                mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, UIntPtr.Zero);
+                                isLeftMouseDown = true;
+                            }
+                        }
+                        else if (isLeftMouseDown)
+                        {
+                            // Release left mouse button
+                            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, UIntPtr.Zero);
+                            isLeftMouseDown = false;
                         }
                     }
                     catch
@@ -184,31 +263,31 @@ namespace ButtonListener
 
         static void MoveMouse(float deltaX, float deltaY)
         {
-            // Number of steps for progressive movement
-            const int STEPS = 1;
+            // Number of steps for smooth movement (increase for smoother, decrease for faster)
+            const int STEPS = 3000; // Adjust this to control smoothness (e.g., 1 for instant movement)
 
             // Current mouse position
             Point currentPosition = Cursor.Position;
 
-            // Calculation of displacement per step
+            // Calculate movement per step
             float stepX = deltaX / STEPS;
             float stepY = deltaY / STEPS;
 
             for (int i = 0; i < STEPS; i++)
             {
-                // New partial mouse position
+                // Calculate new position for this step
                 int newX = (int)(currentPosition.X + stepX * (i + 1));
                 int newY = (int)(currentPosition.Y + stepY * (i + 1));
 
-                // Prevent the mouse from leaving the screen
+                // Ensure the position stays within the screen bounds
                 newX = Math.Max(0, Math.Min(Screen.PrimaryScreen.Bounds.Width - 1, newX));
                 newY = Math.Max(0, Math.Min(Screen.PrimaryScreen.Bounds.Height - 1, newY));
 
-                // Move the mouse
-                Cursor.Position = new Point(newX, newY);
+                // Set the mouse position
+                SetCursorPos(newX, newY);
 
-                // Short pause to make the move visible
-                Thread.Sleep(1);
+                // Short pause for visible movement (adjust for speed)
+                Thread.Sleep(0); // Decrease or remove this to make the movement faster
             }
         }
 
