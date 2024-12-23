@@ -59,47 +59,5 @@ namespace Settings.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Playnite {
-            get {
-                object obj = ResourceManager.GetObject("Playnite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Playnite_logo1 {
-            get {
-                object obj = ResourceManager.GetObject("Playnite-logo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Steam_deck2 {
-            get {
-                object obj = ResourceManager.GetObject("Steam-deck2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap steam_logo_3578196788 {
-            get {
-                object obj = ResourceManager.GetObject("steam-logo-3578196788", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
-        //shortcuts
     }
 }

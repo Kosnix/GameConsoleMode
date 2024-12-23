@@ -161,12 +161,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Steam-deck-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Playnite-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="GameConsoleMode.ico" />
     <EmbeddedResource Include="Resources\start_gcm.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -174,12 +168,6 @@
     <EmbeddedResource Include="Resources\switchwin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="Resources\Playnite-logo1.png" />
-    <None Include="Resources\steam-logo-3578196788.png" />
-    <None Include="Resources\Playnite.png" />
-    <None Include="Resources\Steam-deck2.png" />
-    <None Include="Resources\Steam-deck1.png" />
-    <None Include="Resources\Steam-deck.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

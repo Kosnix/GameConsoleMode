@@ -57,7 +57,6 @@ C:\Users\nikos\source\repos\GameConsoleMode\Settings\bin\Debug\Newtonsoft.Json.d
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\bin\Debug\SharpDX.dll
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\bin\Debug\SharpDX.pdb
-C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.AssemblyReference.cache
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Interop.IWshRuntimeLibrary.dll
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.ResolveComReference.cache
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.additional.resources
@@ -72,3 +71,4 @@ C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.C
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.CopyComplete
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.exe
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.pdb
+C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.AssemblyReference.cache

@@ -30,28 +30,28 @@ namespace Settings
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Guna.UI2.AnimatorNS.Animation animation4 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation5 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(shortcuts));
             this.shortcut_list = new System.Windows.Forms.ImageList(this.components);
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label_shortcut_information = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.picture_controller_layout = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label_shortcut_information = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label_shortcut_overview = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button_switch_window = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.button_start_gcm = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_start_gcm = new Guna.UI2.WinForms.Guna2Button();
+            this.button_switch_window = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_controller_layout)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // shortcut_list
@@ -63,22 +63,22 @@ namespace Settings
             // guna2Transition1
             // 
             this.guna2Transition1.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation4;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation5;
             // 
             // guna2ShadowPanel1
             // 
@@ -99,6 +99,20 @@ namespace Settings
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1812, 811);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
+            // picture_controller_layout
+            // 
+            this.guna2Transition1.SetDecoration(this.picture_controller_layout, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.picture_controller_layout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picture_controller_layout.Image = ((System.Drawing.Image)(resources.GetObject("picture_controller_layout.Image")));
+            this.picture_controller_layout.ImageRotate = 0F;
+            this.picture_controller_layout.Location = new System.Drawing.Point(0, 0);
+            this.picture_controller_layout.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.picture_controller_layout.Name = "picture_controller_layout";
+            this.picture_controller_layout.Size = new System.Drawing.Size(1812, 811);
+            this.picture_controller_layout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picture_controller_layout.TabIndex = 0;
+            this.picture_controller_layout.TabStop = false;
+            // 
             // label_shortcut_information
             // 
             this.label_shortcut_information.AutoSize = false;
@@ -114,20 +128,6 @@ namespace Settings
             this.label_shortcut_information.TabIndex = 2;
             this.label_shortcut_information.Text = null;
             this.label_shortcut_information.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // picture_controller_layout
-            // 
-            this.guna2Transition1.SetDecoration(this.picture_controller_layout, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.picture_controller_layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picture_controller_layout.Image = ((System.Drawing.Image)(resources.GetObject("picture_controller_layout.Image")));
-            this.picture_controller_layout.ImageRotate = 0F;
-            this.picture_controller_layout.Location = new System.Drawing.Point(0, 0);
-            this.picture_controller_layout.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.picture_controller_layout.Name = "picture_controller_layout";
-            this.picture_controller_layout.Size = new System.Drawing.Size(1812, 811);
-            this.picture_controller_layout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picture_controller_layout.TabIndex = 0;
-            this.picture_controller_layout.TabStop = false;
             // 
             // guna2GradientPanel1
             // 
@@ -160,6 +160,24 @@ namespace Settings
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.38395F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1832, 1396);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.75758F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
+            this.tableLayoutPanel2.Controls.Add(this.label_shortcut_information, 1, 1);
+            this.guna2Transition1.SetDecoration(this.tableLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.8467F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.23708F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.73797F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1826, 561);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label_shortcut_overview
             // 
@@ -194,8 +212,8 @@ namespace Settings
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button_switch_window);
             this.flowLayoutPanel1.Controls.Add(this.button_start_gcm);
+            this.flowLayoutPanel1.Controls.Add(this.button_switch_window);
             this.guna2Transition1.SetDecoration(this.flowLayoutPanel1, Guna.UI2.AnimatorNS.DecorationType.None);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -204,68 +222,49 @@ namespace Settings
             this.flowLayoutPanel1.Size = new System.Drawing.Size(374, 1396);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button_switch_window
-            // 
-            this.button_switch_window.BackColor = System.Drawing.Color.Transparent;
-            this.button_switch_window.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2Transition1.SetDecoration(this.button_switch_window, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.button_switch_window.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_switch_window.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.button_switch_window.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.button_switch_window.Image = ((System.Drawing.Image)(resources.GetObject("button_switch_window.Image")));
-            this.button_switch_window.ImageOffset = new System.Drawing.Point(0, 0);
-            this.button_switch_window.ImageRotate = 0F;
-            this.button_switch_window.ImageSize = new System.Drawing.Size(100, 75);
-            this.button_switch_window.Location = new System.Drawing.Point(10, 9);
-            this.button_switch_window.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.button_switch_window.Name = "button_switch_window";
-            this.button_switch_window.PressedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.button_switch_window.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.button_switch_window.Size = new System.Drawing.Size(364, 107);
-            this.button_switch_window.TabIndex = 0;
-            this.button_switch_window.UseTransparentBackground = true;
-            this.button_switch_window.Click += new System.EventHandler(this.button_switch_window_Click);
-            // 
             // button_start_gcm
             // 
-            this.button_start_gcm.BackColor = System.Drawing.Color.Transparent;
-            this.button_start_gcm.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.button_start_gcm.Animated = true;
+            this.button_start_gcm.AutoRoundedCorners = true;
+            this.button_start_gcm.BorderColor = System.Drawing.Color.Empty;
+            this.button_start_gcm.BorderRadius = 52;
+            this.button_start_gcm.BorderThickness = 2;
             this.guna2Transition1.SetDecoration(this.button_start_gcm, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button_start_gcm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_start_gcm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_start_gcm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_start_gcm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.button_start_gcm.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button_start_gcm.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.button_start_gcm.HoverState.ImageSize = new System.Drawing.Size(40, 40);
-            this.button_start_gcm.Image = ((System.Drawing.Image)(resources.GetObject("button_start_gcm.Image")));
-            this.button_start_gcm.ImageOffset = new System.Drawing.Point(0, 0);
-            this.button_start_gcm.ImageRotate = 0F;
-            this.button_start_gcm.ImageSize = new System.Drawing.Size(100, 75);
-            this.button_start_gcm.IndicateFocus = true;
-            this.button_start_gcm.Location = new System.Drawing.Point(10, 134);
+            this.button_start_gcm.FillColor = System.Drawing.Color.Empty;
+            this.button_start_gcm.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_start_gcm.ForeColor = System.Drawing.Color.White;
+            this.button_start_gcm.Location = new System.Drawing.Point(10, 9);
             this.button_start_gcm.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.button_start_gcm.Name = "button_start_gcm";
-            this.button_start_gcm.PressedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.button_start_gcm.PressedState.ImageSize = new System.Drawing.Size(40, 40);
-            this.button_start_gcm.Size = new System.Drawing.Size(364, 107);
-            this.button_start_gcm.TabIndex = 1;
-            this.button_start_gcm.UseTransparentBackground = true;
+            this.button_start_gcm.Size = new System.Drawing.Size(270, 107);
+            this.button_start_gcm.TabIndex = 0;
+            this.button_start_gcm.Text = "Start GCM";
             this.button_start_gcm.Click += new System.EventHandler(this.button_start_gcm_Click);
             // 
-            // tableLayoutPanel2
+            // button_switch_window
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.75758F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.12121F));
-            this.tableLayoutPanel2.Controls.Add(this.label_shortcut_information, 1, 1);
-            this.guna2Transition1.SetDecoration(this.tableLayoutPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.8467F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.23708F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.73797F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1826, 561);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.button_switch_window.BorderColor = System.Drawing.Color.Empty;
+            this.guna2Transition1.SetDecoration(this.button_switch_window, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.button_switch_window.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.button_switch_window.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.button_switch_window.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.button_switch_window.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.button_switch_window.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_switch_window.FillColor = System.Drawing.Color.Empty;
+            this.button_switch_window.Font = new System.Drawing.Font("Microsoft JhengHei", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_switch_window.ForeColor = System.Drawing.Color.White;
+            this.button_switch_window.Location = new System.Drawing.Point(10, 134);
+            this.button_switch_window.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button_switch_window.Name = "button_switch_window";
+            this.button_switch_window.Size = new System.Drawing.Size(270, 107);
+            this.button_switch_window.TabIndex = 2;
+            this.button_switch_window.Text = "Change Window";
+            this.button_switch_window.Click += new System.EventHandler(this.button_switch_window_Click);
             // 
             // shortcuts
             // 
@@ -282,9 +281,9 @@ namespace Settings
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -300,9 +299,9 @@ namespace Settings
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_shortcut_overview;
-        private Guna.UI2.WinForms.Guna2ImageButton button_start_gcm;
-        private Guna.UI2.WinForms.Guna2ImageButton button_switch_window;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2Button button_start_gcm;
+        private Guna.UI2.WinForms.Guna2Button button_switch_window;
     }
 }

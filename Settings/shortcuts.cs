@@ -35,7 +35,7 @@ namespace Settings
 
             Image image = Image.FromFile(fullPath);
 
-            // Bild in das Panel zeichnen
+            // Draw Image to Panel
             picture_controller_layout.Image = image;
             picture_controller_layout.BackgroundImageLayout = ImageLayout.Stretch; // or other layouts like Center, etc.
 
@@ -59,6 +59,5 @@ namespace Settings
             LoadPictureFromFile("Resources/start_gcm.png", "This allows you to start gaming mode <br> with your controller alone", "START GAMING CONSOLE MODE");
         }
 
-      
     }
 }
