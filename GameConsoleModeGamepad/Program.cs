@@ -60,7 +60,7 @@ namespace ButtonListener
             bool ControllerOn = false;
             while (isRunning)
             {
-                Thread.Sleep(100);
+               // Thread.Sleep(50);
                 if (!controller.IsConnected)
                 {                    
                     if(ControllerOn == true)
@@ -142,10 +142,79 @@ namespace ButtonListener
 
                 }
 
+                //Mouse movement 
+                // if (controller.IsConnected && !GCMLaunched()) // controller.IsConnected && GCMLaunched()
+                if (true)
+                {
+                    try
+                    {
+                        var state = controller.GetState();
+                        if (state.Gamepad.Buttons.HasFlag(GamepadButtonFlags.Back))
+                        {
+                            var gamepad = state.Gamepad;
+
+                            // Values ​​of the X and Y axes of the left joystick
+                            float leftThumbX = gamepad.LeftThumbX;
+                            float leftThumbY = gamepad.LeftThumbY;
+
+                            // Apply a dead zone to avoid small movements
+                            const short DEADZONE = 8000; // Zone morte
+                            if (Math.Abs(leftThumbX) < DEADZONE) leftThumbX = 0;
+                            if (Math.Abs(leftThumbY) < DEADZONE) leftThumbY = 0;
+                            if (leftThumbY != 0 || leftThumbX != 0)
+                            {
+                                // Calculate movements for the mouse
+                                const float SENSITIVITY = 20; // Mouse movement sensitivity
+                                float deltaX = leftThumbX * SENSITIVITY / 32767; // Normalization
+                                float deltaY = -leftThumbY * SENSITIVITY / 32767; // Invert Y to match screen
+
+                                // Move the mouse
+                                MoveMouse(deltaX, deltaY);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error reading controller.");
+                    }
+                }
+
             }
         }
 
-          public static void HoldAlt()
+        static void MoveMouse(float deltaX, float deltaY)
+        {
+            // Number of steps for progressive movement
+            const int STEPS = 1;
+
+            // Current mouse position
+            Point currentPosition = Cursor.Position;
+
+            // Calculation of displacement per step
+            float stepX = deltaX / STEPS;
+            float stepY = deltaY / STEPS;
+
+            for (int i = 0; i < STEPS; i++)
+            {
+                // New partial mouse position
+                int newX = (int)(currentPosition.X + stepX * (i + 1));
+                int newY = (int)(currentPosition.Y + stepY * (i + 1));
+
+                // Prevent the mouse from leaving the screen
+                newX = Math.Max(0, Math.Min(Screen.PrimaryScreen.Bounds.Width - 1, newX));
+                newY = Math.Max(0, Math.Min(Screen.PrimaryScreen.Bounds.Height - 1, newY));
+
+                // Move the mouse
+                Cursor.Position = new Point(newX, newY);
+
+                // Short pause to make the move visible
+                Thread.Sleep(1);
+            }
+        }
+
+
+
+        public static void HoldAlt()
         {
             keybd_event(VK_MENU, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
         }

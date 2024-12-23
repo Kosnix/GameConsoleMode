@@ -37,26 +37,26 @@ namespace Settings
             this.ChangeSteamAddress = new Guna.UI2.WinForms.Guna2Button();
             this.ChooseSteam = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.PlayniteAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ChangePlayniteAddress = new Guna.UI2.WinForms.Guna2Button();
-            this.ChoosePlaynite = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.OtherLauncherParameterTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ChangePlayniteAddress = new Guna.UI2.WinForms.Guna2Button();
             this.OtherLauncherAddress = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ChangeOtherLauncherAddress = new Guna.UI2.WinForms.Guna2Button();
             this.ChooseOtherLauncher = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.OtherLauncherLabel = new System.Windows.Forms.Label();
+            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.PlayniteAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ChangeOtherLauncherAddress = new Guna.UI2.WinForms.Guna2Button();
+            this.ChoosePlaynite = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2GradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            this.guna2ShadowPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
+            this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -155,9 +155,9 @@ namespace Settings
             this.ChooseSteam.Location = new System.Drawing.Point(405, 167);
             this.ChooseSteam.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.ChooseSteam.Name = "ChooseSteam";
-            this.ChooseSteam.Size = new System.Drawing.Size(113, 25);
+            this.ChooseSteam.Size = new System.Drawing.Size(122, 18);
             this.ChooseSteam.TabIndex = 10;
-            this.ChooseSteam.Text = "Use Steam";
+            this.ChooseSteam.Text = "Use Steam Deck UI";
             this.ChooseSteam.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit;
             this.ChooseSteam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.ChooseSteam.UncheckedState.BorderRadius = 0;
@@ -178,98 +178,6 @@ namespace Settings
             this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox5.TabIndex = 8;
             this.guna2PictureBox5.TabStop = false;
-            // 
-            // guna2ShadowPanel2
-            // 
-            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.PlayniteAddress);
-            this.guna2ShadowPanel2.Controls.Add(this.ChangeOtherLauncherAddress);
-            this.guna2ShadowPanel2.Controls.Add(this.ChoosePlaynite);
-            this.guna2ShadowPanel2.Controls.Add(this.guna2PictureBox6);
-            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(962, 22);
-            this.guna2ShadowPanel2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
-            this.guna2ShadowPanel2.Radius = 10;
-            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.OrangeRed;
-            this.guna2ShadowPanel2.ShadowDepth = 150;
-            this.guna2ShadowPanel2.ShadowShift = 10;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(553, 977);
-            this.guna2ShadowPanel2.TabIndex = 4;
-            // 
-            // PlayniteAddress
-            // 
-            this.PlayniteAddress.BorderRadius = 10;
-            this.PlayniteAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PlayniteAddress.DefaultText = "";
-            this.PlayniteAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.PlayniteAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.PlayniteAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PlayniteAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.PlayniteAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PlayniteAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PlayniteAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PlayniteAddress.Location = new System.Drawing.Point(29, 446);
-            this.PlayniteAddress.Margin = new System.Windows.Forms.Padding(29, 28, 29, 28);
-            this.PlayniteAddress.Name = "PlayniteAddress";
-            this.PlayniteAddress.PasswordChar = '\0';
-            this.PlayniteAddress.PlaceholderText = "";
-            this.PlayniteAddress.ReadOnly = true;
-            this.PlayniteAddress.SelectedText = "";
-            this.PlayniteAddress.Size = new System.Drawing.Size(496, 74);
-            this.PlayniteAddress.TabIndex = 33;
-            // 
-            // ChangePlayniteAddress
-            // 
-            this.ChangePlayniteAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangePlayniteAddress.BorderRadius = 10;
-            this.ChangePlayniteAddress.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ChangePlayniteAddress.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ChangePlayniteAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ChangePlayniteAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ChangePlayniteAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangePlayniteAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ChangePlayniteAddress.ForeColor = System.Drawing.Color.White;
-            this.ChangePlayniteAddress.Location = new System.Drawing.Point(219, 191);
-            this.ChangePlayniteAddress.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.ChangePlayniteAddress.Name = "ChangePlayniteAddress";
-            this.ChangePlayniteAddress.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangePlayniteAddress.Size = new System.Drawing.Size(496, 111);
-            this.ChangePlayniteAddress.TabIndex = 32;
-            this.ChangePlayniteAddress.Text = "Change file address";
-            this.ChangePlayniteAddress.Click += new System.EventHandler(this.ChangePlayniteAddress_Click);
-            // 
-            // ChoosePlaynite
-            // 
-            this.ChoosePlaynite.AutoSize = true;
-            this.ChoosePlaynite.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ChoosePlaynite.CheckedState.BorderRadius = 0;
-            this.ChoosePlaynite.CheckedState.BorderThickness = 0;
-            this.ChoosePlaynite.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ChoosePlaynite.Location = new System.Drawing.Point(211, 284);
-            this.ChoosePlaynite.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.ChoosePlaynite.Name = "ChoosePlaynite";
-            this.ChoosePlaynite.Size = new System.Drawing.Size(123, 24);
-            this.ChoosePlaynite.TabIndex = 31;
-            this.ChoosePlaynite.Text = "Use Playnite";
-            this.ChoosePlaynite.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.ChoosePlaynite.UncheckedState.BorderRadius = 0;
-            this.ChoosePlaynite.UncheckedState.BorderThickness = 0;
-            this.ChoosePlaynite.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.ChoosePlaynite.CheckedChanged += new System.EventHandler(this.ChoosePlaynite_CheckedChanged_1);
-            // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(126, 57);
-            this.guna2PictureBox6.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(287, 129);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox6.TabIndex = 9;
-            this.guna2PictureBox6.TabStop = false;
             // 
             // guna2ShadowPanel3
             // 
@@ -314,6 +222,26 @@ namespace Settings
             this.OtherLauncherParameterTextBox.TabIndex = 37;
             this.OtherLauncherParameterTextBox.TextChanged += new System.EventHandler(this.OtherLauncherParameterTextBox_TextChanged);
             // 
+            // ChangePlayniteAddress
+            // 
+            this.ChangePlayniteAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangePlayniteAddress.BorderRadius = 10;
+            this.ChangePlayniteAddress.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ChangePlayniteAddress.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ChangePlayniteAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ChangePlayniteAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ChangePlayniteAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangePlayniteAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ChangePlayniteAddress.ForeColor = System.Drawing.Color.White;
+            this.ChangePlayniteAddress.Location = new System.Drawing.Point(219, 191);
+            this.ChangePlayniteAddress.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.ChangePlayniteAddress.Name = "ChangePlayniteAddress";
+            this.ChangePlayniteAddress.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangePlayniteAddress.Size = new System.Drawing.Size(496, 111);
+            this.ChangePlayniteAddress.TabIndex = 32;
+            this.ChangePlayniteAddress.Text = "Change file address";
+            this.ChangePlayniteAddress.Click += new System.EventHandler(this.ChangePlayniteAddress_Click);
+            // 
             // OtherLauncherAddress
             // 
             this.OtherLauncherAddress.BorderRadius = 10;
@@ -336,26 +264,6 @@ namespace Settings
             this.OtherLauncherAddress.Size = new System.Drawing.Size(779, 74);
             this.OtherLauncherAddress.TabIndex = 36;
             // 
-            // ChangeOtherLauncherAddress
-            // 
-            this.ChangeOtherLauncherAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangeOtherLauncherAddress.BorderRadius = 10;
-            this.ChangeOtherLauncherAddress.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ChangeOtherLauncherAddress.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ChangeOtherLauncherAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ChangeOtherLauncherAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ChangeOtherLauncherAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangeOtherLauncherAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ChangeOtherLauncherAddress.ForeColor = System.Drawing.Color.White;
-            this.ChangeOtherLauncherAddress.Location = new System.Drawing.Point(29, 326);
-            this.ChangeOtherLauncherAddress.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.ChangeOtherLauncherAddress.Name = "ChangeOtherLauncherAddress";
-            this.ChangeOtherLauncherAddress.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.ChangeOtherLauncherAddress.Size = new System.Drawing.Size(496, 111);
-            this.ChangeOtherLauncherAddress.TabIndex = 35;
-            this.ChangeOtherLauncherAddress.Text = "Change file address";
-            this.ChangeOtherLauncherAddress.Click += new System.EventHandler(this.ChangeOtherLauncherAddress_Click);
-            // 
             // ChooseOtherLauncher
             // 
             this.ChooseOtherLauncher.AutoSize = true;
@@ -366,7 +274,7 @@ namespace Settings
             this.ChooseOtherLauncher.Location = new System.Drawing.Point(383, 149);
             this.ChooseOtherLauncher.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.ChooseOtherLauncher.Name = "ChooseOtherLauncher";
-            this.ChooseOtherLauncher.Size = new System.Drawing.Size(188, 24);
+            this.ChooseOtherLauncher.Size = new System.Drawing.Size(128, 17);
             this.ChooseOtherLauncher.TabIndex = 34;
             this.ChooseOtherLauncher.Text = "Use another launcher";
             this.ChooseOtherLauncher.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -395,9 +303,101 @@ namespace Settings
             this.OtherLauncherLabel.Location = new System.Drawing.Point(146, 959);
             this.OtherLauncherLabel.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.OtherLauncherLabel.Name = "OtherLauncherLabel";
-            this.OtherLauncherLabel.Size = new System.Drawing.Size(124, 25);
+            this.OtherLauncherLabel.Size = new System.Drawing.Size(88, 16);
             this.OtherLauncherLabel.TabIndex = 11;
             this.OtherLauncherLabel.Text = "Parameter :";
+            // 
+            // guna2ShadowPanel2
+            // 
+            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.PlayniteAddress);
+            this.guna2ShadowPanel2.Controls.Add(this.ChangeOtherLauncherAddress);
+            this.guna2ShadowPanel2.Controls.Add(this.ChoosePlaynite);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2PictureBox6);
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(962, 22);
+            this.guna2ShadowPanel2.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
+            this.guna2ShadowPanel2.Radius = 10;
+            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.OrangeRed;
+            this.guna2ShadowPanel2.ShadowDepth = 150;
+            this.guna2ShadowPanel2.ShadowShift = 10;
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(553, 977);
+            this.guna2ShadowPanel2.TabIndex = 4;
+            // 
+            // PlayniteAddress
+            // 
+            this.PlayniteAddress.BorderRadius = 10;
+            this.PlayniteAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PlayniteAddress.DefaultText = "";
+            this.PlayniteAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PlayniteAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PlayniteAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PlayniteAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PlayniteAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PlayniteAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PlayniteAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PlayniteAddress.Location = new System.Drawing.Point(29, 446);
+            this.PlayniteAddress.Margin = new System.Windows.Forms.Padding(29, 28, 29, 28);
+            this.PlayniteAddress.Name = "PlayniteAddress";
+            this.PlayniteAddress.PasswordChar = '\0';
+            this.PlayniteAddress.PlaceholderText = "";
+            this.PlayniteAddress.ReadOnly = true;
+            this.PlayniteAddress.SelectedText = "";
+            this.PlayniteAddress.Size = new System.Drawing.Size(496, 74);
+            this.PlayniteAddress.TabIndex = 33;
+            // 
+            // ChangeOtherLauncherAddress
+            // 
+            this.ChangeOtherLauncherAddress.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangeOtherLauncherAddress.BorderRadius = 10;
+            this.ChangeOtherLauncherAddress.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ChangeOtherLauncherAddress.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ChangeOtherLauncherAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ChangeOtherLauncherAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ChangeOtherLauncherAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangeOtherLauncherAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ChangeOtherLauncherAddress.ForeColor = System.Drawing.Color.White;
+            this.ChangeOtherLauncherAddress.Location = new System.Drawing.Point(29, 326);
+            this.ChangeOtherLauncherAddress.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.ChangeOtherLauncherAddress.Name = "ChangeOtherLauncherAddress";
+            this.ChangeOtherLauncherAddress.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.ChangeOtherLauncherAddress.Size = new System.Drawing.Size(496, 111);
+            this.ChangeOtherLauncherAddress.TabIndex = 35;
+            this.ChangeOtherLauncherAddress.Text = "Change file address";
+            this.ChangeOtherLauncherAddress.Click += new System.EventHandler(this.ChangeOtherLauncherAddress_Click);
+            // 
+            // ChoosePlaynite
+            // 
+            this.ChoosePlaynite.AutoSize = true;
+            this.ChoosePlaynite.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ChoosePlaynite.CheckedState.BorderRadius = 0;
+            this.ChoosePlaynite.CheckedState.BorderThickness = 0;
+            this.ChoosePlaynite.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ChoosePlaynite.Location = new System.Drawing.Point(211, 284);
+            this.ChoosePlaynite.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.ChoosePlaynite.Name = "ChoosePlaynite";
+            this.ChoosePlaynite.Size = new System.Drawing.Size(136, 17);
+            this.ChoosePlaynite.TabIndex = 31;
+            this.ChoosePlaynite.Text = "Use Playnite Fullscreen";
+            this.ChoosePlaynite.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ChoosePlaynite.UncheckedState.BorderRadius = 0;
+            this.ChoosePlaynite.UncheckedState.BorderThickness = 0;
+            this.ChoosePlaynite.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.ChoosePlaynite.CheckedChanged += new System.EventHandler(this.ChoosePlaynite_CheckedChanged_1);
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(126, 57);
+            this.guna2PictureBox6.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(287, 129);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox6.TabIndex = 9;
+            this.guna2PictureBox6.TabStop = false;
             // 
             // launchers
             // 
@@ -413,12 +413,12 @@ namespace Settings
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
-            this.guna2ShadowPanel2.ResumeLayout(false);
-            this.guna2ShadowPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
+            this.guna2ShadowPanel2.ResumeLayout(false);
+            this.guna2ShadowPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
