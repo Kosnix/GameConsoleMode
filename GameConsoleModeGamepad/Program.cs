@@ -19,18 +19,18 @@ namespace ButtonListener
     static class Program
     {
         [DllImport("user32.dll")]
-    private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+        private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         [DllImport("user32.dll")]
         private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, UIntPtr dwExtraInfo);
 
         private const byte VK_MENU = 0x12; // Alt key
-    private const byte VK_TAB = 0x09;  // Tab key
-    private const uint KEYEVENTF_KEYDOWN = 0x0000; // Key down flag
-    private const uint KEYEVENTF_KEYUP = 0x0002;   // Key up flag
-        #region Mouse klick variable
+        private const byte VK_TAB = 0x09;  // Tab key
+        private const uint KEYEVENTF_KEYDOWN = 0x0000; // Key down flag
+        private const uint KEYEVENTF_KEYUP = 0x0002;   // Key up flag
+        #region Mouse click variable
         // Mouse event constants
         private const int MOUSEEVENTF_RIGHTDOWN = 0x0008;
-    private const int MOUSEEVENTF_RIGHTUP = 0x0010;
+        private const int MOUSEEVENTF_RIGHTUP = 0x0010;
         // Mouse event constants
         private const int MOUSEEVENTF_LEFTDOWN = 0x0002;
         private const int MOUSEEVENTF_LEFTUP = 0x0004;
@@ -41,15 +41,20 @@ namespace ButtonListener
         [DllImport("user32.dll")]
         private static extern bool SetCursorPos(int X, int Y);
 
-        #endregion Mouse klick variable
+        #endregion Mouse click variable
         static bool AltTab = false;
 
         static NotifyIcon notifyIcon;
         static bool isRunning = true;
 
+        private static bool StartGCM = false;
+        private static bool SwitchWindow = false;
+        private static bool Mouse = false;
+
         [STAThread]
         static void Main()
-        {
+        {   
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -75,15 +80,23 @@ namespace ButtonListener
         {
             var controller = new Controller(UserIndex.One);
             bool ControllerOn = false;
+
+            // Load Settings
+            if (Readconfig("Shortcut0") == "1") { StartGCM = true; }
+            if (Readconfig("Shortcut1") == "1") { SwitchWindow = true; }
+            if (Readconfig("Shortcut2") == "1") { Mouse = true; }
+
+
             while (isRunning)
             {
-               // Thread.Sleep(50);
+                
                 if (!controller.IsConnected)
                 {                    
                     if(ControllerOn == true)
                     {
                         ControllerOn = false;
                         notifyIcon.ShowBalloonTip(3000, "Erreur", "Controller disconnected", ToolTipIcon.Error);
+                        Thread.Sleep(200);
                     }
                 }
                 else
@@ -92,12 +105,13 @@ namespace ButtonListener
                     {
                         ControllerOn = true;
                         notifyIcon.ShowBalloonTip(3000, "", "Controller connected", ToolTipIcon.Info);
+                        Thread.Sleep(200);
                     }
                 }
 
 
                 // Start GCM //
-                if (controller.IsConnected && !GCMLaunched())
+                if (controller.IsConnected && !GCMLaunched() && StartGCM)
                 {
                     try { 
                         var state = controller.GetState();
@@ -110,7 +124,7 @@ namespace ButtonListener
 
                 // ALT-TAB
 
-                if(true)//controller.IsConnected && GCMLaunched())
+                if(SwitchWindow)//controller.IsConnected && GCMLaunched())
                 {
                     try
                     {
@@ -160,9 +174,9 @@ namespace ButtonListener
                 }
 
 
-
-
-                //Mouse movement 
+                // MOUSE
+                if (Mouse) {
+                //Mouse movement  
                 const float SENSITIVITY = 15;
                 float[] ApplyDeadzoneAndNormalize(float x, float y)
                 {
@@ -180,8 +194,8 @@ namespace ButtonListener
                     // Normalize X and Y components
                     return new float[]
                     {
-        (x / magnitude) * scaledMagnitude,
-        (y / magnitude) * scaledMagnitude
+                        (x / magnitude) * scaledMagnitude,
+                        (y / magnitude) * scaledMagnitude
                     };
                 }
                 // if (controller.IsConnected && !GCMLaunched()) // controller.IsConnected && GCMLaunched()
@@ -258,6 +272,47 @@ namespace ButtonListener
                     }
                 }
 
+            }}
+        }
+
+        static string Readconfig(string key)
+        {
+            string filePath = Path.Combine(exeFolder(), "settings.json");
+
+            // Vérifier si le fichier existe
+            if (!System.IO.File.Exists(filePath))
+            {
+                Console.WriteLine($"Le fichier {filePath} n'existe pas.");
+                return string.Empty;
+            }
+
+            try
+            {
+                // Lire le contenu du fichier JSON
+                string jsonContent = System.IO.File.ReadAllText(filePath);
+
+                // Analyser le JSON
+                JObject jsonObject = JObject.Parse(jsonContent);
+
+                // Accéder à l'item spécifié par la clé
+                JToken item = jsonObject.SelectToken($"$.Settings.{key}");
+                // Vérifier si l'item existe
+                if (item != null)
+                {
+                    string value = item.ToString();
+                    Console.WriteLine($"La clé '{key}' est configurée à '{value}'");
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine($"La clé '{key}' n'a pas été trouvée dans la configuration.");
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur lors de la lecture du fichier JSON : {ex.Message}");
+                return string.Empty;
             }
         }
 
@@ -308,6 +363,7 @@ namespace ButtonListener
             keybd_event(VK_TAB, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
             System.Threading.Thread.Sleep(50); // Ajoutez un délai de 50 ms
             keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+            Thread.Sleep(100);
         }
 
         public static bool GCMLaunched()

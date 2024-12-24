@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GameConsoleMode.exe.manifest" size="20043">
+    <dependentAssembly dependencyType="install" codebase="GameConsoleMode.exe.manifest" size="20016">
       <assemblyIdentity name="GameConsoleMode.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>A42nzIZOKr/mpW+Ya1KjnG++IxE6U5RyK2g6N3uNeGE=</dsig:DigestValue>
+        <dsig:DigestValue>oOMv0DEX+9fydGqaV9dGvGg63bnsayS3iq9+I6mEn7Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
