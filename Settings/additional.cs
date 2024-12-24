@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -356,6 +357,8 @@ namespace Settings
             }
             SelectedAudioVolumeLabel.Text = String.Concat(Readconfig("AudioVolume"), "%");
             VolumeTrackBar.Value = int.Parse(Readconfig("AudioVolume"));
+
+            LoadScripts();
         }
 
         private void AudioVolumeCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -492,5 +495,327 @@ namespace Settings
                 }
             }
         }
+
+        #region Custom Scripts
+
+        //Function
+        public void RemoveSelectedScript()
+        {
+            // Check if an item is selected in the start ListView
+            if (listView_added_scripts_start.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView_added_scripts_start.SelectedItems[0];
+                string filePath = selectedItem.Tag as string;
+
+                if (filePath != null && File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    MessageBox.Show($"File '{Path.GetFileName(filePath)}' has been deleted from start_scripts.", "File Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listView_added_scripts_start.Items.Remove(selectedItem);
+                }
+            }
+            // Check if an item is selected in the end ListView
+            else if (listView_added_scripts_end.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView_added_scripts_end.SelectedItems[0];
+                string filePath = selectedItem.Tag as string;
+
+                if (filePath != null && File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    MessageBox.Show($"File '{Path.GetFileName(filePath)}' has been deleted from end_scripts.", "File Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    listView_added_scripts_end.Items.Remove(selectedItem);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No script selected. Please select a script to remove.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        public void LoadScripts()
+        {
+            // Get the directory where the program is executed
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            // Define the folder names
+            string[] scriptFolders = { "start_scripts", "end_scripts" };
+
+            // Clear the ListViews before adding new items
+            listView_added_scripts_start.Items.Clear();
+            listView_added_scripts_end.Items.Clear();
+
+            foreach (var folder in scriptFolders)
+            {
+                // Build the full path to the folder
+                string folderPath = Path.Combine(currentDirectory, folder);
+
+                // Skip if the folder does not exist
+                if (!Directory.Exists(folderPath))
+                {
+                    continue;
+                }
+
+                // Get all .ps1 files in the folder
+                var ps1Files = Directory.GetFiles(folderPath, "*.ps1");
+
+                foreach (var file in ps1Files)
+                {
+                    // Extract the file name
+                    string fileName = Path.GetFileName(file);
+
+                    // Add the file to the appropriate ListView
+                    if (folder == "start_scripts")
+                    {
+                        ListViewItem item = new ListViewItem(fileName)
+                        {
+                            Tag = file // Store the file path in the Tag for later use
+                        };
+                        listView_added_scripts_start.Items.Add(item);
+                    }
+                    else if (folder == "end_scripts")
+                    {
+                        ListViewItem item = new ListViewItem(fileName)
+                        {
+                            Tag = file // Store the file path in the Tag for later use
+                        };
+                        listView_added_scripts_end.Items.Add(item);
+                    }
+                }
+            }
+        }
+
+        public void CreateFolderAndFile(RichTextBox richTextBox,string art)
+        {
+            if (art == "start")
+            {
+                try
+                {
+                    // where the programm starts
+                    string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                    // new directory
+                    string folderName = Path.Combine(currentDirectory, "start_scripts");
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    // path for PS1-Datei
+                    string ps1FilePath = Path.Combine(folderName, script_name.Text + ".ps1");
+
+                    string scriptContent = richTextBox.Text;
+
+                    // write .ps1-Datei
+                    File.WriteAllText(ps1FilePath, scriptContent);
+
+                    MessageBox.Show($"Script was saved successfully: {ps1FilePath}", "successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(folderName);
+                    LoadScripts();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error when creating the script: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (art == "end")
+            {
+                //end
+                try
+                {
+                    // where the programm starts
+                    string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                    // new directory
+                    string folderName = Path.Combine(currentDirectory, "end_scripts");
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    // path for PS1-Datei
+                    string ps1FilePath = Path.Combine(folderName, script_name.Text + ".ps1");
+
+                    string scriptContent = richTextBox.Text;
+
+                    // write .ps1-Datei
+                    File.WriteAllText(ps1FilePath, scriptContent);
+
+                    MessageBox.Show($"Script was saved successfully: {ps1FilePath}", "successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(folderName);
+                    LoadScripts();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error when creating the script: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }else if (art == "both") //start and end
+            {
+                try
+                {
+                    // where the programm starts
+                    string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                    // new directory
+                    string folderName = Path.Combine(currentDirectory, "start_scripts");
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    // path for PS1-Datei
+                    string ps1FilePath = Path.Combine(folderName, script_name.Text + ".ps1");
+
+                    string scriptContent = richTextBox.Text;
+
+                    // write .ps1-Datei
+                    File.WriteAllText(ps1FilePath, scriptContent);
+
+                    MessageBox.Show($"Script was saved successfully: {ps1FilePath}", "successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(folderName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error when creating the script: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //end
+                try
+                {
+                    // where the programm starts
+                    string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                    // new directory
+                    string folderName = Path.Combine(currentDirectory, "end_scripts");
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    // path for PS1-Datei
+                    string ps1FilePath = Path.Combine(folderName, script_name.Text + ".ps1");
+
+                    string scriptContent = richTextBox.Text;
+
+                    // write .ps1-Datei
+                    File.WriteAllText(ps1FilePath, scriptContent);
+
+                    MessageBox.Show($"Script was saved successfully: {ps1FilePath}", "successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(folderName);
+                    LoadScripts();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error when creating the script: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void add_script_Click(object sender, EventArgs e)
+        {
+            if (checkbox_scripts_start.Checked == true && checkbox_scripts_end.Checked == false)//start
+            {
+                CreateFolderAndFile(textbox_script, "start");
+
+            }
+            else if(checkbox_scripts_end.Checked == true && checkbox_scripts_start.Checked == false) //end
+            {
+                CreateFolderAndFile(textbox_script, "end");
+            }
+            else if (checkbox_scripts_end.Checked == true && checkbox_scripts_start.Checked == true) // start and end
+            {
+                CreateFolderAndFile(textbox_script, "both"); // start and end
+            }
+            else if (checkbox_scripts_end.Checked == false && checkbox_scripts_start.Checked == false)
+            {
+                MessageBox.Show($"Missing checkbox input (START/END/BOTH)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void remove_scripts_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedScript();
+        }
+       
+        //Checkbox
+        private void checkbox_scripts_start_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void checkbox_scripts_end_CheckedChanged(object sender, EventArgs e)
+        {
+        
+        }
+   
+
+        private void checkbox_scripts_start_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkbox_scripts_end_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkbox_scripts_start_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkbox_scripts_end_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void script_name_Click(object sender, EventArgs e)
+        {
+            if (script_name.Text == "Insert Script Name")
+            {
+                script_name.Text = "";
+            }
+            
+           
+
+        }
+
+        private void textbox_script_TextChanged(object sender, EventArgs e)
+        {
+            if (textbox_script.Text == "")
+            {
+                add_script.Enabled = false;
+            }
+            else
+            {
+                add_script.Enabled = true;
+            }
+        }
+       
+
+        private void listView_added_scripts_start_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           if( listView_added_scripts_start.SelectedItems.Count > 0)
+            {
+                remove_scripts.Enabled = true;
+            }
+            else
+            {
+                remove_scripts.Enabled = false;
+            }
+        }
+
+        private void listView_added_scripts_end_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView_added_scripts_end.SelectedItems.Count > 0)
+            {
+                remove_scripts.Enabled = true;
+            }
+            else
+            {
+                remove_scripts.Enabled = false;
+            }
+        }
+        #endregion Custom Script
     }
 }

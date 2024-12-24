@@ -31,3 +31,4 @@ C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleMo
 C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.csproj.CopyComplete
 C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.exe
 C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.pdb
+C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.csproj.AssemblyReference.cache
