@@ -41,15 +41,20 @@ namespace ButtonListener
         [DllImport("user32.dll")]
         private static extern bool SetCursorPos(int X, int Y);
 
-        #endregion Mouse klick variable
+        #endregion Mouse click variable
         static bool AltTab = false;
 
         static NotifyIcon notifyIcon;
         static bool isRunning = true;
 
+        private static bool StartGCM = false;
+        private static bool SwitchWindow = false;
+        private static bool Mouse = false;
+
         [STAThread]
         static void Main()
-        {
+        {   
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -75,6 +80,13 @@ namespace ButtonListener
         {
             var controller = new Controller(UserIndex.One);
             bool ControllerOn = false;
+
+            // Load Settings
+            if (Readconfig("Shortcut0") == "1") { StartGCM = true; }
+            if (Readconfig("Shortcut1") == "1") { SwitchWindow = true; }
+            if (Readconfig("Shortcut2") == "1") { Mouse = true; }
+
+
             while (isRunning)
             {
                 
@@ -99,7 +111,7 @@ namespace ButtonListener
 
 
                 // Start GCM //
-                if (controller.IsConnected && !GCMLaunched())
+                if (controller.IsConnected && !GCMLaunched() && StartGCM)
                 {
                     try { 
                         var state = controller.GetState();
@@ -112,7 +124,7 @@ namespace ButtonListener
 
                 // ALT-TAB
 
-                if(true)//controller.IsConnected && GCMLaunched())
+                if(SwitchWindow)//controller.IsConnected && GCMLaunched())
                 {
                     try
                     {
@@ -162,9 +174,9 @@ namespace ButtonListener
                 }
 
 
-
-
-                //Mouse movement 
+                // MOUSE
+                if (Mouse) {
+                //Mouse movement  
                 const float SENSITIVITY = 15;
                 float[] ApplyDeadzoneAndNormalize(float x, float y)
                 {
@@ -260,6 +272,47 @@ namespace ButtonListener
                     }
                 }
 
+            }}
+        }
+
+        static string Readconfig(string key)
+        {
+            string filePath = Path.Combine(exeFolder(), "settings.json");
+
+            // Vérifier si le fichier existe
+            if (!System.IO.File.Exists(filePath))
+            {
+                Console.WriteLine($"Le fichier {filePath} n'existe pas.");
+                return string.Empty;
+            }
+
+            try
+            {
+                // Lire le contenu du fichier JSON
+                string jsonContent = System.IO.File.ReadAllText(filePath);
+
+                // Analyser le JSON
+                JObject jsonObject = JObject.Parse(jsonContent);
+
+                // Accéder à l'item spécifié par la clé
+                JToken item = jsonObject.SelectToken($"$.Settings.{key}");
+                // Vérifier si l'item existe
+                if (item != null)
+                {
+                    string value = item.ToString();
+                    Console.WriteLine($"La clé '{key}' est configurée à '{value}'");
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine($"La clé '{key}' n'a pas été trouvée dans la configuration.");
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur lors de la lecture du fichier JSON : {ex.Message}");
+                return string.Empty;
             }
         }
 

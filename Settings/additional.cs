@@ -23,6 +23,7 @@ namespace Settings
             LoadStartList();
         }
         #region need variable and methodes
+
         static string exeFolder()
         {
             string cheminExecutable = Assembly.GetExecutingAssembly().Location;
@@ -31,7 +32,7 @@ namespace Settings
         }
 
 
-        #region funktion start_and_end
+        #region function start_and_end
 
         private void LoadStartList()
         {
@@ -320,11 +321,11 @@ namespace Settings
         {
             if (HideMouse.Checked)
             {
-                UpdateJsonFile("HideMouse", "true");
+                UpdateJsonFile("HideMouse", "1");
             }
             else
             {
-                UpdateJsonFile("HideMouse", "false");
+                UpdateJsonFile("HideMouse", "0");
             }
         }
 
@@ -345,7 +346,7 @@ namespace Settings
         private void additional_Load(object sender, EventArgs e)
         {
             //hidemouse//
-            if (Readconfig("HideMouse") == "true")
+            if (Readconfig("HideMouse") == "1")
             {
                 HideMouse.Checked = true;
             }

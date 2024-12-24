@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GameConsoleMode",
+    "\\Settings"
   ],
-  "SelectedNode": "\\GameConsoleMode.sln",
+  "SelectedNode": "\\Settings\\shortcuts.Designer.cs",
   "PreviewInSolutionExplorer": false
 }
