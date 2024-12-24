@@ -51,6 +51,7 @@ namespace GameConsoleMode
                     ChangeScreen();
                     HideMouse();
                     kill_list();
+                    ExecuteStartScripts();
                     StartLauncher();
                     ConsoleModeToShell();
                     HideMouse();
@@ -62,6 +63,7 @@ namespace GameConsoleMode
                     WaitForLauncherToClose();
                     RestoreScreen();
                     BackToWindows();
+                    ExecuteEndScripts();
                     start_list();
                 }
                 finally
@@ -226,6 +228,57 @@ namespace GameConsoleMode
             }
         }
         #endregion kill list / start list Function
+        #region powershell scripts
+        public static void ExecuteEndScripts()
+        {
+            string endFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "end_scripts");
+
+            if (!Directory.Exists(endFolder))
+            {
+                return;
+            }
+
+            var ps1Files = Directory.GetFiles(endFolder, "*.ps1");
+
+            foreach (var file in ps1Files)
+            {
+                var process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "powershell.exe",
+                    Arguments = $"-NoProfile -ExecutionPolicy Bypass -File \"{file}\"",
+                    CreateNoWindow = false,
+                    UseShellExecute = false
+                });
+
+                process?.WaitForExit();
+            }
+        }
+        public static void ExecuteStartScripts()
+        {
+            string startFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "start_scripts");
+
+            if (!Directory.Exists(startFolder))
+            {
+                return;
+            }
+
+            var ps1Files = Directory.GetFiles(startFolder, "*.ps1");
+
+            foreach (var file in ps1Files)
+            {
+                var process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "powershell.exe",
+                    Arguments = $"-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File \"{file}\"",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                });
+
+                process?.WaitForExit();
+            }
+        }
+
+        #endregion powershell scripts
 
         static bool VerifyFolder()
         {

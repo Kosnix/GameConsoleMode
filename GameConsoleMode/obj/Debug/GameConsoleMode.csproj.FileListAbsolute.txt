@@ -180,3 +180,4 @@ C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsol
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.csproj.CopyComplete
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.exe
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.pdb
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\obj\Debug\GameConsoleMode.csproj.AssemblyReference.cache
