@@ -72,3 +72,4 @@ C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.C
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.csproj.CopyComplete
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.exe
 C:\Users\nikos\source\repos\GameConsoleMode\Settings\obj\Debug\Settings.pdb
+C:\Users\luis\Source\Repos\GCMode\Settings\obj\Debug\Settings.csproj.AssemblyReference.cache
