@@ -161,25 +161,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Steam-deck-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Playnite-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="GameConsoleMode.ico" />
-    <EmbeddedResource Include="Resources\start_gcm.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\switchwin.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <None Include="Resources\Playnite-logo1.png" />
-    <None Include="Resources\steam-logo-3578196788.png" />
-    <None Include="Resources\Playnite.png" />
-    <None Include="Resources\Steam-deck2.png" />
-    <None Include="Resources\Steam-deck1.png" />
-    <None Include="Resources\Steam-deck.png" />
+    <Content Include="Resources\mouse_shortcut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\start_gcm_shortcut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\switchwin_shortcut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

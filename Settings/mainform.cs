@@ -73,7 +73,6 @@ namespace Settings
             AdminVerif();
             InitializeComponent();
             VerifSettings();
-            LoadSettings();
             
         }
 
@@ -130,14 +129,6 @@ namespace Settings
             }
         }
 
-
-        public void LoadSettings()
-        {
-            //Steam//
-
-           
-        }
-
         static void AdminVerif()
         {
             if (!IsAdministrator())
@@ -183,7 +174,33 @@ namespace Settings
             if (!IO.File.Exists(settingsFilePath))
             {
                 // Créer le fichier avec le contenu spécifié
-                string defaultSettings = @"{""Settings"": {""HideMouse"": ""false"",""Launcher"": ""steam"",""SteamPath"": ""C:\\Program Files (x86)\\Steam\\steam.exe"",""PlaynitePath"": """",""OtherLauncherPath"": """",""OtherLauncherParameter"": """",""AudioBool"":""0"",""AudioVolume"":""100"",""ScreenBool"":""0"",""SelectedScreen"":"""",""IntroBool"":""0"",""IntroMuteBool"":""0"",""IntroPath"":""""}}";
+                string defaultSettings = @"{
+    ""Settings"": {
+        ""HideMouse"": ""0"",
+        ""Launcher"": ""steam"",
+        ""SteamPath"": ""C:\\Program Files (x86)\\Steam\\steam.exe"",
+        ""PlaynitePath"": """",
+        ""OtherLauncherPath"": """",
+        ""OtherLauncherParameter"": """",
+        ""AudioBool"": ""0"",
+        ""AudioVolume"": ""100"",
+        ""ScreenBool"": ""0"",
+        ""SelectedScreen"": """",
+        ""IntroBool"": ""0"",
+        ""IntroMuteBool"": ""0"",
+        ""Shortcut0"": ""1"",
+        ""Shortcut1"": ""1"",
+        ""Shortcut2"": ""1"",
+        ""Shortcut3"": ""1"",
+        ""Shortcut4"": ""1"",
+        ""Shortcut5"": ""1"",
+        ""Shortcut6"": ""1"",
+        ""Shortcut7"": ""1"",
+        ""Shortcut8"": ""1"",
+        ""Shortcut9"": ""1""      
+    }
+}";
+
 
                 IO.File.WriteAllText(settingsFilePath, defaultSettings);
                 Console.WriteLine("The settings.json file was created successfully.");
