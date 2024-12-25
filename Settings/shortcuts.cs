@@ -196,7 +196,7 @@ namespace Settings
 
         private void button_mouse_Click(object sender, EventArgs e)
         {
-            LoadShortcutView("Resources/mouse_shortcut.png", "Allows you to control the mouse with the right joystick and click with LB and RB", "MOUSE");
+            LoadShortcutView("Resources/mouse_shortcut.png", "Allows you to control the mouse with the right joystick and click with LB and RB<br>(Only for programs that do not support the gamepad)", "MOUSE");
         }
 
         private void start_gcm_CheckBox_CheckedChanged(object sender, EventArgs e)
