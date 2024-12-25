@@ -62,12 +62,12 @@ namespace GameConsoleMode
                     }
                     WaitForLauncherToClose();
                     RestoreScreen();
-                    BackToWindows();
                     ExecuteEndScripts();
                     start_list();
                 }
                 finally
                 {
+                    BackToWindows();
                     CleanupLogging();
                 }
                 Environment.Exit(0);

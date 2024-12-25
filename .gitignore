@@ -3,3 +3,6 @@
 ################################################################################
 
 /GameConsoleMode/obj/Release
+/Settings/bin/Release
+/Settings/obj/Release
+/GameConsoleModeGamepad
