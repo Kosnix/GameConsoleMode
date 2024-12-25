@@ -1,0 +1,5 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/GameConsoleMode/obj/Release
