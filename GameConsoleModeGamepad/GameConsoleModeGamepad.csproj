@@ -121,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameConsoleMode.ico" />
+    <Content Include="user32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
