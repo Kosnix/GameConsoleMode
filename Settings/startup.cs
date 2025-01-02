@@ -5,13 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.ServiceProcess;
 using System.Windows.Forms;
+using File = System.IO.File;
 
 namespace Settings
 {
@@ -22,6 +25,8 @@ namespace Settings
             InitializeComponent();
         }
         #region need variable and methodes
+        
+
         static string exeFolder()
         {
             string cheminExecutable = Assembly.GetExecutingAssembly().Location;
@@ -135,6 +140,37 @@ namespace Settings
 
         private void startup_Load(object sender, EventArgs e)
         {
+           
+            // Check if Joyxoff is already installed
+            string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+            if (File.Exists(joyxoffExePath))
+            {
+                guna2Chip_joyxoffinstall_status.Text = "INSTALLED";
+                guna2Chip_joyxoffinstall_status.FillColor = Color.Green;
+                guna2Chip_joyxoffinstall_status.BorderColor = Color.Green;
+            }
+            else
+            {
+                guna2Chip_joyxoffinstall_status.Text = "NOT INSTALLED";
+                guna2Chip_joyxoffinstall_status.FillColor = Color.Brown;
+                guna2Chip_joyxoffinstall_status.BorderColor = Color.Brown;
+            }
+
+            string cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
+            if (File.Exists(cssloaderExePath))
+            {
+                guna2Chip_cssloader_install_status.Text = "INSTALLED";
+                guna2Chip_cssloader_install_status.FillColor = Color.Green;
+                guna2Chip_cssloader_install_status.BorderColor = Color.Green;
+            }
+            else
+            {
+                guna2Chip_cssloader_install_status.Text = "NOT INSTALLED";
+                guna2Chip_cssloader_install_status.FillColor = Color.Brown;
+                guna2Chip_cssloader_install_status.BorderColor = Color.Brown;
+            }
+
+
             //Intro video//
             if (Readconfig("IntroBool") == "1")
             {
@@ -145,11 +181,6 @@ namespace Settings
                 MuteIntroCheckBox.Checked = true;
             }
             IntroAddress.Text = Readconfig("IntroPath");
-            //GamePad//
-            if (CheckShortcutPresence())
-            {
-                usecontrollershorts.Checked = true;
-            }
 
         }
         private bool CheckShortcutPresence()
@@ -207,6 +238,20 @@ namespace Settings
             }
         }
 
+        // Hilfsmethode: Prüft, ob der Dienst existiert
+        private bool ServiceExists(string serviceName)
+        {
+            try
+            {
+                ServiceController sc = new ServiceController(serviceName);
+                ServiceControllerStatus status = sc.Status; // Löst eine Ausnahme aus, wenn der Dienst nicht existiert
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private void ChangeIntroAddress_Click(object sender, EventArgs e)
         {
             // Créer une nouvelle instance de OpenFileDialog
@@ -231,66 +276,176 @@ namespace Settings
                 IntroAddress.Text = Readconfig("IntroPath");
             }
         }
+        #region mouse control
+        //methodes
 
-        private void usecontrollershorts_CheckedChanged(object sender, EventArgs e)
+        private void ad_program_start_add_Click(object sender, EventArgs e)
         {
-            // 1. Récupérer le chemin du dossier "Startup" de l'utilisateur
-            string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-
-            // 2. Définir le chemin complet du raccourci à créer
-            string shortcutPath = Path.Combine(startupFolderPath, "GameConsoleModeGamepad.lnk");
-
-            // 3. Spécifier le chemin de l'application ou du fichier cible
-            string targetPath = Path.Combine(exeFolder(), "GameConsoleModeGamepad.exe");
-
-            // Vérification si l'utilisateur a coché ou décoché la case
-            if (usecontrollershorts.Checked)
+            try
             {
-                // Créer le raccourci
-                try
+                // Check if Joyxoff is already installed
+                string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+                if (File.Exists(joyxoffExePath))
                 {
-                    // Si le raccourci existe déjà, le recréer pour éviter tout problème
-                    if (System.IO.File.Exists(shortcutPath))
-                    {
-                        System.IO.File.Delete(shortcutPath);
-                    }
-
-                    // Créer une instance de WshShell
-                    WshShell shell = new WshShell();
-                    IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
-
-                    // Configurer le raccourci
-                    shortcut.TargetPath = targetPath; // Chemin de l'application ou fichier
-                    shortcut.WorkingDirectory = Path.GetDirectoryName(targetPath); // Répertoire de travail
-                    shortcut.Description = "Lance GameConsoleModeGamepad au démarrage"; // Description
-                    shortcut.IconLocation = targetPath; // Icône associée (facultatif)
-
-                    // Sauvegarder le raccourci
-                    shortcut.Save();
-
-                    Console.WriteLine($"Raccourci créé dans le dossier de démarrage : {shortcutPath}");
+                    MessageBox.Show("Joyxoff is already installed and will now start.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(joyxoffExePath);
+                    return;
                 }
-                catch (Exception ex)
+
+                // Get current directory
+                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Path to the MSI file
+                string msiPath = Path.Combine(currentDirectory, "Joyxoff.msi");
+
+                // Check if the MSI file exists
+                if (!File.Exists(msiPath))
                 {
-                    Console.WriteLine($"Erreur lors de la création du raccourci : {ex.Message}");
+                    MessageBox.Show($"The file {msiPath} was not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Start process to install the MSI file with the passive parameter
+                Process process = new Process();
+                process.StartInfo.FileName = "msiexec";
+                process.StartInfo.Arguments = $"/i \"{msiPath}\" /passive";
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+
+                // Start process
+                process.Start();
+                process.WaitForExit();
+
+                // Check if the installation was successful
+                if (process.ExitCode == 0)
+                {
+                    MessageBox.Show("Installation completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Check if Joyxoff is already installed
+                    joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+                    if (File.Exists(joyxoffExePath))
+                    {
+                        guna2Chip_joyxoffinstall_status.Text = "INSTALLED";
+                        guna2Chip_joyxoffinstall_status.FillColor = Color.Green;
+                        guna2Chip_joyxoffinstall_status.BorderColor = Color.Green;
+                        Process.Start(joyxoffExePath);
+                        return;
+                    }
+                    else
+                    {
+                        guna2Chip_joyxoffinstall_status.Text = "NOT INSTALLED";
+                        guna2Chip_joyxoffinstall_status.FillColor = Color.Brown;
+                        guna2Chip_joyxoffinstall_status.BorderColor = Color.Brown;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Installation failed. Error code: {process.ExitCode}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    guna2Chip_joyxoffinstall_status.Text = "NOT INSTALLED";
+                    guna2Chip_joyxoffinstall_status.FillColor = Color.Brown;
+                    guna2Chip_joyxoffinstall_status.BorderColor = Color.Brown;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                // Supprimer le raccourci si la case est décochée
-                try
-                {
-                    if (System.IO.File.Exists(shortcutPath))
-                    {
-                        System.IO.File.Delete(shortcutPath);
-                        Console.WriteLine($"Raccourci supprimé du dossier de démarrage : {shortcutPath}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Erreur lors de la suppression du raccourci : {ex.Message}");
-                }
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void guna2Button_joyxoff_uninstall_Click(object sender, EventArgs e)
+        {
+            // open "Install Apps" in Windows-Settings
+            Process.Start(new ProcessStartInfo("ms-settings:appsfeatures"));
+        }
+
+        #endregion mouse control
+
+        #region cssloader
+        private void CSS_loader_install_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Check if Joyxoff is already installed
+                string cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
+                if (File.Exists(cssloaderExePath))
+                {
+                    MessageBox.Show("CSS LOADER  is already installed and will now start.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Process.Start(cssloaderExePath);
+                    return;
+                }
+              
+                // Get current directory
+                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Path to the MSI file
+                string msiPath = Path.Combine(currentDirectory, "cssloader.msi");
+
+                // Check if the MSI file exists
+                if (!File.Exists(msiPath))
+                {
+                    MessageBox.Show($"The file {msiPath} was not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Start process to install the MSI file with the passive parameter
+                Process process = new Process();
+                process.StartInfo.FileName = "msiexec";
+                process.StartInfo.Arguments = $"/i \"{msiPath}\" /passive";
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+
+                // Start process
+                process.Start();
+                process.WaitForExit();
+
+                // Check if the installation was successful
+                if (process.ExitCode == 0)
+                {
+                    MessageBox.Show("Installation completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Check if Joyxoff is already installed
+                    cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
+                    if (File.Exists(cssloaderExePath))
+                    {
+                        guna2Chip_cssloader_install_status.Text = "INSTALLED";
+                        guna2Chip_cssloader_install_status.FillColor = Color.Green;
+                        guna2Chip_cssloader_install_status.BorderColor = Color.Green;
+                        Process.Start(cssloaderExePath);
+                        return;
+                    }
+                    else
+                    {
+                        guna2Chip_cssloader_install_status.Text = "NOT INSTALLED";
+                        guna2Chip_cssloader_install_status.FillColor = Color.Brown;
+                        guna2Chip_cssloader_install_status.BorderColor = Color.Brown;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Installation failed. Error code: {process.ExitCode}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    guna2Chip_cssloader_install_status.Text = "NOT INSTALLED";
+                    guna2Chip_cssloader_install_status.FillColor = Color.Brown;
+                    guna2Chip_cssloader_install_status.BorderColor = Color.Brown;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+      
+
+        private void guna2Button_cssloader_uninstall_Click(object sender, EventArgs e)
+        {
+            // open "Install Apps" in Windows-Settings
+            Process.Start(new ProcessStartInfo("ms-settings:appsfeatures"));
+        }
+        #endregion cssloader
+
+       
     }
 }
+    
+    
+    
+  
+

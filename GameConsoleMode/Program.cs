@@ -16,18 +16,26 @@ using System.Collections.Generic;
 using LibVLCSharp.WinForms;
 using System.Threading.Tasks;
 using System.Threading;
+using AudioSwitcher.AudioApi.CoreAudio;
+
+
 
 namespace GameConsoleMode
 {
-    static class Program
+
+    public partial  class Program
     {
         private static StreamWriter logWriter;
         private static bool introPlayed = false;
+        private CoreAudioController controller = new CoreAudioController();
 
 
         [STAThread]
         static void Main()
         {
+
+            Program programInstance = new Program(); // Create an instance of Program
+
             if (IsAlreadyRunning())
             {
                 Console.WriteLine("Another instance of the application is already running.");
@@ -47,11 +55,14 @@ namespace GameConsoleMode
                         Environment.Exit(0);
                     }
                     SettingsVerify();
+                    programInstance.SetPlaybackDeviceFromJson();
                     SetVolume();
                     ChangeScreen();
                     HideMouse();
                     kill_list();
+                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     ExecuteStartScripts();
+                    cssloader(); //only check if is installed, than start
                     StartLauncher();
                     ConsoleModeToShell();
                     HideMouse();
@@ -73,7 +84,7 @@ namespace GameConsoleMode
                 Environment.Exit(0);
             }
         }
-
+        
         private static bool IsAlreadyRunning()
         {
             string currentProcessName = Process.GetCurrentProcess().ProcessName;
@@ -178,6 +189,22 @@ namespace GameConsoleMode
                 }
             }
         }
+
+        static void cssloader()
+        {
+            // Check if CSSLOADER is already installed
+            string cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
+            if (File.Exists(cssloaderExePath))
+            {
+                Process.Start(@"C:\Users\luis\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\CssLoader-Standalone-Headless.exe");
+            }
+            else
+            {
+                //CSS Loader is no installed
+            }
+
+           
+        }
         static void kill_list()
         {
             List<string> endEntries = GetEntries("start");
@@ -190,8 +217,6 @@ namespace GameConsoleMode
             
             foreach (var kill in endEntries)
             {
-
-                MessageBox.Show(kill, kill, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
                     if (File.Exists(kill))
@@ -279,6 +304,16 @@ namespace GameConsoleMode
         }
 
         #endregion powershell scripts
+        #region mousecontroll ober joyxoff 
+        static void IsJoyxoffInstalledAndStart()
+        {
+            string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+            if (File.Exists(joyxoffExePath))
+            {
+                Process.Start(joyxoffExePath);
+            }
+        }
+        #endregion mousecontroll over joyxoff
 
         static bool VerifyFolder()
         {
@@ -1124,6 +1159,44 @@ namespace GameConsoleMode
                 process.Dispose();
             }
         }
+        private void SetPlaybackDeviceFromJson()
+        {
+                // Run the async method synchronously
+                SetPlaybackDeviceFromJsonAsync().GetAwaiter().GetResult();
+        }
+        private async Task SetPlaybackDeviceFromJsonAsync()
+        {
+            try
+            {
+                // Read the device ID from the JSON configuration
+                string deviceId = ReadConfig("audioplaybackdevice");
+
+                if (string.IsNullOrEmpty(deviceId))
+                {
+                    return;
+                }
+
+                // Convert the string ID to a GUID
+                var deviceGuid = new Guid(deviceId);
+
+                // Retrieve the device using its ID (await the task)
+                var device = await controller.GetDeviceAsync(deviceGuid);
+
+                if (device == null)
+                {
+                    MessageBox.Show("Playback device not found.");
+                    return;
+                }
+
+                // Set the device as the default playback device
+                await device.SetAsDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
 
         public static void SetVolume()
         {

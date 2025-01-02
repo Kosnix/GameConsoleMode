@@ -15,16 +15,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Options de manifeste UAC
-          Pour changer le niveau du contrôle de compte d'utilisateur Windows, remplacez le
-          nœud requestedExecutionLevel par l'une des propositions suivantes.
+          UAC-Manifestoptionen
+          Wenn Sie die Zugangsebene für das Windows-Benutzerkonto ändern möchten, ersetzen Sie den 
+          requestedExecutionLevel-Knoten durch eines der folgenden Elemente.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Pour utiliser la virtualisation des fichiers et du Registre afin d'assurer
-         une compatibilité ascendante, supprimez le nœud requestedExecutionLevel.
+         Löschen Sie den requestedExecutionLevel-Knoten, wenn Sie 
+         zum Gewährleisten der Abwärtskompatibilität die Datei- und Registrierungsvirtualisierung verwenden möchten.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -43,14 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameConsoleMode.exe" size="97280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AudioSwitcher.AudioApi.dll" size="41472">
+      <assemblyIdentity name="AudioSwitcher.AudioApi" version="3.0.0.209" publicKeyToken="FDA5729E2DB3A64F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Jv82T8pJbuEJPeWWZFyGcxwVbYHQJrXQIN5GsN8FNRM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AudioSwitcher.AudioApi.CoreAudio.dll" size="77824">
+      <assemblyIdentity name="AudioSwitcher.AudioApi.CoreAudio" version="3.0.0.209" publicKeyToken="FDA5729E2DB3A64F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>t/ovxaUS4D7W6ejnycDhSV9rGjXOoMLEA1Ubd/acUQg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GameConsoleMode.exe" size="100864">
       <assemblyIdentity name="GameConsoleMode" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>naT2Hk6ds6gzh5NrMRBUlyBR65q+Vsy3LTvKBz4mr2g=</dsig:DigestValue>
+        <dsig:DigestValue>aotlDz+cbmmXeCrRL+dLCem66YxPZqEgPJwfLLlsMD0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -346,6 +370,33 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Yu/yULhHiJuCKc/SdUSJcxJxVoCR9AOLBVxqtMnkoKQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MultiMonitorTool.exe" size="166216">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NKGJ83TLvnqbzrEvBgKGsPtluCB32U0EkyaCMgUyTNo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="nomousy.exe" size="12800">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>H7lW+8sVgO4ryhB1JE1t/ZCvXL2J6s5dXizX2Ib22a0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="version.txt" size="5">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>n3cDSx61fSTyGsfetlycyZ9jtyd14xHx8oCrK2wuBqI=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

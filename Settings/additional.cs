@@ -11,8 +11,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Squirrel;
+using NAudio.CoreAudioApi;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using AudioSwitcher.AudioApi.CoreAudio;
+using AudioSwitcher.AudioApi;
 
 namespace Settings
 {
@@ -22,8 +27,17 @@ namespace Settings
         {
             InitializeComponent();
             LoadStartList();
+            controller = new CoreAudioController();
         }
+
+        #region autoupdate
+
+        #endregion autoupdate
+
         #region need variable and methodes
+        private CoreAudioController controller;
+
+
 
         static string exeFolder()
         {
@@ -214,6 +228,9 @@ namespace Settings
 
         #endregion funktion start_and_end
 
+        //Audio
+        private MMDeviceEnumerator deviceEnumerator;  // Deklaration auf Klassenebene
+        private MMDevice selectedDevice;
 
         static string Readconfig(string key)
         {
@@ -359,6 +376,11 @@ namespace Settings
             SelectedAudioVolumeLabel.Text = String.Concat(Readconfig("AudioVolume"), "%");
             VolumeTrackBar.Value = int.Parse(Readconfig("AudioVolume"));
 
+
+
+            //Audio
+            // Initialisiere die Geräte-Auflistung
+            PopulatePlaybackDevices();
             LoadScripts();
         }
 
@@ -818,5 +840,107 @@ namespace Settings
             }
         }
         #endregion Custom Script
+
+        #region advanced audiosettings
+        //function
+        private async void PopulatePlaybackDevices()
+        {
+            try
+            {
+                // Get all active playback devices
+                var devices = await controller.GetPlaybackDevicesAsync();
+
+                // Clear the ComboBox before populating
+                guna2ComboBox_playbackdevice.Items.Clear();
+
+                // Add each device's friendly name to the ComboBox
+                foreach (var device in devices)
+                {
+                    guna2ComboBox_playbackdevice.Items.Add(device.FullName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error while populating playback devices: {ex.Message}");
+            }
+        }
+        private async Task SetPlaybackDeviceFromJsonAsync()
+        {
+            try
+            {
+                // Read the device ID from the JSON configuration
+                string deviceId = Readconfig("audioplaybackdevice");
+
+                if (string.IsNullOrEmpty(deviceId))
+                {
+                    MessageBox.Show("No playback device ID found in configuration.");
+                    return;
+                }
+
+                // Convert the string ID to a GUID
+                var deviceGuid = new Guid(deviceId);
+
+                // Retrieve the device using its ID
+                var device = await controller.GetDeviceAsync(deviceGuid);
+
+                if (device == null)
+                {
+                    MessageBox.Show("Playback device not found.");
+                    return;
+                }
+
+                // Set the device as the default playback device
+                await device.SetAsDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
+
+
+
+
+
+        private void guna2ComboBox_playbackdevice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Get the list of playback devices
+                var devices = controller.GetPlaybackDevices();
+
+                // Ensure devices is a collection and check its count
+                int deviceCount = devices.Count(); // Use LINQ's Count() if it's an IEnumerable
+
+                // Validate the selected index
+                int selectedIndex = guna2ComboBox_playbackdevice.SelectedIndex;
+                if (selectedIndex < 0 || selectedIndex >= deviceCount)
+                {
+                    MessageBox.Show("Invalid selection. Please select a valid playback device.");
+                    return;
+                }
+
+                // Get the selected device
+                var selectedDevice = devices.ElementAt(selectedIndex); // Use LINQ's ElementAt
+
+                // Save the device ID to the JSON file
+                UpdateJsonFile("audioplaybackdevice", selectedDevice.Id.ToString());
+
+                MessageBox.Show($"Playback device '{selectedDevice.FullName}' saved to configuration.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
+            SetPlaybackDeviceFromJsonAsync();
+        }
+
+        #endregion advanced audiosettings
     }
+
+ 
 }
+

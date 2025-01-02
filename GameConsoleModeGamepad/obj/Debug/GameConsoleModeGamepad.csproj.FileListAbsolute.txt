@@ -48,3 +48,5 @@ C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleModeGamepad\obj\Debug\Gam
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.csproj.CopyComplete
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.exe
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.pdb
+C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\bin\Debug\user32.dll
+C:\Users\luis\Source\Repos\GCMode\GameConsoleModeGamepad\obj\Debug\GameConsoleModeGamepad.csproj.AssemblyReference.cache

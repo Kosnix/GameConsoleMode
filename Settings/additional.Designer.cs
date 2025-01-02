@@ -32,12 +32,16 @@ namespace Settings
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(additional));
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2ShadowPanel9 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2Chip_joyxoffinstall_status = new Guna.UI2.WinForms.Guna2Chip();
             this.EnableUAC = new Guna.UI2.WinForms.Guna2Button();
             this.DisableUAC = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel7 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel5 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.listView_added_scripts_end = new System.Windows.Forms.ListView();
             this.script_name = new Guna.UI2.WinForms.Guna2TextBox();
             this.checkbox_scripts_end = new Guna.UI2.WinForms.Guna2CheckBox();
             this.checkbox_scripts_start = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -48,6 +52,7 @@ namespace Settings
             this.textbox_script = new System.Windows.Forms.RichTextBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2Chip1 = new Guna.UI2.WinForms.Guna2Chip();
             this.SelectedAudioVolumeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.VolumeTrackBar = new Guna.UI2.WinForms.Guna2TrackBar();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -67,9 +72,8 @@ namespace Settings
             this.label_shortcut_information = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.HideMouse = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.listView_added_scripts_end = new System.Windows.Forms.ListView();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ComboBox_playbackdevice = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2ShadowPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
@@ -103,6 +107,7 @@ namespace Settings
             // guna2ShadowPanel9
             // 
             this.guna2ShadowPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel9.Controls.Add(this.guna2Chip_joyxoffinstall_status);
             this.guna2ShadowPanel9.Controls.Add(this.EnableUAC);
             this.guna2ShadowPanel9.Controls.Add(this.DisableUAC);
             this.guna2ShadowPanel9.Controls.Add(this.guna2HtmlLabel2);
@@ -118,6 +123,25 @@ namespace Settings
             this.guna2ShadowPanel9.Size = new System.Drawing.Size(512, 311);
             this.guna2ShadowPanel9.TabIndex = 37;
             // 
+            // guna2Chip_joyxoffinstall_status
+            // 
+            this.guna2Chip_joyxoffinstall_status.AutoRoundedCorners = true;
+            this.guna2Chip_joyxoffinstall_status.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Chip_joyxoffinstall_status.BorderRadius = 17;
+            this.guna2Chip_joyxoffinstall_status.FillColor = System.Drawing.Color.Brown;
+            this.guna2Chip_joyxoffinstall_status.Font = new System.Drawing.Font("Segoe UI", 7.5F);
+            this.guna2Chip_joyxoffinstall_status.ForeColor = System.Drawing.Color.White;
+            this.guna2Chip_joyxoffinstall_status.IsClosable = false;
+            this.guna2Chip_joyxoffinstall_status.Location = new System.Drawing.Point(353, 20);
+            this.guna2Chip_joyxoffinstall_status.Name = "guna2Chip_joyxoffinstall_status";
+            this.guna2Chip_joyxoffinstall_status.ShadowDecoration.Color = System.Drawing.Color.Silver;
+            this.guna2Chip_joyxoffinstall_status.ShadowDecoration.Depth = 5;
+            this.guna2Chip_joyxoffinstall_status.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2Chip_joyxoffinstall_status.Size = new System.Drawing.Size(138, 36);
+            this.guna2Chip_joyxoffinstall_status.TabIndex = 43;
+            this.guna2Chip_joyxoffinstall_status.Text = "Recommended!";
+            this.guna2Chip_joyxoffinstall_status.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            // 
             // EnableUAC
             // 
             this.EnableUAC.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
@@ -129,7 +153,7 @@ namespace Settings
             this.EnableUAC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.EnableUAC.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EnableUAC.ForeColor = System.Drawing.Color.White;
-            this.EnableUAC.Location = new System.Drawing.Point(315, 72);
+            this.EnableUAC.Location = new System.Drawing.Point(315, 86);
             this.EnableUAC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EnableUAC.Name = "EnableUAC";
             this.EnableUAC.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
@@ -149,7 +173,7 @@ namespace Settings
             this.DisableUAC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.DisableUAC.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DisableUAC.ForeColor = System.Drawing.Color.White;
-            this.DisableUAC.Location = new System.Drawing.Point(170, 72);
+            this.DisableUAC.Location = new System.Drawing.Point(170, 86);
             this.DisableUAC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DisableUAC.Name = "DisableUAC";
             this.DisableUAC.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
@@ -179,7 +203,7 @@ namespace Settings
             this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(39, 34);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(39, 48);
             this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.Size = new System.Drawing.Size(104, 100);
@@ -227,6 +251,35 @@ namespace Settings
             this.guna2ShadowPanel5.ShadowShift = 10;
             this.guna2ShadowPanel5.Size = new System.Drawing.Size(512, 631);
             this.guna2ShadowPanel5.TabIndex = 37;
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(327, 419);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(78, 22);
+            this.guna2HtmlLabel7.TabIndex = 53;
+            this.guna2HtmlLabel7.Text = "GCM END";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(86, 419);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(96, 22);
+            this.guna2HtmlLabel6.TabIndex = 52;
+            this.guna2HtmlLabel6.Text = "GCM START";
+            // 
+            // listView_added_scripts_end
+            // 
+            this.listView_added_scripts_end.HideSelection = false;
+            this.listView_added_scripts_end.Location = new System.Drawing.Point(256, 447);
+            this.listView_added_scripts_end.Name = "listView_added_scripts_end";
+            this.listView_added_scripts_end.Size = new System.Drawing.Size(232, 114);
+            this.listView_added_scripts_end.TabIndex = 51;
+            this.listView_added_scripts_end.UseCompatibleStateImageBehavior = false;
+            this.listView_added_scripts_end.View = System.Windows.Forms.View.List;
+            this.listView_added_scripts_end.SelectedIndexChanged += new System.EventHandler(this.listView_added_scripts_end_SelectedIndexChanged);
             // 
             // script_name
             // 
@@ -385,6 +438,9 @@ namespace Settings
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.guna2HtmlLabel8);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2ComboBox_playbackdevice);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2Chip1);
             this.guna2ShadowPanel2.Controls.Add(this.SelectedAudioVolumeLabel);
             this.guna2ShadowPanel2.Controls.Add(this.VolumeTrackBar);
             this.guna2ShadowPanel2.Controls.Add(this.guna2HtmlLabel1);
@@ -401,11 +457,30 @@ namespace Settings
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(512, 631);
             this.guna2ShadowPanel2.TabIndex = 35;
             // 
+            // guna2Chip1
+            // 
+            this.guna2Chip1.AutoRoundedCorners = true;
+            this.guna2Chip1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Chip1.BorderRadius = 17;
+            this.guna2Chip1.FillColor = System.Drawing.Color.Brown;
+            this.guna2Chip1.Font = new System.Drawing.Font("Segoe UI", 7.5F);
+            this.guna2Chip1.ForeColor = System.Drawing.Color.White;
+            this.guna2Chip1.IsClosable = false;
+            this.guna2Chip1.Location = new System.Drawing.Point(354, 22);
+            this.guna2Chip1.Name = "guna2Chip1";
+            this.guna2Chip1.ShadowDecoration.Color = System.Drawing.Color.Silver;
+            this.guna2Chip1.ShadowDecoration.Depth = 5;
+            this.guna2Chip1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2Chip1.Size = new System.Drawing.Size(138, 36);
+            this.guna2Chip1.TabIndex = 44;
+            this.guna2Chip1.Text = "Recommended!";
+            this.guna2Chip1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            // 
             // SelectedAudioVolumeLabel
             // 
             this.SelectedAudioVolumeLabel.BackColor = System.Drawing.Color.Transparent;
             this.SelectedAudioVolumeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.SelectedAudioVolumeLabel.Location = new System.Drawing.Point(345, 58);
+            this.SelectedAudioVolumeLabel.Location = new System.Drawing.Point(210, 261);
             this.SelectedAudioVolumeLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SelectedAudioVolumeLabel.Name = "SelectedAudioVolumeLabel";
             this.SelectedAudioVolumeLabel.Size = new System.Drawing.Size(72, 49);
@@ -414,7 +489,7 @@ namespace Settings
             // 
             // VolumeTrackBar
             // 
-            this.VolumeTrackBar.Location = new System.Drawing.Point(30, 129);
+            this.VolumeTrackBar.Location = new System.Drawing.Point(39, 320);
             this.VolumeTrackBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VolumeTrackBar.Name = "VolumeTrackBar";
             this.VolumeTrackBar.Size = new System.Drawing.Size(450, 35);
@@ -445,7 +520,7 @@ namespace Settings
             this.AudioVolumeCheckBox.CheckedState.BorderRadius = 0;
             this.AudioVolumeCheckBox.CheckedState.BorderThickness = 0;
             this.AudioVolumeCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AudioVolumeCheckBox.Location = new System.Drawing.Point(165, 72);
+            this.AudioVolumeCheckBox.Location = new System.Drawing.Point(39, 274);
             this.AudioVolumeCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AudioVolumeCheckBox.Name = "AudioVolumeCheckBox";
             this.AudioVolumeCheckBox.Size = new System.Drawing.Size(163, 24);
@@ -672,7 +747,7 @@ namespace Settings
             this.HideMouse.CheckedState.BorderRadius = 0;
             this.HideMouse.CheckedState.BorderThickness = 0;
             this.HideMouse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.HideMouse.Location = new System.Drawing.Point(172, 78);
+            this.HideMouse.Location = new System.Drawing.Point(174, 92);
             this.HideMouse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HideMouse.Name = "HideMouse";
             this.HideMouse.Size = new System.Drawing.Size(120, 24);
@@ -689,7 +764,7 @@ namespace Settings
             this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(39, 34);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(41, 48);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(104, 100);
@@ -697,34 +772,31 @@ namespace Settings
             this.guna2PictureBox1.TabIndex = 9;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // listView_added_scripts_end
+            // guna2ComboBox_playbackdevice
             // 
-            this.listView_added_scripts_end.HideSelection = false;
-            this.listView_added_scripts_end.Location = new System.Drawing.Point(256, 447);
-            this.listView_added_scripts_end.Name = "listView_added_scripts_end";
-            this.listView_added_scripts_end.Size = new System.Drawing.Size(232, 114);
-            this.listView_added_scripts_end.TabIndex = 51;
-            this.listView_added_scripts_end.UseCompatibleStateImageBehavior = false;
-            this.listView_added_scripts_end.View = System.Windows.Forms.View.List;
-            this.listView_added_scripts_end.SelectedIndexChanged += new System.EventHandler(this.listView_added_scripts_end_SelectedIndexChanged);
+            this.guna2ComboBox_playbackdevice.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox_playbackdevice.BorderRadius = 10;
+            this.guna2ComboBox_playbackdevice.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox_playbackdevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox_playbackdevice.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_playbackdevice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox_playbackdevice.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox_playbackdevice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox_playbackdevice.ItemHeight = 30;
+            this.guna2ComboBox_playbackdevice.Location = new System.Drawing.Point(39, 195);
+            this.guna2ComboBox_playbackdevice.Name = "guna2ComboBox_playbackdevice";
+            this.guna2ComboBox_playbackdevice.Size = new System.Drawing.Size(450, 36);
+            this.guna2ComboBox_playbackdevice.TabIndex = 46;
+            this.guna2ComboBox_playbackdevice.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox_playbackdevice_SelectedIndexChanged);
             // 
-            // guna2HtmlLabel6
+            // guna2HtmlLabel8
             // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(86, 419);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(96, 22);
-            this.guna2HtmlLabel6.TabIndex = 52;
-            this.guna2HtmlLabel6.Text = "GCM START";
-            // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(327, 419);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(78, 22);
-            this.guna2HtmlLabel7.TabIndex = 53;
-            this.guna2HtmlLabel7.Text = "GCM END";
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(39, 167);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(218, 22);
+            this.guna2HtmlLabel8.TabIndex = 48;
+            this.guna2HtmlLabel8.Text = "SELECT PLAYBACK DEVICE";
             // 
             // additional
             // 
@@ -796,5 +868,9 @@ namespace Settings
         private System.Windows.Forms.ListView listView_added_scripts_end;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2Chip guna2Chip_joyxoffinstall_status;
+        private Guna.UI2.WinForms.Guna2Chip guna2Chip1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox_playbackdevice;
     }
 }

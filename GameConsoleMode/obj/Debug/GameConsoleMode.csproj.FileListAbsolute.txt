@@ -180,4 +180,12 @@ C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsol
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.csproj.CopyComplete
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.exe
 C:\Users\nikos\source\repos\GameConsoleMode\GameConsoleMode\obj\Debug\GameConsoleMode.pdb
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\MultiMonitorTool.exe
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\nomousy.exe
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\screenStates.json
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\version.txt
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\Joyxoff.msi
 C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\obj\Debug\GameConsoleMode.csproj.AssemblyReference.cache
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\cssloader.msi
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\luis\Source\Repos\GCMode\GameConsoleMode\bin\Debug\AudioSwitcher.AudioApi.dll

@@ -34,6 +34,9 @@
             this.panel_main = new Guna.UI2.WinForms.Guna2Panel();
             this.picture_first = new System.Windows.Forms.PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.update_panel = new Guna.UI2.WinForms.Guna2Panel();
+            this.update_label = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.button_minimize = new Guna.UI2.WinForms.Guna2Button();
             this.button_cancel = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -43,6 +46,7 @@
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_first)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.update_panel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -192,7 +196,7 @@
             this.button_shortcuts.Name = "button_shortcuts";
             this.button_shortcuts.Size = new System.Drawing.Size(457, 77);
             this.button_shortcuts.TabIndex = 27;
-            this.button_shortcuts.Text = "SHORTCUTS";
+            this.button_shortcuts.Text = "GAMEPAD - JOYXOFF";
             this.button_shortcuts.Click += new System.EventHandler(this.button_shortcuts_Click);
             // 
             // start_gamemode
@@ -291,6 +295,7 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.update_panel);
             this.guna2Panel1.Controls.Add(this.button_minimize);
             this.guna2Panel1.Controls.Add(this.button_cancel);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,6 +304,50 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(821, 34);
             this.guna2Panel1.TabIndex = 7;
+            // 
+            // update_panel
+            // 
+            this.update_panel.Controls.Add(this.update_label);
+            this.update_panel.Controls.Add(this.guna2Button1);
+            this.update_panel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.update_panel.Location = new System.Drawing.Point(487, 0);
+            this.update_panel.Name = "update_panel";
+            this.update_panel.Size = new System.Drawing.Size(238, 34);
+            this.update_panel.TabIndex = 29;
+            // 
+            // update_label
+            // 
+            this.update_label.BackColor = System.Drawing.Color.Transparent;
+            this.update_label.ForeColor = System.Drawing.Color.White;
+            this.update_label.Location = new System.Drawing.Point(10, 6);
+            this.update_label.Name = "update_label";
+            this.update_label.Size = new System.Drawing.Size(174, 22);
+            this.update_label.TabIndex = 29;
+            this.update_label.Text = "No new Update is v1.1.3";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.guna2Button1.FocusedColor = System.Drawing.Color.Silver;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(28, 28);
+            this.guna2Button1.IndicateFocus = true;
+            this.guna2Button1.Location = new System.Drawing.Point(190, 0);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(5);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(48, 34);
+            this.guna2Button1.TabIndex = 28;
             // 
             // button_minimize
             // 
@@ -318,10 +367,10 @@
             this.button_minimize.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_minimize.ImageSize = new System.Drawing.Size(28, 28);
             this.button_minimize.IndicateFocus = true;
-            this.button_minimize.Location = new System.Drawing.Point(679, 0);
+            this.button_minimize.Location = new System.Drawing.Point(725, 0);
             this.button_minimize.Margin = new System.Windows.Forms.Padding(5);
             this.button_minimize.Name = "button_minimize";
-            this.button_minimize.Size = new System.Drawing.Size(71, 34);
+            this.button_minimize.Size = new System.Drawing.Size(48, 34);
             this.button_minimize.TabIndex = 27;
             this.button_minimize.Click += new System.EventHandler(this.button_minimize_Click);
             // 
@@ -344,10 +393,10 @@
             this.button_cancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_cancel.ImageSize = new System.Drawing.Size(28, 28);
             this.button_cancel.IndicateFocus = true;
-            this.button_cancel.Location = new System.Drawing.Point(750, 0);
+            this.button_cancel.Location = new System.Drawing.Point(773, 0);
             this.button_cancel.Margin = new System.Windows.Forms.Padding(5);
             this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(71, 34);
+            this.button_cancel.Size = new System.Drawing.Size(48, 34);
             this.button_cancel.TabIndex = 26;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
@@ -405,6 +454,8 @@
             this.panel_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picture_first)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            this.update_panel.ResumeLayout(false);
+            this.update_panel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -431,5 +482,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2Panel update_panel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel update_label;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
