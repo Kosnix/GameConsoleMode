@@ -184,8 +184,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="explorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="explorer.Designer.cs">
+      <DependentUpon>explorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="explorer.resx">
+      <DependentUpon>explorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

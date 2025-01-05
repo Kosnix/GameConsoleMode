@@ -321,7 +321,7 @@
             this.update_label.ForeColor = System.Drawing.Color.White;
             this.update_label.Location = new System.Drawing.Point(10, 6);
             this.update_label.Name = "update_label";
-            this.update_label.Size = new System.Drawing.Size(174, 22);
+            this.update_label.Size = new System.Drawing.Size(121, 15);
             this.update_label.TabIndex = 29;
             this.update_label.Text = "No new Update is v1.1.3";
             // 

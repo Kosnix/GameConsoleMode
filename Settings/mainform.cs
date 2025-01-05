@@ -183,6 +183,7 @@ namespace Settings
         ""OtherLauncherPath"": """",
         ""OtherLauncherParameter"": """",
         ""AudioBool"": ""0"",
+        ""playbackdevice"": ""0"",
         ""AudioVolume"": ""100"",
         ""ScreenBool"": ""0"",
         ""SelectedScreen"": """",

@@ -168,6 +168,7 @@
     <Compile Include="launchers.Designer.cs">
       <DependentUpon>launchers.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonitorProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="screen.cs">

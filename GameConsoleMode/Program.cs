@@ -25,16 +25,50 @@ namespace GameConsoleMode
 
     public partial  class Program
     {
+
+
+
         private static StreamWriter logWriter;
         private static bool introPlayed = false;
         private CoreAudioController controller = new CoreAudioController();
+        static explorer explorerForm; // Statische Variable für die Form-Instanz
+        
 
+        // wallpaper
+        const int HWND_BOTTOM = 1;
+        const uint SWP_NOSIZE = 0x0001;
+        const uint SWP_NOMOVE = 0x0002;
+        const uint SWP_NOACTIVATE = 0x0010;
+        const int WS_EX_LAYERED = 0x80000;
+        const int WS_EX_TRANSPARENT = 0x20;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        const int GWL_EXSTYLE = -20;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDpiAwarenessContext(IntPtr dpiContext);
+        private static readonly IntPtr DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = new IntPtr(-4);
 
         [STAThread]
         static void Main()
         {
+            //sacling
+            SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            Program programInstance = new Program(); // Create an instance of Program
+        Program programInstance = new Program(); // Create an instance of Program
 
             if (IsAlreadyRunning())
             {
@@ -55,6 +89,7 @@ namespace GameConsoleMode
                         Environment.Exit(0);
                     }
                     SettingsVerify();
+                    displayfusion("start");
                     programInstance.SetPlaybackDeviceFromJson();
                     SetVolume();
                     ChangeScreen();
@@ -72,6 +107,7 @@ namespace GameConsoleMode
                         introPlayed = true; // Set the flag to true after playing the intro
                     }
                     WaitForLauncherToClose();
+                    displayfusion("end");
                     RestoreScreen();
                     ExecuteEndScripts();
                     start_list();
@@ -314,6 +350,96 @@ namespace GameConsoleMode
             }
         }
         #endregion mousecontroll over joyxoff
+        #region Displaycontroll over Displayfusion
+        static void displayfusion(string art)
+        {
+
+            // Function
+            // Full path to DisplayFusionCommand.exe
+            string displayFusionCommandPath = @"C:\Program Files\DisplayFusion\DisplayFusionCommand.exe";
+
+            // Check if DisplayFusionCommand.exe exists
+            if (!File.Exists(displayFusionCommandPath))
+            {
+                Console.WriteLine("DisplayFusionCommand.exe not found at the expected location.");
+                return;
+            }
+            // Check if action is "start"
+            if (art == "start")
+            {
+                string usedisplayfusion = ReadConfig("displayfusion");
+
+                if (usedisplayfusion == "1")
+                {
+                    // Get start profile
+                    string startprofil = ReadConfig("dfgcmstart");
+
+                    if (!string.IsNullOrEmpty(startprofil))
+                    {
+                        // Command to load the profile using DisplayFusion Command Line
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = displayFusionCommandPath,
+                            Arguments = $"-monitorloadprofile \"{startprofil}\"",
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true
+                        });
+
+                        Console.WriteLine($"Loaded DisplayFusion profile: {startprofil}");
+                        // sleep 
+                      
+                       
+                    }
+                    else
+                    {
+                        Console.WriteLine("No start profile configured. Skipping...");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("DisplayFusion integration is disabled.");
+                }
+            }
+            else
+            {
+                // Action is "end"
+                string usedisplayfusion = ReadConfig("displayfusion");
+
+                if (usedisplayfusion == "1")
+                {
+                    // Get end profile
+                    string endprofil = ReadConfig("dfgcmend");
+
+                    if (!string.IsNullOrEmpty(endprofil))
+                    {
+                        // Command to load the profile using DisplayFusion Command Line
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = displayFusionCommandPath,
+                            Arguments = $"-monitorloadprofile \"{endprofil}\"",
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true
+                        });
+
+                        Console.WriteLine($"Loaded DisplayFusion profile: {endprofil}");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No end profile configured. Skipping...");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("DisplayFusion integration is disabled.");
+                }
+            }
+        }
+
+
+        #endregion Displaycontrol over Displayfusion
 
         static bool VerifyFolder()
         {
@@ -568,6 +694,8 @@ namespace GameConsoleMode
 
         static void StartLauncher()
         {
+            UpdateJsonFile("stopgcmexplorer", "0");
+
             switch (ReadConfig("Launcher"))
             {
                 case "steam":
@@ -667,9 +795,15 @@ namespace GameConsoleMode
                 Console.WriteLine("Explorer restored");
             }
         }
+        static void StopExplorerForm()
+        {
+            UpdateJsonFile("stopgcmexplorer", "1");
+        }
 
         static void WaitForLauncherToClose()
         {
+            
+
             string Launcher = ReadConfig("Launcher");
             if (Launcher == "Other")
             {
@@ -681,10 +815,12 @@ namespace GameConsoleMode
             string ProcessName = Launcher;
             do
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 processes = Process.GetProcessesByName(ProcessName);
             } while (processes.Length > 0);
             Console.WriteLine($"{ProcessName} closed");
+            StopExplorerForm();
+
         }
 
         static void BackToWindows()
@@ -1161,8 +1297,16 @@ namespace GameConsoleMode
         }
         private void SetPlaybackDeviceFromJson()
         {
+         string playbackconfig =   ReadConfig("playbackdevice");
+            if (playbackconfig == "1")
+            {
                 // Run the async method synchronously
                 SetPlaybackDeviceFromJsonAsync().GetAwaiter().GetResult();
+            }
+            else
+            {
+                return;
+            }
         }
         private async Task SetPlaybackDeviceFromJsonAsync()
         {
@@ -1185,6 +1329,7 @@ namespace GameConsoleMode
                 if (device == null)
                 {
                     MessageBox.Show("Playback device not found.");
+                    UpdateJsonFile("playbackdevice", "0");
                     return;
                 }
 
@@ -1194,6 +1339,7 @@ namespace GameConsoleMode
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
+                UpdateJsonFile("playbackdevice", "0");
             }
         }
 
@@ -1243,6 +1389,38 @@ namespace GameConsoleMode
                 Console.WriteLine("Volume change not required");
             }
         }
+      
+        //for later
+        static void StartExplorerForm()
+        {
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                // Hide taskbar and make the form fullscreen and non-interactable
+              
+
+                explorer explorerForm = new explorer();
+                SetWindowAsWallpaper(explorerForm.Handle);
+
+                Application.Run(explorerForm);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to start Explorer form: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        static void SetWindowAsWallpaper(IntPtr hwnd)
+        {
+            const int GWL_EXSTYLE = -20;
+            const int WS_EX_TOOLWINDOW = 0x00000080;
+            const int WS_EX_NOACTIVATE = 0x08000000;
+
+            int extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+            SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE);
+        }
+
 
         [STAThread]
         public static void PlayIntro()

@@ -31,7 +31,17 @@ namespace Settings
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(startup));
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2Button_cssloader_uninstall = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Chip_cssloader_install_status = new Guna.UI2.WinForms.Guna2Chip();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.CSS_loader_install = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2Button_joyxoff_uninstall = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Chip_joyxoffinstall_status = new Guna.UI2.WinForms.Guna2Chip();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -46,24 +56,14 @@ namespace Settings
             this.label_shortcut_information = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.IntroCheckBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2Chip_cssloader_install_status = new Guna.UI2.WinForms.Guna2Chip();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.CSS_loader_install = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Button_cssloader_uninstall = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button_joyxoff_uninstall = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
+            this.guna2ShadowPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2ShadowPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -79,6 +79,154 @@ namespace Settings
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1659, 1032);
             this.guna2GradientPanel1.TabIndex = 3;
+            // 
+            // guna2ShadowPanel3
+            // 
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.guna2Button_cssloader_uninstall);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox4);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2Chip_cssloader_install_status);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel5);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel6);
+            this.guna2ShadowPanel3.Controls.Add(this.CSS_loader_install);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox2);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel7);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(29, 416);
+            this.guna2ShadowPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.Radius = 10;
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel3.ShadowDepth = 150;
+            this.guna2ShadowPanel3.ShadowShift = 0;
+            this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(647, 602);
+            this.guna2ShadowPanel3.TabIndex = 40;
+            // 
+            // guna2Button_cssloader_uninstall
+            // 
+            this.guna2Button_cssloader_uninstall.Animated = true;
+            this.guna2Button_cssloader_uninstall.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button_cssloader_uninstall.BorderRadius = 10;
+            this.guna2Button_cssloader_uninstall.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_cssloader_uninstall.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_cssloader_uninstall.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button_cssloader_uninstall.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button_cssloader_uninstall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.guna2Button_cssloader_uninstall.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button_cssloader_uninstall.ForeColor = System.Drawing.Color.White;
+            this.guna2Button_cssloader_uninstall.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button_cssloader_uninstall.Image")));
+            this.guna2Button_cssloader_uninstall.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2Button_cssloader_uninstall.Location = new System.Drawing.Point(394, 94);
+            this.guna2Button_cssloader_uninstall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button_cssloader_uninstall.Name = "guna2Button_cssloader_uninstall";
+            this.guna2Button_cssloader_uninstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.guna2Button_cssloader_uninstall.Size = new System.Drawing.Size(118, 111);
+            this.guna2Button_cssloader_uninstall.TabIndex = 44;
+            this.guna2Button_cssloader_uninstall.Click += new System.EventHandler(this.guna2Button_cssloader_uninstall_Click);
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(23, 239);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(614, 245);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 43;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // guna2Chip_cssloader_install_status
+            // 
+            this.guna2Chip_cssloader_install_status.AutoRoundedCorners = true;
+            this.guna2Chip_cssloader_install_status.BorderColor = System.Drawing.Color.Brown;
+            this.guna2Chip_cssloader_install_status.BorderRadius = 19;
+            this.guna2Chip_cssloader_install_status.CustomizableEdges.BottomLeft = false;
+            this.guna2Chip_cssloader_install_status.CustomizableEdges.BottomRight = false;
+            this.guna2Chip_cssloader_install_status.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Chip_cssloader_install_status.FillColor = System.Drawing.Color.Brown;
+            this.guna2Chip_cssloader_install_status.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.guna2Chip_cssloader_install_status.ForeColor = System.Drawing.Color.White;
+            this.guna2Chip_cssloader_install_status.IsClosable = false;
+            this.guna2Chip_cssloader_install_status.Location = new System.Drawing.Point(0, 0);
+            this.guna2Chip_cssloader_install_status.Name = "guna2Chip_cssloader_install_status";
+            this.guna2Chip_cssloader_install_status.ShadowDecoration.Color = System.Drawing.Color.Silver;
+            this.guna2Chip_cssloader_install_status.ShadowDecoration.Depth = 5;
+            this.guna2Chip_cssloader_install_status.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2Chip_cssloader_install_status.Size = new System.Drawing.Size(647, 40);
+            this.guna2Chip_cssloader_install_status.TabIndex = 42;
+            this.guna2Chip_cssloader_install_status.Text = "not installed";
+            this.guna2Chip_cssloader_install_status.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(150, 56);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(125, 22);
+            this.guna2HtmlLabel5.TabIndex = 41;
+            this.guna2HtmlLabel5.Text = "STEAM DESIGN";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(146, 123);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(150, 54);
+            this.guna2HtmlLabel6.TabIndex = 40;
+            this.guna2HtmlLabel6.Text = "GCM cannot configure CSS<br>  loader, only install and start <br> it on pc startu" +
+    "p, please set your <br> Steam theme manually ";
+            // 
+            // CSS_loader_install
+            // 
+            this.CSS_loader_install.Animated = true;
+            this.CSS_loader_install.BorderColor = System.Drawing.Color.Transparent;
+            this.CSS_loader_install.BorderRadius = 10;
+            this.CSS_loader_install.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CSS_loader_install.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CSS_loader_install.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CSS_loader_install.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CSS_loader_install.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.CSS_loader_install.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CSS_loader_install.ForeColor = System.Drawing.Color.White;
+            this.CSS_loader_install.Image = ((System.Drawing.Image)(resources.GetObject("CSS_loader_install.Image")));
+            this.CSS_loader_install.ImageSize = new System.Drawing.Size(50, 50);
+            this.CSS_loader_install.Location = new System.Drawing.Point(519, 94);
+            this.CSS_loader_install.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CSS_loader_install.Name = "CSS_loader_install";
+            this.CSS_loader_install.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.CSS_loader_install.Size = new System.Drawing.Size(118, 111);
+            this.CSS_loader_install.TabIndex = 39;
+            this.CSS_loader_install.Click += new System.EventHandler(this.CSS_loader_install_Click);
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(23, 105);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(120, 100);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 38;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.AutoSize = false;
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
+            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(0, 502);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(15);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(647, 100);
+            this.guna2HtmlLabel7.TabIndex = 37;
+            this.guna2HtmlLabel7.Text = "Enable Designs in Steam BP<br> over CSS Loader.\r\n";
+            this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2ShadowPanel2
             // 
@@ -101,6 +249,28 @@ namespace Settings
             this.guna2ShadowPanel2.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(647, 361);
             this.guna2ShadowPanel2.TabIndex = 39;
+            // 
+            // guna2Button_joyxoff_uninstall
+            // 
+            this.guna2Button_joyxoff_uninstall.Animated = true;
+            this.guna2Button_joyxoff_uninstall.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button_joyxoff_uninstall.BorderRadius = 10;
+            this.guna2Button_joyxoff_uninstall.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_joyxoff_uninstall.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button_joyxoff_uninstall.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button_joyxoff_uninstall.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button_joyxoff_uninstall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.guna2Button_joyxoff_uninstall.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button_joyxoff_uninstall.ForeColor = System.Drawing.Color.White;
+            this.guna2Button_joyxoff_uninstall.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button_joyxoff_uninstall.Image")));
+            this.guna2Button_joyxoff_uninstall.ImageSize = new System.Drawing.Size(50, 50);
+            this.guna2Button_joyxoff_uninstall.Location = new System.Drawing.Point(394, 94);
+            this.guna2Button_joyxoff_uninstall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2Button_joyxoff_uninstall.Name = "guna2Button_joyxoff_uninstall";
+            this.guna2Button_joyxoff_uninstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
+            this.guna2Button_joyxoff_uninstall.Size = new System.Drawing.Size(118, 111);
+            this.guna2Button_joyxoff_uninstall.TabIndex = 43;
+            this.guna2Button_joyxoff_uninstall.Click += new System.EventHandler(this.guna2Button_joyxoff_uninstall_Click);
             // 
             // guna2Chip_joyxoffinstall_status
             // 
@@ -130,7 +300,7 @@ namespace Settings
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(150, 56);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(216, 31);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(142, 22);
             this.guna2HtmlLabel3.TabIndex = 41;
             this.guna2HtmlLabel3.Text = "MOUSE CONTROL";
             // 
@@ -139,7 +309,7 @@ namespace Settings
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(150, 120);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(219, 82);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(146, 54);
             this.guna2HtmlLabel2.TabIndex = 40;
             this.guna2HtmlLabel2.Text = "gcm takes over the installation <br> and automatically starts joyxoff <br>at star" +
     "tup. \r\nYou can choose <br> your own shortcuts.";
@@ -158,7 +328,7 @@ namespace Settings
             this.ad_program_start_add.ForeColor = System.Drawing.Color.White;
             this.ad_program_start_add.Image = ((System.Drawing.Image)(resources.GetObject("ad_program_start_add.Image")));
             this.ad_program_start_add.ImageSize = new System.Drawing.Size(50, 50);
-            this.ad_program_start_add.Location = new System.Drawing.Point(519, 105);
+            this.ad_program_start_add.Location = new System.Drawing.Point(519, 94);
             this.ad_program_start_add.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ad_program_start_add.Name = "ad_program_start_add";
             this.ad_program_start_add.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
@@ -211,17 +381,17 @@ namespace Settings
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.White;
             this.guna2ShadowPanel1.ShadowDepth = 150;
-            this.guna2ShadowPanel1.ShadowShift = 10;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(512, 361);
+            this.guna2ShadowPanel1.ShadowShift = 1;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(651, 361);
             this.guna2ShadowPanel1.TabIndex = 38;
             // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(155, 56);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(130, 56);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(195, 31);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(132, 22);
             this.guna2HtmlLabel4.TabIndex = 42;
             this.guna2HtmlLabel4.Text = "STARTUP VIDEO";
             // 
@@ -237,7 +407,7 @@ namespace Settings
             this.IntroAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.IntroAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IntroAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IntroAddress.Location = new System.Drawing.Point(39, 225);
+            this.IntroAddress.Location = new System.Drawing.Point(99, 215);
             this.IntroAddress.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.IntroAddress.Name = "IntroAddress";
             this.IntroAddress.PasswordChar = '\0';
@@ -258,7 +428,7 @@ namespace Settings
             this.ChangeIntroAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
             this.ChangeIntroAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ChangeIntroAddress.ForeColor = System.Drawing.Color.White;
-            this.ChangeIntroAddress.Location = new System.Drawing.Point(363, 105);
+            this.ChangeIntroAddress.Location = new System.Drawing.Point(423, 94);
             this.ChangeIntroAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChangeIntroAddress.Name = "ChangeIntroAddress";
             this.ChangeIntroAddress.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
@@ -274,10 +444,10 @@ namespace Settings
             this.MuteIntroCheckBox.CheckedState.BorderRadius = 0;
             this.MuteIntroCheckBox.CheckedState.BorderThickness = 0;
             this.MuteIntroCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.MuteIntroCheckBox.Location = new System.Drawing.Point(165, 176);
+            this.MuteIntroCheckBox.Location = new System.Drawing.Point(165, 165);
             this.MuteIntroCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MuteIntroCheckBox.Name = "MuteIntroCheckBox";
-            this.MuteIntroCheckBox.Size = new System.Drawing.Size(139, 24);
+            this.MuteIntroCheckBox.Size = new System.Drawing.Size(97, 17);
             this.MuteIntroCheckBox.TabIndex = 33;
             this.MuteIntroCheckBox.Text = "Mute the video";
             this.MuteIntroCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -296,7 +466,7 @@ namespace Settings
             this.label_shortcut_information.Location = new System.Drawing.Point(0, 261);
             this.label_shortcut_information.Margin = new System.Windows.Forms.Padding(15);
             this.label_shortcut_information.Name = "label_shortcut_information";
-            this.label_shortcut_information.Size = new System.Drawing.Size(512, 100);
+            this.label_shortcut_information.Size = new System.Drawing.Size(651, 100);
             this.label_shortcut_information.TabIndex = 32;
             this.label_shortcut_information.Text = "Use an intro video that lets your launcher start in the background.";
             this.label_shortcut_information.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -308,10 +478,10 @@ namespace Settings
             this.IntroCheckBox.CheckedState.BorderRadius = 0;
             this.IntroCheckBox.CheckedState.BorderThickness = 0;
             this.IntroCheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IntroCheckBox.Location = new System.Drawing.Point(165, 141);
+            this.IntroCheckBox.Location = new System.Drawing.Point(165, 130);
             this.IntroCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.IntroCheckBox.Name = "IntroCheckBox";
-            this.IntroCheckBox.Size = new System.Drawing.Size(172, 24);
+            this.IntroCheckBox.Size = new System.Drawing.Size(118, 17);
             this.IntroCheckBox.TabIndex = 31;
             this.IntroCheckBox.Text = "Use a startup video";
             this.IntroCheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -325,183 +495,13 @@ namespace Settings
             this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(39, 113);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(39, 102);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(104, 100);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 9;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2ShadowPanel3
-            // 
-            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.Controls.Add(this.guna2Button_cssloader_uninstall);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox4);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2Chip_cssloader_install_status);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel5);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel6);
-            this.guna2ShadowPanel3.Controls.Add(this.CSS_loader_install);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox2);
-            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel7);
-            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(29, 416);
-            this.guna2ShadowPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
-            this.guna2ShadowPanel3.Radius = 10;
-            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel3.ShadowDepth = 150;
-            this.guna2ShadowPanel3.ShadowShift = 0;
-            this.guna2ShadowPanel3.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(647, 602);
-            this.guna2ShadowPanel3.TabIndex = 40;
-            // 
-            // guna2Chip_cssloader_install_status
-            // 
-            this.guna2Chip_cssloader_install_status.AutoRoundedCorners = true;
-            this.guna2Chip_cssloader_install_status.BorderColor = System.Drawing.Color.Brown;
-            this.guna2Chip_cssloader_install_status.BorderRadius = 19;
-            this.guna2Chip_cssloader_install_status.CustomizableEdges.BottomLeft = false;
-            this.guna2Chip_cssloader_install_status.CustomizableEdges.BottomRight = false;
-            this.guna2Chip_cssloader_install_status.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Chip_cssloader_install_status.FillColor = System.Drawing.Color.Brown;
-            this.guna2Chip_cssloader_install_status.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.guna2Chip_cssloader_install_status.ForeColor = System.Drawing.Color.White;
-            this.guna2Chip_cssloader_install_status.IsClosable = false;
-            this.guna2Chip_cssloader_install_status.Location = new System.Drawing.Point(0, 0);
-            this.guna2Chip_cssloader_install_status.Name = "guna2Chip_cssloader_install_status";
-            this.guna2Chip_cssloader_install_status.ShadowDecoration.Color = System.Drawing.Color.Silver;
-            this.guna2Chip_cssloader_install_status.ShadowDecoration.Depth = 5;
-            this.guna2Chip_cssloader_install_status.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2Chip_cssloader_install_status.Size = new System.Drawing.Size(647, 40);
-            this.guna2Chip_cssloader_install_status.TabIndex = 42;
-            this.guna2Chip_cssloader_install_status.Text = "not installed";
-            this.guna2Chip_cssloader_install_status.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(150, 56);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(183, 31);
-            this.guna2HtmlLabel5.TabIndex = 41;
-            this.guna2HtmlLabel5.Text = "STEAM DESIGN";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(146, 123);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(223, 82);
-            this.guna2HtmlLabel6.TabIndex = 40;
-            this.guna2HtmlLabel6.Text = "GCM cannot configure CSS<br>  loader, only install and start <br> it on pc startu" +
-    "p, please set your <br> Steam theme manually ";
-            // 
-            // CSS_loader_install
-            // 
-            this.CSS_loader_install.Animated = true;
-            this.CSS_loader_install.BorderColor = System.Drawing.Color.Transparent;
-            this.CSS_loader_install.BorderRadius = 10;
-            this.CSS_loader_install.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.CSS_loader_install.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.CSS_loader_install.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.CSS_loader_install.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CSS_loader_install.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.CSS_loader_install.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CSS_loader_install.ForeColor = System.Drawing.Color.White;
-            this.CSS_loader_install.Image = ((System.Drawing.Image)(resources.GetObject("CSS_loader_install.Image")));
-            this.CSS_loader_install.ImageSize = new System.Drawing.Size(50, 50);
-            this.CSS_loader_install.Location = new System.Drawing.Point(519, 105);
-            this.CSS_loader_install.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.CSS_loader_install.Name = "CSS_loader_install";
-            this.CSS_loader_install.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.CSS_loader_install.Size = new System.Drawing.Size(118, 111);
-            this.CSS_loader_install.TabIndex = 39;
-            this.CSS_loader_install.Click += new System.EventHandler(this.CSS_loader_install_Click);
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(23, 105);
-            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(120, 100);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 38;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.AutoSize = false;
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Nirmala UI", 12.75F);
-            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(0, 502);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(15);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(647, 100);
-            this.guna2HtmlLabel7.TabIndex = 37;
-            this.guna2HtmlLabel7.Text = "Enable Designs in Steam BP<br> over CSS Loader.\r\n";
-            this.guna2HtmlLabel7.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(23, 239);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(614, 245);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 43;
-            this.guna2PictureBox4.TabStop = false;
-            // 
-            // guna2Button_cssloader_uninstall
-            // 
-            this.guna2Button_cssloader_uninstall.Animated = true;
-            this.guna2Button_cssloader_uninstall.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button_cssloader_uninstall.BorderRadius = 10;
-            this.guna2Button_cssloader_uninstall.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button_cssloader_uninstall.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button_cssloader_uninstall.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button_cssloader_uninstall.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button_cssloader_uninstall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.guna2Button_cssloader_uninstall.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button_cssloader_uninstall.ForeColor = System.Drawing.Color.White;
-            this.guna2Button_cssloader_uninstall.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button_cssloader_uninstall.Image")));
-            this.guna2Button_cssloader_uninstall.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button_cssloader_uninstall.Location = new System.Drawing.Point(394, 105);
-            this.guna2Button_cssloader_uninstall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2Button_cssloader_uninstall.Name = "guna2Button_cssloader_uninstall";
-            this.guna2Button_cssloader_uninstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.guna2Button_cssloader_uninstall.Size = new System.Drawing.Size(118, 111);
-            this.guna2Button_cssloader_uninstall.TabIndex = 44;
-            this.guna2Button_cssloader_uninstall.Click += new System.EventHandler(this.guna2Button_cssloader_uninstall_Click);
-            // 
-            // guna2Button_joyxoff_uninstall
-            // 
-            this.guna2Button_joyxoff_uninstall.Animated = true;
-            this.guna2Button_joyxoff_uninstall.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2Button_joyxoff_uninstall.BorderRadius = 10;
-            this.guna2Button_joyxoff_uninstall.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button_joyxoff_uninstall.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button_joyxoff_uninstall.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button_joyxoff_uninstall.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button_joyxoff_uninstall.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.guna2Button_joyxoff_uninstall.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button_joyxoff_uninstall.ForeColor = System.Drawing.Color.White;
-            this.guna2Button_joyxoff_uninstall.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button_joyxoff_uninstall.Image")));
-            this.guna2Button_joyxoff_uninstall.ImageSize = new System.Drawing.Size(50, 50);
-            this.guna2Button_joyxoff_uninstall.Location = new System.Drawing.Point(394, 105);
-            this.guna2Button_joyxoff_uninstall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2Button_joyxoff_uninstall.Name = "guna2Button_joyxoff_uninstall";
-            this.guna2Button_joyxoff_uninstall.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(40)))), ((int)(((byte)(56)))));
-            this.guna2Button_joyxoff_uninstall.Size = new System.Drawing.Size(118, 111);
-            this.guna2Button_joyxoff_uninstall.TabIndex = 43;
-            this.guna2Button_joyxoff_uninstall.Click += new System.EventHandler(this.guna2Button_joyxoff_uninstall_Click);
             // 
             // startup
             // 
@@ -513,16 +513,16 @@ namespace Settings
             this.Text = "startup";
             this.Load += new System.EventHandler(this.startup_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            this.guna2ShadowPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2ShadowPanel3.ResumeLayout(false);
-            this.guna2ShadowPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -113,4 +113,3 @@ C:\Users\luis\Source\Repos\GCMode\Settings\bin\Debug\System.Security.Principal.W
 C:\Users\luis\Source\Repos\GCMode\Settings\bin\Debug\nircmd.exe
 C:\Users\luis\Source\Repos\GCMode\Settings\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
 C:\Users\luis\Source\Repos\GCMode\Settings\bin\Debug\AudioSwitcher.AudioApi.dll
-C:\Users\luis\Source\Repos\GCMode\Settings\obj\Debug\Settings.csproj.AssemblyReference.cache

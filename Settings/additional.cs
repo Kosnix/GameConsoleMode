@@ -919,6 +919,7 @@ namespace Settings
                 if (selectedIndex < 0 || selectedIndex >= deviceCount)
                 {
                     MessageBox.Show("Invalid selection. Please select a valid playback device.");
+                    UpdateJsonFile("playbackdevice", "0");
                     return;
                 }
 
@@ -927,12 +928,13 @@ namespace Settings
 
                 // Save the device ID to the JSON file
                 UpdateJsonFile("audioplaybackdevice", selectedDevice.Id.ToString());
-
+                UpdateJsonFile("playbackdevice", "1");
                 MessageBox.Show($"Playback device '{selectedDevice.FullName}' saved to configuration.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
+                UpdateJsonFile("playbackdevice", "0");
             }
 
             SetPlaybackDeviceFromJsonAsync();
