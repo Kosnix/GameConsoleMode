@@ -1,0 +1,4051 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows10.0.19041": {
+      "Discord.Net/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Commands": "3.17.1",
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Interactions": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Discord.Net.WebSocket": "3.17.1",
+          "Discord.Net.Webhook": "3.17.1"
+        }
+      },
+      "Discord.Net.Commands/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Core/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Interactive.Async": "6.0.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Interactions/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Reactive": "6.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Rest/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Webhook/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.WebSocket/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2651.64": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/WebView2Loader.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "Microsoft.Windows.CsWin32/0.3.106": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Docs": "0.1.42-alpha",
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview",
+          "Microsoft.Windows.WDK.Win32Metadata": "0.11.4-experimental"
+        },
+        "build": {
+          "build/netstandard1.0/Microsoft.Windows.CsWin32.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.BuildTools/10.0.26100.1742": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.props": {},
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.targets": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Docs/0.1.42-alpha": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Docs.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Metadata/60.0.34-preview": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.Windows.WDK.Win32Metadata/0.11.4-experimental": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview"
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.WindowsAppSDK/1.6.241114003": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2651.64",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
+        },
+        "compile": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.WindowsAppSDK.props": {},
+          "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "NAudio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.2.1",
+          "NAudio.Core": "2.2.1",
+          "NAudio.Midi": "2.2.1",
+          "NAudio.Wasapi": "2.2.1",
+          "NAudio.WinForms": "2.2.1",
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Core/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.WinForms/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "NAudio.WinMM/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Collections.Immutable/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Interactive.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq.Async": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Linq.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "compile": {
+          "ref/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Reactive/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "build": {
+          "buildTransitive/net6.0-windows10.0.19041/_._": {}
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      }
+    },
+    "net8.0-windows10.0.19041/win-arm64": {
+      "Discord.Net/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Commands": "3.17.1",
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Interactions": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Discord.Net.WebSocket": "3.17.1",
+          "Discord.Net.Webhook": "3.17.1"
+        }
+      },
+      "Discord.Net.Commands/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Core/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Interactive.Async": "6.0.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Interactions/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Reactive": "6.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Rest/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Webhook/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.WebSocket/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2651.64": {
+        "type": "package",
+        "native": {
+          "runtimes/win-arm64/native/WebView2Loader.dll": {}
+        },
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Windows.CsWin32/0.3.106": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Docs": "0.1.42-alpha",
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview",
+          "Microsoft.Windows.WDK.Win32Metadata": "0.11.4-experimental"
+        },
+        "build": {
+          "build/netstandard1.0/Microsoft.Windows.CsWin32.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.BuildTools/10.0.26100.1742": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.props": {},
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.targets": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Docs/0.1.42-alpha": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Docs.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Metadata/60.0.34-preview": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.Windows.WDK.Win32Metadata/0.11.4-experimental": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview"
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.WindowsAppSDK/1.6.241114003": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2651.64",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
+        },
+        "compile": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "native": {
+          "runtimes/win-arm64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.WindowsAppSDK.props": {},
+          "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
+        }
+      },
+      "NAudio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.2.1",
+          "NAudio.Core": "2.2.1",
+          "NAudio.Midi": "2.2.1",
+          "NAudio.Wasapi": "2.2.1",
+          "NAudio.WinForms": "2.2.1",
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Core/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.WinForms/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "NAudio.WinMM/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Collections.Immutable/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Interactive.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq.Async": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Linq.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "compile": {
+          "ref/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Reactive/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "build": {
+          "buildTransitive/net6.0-windows10.0.19041/_._": {}
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      }
+    },
+    "net8.0-windows10.0.19041/win-x64": {
+      "Discord.Net/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Commands": "3.17.1",
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Interactions": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Discord.Net.WebSocket": "3.17.1",
+          "Discord.Net.Webhook": "3.17.1"
+        }
+      },
+      "Discord.Net.Commands/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Core/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Interactive.Async": "6.0.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Interactions/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Reactive": "6.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Rest/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Webhook/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.WebSocket/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2651.64": {
+        "type": "package",
+        "native": {
+          "runtimes/win-x64/native/WebView2Loader.dll": {}
+        },
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Windows.CsWin32/0.3.106": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Docs": "0.1.42-alpha",
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview",
+          "Microsoft.Windows.WDK.Win32Metadata": "0.11.4-experimental"
+        },
+        "build": {
+          "build/netstandard1.0/Microsoft.Windows.CsWin32.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.BuildTools/10.0.26100.1742": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.props": {},
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.targets": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Docs/0.1.42-alpha": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Docs.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Metadata/60.0.34-preview": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.Windows.WDK.Win32Metadata/0.11.4-experimental": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview"
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.WindowsAppSDK/1.6.241114003": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2651.64",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
+        },
+        "compile": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "native": {
+          "runtimes/win-x64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.WindowsAppSDK.props": {},
+          "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
+        }
+      },
+      "NAudio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.2.1",
+          "NAudio.Core": "2.2.1",
+          "NAudio.Midi": "2.2.1",
+          "NAudio.Wasapi": "2.2.1",
+          "NAudio.WinForms": "2.2.1",
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Core/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.WinForms/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "NAudio.WinMM/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Collections.Immutable/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Interactive.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq.Async": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Linq.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "compile": {
+          "ref/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Reactive/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "build": {
+          "buildTransitive/net6.0-windows10.0.19041/_._": {}
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      }
+    },
+    "net8.0-windows10.0.19041/win-x86": {
+      "Discord.Net/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Commands": "3.17.1",
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Interactions": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Discord.Net.WebSocket": "3.17.1",
+          "Discord.Net.Webhook": "3.17.1"
+        }
+      },
+      "Discord.Net.Commands/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Commands.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Core/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Interactive.Async": "6.0.1",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Interactions/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "System.Collections.Immutable": "8.0.0",
+          "System.Reactive": "6.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Interactions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Rest/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Rest.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.Webhook/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.Webhook.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Discord.Net.WebSocket/3.17.1": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "3.17.1",
+          "Discord.Net.Rest": "3.17.1"
+        },
+        "compile": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Discord.Net.WebSocket.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/3.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Web.WebView2/1.0.2651.64": {
+        "type": "package",
+        "native": {
+          "runtimes/win-x86/native/WebView2Loader.dll": {}
+        },
+        "build": {
+          "build/Microsoft.Web.WebView2.targets": {}
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Windows.CsWin32/0.3.106": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Docs": "0.1.42-alpha",
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview",
+          "Microsoft.Windows.WDK.Win32Metadata": "0.11.4-experimental"
+        },
+        "build": {
+          "build/netstandard1.0/Microsoft.Windows.CsWin32.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.BuildTools/10.0.26100.1742": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.props": {},
+          "buildTransitive/Microsoft.Windows.SDK.BuildTools.targets": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Docs/0.1.42-alpha": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Docs.props": {}
+        }
+      },
+      "Microsoft.Windows.SDK.Win32Metadata/60.0.34-preview": {
+        "type": "package",
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.Windows.WDK.Win32Metadata/0.11.4-experimental": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Windows.SDK.Win32Metadata": "60.0.34-preview"
+        },
+        "build": {
+          "buildTransitive/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props": {}
+        }
+      },
+      "Microsoft.WindowsAppSDK/1.6.241114003": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Web.WebView2": "1.0.2651.64",
+          "Microsoft.Windows.SDK.BuildTools": "10.0.22621.756"
+        },
+        "compile": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll": {}
+        },
+        "native": {
+          "runtimes/win-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.WindowsAppSDK.props": {},
+          "buildTransitive/Microsoft.WindowsAppSDK.targets": {}
+        }
+      },
+      "NAudio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.2.1",
+          "NAudio.Core": "2.2.1",
+          "NAudio.Midi": "2.2.1",
+          "NAudio.Wasapi": "2.2.1",
+          "NAudio.WinForms": "2.2.1",
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NAudio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Asio/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Core/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Midi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.Wasapi/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NAudio.WinForms/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.WinMM": "2.2.1"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "NAudio.WinMM/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Collections.Immutable/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Interactive.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq.Async": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Interactive.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Linq.Async/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "compile": {
+          "ref/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Linq.Async.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Reactive/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows10.0.19041/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "build": {
+          "buildTransitive/net6.0-windows10.0.19041/_._": {}
+        }
+      },
+      "System.Security.AccessControl/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Security.Principal.Windows/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Discord.Net/3.17.1": {
+      "sha512": "xD8FiscFW4gT+G6pxjESEFiDAHFI6UbZCjMMBNVMOT68lvjP929tpchIrbvCBVNtHT+P2X9AZYiYYTOyL+VLLA==",
+      "type": "package",
+      "path": "discord.net/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.3.17.1.nupkg.sha512",
+        "discord.net.nuspec"
+      ]
+    },
+    "Discord.Net.Commands/3.17.1": {
+      "sha512": "2gR6hpl+lEsSIF2+BiXEHrQQZffnA9Ovb9/Z45lDK4ebE/1RZvCZbGvJvC6Hul5Y0b6BEkxJTaB1TJH6WxM2dg==",
+      "type": "package",
+      "path": "discord.net.commands/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.commands.3.17.1.nupkg.sha512",
+        "discord.net.commands.nuspec",
+        "lib/net461/Discord.Net.Commands.dll",
+        "lib/net461/Discord.Net.Commands.xml",
+        "lib/net5.0/Discord.Net.Commands.dll",
+        "lib/net5.0/Discord.Net.Commands.xml",
+        "lib/net6.0/Discord.Net.Commands.dll",
+        "lib/net6.0/Discord.Net.Commands.xml",
+        "lib/net8.0/Discord.Net.Commands.dll",
+        "lib/net8.0/Discord.Net.Commands.xml",
+        "lib/net9.0/Discord.Net.Commands.dll",
+        "lib/net9.0/Discord.Net.Commands.xml",
+        "lib/netstandard2.0/Discord.Net.Commands.dll",
+        "lib/netstandard2.0/Discord.Net.Commands.xml",
+        "lib/netstandard2.1/Discord.Net.Commands.dll",
+        "lib/netstandard2.1/Discord.Net.Commands.xml"
+      ]
+    },
+    "Discord.Net.Core/3.17.1": {
+      "sha512": "726zDgzftOfpdhcHp5PhM0Dy4Movct1N/vPIqA4fncsjQWZGyQt8X9a8QHiYdDBaZi2EsPlY3/3raIdkTQPemQ==",
+      "type": "package",
+      "path": "discord.net.core/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.core.3.17.1.nupkg.sha512",
+        "discord.net.core.nuspec",
+        "lib/net461/Discord.Net.Core.dll",
+        "lib/net461/Discord.Net.Core.xml",
+        "lib/net5.0/Discord.Net.Core.dll",
+        "lib/net5.0/Discord.Net.Core.xml",
+        "lib/net6.0/Discord.Net.Core.dll",
+        "lib/net6.0/Discord.Net.Core.xml",
+        "lib/net8.0/Discord.Net.Core.dll",
+        "lib/net8.0/Discord.Net.Core.xml",
+        "lib/net9.0/Discord.Net.Core.dll",
+        "lib/net9.0/Discord.Net.Core.xml",
+        "lib/netstandard2.0/Discord.Net.Core.dll",
+        "lib/netstandard2.0/Discord.Net.Core.xml",
+        "lib/netstandard2.1/Discord.Net.Core.dll",
+        "lib/netstandard2.1/Discord.Net.Core.xml"
+      ]
+    },
+    "Discord.Net.Interactions/3.17.1": {
+      "sha512": "KkLzB2gaQj8XggVnmbKzy8yHr8bG2ZypTfHbb/z88cEDu3440Ej+lVc/nr4WQVIR+VnlU5Q7cTS44IzwPJYBAQ==",
+      "type": "package",
+      "path": "discord.net.interactions/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.interactions.3.17.1.nupkg.sha512",
+        "discord.net.interactions.nuspec",
+        "lib/net461/Discord.Net.Interactions.dll",
+        "lib/net461/Discord.Net.Interactions.xml",
+        "lib/net5.0/Discord.Net.Interactions.dll",
+        "lib/net5.0/Discord.Net.Interactions.xml",
+        "lib/net6.0/Discord.Net.Interactions.dll",
+        "lib/net6.0/Discord.Net.Interactions.xml",
+        "lib/net8.0/Discord.Net.Interactions.dll",
+        "lib/net8.0/Discord.Net.Interactions.xml",
+        "lib/net9.0/Discord.Net.Interactions.dll",
+        "lib/net9.0/Discord.Net.Interactions.xml",
+        "lib/netstandard2.0/Discord.Net.Interactions.dll",
+        "lib/netstandard2.0/Discord.Net.Interactions.xml",
+        "lib/netstandard2.1/Discord.Net.Interactions.dll",
+        "lib/netstandard2.1/Discord.Net.Interactions.xml"
+      ]
+    },
+    "Discord.Net.Rest/3.17.1": {
+      "sha512": "dvkY/Or8pz82hEE7qyY8QCUm/tcbPrLaknoihKZcezFU0Hj8vxVrfBIUZ1CXhBeOR8DzpEM3yNg4WewU4Fiwpg==",
+      "type": "package",
+      "path": "discord.net.rest/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.rest.3.17.1.nupkg.sha512",
+        "discord.net.rest.nuspec",
+        "lib/net461/Discord.Net.Rest.dll",
+        "lib/net461/Discord.Net.Rest.xml",
+        "lib/net5.0/Discord.Net.Rest.dll",
+        "lib/net5.0/Discord.Net.Rest.xml",
+        "lib/net6.0/Discord.Net.Rest.dll",
+        "lib/net6.0/Discord.Net.Rest.xml",
+        "lib/net8.0/Discord.Net.Rest.dll",
+        "lib/net8.0/Discord.Net.Rest.xml",
+        "lib/net9.0/Discord.Net.Rest.dll",
+        "lib/net9.0/Discord.Net.Rest.xml",
+        "lib/netstandard2.0/Discord.Net.Rest.dll",
+        "lib/netstandard2.0/Discord.Net.Rest.xml",
+        "lib/netstandard2.1/Discord.Net.Rest.dll",
+        "lib/netstandard2.1/Discord.Net.Rest.xml"
+      ]
+    },
+    "Discord.Net.Webhook/3.17.1": {
+      "sha512": "ge7vTnUsuQLhy8ta63vlgHmycAWvDDVHS3EcgJU5l7f22x24stGk8hZYycaBTp+6qjKKjRvNvUSLCb5bZuPN3A==",
+      "type": "package",
+      "path": "discord.net.webhook/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.webhook.3.17.1.nupkg.sha512",
+        "discord.net.webhook.nuspec",
+        "lib/net5.0/Discord.Net.Webhook.dll",
+        "lib/net5.0/Discord.Net.Webhook.xml",
+        "lib/net6.0/Discord.Net.Webhook.dll",
+        "lib/net6.0/Discord.Net.Webhook.xml",
+        "lib/net8.0/Discord.Net.Webhook.dll",
+        "lib/net8.0/Discord.Net.Webhook.xml",
+        "lib/net9.0/Discord.Net.Webhook.dll",
+        "lib/net9.0/Discord.Net.Webhook.xml",
+        "lib/netstandard2.0/Discord.Net.Webhook.dll",
+        "lib/netstandard2.0/Discord.Net.Webhook.xml",
+        "lib/netstandard2.1/Discord.Net.Webhook.dll",
+        "lib/netstandard2.1/Discord.Net.Webhook.xml"
+      ]
+    },
+    "Discord.Net.WebSocket/3.17.1": {
+      "sha512": "S65fp0C+CedL3+4XtRifJnsdndC7G84jg7fw7e+WZ1inmMHRnaYaYvaMCM6D0rRAD0h5FHqG+K1vS+C+v576sw==",
+      "type": "package",
+      "path": "discord.net.websocket/3.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NUGET_README.md",
+        "PackageLogo.png",
+        "discord.net.websocket.3.17.1.nupkg.sha512",
+        "discord.net.websocket.nuspec",
+        "lib/net461/Discord.Net.WebSocket.dll",
+        "lib/net461/Discord.Net.WebSocket.xml",
+        "lib/net5.0/Discord.Net.WebSocket.dll",
+        "lib/net5.0/Discord.Net.WebSocket.xml",
+        "lib/net6.0/Discord.Net.WebSocket.dll",
+        "lib/net6.0/Discord.Net.WebSocket.xml",
+        "lib/net8.0/Discord.Net.WebSocket.dll",
+        "lib/net8.0/Discord.Net.WebSocket.xml",
+        "lib/net9.0/Discord.Net.WebSocket.dll",
+        "lib/net9.0/Discord.Net.WebSocket.xml",
+        "lib/netstandard2.0/Discord.Net.WebSocket.dll",
+        "lib/netstandard2.0/Discord.Net.WebSocket.xml",
+        "lib/netstandard2.1/Discord.Net.WebSocket.dll",
+        "lib/netstandard2.1/Discord.Net.WebSocket.xml"
+      ]
+    },
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "sha512": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+      "type": "package",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.NETCore.Platforms/3.1.0": {
+      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+      "type": "package",
+      "path": "microsoft.netcore.platforms/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
+        "runtime.json",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Web.WebView2/1.0.2651.64": {
+      "sha512": "f5sc/vcAoTCTEW7Nqzp4galAuTRguZViw8ksn+Nx2uskEBPm0/ubzy6gVjvXS/P96jLS89C8T9I0hPc417xpNg==",
+      "type": "package",
+      "path": "microsoft.web.webview2/1.0.2651.64",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "NOTICE.txt",
+        "WebView2.idl",
+        "WebView2.tlb",
+        "build/Common.targets",
+        "build/Microsoft.Web.WebView2.targets",
+        "build/WebView2Rules.Project.xml",
+        "build/native/Microsoft.Web.WebView2.targets",
+        "build/native/arm64/WebView2Loader.dll",
+        "build/native/arm64/WebView2Loader.dll.lib",
+        "build/native/arm64/WebView2LoaderStatic.lib",
+        "build/native/include-winrt/WebView2Interop.h",
+        "build/native/include-winrt/WebView2Interop.idl",
+        "build/native/include-winrt/WebView2Interop.tlb",
+        "build/native/include/WebView2.h",
+        "build/native/include/WebView2EnvironmentOptions.h",
+        "build/native/x64/WebView2Loader.dll",
+        "build/native/x64/WebView2Loader.dll.lib",
+        "build/native/x64/WebView2LoaderStatic.lib",
+        "build/native/x86/WebView2Loader.dll",
+        "build/native/x86/WebView2Loader.dll.lib",
+        "build/native/x86/WebView2LoaderStatic.lib",
+        "build/wv2winrt.targets",
+        "lib/Microsoft.Web.WebView2.Core.winmd",
+        "lib/net462/Microsoft.Web.WebView2.Core.dll",
+        "lib/net462/Microsoft.Web.WebView2.Core.xml",
+        "lib/net462/Microsoft.Web.WebView2.WinForms.dll",
+        "lib/net462/Microsoft.Web.WebView2.WinForms.xml",
+        "lib/net462/Microsoft.Web.WebView2.Wpf.dll",
+        "lib/net462/Microsoft.Web.WebView2.Wpf.xml",
+        "lib_manual/net6.0-windows10.0.17763.0/Microsoft.Web.WebView2.Core.Projection.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Core.xml",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.xml",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll",
+        "lib_manual/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.xml",
+        "microsoft.web.webview2.1.0.2651.64.nupkg.sha512",
+        "microsoft.web.webview2.nuspec",
+        "runtimes/win-arm64/native/WebView2Loader.dll",
+        "runtimes/win-arm64/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "runtimes/win-x64/native/WebView2Loader.dll",
+        "runtimes/win-x64/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "runtimes/win-x86/native/WebView2Loader.dll",
+        "runtimes/win-x86/native_uap/Microsoft.Web.WebView2.Core.dll",
+        "tools/VisualStudioToolsManifest.xml",
+        "tools/wv2winrt/Antlr3.Runtime.dll",
+        "tools/wv2winrt/Antlr4.StringTemplate.dll",
+        "tools/wv2winrt/System.Buffers.dll",
+        "tools/wv2winrt/System.CommandLine.DragonFruit.dll",
+        "tools/wv2winrt/System.CommandLine.Rendering.dll",
+        "tools/wv2winrt/System.CommandLine.dll",
+        "tools/wv2winrt/System.Memory.dll",
+        "tools/wv2winrt/System.Numerics.Vectors.dll",
+        "tools/wv2winrt/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/wv2winrt/codegen_util.dll",
+        "tools/wv2winrt/concrt140_app.dll",
+        "tools/wv2winrt/cs/System.CommandLine.resources.dll",
+        "tools/wv2winrt/de/System.CommandLine.resources.dll",
+        "tools/wv2winrt/es/System.CommandLine.resources.dll",
+        "tools/wv2winrt/fr/System.CommandLine.resources.dll",
+        "tools/wv2winrt/it/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ja/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ko/System.CommandLine.resources.dll",
+        "tools/wv2winrt/msvcp140_1_app.dll",
+        "tools/wv2winrt/msvcp140_2_app.dll",
+        "tools/wv2winrt/msvcp140_app.dll",
+        "tools/wv2winrt/pl/System.CommandLine.resources.dll",
+        "tools/wv2winrt/pt-BR/System.CommandLine.resources.dll",
+        "tools/wv2winrt/ru/System.CommandLine.resources.dll",
+        "tools/wv2winrt/tr/System.CommandLine.resources.dll",
+        "tools/wv2winrt/type_hierarchy.dll",
+        "tools/wv2winrt/vcamp140_app.dll",
+        "tools/wv2winrt/vccorlib140_app.dll",
+        "tools/wv2winrt/vcomp140_app.dll",
+        "tools/wv2winrt/vcruntime140_app.dll",
+        "tools/wv2winrt/winrt_winmd.dll",
+        "tools/wv2winrt/winrt_winmd.winmd",
+        "tools/wv2winrt/wv2winrt.exe",
+        "tools/wv2winrt/wv2winrt.exe.config",
+        "tools/wv2winrt/wv2winrt.xml",
+        "tools/wv2winrt/zh-Hans/System.CommandLine.resources.dll",
+        "tools/wv2winrt/zh-Hant/System.CommandLine.resources.dll"
+      ]
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "sha512": "KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "type": "package",
+      "path": "microsoft.win32.registry/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.xml",
+        "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "microsoft.win32.registry.4.7.0.nupkg.sha512",
+        "microsoft.win32.registry.nuspec",
+        "ref/net46/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.xml",
+        "ref/net472/Microsoft.Win32.Registry.dll",
+        "ref/net472/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/de/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/es/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/fr/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/it/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ja/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ko/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ru/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hans/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hant/Microsoft.Win32.Registry.xml",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Windows.CsWin32/0.3.106": {
+      "sha512": "Mx5fK7uN6fwLR4wUghs6//HonAnwPBNmC2oonyJVhCUlHS/r6SUS3NkBc3+gaQiv+0/9bqdj1oSCKQFkNI+21Q==",
+      "type": "package",
+      "path": "microsoft.windows.cswin32/0.3.106",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NOTICE.txt",
+        "README.md",
+        "analyzers/cs/MessagePack.Annotations.dll",
+        "analyzers/cs/MessagePack.dll",
+        "analyzers/cs/Microsoft.Bcl.AsyncInterfaces.dll",
+        "analyzers/cs/Microsoft.Windows.CsWin32.dll",
+        "analyzers/cs/Microsoft.Windows.SDK.Win32Docs.dll",
+        "analyzers/cs/System.Text.Encodings.Web.dll",
+        "analyzers/cs/System.Text.Json.dll",
+        "build/Microsoft.Windows.CsWin32.props",
+        "build/net20/Microsoft.Windows.CsWin32.props",
+        "build/netstandard1.0/Microsoft.Windows.CsWin32.props",
+        "microsoft.windows.cswin32.0.3.106.nupkg.sha512",
+        "microsoft.windows.cswin32.nuspec",
+        "readme.txt",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "Microsoft.Windows.SDK.BuildTools/10.0.26100.1742": {
+      "sha512": "ypcHjr4KEi6xQhgClnbXoANHcyyX/QsC4Rky4igs6M4GiDa+weegPo8JuV/VMxqrZCV4zlqDsp2krgkN7ReAAg==",
+      "type": "package",
+      "path": "microsoft.windows.sdk.buildtools/10.0.26100.1742",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bin/10.0.26100.0/arm64/AccChecker/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/arm64/ComparePackage.exe",
+        "bin/10.0.26100.0/arm64/DeployUtil.exe",
+        "bin/10.0.26100.0/arm64/MakeCert.exe",
+        "bin/10.0.26100.0/arm64/Microsoft.ComparePackage.Lib.dll",
+        "bin/10.0.26100.0/arm64/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/arm64/Microsoft.PackageEditor.Lib.dll",
+        "bin/10.0.26100.0/arm64/Microsoft.Tools.Connectivity.dll",
+        "bin/10.0.26100.0/arm64/Microsoft.Tools.Deploy.dll",
+        "bin/10.0.26100.0/arm64/Microsoft.Windows.Build.Appx.AppxPackaging.dll.manifest",
+        "bin/10.0.26100.0/arm64/Microsoft.Windows.Build.Appx.AppxSip.dll.manifest",
+        "bin/10.0.26100.0/arm64/Microsoft.Windows.Build.Appx.OpcServices.dll.manifest",
+        "bin/10.0.26100.0/arm64/Microsoft.Windows.Build.Signing.mssign32.dll.manifest",
+        "bin/10.0.26100.0/arm64/Microsoft.Windows.Build.Signing.wintrust.dll.manifest",
+        "bin/10.0.26100.0/arm64/PackageEditor.exe",
+        "bin/10.0.26100.0/arm64/ServicingCommon.dll",
+        "bin/10.0.26100.0/arm64/SirepClient.assembly.manifest",
+        "bin/10.0.26100.0/arm64/SirepClient.dll",
+        "bin/10.0.26100.0/arm64/SirepInterop.dll",
+        "bin/10.0.26100.0/arm64/SshClient.dll",
+        "bin/10.0.26100.0/arm64/WinAppDeployCmd.exe",
+        "bin/10.0.26100.0/arm64/WinAppDeployCommon.dll",
+        "bin/10.0.26100.0/arm64/appxpackaging.dll",
+        "bin/10.0.26100.0/arm64/appxsip.dll",
+        "bin/10.0.26100.0/arm64/en-US/AppxPackaging.dll.mui",
+        "bin/10.0.26100.0/arm64/en/Microsoft.Tools.Deploy.resources.dll",
+        "bin/10.0.26100.0/arm64/en/WinAppDeployCmd.resources.dll",
+        "bin/10.0.26100.0/arm64/ipoverusb.discoverpartners.dll",
+        "bin/10.0.26100.0/arm64/makeappx.exe",
+        "bin/10.0.26100.0/arm64/makecat.exe",
+        "bin/10.0.26100.0/arm64/makecat.exe.manifest",
+        "bin/10.0.26100.0/arm64/makepri.exe",
+        "bin/10.0.26100.0/arm64/mc.exe",
+        "bin/10.0.26100.0/arm64/mdmerge.exe",
+        "bin/10.0.26100.0/arm64/midl.exe",
+        "bin/10.0.26100.0/arm64/midlc.exe",
+        "bin/10.0.26100.0/arm64/midlrt.exe",
+        "bin/10.0.26100.0/arm64/midlrtmd.dll",
+        "bin/10.0.26100.0/arm64/mrmsupport.dll",
+        "bin/10.0.26100.0/arm64/msisip.dll",
+        "bin/10.0.26100.0/arm64/mssign32.dll",
+        "bin/10.0.26100.0/arm64/mt.exe",
+        "bin/10.0.26100.0/arm64/mt.exe.config",
+        "bin/10.0.26100.0/arm64/opcservices.dll",
+        "bin/10.0.26100.0/arm64/rc.exe",
+        "bin/10.0.26100.0/arm64/rcdll.dll",
+        "bin/10.0.26100.0/arm64/signtool.exe",
+        "bin/10.0.26100.0/arm64/signtool.exe.manifest",
+        "bin/10.0.26100.0/arm64/tracewpp.exe",
+        "bin/10.0.26100.0/arm64/uuidgen.exe",
+        "bin/10.0.26100.0/arm64/veiid.exe",
+        "bin/10.0.26100.0/arm64/winmdidl.exe",
+        "bin/10.0.26100.0/arm64/wintrust.dll",
+        "bin/10.0.26100.0/arm64/wintrust.dll.ini",
+        "bin/10.0.26100.0/x64/AccChecker/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/x64/ComparePackage.exe",
+        "bin/10.0.26100.0/x64/DeployUtil.exe",
+        "bin/10.0.26100.0/x64/MakeCert.exe",
+        "bin/10.0.26100.0/x64/Microsoft.ComparePackage.Lib.dll",
+        "bin/10.0.26100.0/x64/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/x64/Microsoft.PackageEditor.Lib.dll",
+        "bin/10.0.26100.0/x64/Microsoft.Tools.Connectivity.dll",
+        "bin/10.0.26100.0/x64/Microsoft.Tools.Deploy.dll",
+        "bin/10.0.26100.0/x64/Microsoft.Windows.Build.Appx.AppxPackaging.dll.manifest",
+        "bin/10.0.26100.0/x64/Microsoft.Windows.Build.Appx.AppxSip.dll.manifest",
+        "bin/10.0.26100.0/x64/Microsoft.Windows.Build.Appx.OpcServices.dll.manifest",
+        "bin/10.0.26100.0/x64/Microsoft.Windows.Build.Signing.mssign32.dll.manifest",
+        "bin/10.0.26100.0/x64/Microsoft.Windows.Build.Signing.wintrust.dll.manifest",
+        "bin/10.0.26100.0/x64/PackageEditor.exe",
+        "bin/10.0.26100.0/x64/ServicingCommon.dll",
+        "bin/10.0.26100.0/x64/SirepClient.assembly.manifest",
+        "bin/10.0.26100.0/x64/SirepClient.dll",
+        "bin/10.0.26100.0/x64/SirepInterop.dll",
+        "bin/10.0.26100.0/x64/SshClient.dll",
+        "bin/10.0.26100.0/x64/WinAppDeployCmd.exe",
+        "bin/10.0.26100.0/x64/WinAppDeployCommon.dll",
+        "bin/10.0.26100.0/x64/appxpackaging.dll",
+        "bin/10.0.26100.0/x64/appxsip.dll",
+        "bin/10.0.26100.0/x64/en-US/AppxPackaging.dll.mui",
+        "bin/10.0.26100.0/x64/en/Microsoft.Tools.Deploy.resources.dll",
+        "bin/10.0.26100.0/x64/en/WinAppDeployCmd.resources.dll",
+        "bin/10.0.26100.0/x64/ipoverusb.discoverpartners.dll",
+        "bin/10.0.26100.0/x64/makeappx.exe",
+        "bin/10.0.26100.0/x64/makecat.exe",
+        "bin/10.0.26100.0/x64/makecat.exe.manifest",
+        "bin/10.0.26100.0/x64/makepri.exe",
+        "bin/10.0.26100.0/x64/mc.exe",
+        "bin/10.0.26100.0/x64/mdmerge.exe",
+        "bin/10.0.26100.0/x64/midl.exe",
+        "bin/10.0.26100.0/x64/midlc.exe",
+        "bin/10.0.26100.0/x64/midlrt.exe",
+        "bin/10.0.26100.0/x64/midlrtmd.dll",
+        "bin/10.0.26100.0/x64/mrmsupport.dll",
+        "bin/10.0.26100.0/x64/msisip.dll",
+        "bin/10.0.26100.0/x64/mssign32.dll",
+        "bin/10.0.26100.0/x64/mt.exe",
+        "bin/10.0.26100.0/x64/mt.exe.config",
+        "bin/10.0.26100.0/x64/opcservices.dll",
+        "bin/10.0.26100.0/x64/rc.exe",
+        "bin/10.0.26100.0/x64/rcdll.dll",
+        "bin/10.0.26100.0/x64/signtool.exe",
+        "bin/10.0.26100.0/x64/signtool.exe.manifest",
+        "bin/10.0.26100.0/x64/tracewpp.exe",
+        "bin/10.0.26100.0/x64/uuidgen.exe",
+        "bin/10.0.26100.0/x64/veiid.exe",
+        "bin/10.0.26100.0/x64/winmdidl.exe",
+        "bin/10.0.26100.0/x64/wintrust.dll",
+        "bin/10.0.26100.0/x64/wintrust.dll.ini",
+        "bin/10.0.26100.0/x86/AccChecker/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/x86/ComparePackage.exe",
+        "bin/10.0.26100.0/x86/DeployUtil.exe",
+        "bin/10.0.26100.0/x86/MakeCert.exe",
+        "bin/10.0.26100.0/x86/Microsoft.ComparePackage.Lib.dll",
+        "bin/10.0.26100.0/x86/Microsoft.Diagnostics.Tracing.EventSource.dll",
+        "bin/10.0.26100.0/x86/Microsoft.PackageEditor.Lib.dll",
+        "bin/10.0.26100.0/x86/Microsoft.Tools.Connectivity.dll",
+        "bin/10.0.26100.0/x86/Microsoft.Tools.Deploy.dll",
+        "bin/10.0.26100.0/x86/Microsoft.Windows.Build.Appx.AppxPackaging.dll.manifest",
+        "bin/10.0.26100.0/x86/Microsoft.Windows.Build.Appx.AppxSip.dll.manifest",
+        "bin/10.0.26100.0/x86/Microsoft.Windows.Build.Appx.OpcServices.dll.manifest",
+        "bin/10.0.26100.0/x86/Microsoft.Windows.Build.Signing.mssign32.dll.manifest",
+        "bin/10.0.26100.0/x86/Microsoft.Windows.Build.Signing.wintrust.dll.manifest",
+        "bin/10.0.26100.0/x86/PackageEditor.exe",
+        "bin/10.0.26100.0/x86/ServicingCommon.dll",
+        "bin/10.0.26100.0/x86/SirepClient.assembly.manifest",
+        "bin/10.0.26100.0/x86/SirepClient.dll",
+        "bin/10.0.26100.0/x86/SirepInterop.dll",
+        "bin/10.0.26100.0/x86/SshClient.dll",
+        "bin/10.0.26100.0/x86/WinAppDeployCmd.exe",
+        "bin/10.0.26100.0/x86/WinAppDeployCommon.dll",
+        "bin/10.0.26100.0/x86/appxpackaging.dll",
+        "bin/10.0.26100.0/x86/appxsip.dll",
+        "bin/10.0.26100.0/x86/en-US/AppxPackaging.dll.mui",
+        "bin/10.0.26100.0/x86/en/Microsoft.Tools.Deploy.resources.dll",
+        "bin/10.0.26100.0/x86/en/WinAppDeployCmd.resources.dll",
+        "bin/10.0.26100.0/x86/ipoverusb.discoverpartners.dll",
+        "bin/10.0.26100.0/x86/makeappx.exe",
+        "bin/10.0.26100.0/x86/makecat.exe",
+        "bin/10.0.26100.0/x86/makecat.exe.manifest",
+        "bin/10.0.26100.0/x86/makepri.exe",
+        "bin/10.0.26100.0/x86/mc.exe",
+        "bin/10.0.26100.0/x86/mdmerge.exe",
+        "bin/10.0.26100.0/x86/midl.exe",
+        "bin/10.0.26100.0/x86/midlc.exe",
+        "bin/10.0.26100.0/x86/midlrt.exe",
+        "bin/10.0.26100.0/x86/midlrtmd.dll",
+        "bin/10.0.26100.0/x86/mrmsupport.dll",
+        "bin/10.0.26100.0/x86/msisip.dll",
+        "bin/10.0.26100.0/x86/mssign32.dll",
+        "bin/10.0.26100.0/x86/mt.exe",
+        "bin/10.0.26100.0/x86/mt.exe.config",
+        "bin/10.0.26100.0/x86/opcservices.dll",
+        "bin/10.0.26100.0/x86/rc.exe",
+        "bin/10.0.26100.0/x86/rcdll.dll",
+        "bin/10.0.26100.0/x86/signtool.exe",
+        "bin/10.0.26100.0/x86/signtool.exe.manifest",
+        "bin/10.0.26100.0/x86/tracewpp.exe",
+        "bin/10.0.26100.0/x86/uuidgen.exe",
+        "bin/10.0.26100.0/x86/winmdidl.exe",
+        "bin/10.0.26100.0/x86/wintrust.dll",
+        "bin/10.0.26100.0/x86/wintrust.dll.ini",
+        "build/Microsoft.Windows.SDK.BuildTools.props",
+        "build/Microsoft.Windows.SDK.BuildTools.targets",
+        "buildTransitive/Microsoft.Windows.SDK.BuildTools.props",
+        "buildTransitive/Microsoft.Windows.SDK.BuildTools.targets",
+        "microsoft.windows.sdk.buildtools.10.0.26100.1742.nupkg.sha512",
+        "microsoft.windows.sdk.buildtools.nuspec",
+        "schemas/10.0.26100.0/winrt/AppxManifestSchema.xsd",
+        "schemas/10.0.26100.0/winrt/AppxManifestSchema2010_v2.xsd",
+        "schemas/10.0.26100.0/winrt/AppxManifestSchema2013.xsd",
+        "schemas/10.0.26100.0/winrt/FoundationManifestSchema.xsd",
+        "schemas/10.0.26100.0/winrt/FoundationManifestSchema_v2.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v10.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v11.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v12.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v13.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v15.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v15a.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v16.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v17.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v2.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v3.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v4.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v5.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v6.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v7.xsd",
+        "schemas/10.0.26100.0/winrt/UapManifestSchema_v8.xsd"
+      ]
+    },
+    "Microsoft.Windows.SDK.Win32Docs/0.1.42-alpha": {
+      "sha512": "Z/9po23gUA9aoukirh2ItMU2ZS9++Js9Gdds9fu5yuMojDrmArvY2y+tq9985tR3cxFxpZO1O35Wjfo0khj5HA==",
+      "type": "package",
+      "path": "microsoft.windows.sdk.win32docs/0.1.42-alpha",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "apidocs.msgpack",
+        "buildTransitive/Microsoft.Windows.SDK.Win32Docs.props",
+        "buildTransitive/net20/Microsoft.Windows.SDK.Win32Docs.props",
+        "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Docs.props",
+        "images/windows.png",
+        "lib/netstandard2.0/Microsoft.Windows.SDK.Win32Docs.dll",
+        "lib/netstandard2.0/Microsoft.Windows.SDK.Win32Docs.xml",
+        "microsoft.windows.sdk.win32docs.0.1.42-alpha.nupkg.sha512",
+        "microsoft.windows.sdk.win32docs.nuspec"
+      ]
+    },
+    "Microsoft.Windows.SDK.Win32Metadata/60.0.34-preview": {
+      "sha512": "TA3DUNi4CTeo+ItTXBnGZFt2159XOGSl0UOlG5vjDj4WHqZjhwYyyUnzOtrbCERiSaP2Hzg7otJNWwOSZgutyA==",
+      "type": "package",
+      "path": "microsoft.windows.sdk.win32metadata/60.0.34-preview",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Windows.Win32.winmd",
+        "build/Microsoft.Windows.SDK.Win32Metadata.props",
+        "build/net20/Microsoft.Windows.SDK.Win32Metadata.props",
+        "build/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props",
+        "buildTransitive/Microsoft.Windows.SDK.Win32Metadata.props",
+        "buildTransitive/net20/Microsoft.Windows.SDK.Win32Metadata.props",
+        "buildTransitive/netstandard1.0/Microsoft.Windows.SDK.Win32Metadata.props",
+        "images/windows.png",
+        "microsoft.windows.sdk.win32metadata.60.0.34-preview.nupkg.sha512",
+        "microsoft.windows.sdk.win32metadata.nuspec",
+        "sdk_license.txt"
+      ]
+    },
+    "Microsoft.Windows.WDK.Win32Metadata/0.11.4-experimental": {
+      "sha512": "bf5MCmUyZf0gBlYQjx9UpRAZWBkRndyt9XicR+UNLvAUAFTZQbu6YaX/sNKZlR98Grn0gydfh/yT4I3vc0AIQA==",
+      "type": "package",
+      "path": "microsoft.windows.wdk.win32metadata/0.11.4-experimental",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Windows.Wdk.winmd",
+        "build/Microsoft.Windows.WDK.Win32Metadata.props",
+        "build/net20/Microsoft.Windows.WDK.Win32Metadata.props",
+        "build/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props",
+        "buildTransitive/Microsoft.Windows.WDK.Win32Metadata.props",
+        "buildTransitive/net20/Microsoft.Windows.WDK.Win32Metadata.props",
+        "buildTransitive/netstandard1.0/Microsoft.Windows.WDK.Win32Metadata.props",
+        "images/windows.png",
+        "microsoft.windows.wdk.win32metadata.0.11.4-experimental.nupkg.sha512",
+        "microsoft.windows.wdk.win32metadata.nuspec",
+        "sdk_license.txt"
+      ]
+    },
+    "Microsoft.WindowsAppSDK/1.6.241114003": {
+      "sha512": "5XBNubjJi7+7DDI5lUXR3Jc0/memeFJyP6zmGTGgQcmTTbUf2T6U1f+qwcXHT+2yoXpaDuZCE86/aDLdU30e5A==",
+      "type": "package",
+      "path": "microsoft.windowsappsdk/1.6.241114003",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "NOTICE.txt",
+        "WindowsAppSDK-VersionInfo.json",
+        "WindowsAppSDK-VersionInfo.xml",
+        "build/AppDevPackageScripts/Add-AppDevPackage.ps1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/cs-CZ/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/de-DE/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/en-US/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/es-ES/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/fr-FR/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/it-IT/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/ja-JP/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/ko-KR/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/pl-PL/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/pt-BR/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/ru-RU/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/tr-TR/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/zh-CN/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Add-AppDevPackage.resources/zh-TW/Add-AppDevPackage.psd1",
+        "build/AppDevPackageScripts/Install.ps1",
+        "build/AppDevPackageScripts/LogSideloadingTelemetry.ps1",
+        "build/Landing/extras/br.png",
+        "build/Landing/extras/br_snippet.png",
+        "build/Landing/image.png",
+        "build/Landing/index.template.html",
+        "build/Landing/logo.png",
+        "build/Landing/style.css",
+        "build/Microsoft.Build.Msix.Common.props",
+        "build/Microsoft.Build.Msix.Cpp.props",
+        "build/Microsoft.Build.Msix.Cpp.targets",
+        "build/Microsoft.Build.Msix.Cs.targets",
+        "build/Microsoft.Build.Msix.DesignTime.targets",
+        "build/Microsoft.Build.Msix.Packaging.targets",
+        "build/Microsoft.Build.Msix.Pri.targets",
+        "build/Microsoft.Build.Msix.props",
+        "build/Microsoft.Build.Msix.targets",
+        "build/Microsoft.InteractiveExperiences.Capabilities.props",
+        "build/Microsoft.InteractiveExperiences.Capabilities.targets",
+        "build/Microsoft.InteractiveExperiences.Common.props",
+        "build/Microsoft.InteractiveExperiences.Common.targets",
+        "build/Microsoft.InteractiveExperiences.props",
+        "build/Microsoft.InteractiveExperiences.targets",
+        "build/Microsoft.UI.Xaml.Markup.Compiler.BeforeCommon.targets",
+        "build/Microsoft.UI.Xaml.Markup.Compiler.interop.targets",
+        "build/Microsoft.UI.Xaml.Markup.Compiler.props",
+        "build/Microsoft.UI.Xaml.Markup.Compiler.targets",
+        "build/Microsoft.WinUI.AppX.targets",
+        "build/Microsoft.WinUI.NET.Markup.Compiler.targets",
+        "build/Microsoft.WinUI.ProjectCapabilities.props",
+        "build/Microsoft.WinUI.References.targets",
+        "build/Microsoft.WinUI.props",
+        "build/Microsoft.WinUI.targets",
+        "build/Microsoft.WindowsAppSDK.AppXReference.props",
+        "build/Microsoft.WindowsAppSDK.Bootstrap.CS.targets",
+        "build/Microsoft.WindowsAppSDK.BootstrapCommon.targets",
+        "build/Microsoft.WindowsAppSDK.Common.props",
+        "build/Microsoft.WindowsAppSDK.DWrite.ProjectCapabilities.props",
+        "build/Microsoft.WindowsAppSDK.DWrite.props",
+        "build/Microsoft.WindowsAppSDK.DWrite.targets",
+        "build/Microsoft.WindowsAppSDK.DeploymentManager.CS.targets",
+        "build/Microsoft.WindowsAppSDK.DeploymentManagerCommon.targets",
+        "build/Microsoft.WindowsAppSDK.Foundation.props",
+        "build/Microsoft.WindowsAppSDK.Foundation.targets",
+        "build/Microsoft.WindowsAppSDK.InteractiveExperiences.props",
+        "build/Microsoft.WindowsAppSDK.InteractiveExperiences.targets",
+        "build/Microsoft.WindowsAppSDK.Metapackage.props",
+        "build/Microsoft.WindowsAppSDK.SelfContained.targets",
+        "build/Microsoft.WindowsAppSDK.SingleFile.targets",
+        "build/Microsoft.WindowsAppSDK.UndockedRegFreeWinRT.CS.targets",
+        "build/Microsoft.WindowsAppSDK.UndockedRegFreeWinRTCommon.targets",
+        "build/Microsoft.WindowsAppSDK.Widgets.targets",
+        "build/Microsoft.WindowsAppSDK.WinUI.props",
+        "build/Microsoft.WindowsAppSDK.WinUI.targets",
+        "build/Microsoft.WindowsAppSDK.props",
+        "build/Microsoft.WindowsAppSDK.targets",
+        "build/Microsoft.Xaml.Tooling.targets",
+        "build/MicrosoftWindowsAppSDKFoundationAppXVersion.props",
+        "build/MrtCore.PriGen.targets",
+        "build/MrtCore.References.targets",
+        "build/MrtCore.props",
+        "build/MrtCore.targets",
+        "build/ProjectItemsSchema.xaml",
+        "build/README.md",
+        "build/Rules/MsixPackageDebugPropertyPage.xaml",
+        "build/Rules/WindowsPackageTypePropertyPage.xaml",
+        "build/Templates/Package.appinstaller",
+        "build/native/LiftedWinRTClassRegistrations.xml",
+        "build/native/Microsoft.InteractiveExperiences.props",
+        "build/native/Microsoft.InteractiveExperiences.targets",
+        "build/native/Microsoft.WinUI.References.targets",
+        "build/native/Microsoft.WinUI.props",
+        "build/native/Microsoft.WinUI.targets",
+        "build/native/Microsoft.WindowsAppSDK.Foundation.props",
+        "build/native/Microsoft.WindowsAppSDK.Foundation.targets",
+        "build/native/Microsoft.WindowsAppSDK.InteractiveExperiences.props",
+        "build/native/Microsoft.WindowsAppSDK.InteractiveExperiences.targets",
+        "build/native/Microsoft.WindowsAppSDK.Widgets.targets",
+        "build/native/Microsoft.WindowsAppSDK.WinUI.props",
+        "build/native/Microsoft.WindowsAppSDK.WinUI.targets",
+        "build/native/Microsoft.WindowsAppSDK.props",
+        "build/native/Microsoft.WindowsAppSDK.targets",
+        "build/native/MrtCore.C.props",
+        "build/native/MrtCore.props",
+        "build/native/MrtCore.targets",
+        "build/native/WindowsAppSDK-Nuget-Native.Bootstrap.targets",
+        "build/native/WindowsAppSDK-Nuget-Native.C.props",
+        "build/native/WindowsAppSDK-Nuget-Native.DeploymentManager.targets",
+        "build/native/WindowsAppSDK-Nuget-Native.UndockedRegFreeWinRT.targets",
+        "build/native/WindowsAppSDK-Nuget-Native.WinRt.props",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.ps1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/cs-CZ/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/de-DE/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/en-US/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/es-ES/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/fr-FR/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/it-IT/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/ja-JP/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/ko-KR/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/pl-PL/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/pt-BR/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/ru-RU/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/tr-TR/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/zh-CN/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Add-AppDevPackage.resources/zh-TW/Add-AppDevPackage.psd1",
+        "buildTransitive/AppDevPackageScripts/Install.ps1",
+        "buildTransitive/AppDevPackageScripts/LogSideloadingTelemetry.ps1",
+        "buildTransitive/Landing/extras/br.png",
+        "buildTransitive/Landing/extras/br_snippet.png",
+        "buildTransitive/Landing/image.png",
+        "buildTransitive/Landing/index.template.html",
+        "buildTransitive/Landing/logo.png",
+        "buildTransitive/Landing/style.css",
+        "buildTransitive/Microsoft.Build.Msix.Common.props",
+        "buildTransitive/Microsoft.Build.Msix.Cpp.props",
+        "buildTransitive/Microsoft.Build.Msix.Cpp.targets",
+        "buildTransitive/Microsoft.Build.Msix.Cs.targets",
+        "buildTransitive/Microsoft.Build.Msix.DesignTime.targets",
+        "buildTransitive/Microsoft.Build.Msix.Packaging.targets",
+        "buildTransitive/Microsoft.Build.Msix.Pri.targets",
+        "buildTransitive/Microsoft.Build.Msix.props",
+        "buildTransitive/Microsoft.Build.Msix.targets",
+        "buildTransitive/Microsoft.InteractiveExperiences.Capabilities.props",
+        "buildTransitive/Microsoft.InteractiveExperiences.Capabilities.targets",
+        "buildTransitive/Microsoft.InteractiveExperiences.Common.props",
+        "buildTransitive/Microsoft.InteractiveExperiences.Common.targets",
+        "buildTransitive/Microsoft.InteractiveExperiences.props",
+        "buildTransitive/Microsoft.InteractiveExperiences.targets",
+        "buildTransitive/Microsoft.UI.Xaml.Markup.Compiler.BeforeCommon.targets",
+        "buildTransitive/Microsoft.UI.Xaml.Markup.Compiler.interop.targets",
+        "buildTransitive/Microsoft.UI.Xaml.Markup.Compiler.props",
+        "buildTransitive/Microsoft.UI.Xaml.Markup.Compiler.targets",
+        "buildTransitive/Microsoft.WinUI.AppX.targets",
+        "buildTransitive/Microsoft.WinUI.NET.Markup.Compiler.targets",
+        "buildTransitive/Microsoft.WinUI.ProjectCapabilities.props",
+        "buildTransitive/Microsoft.WinUI.References.targets",
+        "buildTransitive/Microsoft.WinUI.props",
+        "buildTransitive/Microsoft.WinUI.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.AppXReference.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.Bootstrap.CS.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.BootstrapCommon.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.Common.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.DWrite.ProjectCapabilities.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.DWrite.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.DWrite.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.DeploymentManager.CS.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.DeploymentManagerCommon.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.Foundation.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.Foundation.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.InteractiveExperiences.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.Metapackage.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.SelfContained.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.SingleFile.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.UndockedRegFreeWinRT.CS.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.UndockedRegFreeWinRTCommon.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.Widgets.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.WinUI.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.WinUI.targets",
+        "buildTransitive/Microsoft.WindowsAppSDK.props",
+        "buildTransitive/Microsoft.WindowsAppSDK.targets",
+        "buildTransitive/Microsoft.Xaml.Tooling.targets",
+        "buildTransitive/MicrosoftWindowsAppSDKFoundationAppXVersion.props",
+        "buildTransitive/MrtCore.PriGen.targets",
+        "buildTransitive/MrtCore.References.targets",
+        "buildTransitive/MrtCore.props",
+        "buildTransitive/MrtCore.targets",
+        "buildTransitive/ProjectItemsSchema.xaml",
+        "buildTransitive/README.md",
+        "buildTransitive/Rules/MsixPackageDebugPropertyPage.xaml",
+        "buildTransitive/Rules/WindowsPackageTypePropertyPage.xaml",
+        "buildTransitive/Templates/Package.appinstaller",
+        "buildTransitive/native/LiftedWinRTClassRegistrations.xml",
+        "buildTransitive/native/Microsoft.InteractiveExperiences.props",
+        "buildTransitive/native/Microsoft.InteractiveExperiences.targets",
+        "buildTransitive/native/Microsoft.WinUI.References.targets",
+        "buildTransitive/native/Microsoft.WinUI.props",
+        "buildTransitive/native/Microsoft.WinUI.targets",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.Foundation.props",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.Foundation.targets",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.InteractiveExperiences.props",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.InteractiveExperiences.targets",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.Widgets.targets",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.WinUI.props",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.WinUI.targets",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.props",
+        "buildTransitive/native/Microsoft.WindowsAppSDK.targets",
+        "buildTransitive/native/MrtCore.C.props",
+        "buildTransitive/native/MrtCore.props",
+        "buildTransitive/native/MrtCore.targets",
+        "buildTransitive/native/WindowsAppSDK-Nuget-Native.Bootstrap.targets",
+        "buildTransitive/native/WindowsAppSDK-Nuget-Native.C.props",
+        "buildTransitive/native/WindowsAppSDK-Nuget-Native.DeploymentManager.targets",
+        "buildTransitive/native/WindowsAppSDK-Nuget-Native.UndockedRegFreeWinRT.targets",
+        "buildTransitive/native/WindowsAppSDK-Nuget-Native.WinRt.props",
+        "include/DeploymentManagerAutoInitializer.cpp",
+        "include/DeploymentManagerAutoInitializer.cs",
+        "include/MRM.h",
+        "include/MddBootstrap.h",
+        "include/MddBootstrapAutoInitializer.cpp",
+        "include/MddBootstrapAutoInitializer.cs",
+        "include/Microsoft.UI.Composition.Interop.h",
+        "include/Microsoft.UI.Dispatching.Interop.h",
+        "include/Microsoft.UI.Input.InputCursor.Interop.h",
+        "include/Microsoft.UI.Input.InputPreTranslateSource.Interop.h",
+        "include/Microsoft.UI.Interop.h",
+        "include/Microsoft.Windows.ApplicationModel.Resources.idl",
+        "include/MsixDynamicDependency.h",
+        "include/Security.AccessControl.h",
+        "include/UndockedRegFreeWinRT-AutoInitializer.cpp",
+        "include/UndockedRegFreeWinRT-AutoInitializer.cs",
+        "include/WindowsAppRuntimeInsights.h",
+        "include/WindowsAppSDK-VersionInfo.cs",
+        "include/WindowsAppSDK-VersionInfo.h",
+        "include/dwrite.h",
+        "include/dwrite_1.h",
+        "include/dwrite_2.h",
+        "include/dwrite_3.h",
+        "include/dwrite_core.h",
+        "include/microsoft.ui.xaml.hosting.referencetracker.h",
+        "include/microsoft.ui.xaml.hosting.referencetracker.idl",
+        "include/microsoft.ui.xaml.media.dxinterop.h",
+        "include/microsoft.ui.xaml.media.dxinterop.idl",
+        "include/microsoft.ui.xaml.window.h",
+        "include/microsoft.ui.xaml.window.idl",
+        "include/wil_msixdynamicdependency.h",
+        "include/winrt/Microsoft.UI.Composition.Interop.h",
+        "include/winrt/Microsoft.UI.Input.InputCursor.Interop.h",
+        "include/winrt/Microsoft.UI.Input.InputPreTranslateSource.Interop.h",
+        "include/winrt/Microsoft.UI.Interop.h",
+        "include/winrtdirect3d11.h",
+        "include/winrtdirectxcommon.h",
+        "include/xamlom.winui.h",
+        "include/xamlom.winui.idl",
+        "lib/native/win10-arm64/Microsoft.UI.Dispatching.lib",
+        "lib/native/win10-x64/Microsoft.UI.Dispatching.lib",
+        "lib/native/win10-x86/Microsoft.UI.Dispatching.lib",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.InteractiveExperiences.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.InteractiveExperiences.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.WinUI/Themes/generic.xaml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppLifecycle.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppLifecycle.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppNotifications.Builder.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppNotifications.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.AppNotifications.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.Resources.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Management.Deployment.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Management.Deployment.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.PushNotifications.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.PushNotifications.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Security.AccessControl.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Security.AccessControl.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Storage.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Storage.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.System.Power.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.System.Power.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.System.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.System.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.dll",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.Windows.Widgets.Projection.xml",
+        "lib/net6.0-windows10.0.17763.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.InteractiveExperiences.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.WinUI/Themes/generic.xaml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppLifecycle.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Builder.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.AppNotifications.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.Resources.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Management.Deployment.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.PushNotifications.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Security.AccessControl.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Storage.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Power.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.System.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.dll",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.Windows.Widgets.Projection.xml",
+        "lib/net6.0-windows10.0.18362.0/Microsoft.WindowsAppRuntime.Bootstrap.Net.dll",
+        "lib/uap10.0.17763/Microsoft.Foundation.winmd",
+        "lib/uap10.0.17763/Microsoft.Graphics.winmd",
+        "lib/uap10.0.17763/Microsoft.Graphics.xml",
+        "lib/uap10.0.17763/Microsoft.UI.winmd",
+        "lib/uap10.0.17763/Microsoft.UI.xml",
+        "lib/uap10.0.18362/Microsoft.Foundation.winmd",
+        "lib/uap10.0.18362/Microsoft.Graphics.winmd",
+        "lib/uap10.0.18362/Microsoft.Graphics.xml",
+        "lib/uap10.0.18362/Microsoft.UI.winmd",
+        "lib/uap10.0.18362/Microsoft.UI.xml",
+        "lib/uap10.0/Microsoft.UI.Text.winmd",
+        "lib/uap10.0/Microsoft.UI.Text.xml",
+        "lib/uap10.0/Microsoft.UI.Xaml.winmd",
+        "lib/uap10.0/Microsoft.UI.Xaml.xml",
+        "lib/uap10.0/Microsoft.UI/Themes/generic.xaml",
+        "lib/uap10.0/Microsoft.Windows.AppLifecycle.winmd",
+        "lib/uap10.0/Microsoft.Windows.AppLifecycle.xml",
+        "lib/uap10.0/Microsoft.Windows.AppNotifications.Builder.winmd",
+        "lib/uap10.0/Microsoft.Windows.AppNotifications.Builder.xml",
+        "lib/uap10.0/Microsoft.Windows.AppNotifications.winmd",
+        "lib/uap10.0/Microsoft.Windows.AppNotifications.xml",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.DynamicDependency.winmd",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.DynamicDependency.xml",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.Resources.winmd",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.Resources.xml",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd",
+        "lib/uap10.0/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.xml",
+        "lib/uap10.0/Microsoft.Windows.Globalization.winmd",
+        "lib/uap10.0/Microsoft.Windows.Globalization.xml",
+        "lib/uap10.0/Microsoft.Windows.Management.Deployment.winmd",
+        "lib/uap10.0/Microsoft.Windows.Management.Deployment.xml",
+        "lib/uap10.0/Microsoft.Windows.PushNotifications.winmd",
+        "lib/uap10.0/Microsoft.Windows.PushNotifications.xml",
+        "lib/uap10.0/Microsoft.Windows.Security.AccessControl.winmd",
+        "lib/uap10.0/Microsoft.Windows.Security.AccessControl.xml",
+        "lib/uap10.0/Microsoft.Windows.Storage.winmd",
+        "lib/uap10.0/Microsoft.Windows.Storage.xml",
+        "lib/uap10.0/Microsoft.Windows.System.Power.winmd",
+        "lib/uap10.0/Microsoft.Windows.System.Power.xml",
+        "lib/uap10.0/Microsoft.Windows.System.winmd",
+        "lib/uap10.0/Microsoft.Windows.System.xml",
+        "lib/uap10.0/Microsoft.Windows.Widgets.winmd",
+        "lib/uap10.0/Microsoft.Windows.Widgets.xml",
+        "lib/win10-arm64/DWriteCore.lib",
+        "lib/win10-arm64/MRM.lib",
+        "lib/win10-arm64/Microsoft.WindowsAppRuntime.Bootstrap.lib",
+        "lib/win10-arm64/Microsoft.WindowsAppRuntime.lib",
+        "lib/win10-x64/DWriteCore.lib",
+        "lib/win10-x64/MRM.lib",
+        "lib/win10-x64/Microsoft.WindowsAppRuntime.Bootstrap.lib",
+        "lib/win10-x64/Microsoft.WindowsAppRuntime.lib",
+        "lib/win10-x86/DWriteCore.lib",
+        "lib/win10-x86/MRM.lib",
+        "lib/win10-x86/Microsoft.WindowsAppRuntime.Bootstrap.lib",
+        "lib/win10-x86/Microsoft.WindowsAppRuntime.lib",
+        "license.txt",
+        "manifests/Microsoft.InteractiveExperiences.manifest",
+        "manifests/Microsoft.WindowsAppSdk.Foundation.manifest",
+        "manifests/manifests/Microsoft.WindowsAppSdk.WinUI.manifest",
+        "microsoft.windowsappsdk.1.6.241114003.nupkg.sha512",
+        "microsoft.windowsappsdk.nuspec",
+        "runtimes/win-arm64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll",
+        "runtimes/win-x64/native/Microsoft.WindowsAppRuntime.Bootstrap.dll",
+        "runtimes/win-x86/native/Microsoft.WindowsAppRuntime.Bootstrap.dll",
+        "tools/MSIX/win10-arm64/MSIX.inventory",
+        "tools/MSIX/win10-arm64/Microsoft.WindowsAppRuntime.1.6.msix",
+        "tools/MSIX/win10-arm64/Microsoft.WindowsAppRuntime.DDLM.1.6.msix",
+        "tools/MSIX/win10-arm64/Microsoft.WindowsAppRuntime.Main.1.6.msix",
+        "tools/MSIX/win10-arm64/Microsoft.WindowsAppRuntime.Singleton.1.6.msix",
+        "tools/MSIX/win10-x64/MSIX.inventory",
+        "tools/MSIX/win10-x64/Microsoft.WindowsAppRuntime.1.6.msix",
+        "tools/MSIX/win10-x64/Microsoft.WindowsAppRuntime.DDLM.1.6.msix",
+        "tools/MSIX/win10-x64/Microsoft.WindowsAppRuntime.Main.1.6.msix",
+        "tools/MSIX/win10-x64/Microsoft.WindowsAppRuntime.Singleton.1.6.msix",
+        "tools/MSIX/win10-x86/MSIX.inventory",
+        "tools/MSIX/win10-x86/Microsoft.WindowsAppRuntime.1.6.msix",
+        "tools/MSIX/win10-x86/Microsoft.WindowsAppRuntime.DDLM.1.6.msix",
+        "tools/MSIX/win10-x86/Microsoft.WindowsAppRuntime.Main.1.6.msix",
+        "tools/MSIX/win10-x86/Microsoft.WindowsAppRuntime.Singleton.1.6.msix",
+        "tools/NOTICE.txt",
+        "tools/arm64/GenXbf.dll",
+        "tools/net472/Microsoft.Bcl.AsyncInterfaces.dll",
+        "tools/net472/Microsoft.Build.Framework.dll",
+        "tools/net472/Microsoft.Build.Msix.dll",
+        "tools/net472/Microsoft.Build.Utilities.Core.dll",
+        "tools/net472/Microsoft.Build.dll",
+        "tools/net472/Microsoft.Cci.dll",
+        "tools/net472/Microsoft.UI.Xaml.Markup.Compiler.IO.dll",
+        "tools/net472/Microsoft.UI.Xaml.Markup.Compiler.MSBuildInterop.dll",
+        "tools/net472/Microsoft.UI.Xaml.Markup.Compiler.dll",
+        "tools/net472/Microsoft.VisualStudio.RemoteControl.dll",
+        "tools/net472/Microsoft.VisualStudio.Telemetry.dll",
+        "tools/net472/Microsoft.VisualStudio.Utilities.Internal.dll",
+        "tools/net472/Newtonsoft.Json.dll",
+        "tools/net472/System.Buffers.dll",
+        "tools/net472/System.Collections.Immutable.dll",
+        "tools/net472/System.Memory.dll",
+        "tools/net472/System.Numerics.Vectors.dll",
+        "tools/net472/System.Reflection.Metadata.dll",
+        "tools/net472/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/net472/System.Text.Encodings.Web.dll",
+        "tools/net472/System.Text.Json.dll",
+        "tools/net472/System.Threading.Tasks.Dataflow.dll",
+        "tools/net472/System.Threading.Tasks.Extensions.dll",
+        "tools/net472/XamlCompiler.exe",
+        "tools/net472/XamlCompiler.exe.config",
+        "tools/net6.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "tools/net6.0/Microsoft.Build.Msix.dll",
+        "tools/net6.0/Microsoft.Cci.dll",
+        "tools/net6.0/Microsoft.UI.Xaml.Markup.Compiler.IO.dll",
+        "tools/net6.0/Microsoft.UI.Xaml.Markup.Compiler.MSBuildInterop.dll",
+        "tools/net6.0/Microsoft.UI.Xaml.Markup.Compiler.dll",
+        "tools/net6.0/Microsoft.VisualStudio.RemoteControl.dll",
+        "tools/net6.0/Microsoft.VisualStudio.Telemetry.dll",
+        "tools/net6.0/Microsoft.VisualStudio.Utilities.Internal.dll",
+        "tools/net6.0/Newtonsoft.Json.dll",
+        "tools/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/net6.0/System.Text.Encodings.Web.dll",
+        "tools/net6.0/System.Text.Json.dll",
+        "tools/x64/GenXbf.dll",
+        "tools/x86/GenXbf.dll"
+      ]
+    },
+    "NAudio/2.2.1": {
+      "sha512": "c0DzwiyyklM0TP39Y7RObwO3QkWecgM6H60ikiEnsV/aEAJPbj5MFCLaD8BSfKuZe0HGuh9GRGWWlJmSxDc9MA==",
+      "type": "package",
+      "path": "naudio/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/NAudio.dll",
+        "lib/net472/NAudio.xml",
+        "lib/net6.0-windows7.0/NAudio.dll",
+        "lib/net6.0-windows7.0/NAudio.xml",
+        "lib/net6.0/NAudio.dll",
+        "lib/net6.0/NAudio.xml",
+        "lib/netcoreapp3.1/NAudio.dll",
+        "lib/netcoreapp3.1/NAudio.xml",
+        "license.txt",
+        "naudio-icon.png",
+        "naudio.2.2.1.nupkg.sha512",
+        "naudio.nuspec"
+      ]
+    },
+    "NAudio.Asio/2.2.1": {
+      "sha512": "hQglyOT5iT3XuGpBP8ZG0+aoqwRfidHjTNehpoWwX0g6KJEgtH2VaqM2nuJ2mheKZa/IBqB4YQTZVvrIapzfOA==",
+      "type": "package",
+      "path": "naudio.asio/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Asio.dll",
+        "lib/netstandard2.0/NAudio.Asio.xml",
+        "naudio-icon.png",
+        "naudio.asio.2.2.1.nupkg.sha512",
+        "naudio.asio.nuspec"
+      ]
+    },
+    "NAudio.Core/2.2.1": {
+      "sha512": "GgkdP6K/7FqXFo7uHvoqGZTJvW4z8g2IffhOO4JHaLzKCdDOUEzVKtveoZkCuUX8eV2HAINqi7VFqlFndrnz/g==",
+      "type": "package",
+      "path": "naudio.core/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Core.dll",
+        "lib/netstandard2.0/NAudio.Core.xml",
+        "naudio-icon.png",
+        "naudio.core.2.2.1.nupkg.sha512",
+        "naudio.core.nuspec"
+      ]
+    },
+    "NAudio.Midi/2.2.1": {
+      "sha512": "6r23ylGo5aeP02WFXsPquz0T0hFJWyh+7t++tz19tc3Kr38NHm+Z9j+FiAv+xkH8tZqXJqus9Q8p6u7bidIgbw==",
+      "type": "package",
+      "path": "naudio.midi/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Midi.dll",
+        "lib/netstandard2.0/NAudio.Midi.xml",
+        "naudio-icon.png",
+        "naudio.midi.2.2.1.nupkg.sha512",
+        "naudio.midi.nuspec"
+      ]
+    },
+    "NAudio.Wasapi/2.2.1": {
+      "sha512": "lFfXoqacZZe0WqNChJgGYI+XV/n/61LzPHT3C1CJp4khoxeo2sziyX5wzNYWeCMNbsWxFvT3b3iXeY1UYjBhZw==",
+      "type": "package",
+      "path": "naudio.wasapi/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Wasapi.dll",
+        "lib/netstandard2.0/NAudio.Wasapi.xml",
+        "lib/uap10.0.18362/NAudio.Wasapi.dll",
+        "lib/uap10.0.18362/NAudio.Wasapi.pri",
+        "lib/uap10.0.18362/NAudio.Wasapi.xml",
+        "naudio-icon.png",
+        "naudio.wasapi.2.2.1.nupkg.sha512",
+        "naudio.wasapi.nuspec"
+      ]
+    },
+    "NAudio.WinForms/2.2.1": {
+      "sha512": "DlDkewY1myY0A+3NrYRJD+MZhZV0yy1mNF6dckB27IQ9XCs/My5Ip8BZcoSHOsaPSe2GAjvoaDnk6N9w8xTv7w==",
+      "type": "package",
+      "path": "naudio.winforms/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/NAudio.WinForms.dll",
+        "lib/net472/NAudio.WinForms.xml",
+        "lib/netcoreapp3.1/NAudio.WinForms.dll",
+        "lib/netcoreapp3.1/NAudio.WinForms.xml",
+        "naudio-icon.png",
+        "naudio.winforms.2.2.1.nupkg.sha512",
+        "naudio.winforms.nuspec"
+      ]
+    },
+    "NAudio.WinMM/2.2.1": {
+      "sha512": "xFHRFwH4x6aq3IxRbewvO33ugJRvZFEOfO62i7uQJRUNW2cnu6BeBTHUS0JD5KBucZbHZaYqxQG8dwZ47ezQuQ==",
+      "type": "package",
+      "path": "naudio.winmm/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.WinMM.dll",
+        "lib/netstandard2.0/NAudio.WinMM.xml",
+        "naudio-icon.png",
+        "naudio.winmm.2.2.1.nupkg.sha512",
+        "naudio.winmm.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "System.Collections.Immutable/8.0.0": {
+      "sha512": "AurL6Y5BA1WotzlEvVaIDpqzpIPvYnnldxru8oXJU2yFxFUy3+pNXjXd1ymO+RA0rq0+590Q8gaz2l3Sr7fmqg==",
+      "type": "package",
+      "path": "system.collections.immutable/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Collections.Immutable.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
+        "lib/net462/System.Collections.Immutable.dll",
+        "lib/net462/System.Collections.Immutable.xml",
+        "lib/net6.0/System.Collections.Immutable.dll",
+        "lib/net6.0/System.Collections.Immutable.xml",
+        "lib/net7.0/System.Collections.Immutable.dll",
+        "lib/net7.0/System.Collections.Immutable.xml",
+        "lib/net8.0/System.Collections.Immutable.dll",
+        "lib/net8.0/System.Collections.Immutable.xml",
+        "lib/netstandard2.0/System.Collections.Immutable.dll",
+        "lib/netstandard2.0/System.Collections.Immutable.xml",
+        "system.collections.immutable.8.0.0.nupkg.sha512",
+        "system.collections.immutable.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Interactive.Async/6.0.1": {
+      "sha512": "f8H1O4ZWDQo344y5NQU76G4SIjWMuKDVXL9OM1dg6K5YZnLkc8iCdQDybBvMcC6ufk61jzXGVAX6UCDu0qDSjA==",
+      "type": "package",
+      "path": "system.interactive.async/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logo.png",
+        "lib/net48/System.Interactive.Async.dll",
+        "lib/net48/System.Interactive.Async.xml",
+        "lib/net6.0/System.Interactive.Async.dll",
+        "lib/net6.0/System.Interactive.Async.xml",
+        "lib/netstandard2.0/System.Interactive.Async.dll",
+        "lib/netstandard2.0/System.Interactive.Async.xml",
+        "lib/netstandard2.1/System.Interactive.Async.dll",
+        "lib/netstandard2.1/System.Interactive.Async.xml",
+        "system.interactive.async.6.0.1.nupkg.sha512",
+        "system.interactive.async.nuspec"
+      ]
+    },
+    "System.Linq.Async/6.0.1": {
+      "sha512": "0YhHcaroWpQ9UCot3Pizah7ryAzQhNvobLMSxeDIGmnXfkQn8u5owvpOH0K6EVB+z9L7u6Cc4W17Br/+jyttEQ==",
+      "type": "package",
+      "path": "system.linq.async/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Logo.png",
+        "lib/net48/System.Linq.Async.dll",
+        "lib/net48/System.Linq.Async.xml",
+        "lib/net6.0/System.Linq.Async.dll",
+        "lib/net6.0/System.Linq.Async.xml",
+        "lib/netstandard2.0/System.Linq.Async.dll",
+        "lib/netstandard2.0/System.Linq.Async.xml",
+        "lib/netstandard2.1/System.Linq.Async.dll",
+        "lib/netstandard2.1/System.Linq.Async.xml",
+        "ref/net48/System.Linq.Async.dll",
+        "ref/net48/System.Linq.Async.xml",
+        "ref/net6.0/System.Linq.Async.dll",
+        "ref/net6.0/System.Linq.Async.xml",
+        "ref/netstandard2.0/System.Linq.Async.dll",
+        "ref/netstandard2.0/System.Linq.Async.xml",
+        "ref/netstandard2.1/System.Linq.Async.dll",
+        "ref/netstandard2.1/System.Linq.Async.xml",
+        "system.linq.async.6.0.1.nupkg.sha512",
+        "system.linq.async.nuspec"
+      ]
+    },
+    "System.Reactive/6.0.1": {
+      "sha512": "rHaWtKDwCi9qJ3ObKo8LHPMuuwv33YbmQi7TcUK1C264V3MFnOr5Im7QgCTdLniztP3GJyeiSg5x8NqYJFqRmg==",
+      "type": "package",
+      "path": "system.reactive/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net6.0-windows10.0.19041/_._",
+        "build/net6.0/_._",
+        "buildTransitive/net6.0-windows10.0.19041/_._",
+        "buildTransitive/net6.0/_._",
+        "icon.png",
+        "lib/net472/System.Reactive.dll",
+        "lib/net472/System.Reactive.xml",
+        "lib/net6.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net6.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net6.0/System.Reactive.dll",
+        "lib/net6.0/System.Reactive.xml",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.18362/System.Reactive.dll",
+        "lib/uap10.0.18362/System.Reactive.pri",
+        "lib/uap10.0.18362/System.Reactive.xml",
+        "readme.md",
+        "system.reactive.6.0.1.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
+    "System.Security.AccessControl/4.7.0": {
+      "sha512": "JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
+      "type": "package",
+      "path": "system.security.accesscontrol/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.dll",
+        "lib/net461/System.Security.AccessControl.xml",
+        "lib/netstandard1.3/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "lib/netstandard2.0/System.Security.AccessControl.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.dll",
+        "ref/net461/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/System.Security.AccessControl.dll",
+        "ref/netstandard1.3/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/de/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/es/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/fr/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/it/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ja/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ko/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/ru/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.AccessControl.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
+        "ref/netstandard2.0/System.Security.AccessControl.dll",
+        "ref/netstandard2.0/System.Security.AccessControl.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/win/lib/net46/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.dll",
+        "runtimes/win/lib/net461/System.Security.AccessControl.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.xml",
+        "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.accesscontrol.4.7.0.nupkg.sha512",
+        "system.security.accesscontrol.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Security.Principal.Windows/4.7.0": {
+      "sha512": "ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
+      "type": "package",
+      "path": "system.security.principal.windows/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.dll",
+        "lib/net461/System.Security.Principal.Windows.xml",
+        "lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/netstandard2.0/System.Security.Principal.Windows.xml",
+        "lib/uap10.0.16299/_._",
+        "ref/net46/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.dll",
+        "ref/net461/System.Security.Principal.Windows.xml",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.dll",
+        "ref/netcoreapp3.0/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/System.Security.Principal.Windows.dll",
+        "ref/netstandard1.3/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/de/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/es/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/fr/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/it/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ja/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ko/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/ru/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hans/System.Security.Principal.Windows.xml",
+        "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
+        "ref/netstandard2.0/System.Security.Principal.Windows.dll",
+        "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/uap10.0.16299/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/net461/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.xml",
+        "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.principal.windows.4.7.0.nupkg.sha512",
+        "system.security.principal.windows.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.ValueTuple/4.5.0": {
+      "sha512": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "type": "package",
+      "path": "system.valuetuple/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.5.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows10.0.19041": [
+      "Discord.Net >= 3.17.1",
+      "Discord.Net.Core >= 3.17.1",
+      "Microsoft.Windows.CsWin32 >= 0.3.106",
+      "Microsoft.Windows.SDK.BuildTools >= 10.0.26100.1742",
+      "Microsoft.WindowsAppSDK >= 1.6.241114003",
+      "NAudio >= 2.2.1",
+      "Newtonsoft.Json >= 13.0.3"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\luis\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj",
+      "projectName": "gcmloader",
+      "projectPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj",
+      "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows10.0.19041.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows10.0.19041": {
+          "targetAlias": "net8.0-windows10.0.19041.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net8.0-windows10.0.19041": {
+        "targetAlias": "net8.0-windows10.0.19041.0",
+        "dependencies": {
+          "Discord.Net": {
+            "target": "Package",
+            "version": "[3.17.1, )"
+          },
+          "Discord.Net.Core": {
+            "target": "Package",
+            "version": "[3.17.1, )"
+          },
+          "Microsoft.Windows.CsWin32": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[0.3.106, )"
+          },
+          "Microsoft.Windows.SDK.BuildTools": {
+            "target": "Package",
+            "version": "[10.0.26100.1742, )"
+          },
+          "Microsoft.WindowsAppSDK": {
+            "target": "Package",
+            "version": "[1.6.241114003, )"
+          },
+          "NAudio": {
+            "target": "Package",
+            "version": "[2.2.1, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-arm64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x86",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.Windows.SDK.NET.Ref",
+            "version": "[10.0.19041.54, 10.0.19041.54]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+            "version": "[8.0.11, 8.0.11]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+            "version": "[8.0.11, 8.0.11]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.Windows.SDK.NET.Ref.Windows": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win-arm64": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

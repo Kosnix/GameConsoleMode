@@ -1,0 +1,569 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<instrumentationManifest xmlns="http://schemas.microsoft.com/win/2004/08/events" xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events">
+  <instrumentation>
+    <events>
+      <!-- The 'message' attribute is the hierarchy path in Event Viewer -->
+      <provider
+          guid="{43833e12-078d-4d7d-8aaf-ae8c8520f18c}"
+          message="$(string.AppxDeploymentUndockedDeh)"
+          messageFileName="WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll"
+          name="Microsoft-Windows-AppXDeployment-Server-UndockedDeh"
+          resourceFileName="WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll"
+          symbol="APPXDEPLOYMENTSERVER_UNDOCKEDDEH_ETW_CONTROL_GUID"
+          >
+
+        <channels>
+          <!-- The 'message' attribute is the leaf node in the path in Event Viewer -->
+          <channel
+              chid="Operational"
+              enabled="true"
+              message="$(string.AppxDeploymentUndockedDeh.Operational)"
+              name="Microsoft-Windows-AppXDeployment-Server/Operational"
+              type="Operational"
+              >
+            <logging>
+              <!-- max size of the operational log file is 5 MB -->
+              <maxSize>5242880</maxSize>
+            </logging>
+          </channel>
+        </channels>
+        
+        <maps>
+          <!-- this must be kept in sync with %SDXROOT%\onecore\admin\appmodel\OSIM\Inc\OSIMRegistration.hpp -->
+          <valueMap name="DehPhaseEnumMap">
+            <map
+                message="$(string.Map.DehPhaseEnumMap.PerUser)"
+                value="0"
+                />
+            <map
+                message="$(string.Map.DehPhaseEnumMap.PerMachine)"
+                value="1"
+                />
+            <map
+                message="$(string.Map.DehPhaseEnumMap.Singleton)"
+                value="2"
+                />
+            <map
+                message="$(string.Map.DehPhaseEnumMap.System)"
+                value="3"
+                />
+            <map
+                message="$(string.Map.DehPhaseEnumMap.OneTime)"
+                value="4"
+                />
+          </valueMap>
+        </maps>
+        
+        <tasks>
+          <task
+              name="AppXDeployment.Task.Server.OSIM"
+              symbol="Task_Server_OSIM"
+              value="1"
+              />
+        </tasks>
+        
+        <templates>
+          <template tid="EventLogInstallingManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="EventLogUninstallingManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="EventLogInstalledManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="EventLogUninstalledManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="EventLogSettingActiveManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="EventLogUnsettingActiveManifestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="UndockedDehDllParent"
+                />
+          </template>
+          <template tid="LoadExtensionRegistrationTableEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="DllName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="DllPath"
+                />
+            <data
+                inType="win:HexInt32"
+                map="DehPhaseEnumMap"
+                name="DehPhase"
+                />
+          </template>
+          <template tid="ItemizingDehBaseClassEvaluateRequestEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="DehName"
+                />
+            <data
+                inType="win:HexInt32"
+                map="DehPhaseEnumMap"
+                name="DehPhase"
+                />
+          </template>
+          <template tid="AddEntryEventStringTemplate">
+            <data
+                inType="win:AnsiString"
+                name="ExceptionWhatString"
+                outType="win:Utf8"
+                />
+          </template>
+          <template tid="DehRequestFailureEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="DehAction"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="DehName"
+                />
+            <data
+                inType="win:HexInt32"
+                map="DehPhaseEnumMap"
+                name="DehPhase"
+                />
+            <data
+                inType="win:UInt32"
+                name="DehState"
+                />
+            <data
+                inType="win:AnsiString"
+                name="ExceptionWhatString"
+                outType="win:Utf8"
+                />
+          </template>
+          <template tid="EntryOperationFailureEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="Operation"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="EntryName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="SerializedEntry"
+                />
+            <data
+                inType="win:UInt32"
+                name="StepCounter"
+                />
+            <data
+                inType="win:AnsiString"
+                name="ExceptionWhatString"
+                outType="win:Utf8"
+                />
+          </template>
+          <template tid="PackagePairEncounteredEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="DehName"
+                />
+            <data
+                inType="win:HexInt32"
+                map="DehPhaseEnumMap"
+                name="DehPhase"
+                />
+            <data
+                inType="win:UInt32"
+                name="DehState"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="IncomingPackage"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="OutgoingPackage"
+                />
+          </template>
+          <template tid="EvaluatePackageForDehProcessingEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="Direction"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="DehName"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="PackageFullName"
+                />
+            <data
+                inType="win:Boolean"
+                name="PostOsUpgrade"
+                />
+            <data
+                inType="win:HexInt32"
+                map="DehPhaseEnumMap"
+                name="DehPhase"
+                />
+            <data
+                inType="win:UInt32"
+                name="DehState"
+                />
+          </template>
+          <template tid="FailureWithItemsProgressEventStringTemplate">
+            <data
+                inType="win:UInt32"
+                name="ItemCounter"
+                />
+            <data
+                inType="win:UnicodeString"
+                name="ItemName"
+                />
+            <data
+                inType="win:UInt32"
+                name="StepCounter"
+                />
+          </template>
+          <template tid="FailureWithItemProgressEventStringTemplate">
+            <data
+                inType="win:UnicodeString"
+                name="ItemName"
+                />
+            <data
+                inType="win:UInt32"
+                name="StepCounter"
+                />
+          </template>
+          <template tid="EventLogStackFrameErrorStringTemplate">
+            <data
+                inType="win:AnsiString"
+                name="File"
+                outType="win:Utf8"
+                />
+            <data
+                inType="win:UInt32"
+                name="Line"
+                />
+            <data
+                inType="win:AnsiString"
+                name="ExceptionWhatString"
+                outType="win:Utf8"
+                />
+          </template>
+        </templates>
+        
+        <events>
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogInstallingManifestEvent)"
+              symbol="EventLogInstallingManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogInstallingManifestEventStringTemplate"
+              value="9000"
+              />
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogUninstallingManifestEvent)"
+              symbol="EventLogUninstallingManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogUninstallingManifestEventStringTemplate"
+              value="9001"
+              />
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogInstalledManifestEvent)"
+              symbol="EventLogInstalledManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogInstalledManifestEventStringTemplate"
+              value="9002"
+              />
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogUninstalledManifestEvent)"
+              symbol="EventLogUninstalledManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogUninstalledManifestEventStringTemplate"
+              value="9003"
+              />
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogSettingActiveManifestEvent)"
+              symbol="EventLogSettingActiveManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogSettingActiveManifestEventStringTemplate"
+              value="9004"
+              />
+          <event
+              channel="Operational"
+              level="win:Informational"
+              message="$(string.Event.EventLogUnsettingActiveManifestEvent)"
+              symbol="EventLogUnsettingActiveManifestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogUnsettingActiveManifestEventStringTemplate"
+              value="9005"
+              />
+          <event
+              channel="Operational"
+              level="win:Verbose"
+              message="$(string.Event.LoadExtensionRegistrationTable)"
+              symbol="LoadExtensionRegistrationTableEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="LoadExtensionRegistrationTableEventStringTemplate"
+              value="10001"
+              />
+          <event
+              channel="Operational"
+              level="win:Verbose"
+              message="$(string.Event.ItemizingDehBaseClassEvaluateRequest)"
+              symbol="ItemizingDehBaseClassEvaluateRequestEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="ItemizingDehBaseClassEvaluateRequestEventStringTemplate"
+              value="10002"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.AddEntryEvent)"
+              symbol="AddEntryEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="AddEntryEventStringTemplate"
+              value="10003"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.DehRequestFailureEvent)"
+              symbol="DehRequestFailureEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="DehRequestFailureEventStringTemplate"
+              value="10004"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.EntryOperationFailureEvent)"
+              symbol="EntryOperationFailureEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EntryOperationFailureEventStringTemplate"
+              value="10005"
+              />
+          <event
+              channel="Operational"
+              level="win:Verbose"
+              message="$(string.Event.PackagePairEncounteredEvent)"
+              symbol="PackagePairEncounteredEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="PackagePairEncounteredEventStringTemplate"
+              value="10006"
+              />
+          <event
+              channel="Operational"
+              level="win:Verbose"
+              message="$(string.Event.EvaluatePackageForDehProcessingEvent)"
+              symbol="EvaluatePackageForDehProcessingEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EvaluatePackageForDehProcessingEventStringTemplate"
+              value="10007"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.FailureWithItemsProgressEvent)"
+              symbol="FailureWithItemsProgressEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="FailureWithItemsProgressEventStringTemplate"
+              value="10008"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.FailureWithItemProgressEvent)"
+              symbol="FailureWithItemProgressEvent"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="FailureWithItemProgressEventStringTemplate"
+              value="10009"
+              />
+          <event
+              channel="Operational"
+              level="win:Error"
+              message="$(string.Event.EventLogStackFrameError)"
+              symbol="EventLogStackFrameError"
+              task="AppXDeployment.Task.Server.OSIM"
+              template="EventLogStackFrameErrorStringTemplate"
+              value="10010"
+              />
+        </events>
+        
+      </provider>
+    </events>
+  </instrumentation>
+  
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+
+        <!-- ============================ -->
+        <!-- Setup strings -->
+        <!-- ============================ -->
+        
+        <!-- This is the hierarchy path in Event Viewer (Applications and Services Logs/Microsoft/Windows/AppXDeployment-Server-UndockedDeh) -->
+        <string
+            id="AppxDeploymentUndockedDeh"
+            value="Microsoft-Windows-AppXDeployment-Server-UndockedDeh"
+            />
+        <!-- This is the leaf node in the path in Event Viewer -->
+        <string
+            id="AppxDeploymentUndockedDeh.Operational"
+            value="AppxDeploymentUndockedDeh/Operational"
+            />
+
+
+        <!-- ============================ -->
+        <!-- Map strings -->
+        <!-- ============================ -->
+
+        <string
+            id="Map.DehPhaseEnumMap.PerUser"
+            value="PerUser"
+            />
+        <string
+            id="Map.DehPhaseEnumMap.PerMachine"
+            value="PerMachine"
+            />
+        <string
+            id="Map.DehPhaseEnumMap.Singleton"
+            value="Singleton"
+            />
+        <string
+            id="Map.DehPhaseEnumMap.System"
+            value="System"
+            />
+        <string
+            id="Map.DehPhaseEnumMap.OneTime"
+            value="OneTime"
+            />
+
+
+        <!-- ============================ -->
+        <!-- Error strings -->
+        <!-- ============================ -->
+
+        <string
+            id="Event.EventLogInstallingManifestEvent"
+            value="Installing EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EventLogUninstallingManifestEvent"
+            value="Uninstalling EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EventLogInstalledManifestEvent"
+            value="Installed EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EventLogUninstalledManifestEvent"
+            value="Uninstalled EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EventLogSettingActiveManifestEvent"
+            value="Setting active EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EventLogUnsettingActiveManifestEvent"
+            value="Unsetting active EventLog manifest for package: '%1' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.LoadExtensionRegistrationTable"
+            value="Loading registration table for Undocked DEH dll: %1, Path: %2, Phase: %3"
+            />
+        <string
+            id="Event.ItemizingDehBaseClassEvaluateRequest"
+            value="Evaluating request for DEH: DEH '%1' in Phase '%2'"
+            />
+        <string
+            id="Event.AddEntryEvent"
+            value="StringAddEntryEvent: %1"
+            />
+        <string
+            id="Event.DehRequestFailureEvent"
+            value="Failed performing DEH request: Action '%1' in DEH '%2' in Phase '%3' in State '%4' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EntryOperationFailureEvent"
+            value="Failed performing operation on entry: Operation '%1' on Entry '%2' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.PackagePairEncounteredEvent"
+            value="Encountered package pair in DEH package evaluation: DEH '%1' in Phase '%2' State '%3' on Incoming Package '%4' and Outgoing Package '%5' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.EvaluatePackageForDehProcessingEvent"
+            value="Encountered package in DEH package evaluation: Direction '%1', DEH '%2', Package '%3', PostOsUpgrade '%4', Phase '%5', State '%6' (See 'Details' for extended information)"
+            />
+        <string
+            id="Event.FailureWithItemsProgressEvent"
+            value="Failure working on items: Item count '%1', Current item name '%2', Step counter '%3'"
+            />
+        <string
+            id="Event.FailureWithItemProgressEvent"
+            value="Failure working on item: Item '%1', Step counter '%2'"
+            />
+        <string
+            id="Event.EventLogStackFrameError"
+            value="Failure at frame: File '%1', Line '%2' (See 'Details' for extended information)"
+            />
+
+      </stringTable>
+    </resources>
+  </localization>
+  
+
+</instrumentationManifest>
