@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GAMINGCONSOLEMODE.launcher"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GAMINGCONSOLEMODE"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" MinHeight="25">
+        <Grid>
+            <!-- Define columns for the panels -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <!-- Add more columns as needed -->
+            </Grid.ColumnDefinitions>
+            <!-- Hintergrund mit Verlauf -->
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1B2838" Offset="0" />
+                    <GradientStop Color="#2A475E" Offset="0.5" />
+                    <GradientStop Color="#1B2838" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <!-- Panel 1 STEAM -->
+            <Border Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                <StackPanel Margin="24">
+                    <!-- Title -->
+                    <TextBlock Text="STEAM BP" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
+
+                    <!-- Subtitle -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/Assets/launcher/steam_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
+                        <StackPanel>
+                            <TextBlock Text="STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Description -->
+                    <TextBlock Text="gcm will use steam on startup"
+                           FontSize="18"
+                           Foreground="White"
+                           TextWrapping="Wrap"
+                           Margin="0,24,0,0" />
+
+                    <!-- Interactive Content -->
+                    <Grid Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Panel 1 -->
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                            <!-- Title above ToggleSwitch -->
+                            <TextBlock Text="USE STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White"
+                                   HorizontalAlignment="Center" Margin="0,0,0,10" />
+                            <!-- ToggleSwitch -->
+                            <ToggleSwitch x:ConnectionId='13' x:Name= "use_steam_bp"                                />
+                        </StackPanel>
+                    </Grid>
+
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                        <StackPanel>
+                            <!-- Title for the section -->
+                            <TextBlock Text="Select Steam Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+
+                            <!-- Button for picking a file -->
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Button x:ConnectionId='11' x:Name="pichsteampath" Content="Select a file"                            
+                    Margin="0,0,10,0" />
+                                <TextBlock x:ConnectionId='12' x:Name="textbox_select_steam_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
+                            </StackPanel>
+
+                            <!-- TextBox for user input -->
+                            <TextBox x:ConnectionId='10' x:Name="textbox_steam_path" AutomationProperties.Name="textbox_steam_path"                                             
+                 PlaceholderText="Enter the Steam Path"
+                 PlaceholderForeground="black"
+                 Foreground="Black" Background="White" Padding="5"  />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+            <!-- Panel 2 PLAYNITE  -->
+            <Border Grid.Column="1" Margin="16" Background="#1E2A38" CornerRadius="15">
+                <StackPanel Margin="24">
+                    <!-- Title -->
+                    <TextBlock Text="PLAYNITE" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
+
+                    <!-- Subtitle -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/Assets/launcher/playnite_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
+                        <StackPanel>
+                            <TextBlock Text="STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Description -->
+                    <TextBlock Text="gcm will use playnite on startup"
+                FontSize="18"
+                Foreground="White"
+                TextWrapping="Wrap"
+                Margin="0,24,0,0" />
+
+                    <!-- Interactive Content -->
+                    <Grid Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Panel 1 -->
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                            <!-- Title above ToggleSwitch -->
+                            <TextBlock Text="USE PLAYNITE" FontSize="18" FontWeight="Bold" Foreground="White"
+                        HorizontalAlignment="Center" Margin="0,0,0,10" />
+                            <!-- ToggleSwitch -->
+                            <ToggleSwitch x:ConnectionId='9' x:Name= "use_playnite" AutomationProperties.Name="switch_use_playnite"                               />
+                        </StackPanel>
+                    </Grid>
+
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                        <StackPanel>
+                            <!-- Title for the section -->
+                            <TextBlock Text="Select Playnite Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+
+                            <!-- Button for picking a file -->
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Button x:ConnectionId='7' x:Name="pichplaynitepath" Content="Select a file"
+                                       Margin="0,0,10,0" />
+                                <TextBlock x:ConnectionId='8' x:Name="textbox_select_playnite_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
+                            </StackPanel>
+
+                            <!-- TextBox for user input -->
+                            <TextBox x:ConnectionId='6' x:Name="textbox_playnite_path" AutomationProperties.Name="textbox_steam_path"
+      PlaceholderText="Enter the Path"
+      PlaceholderForeground="black"
+      Foreground="Black" Background="White" Padding="5"  />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+            <!-- Panel 2 CUSTOM -->
+            <Border Grid.Column="2" Margin="16" Background="#1E2A38" CornerRadius="15">
+                <StackPanel Margin="24">
+                    <!-- Title -->
+                    <TextBlock Text="CUSTOM" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
+
+                    <!-- Subtitle -->
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Source="/Assets/launcher/custom_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
+                        <StackPanel>
+                            <TextBlock Text="CUSTOM LAUNCHER" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Description -->
+                    <TextBlock Text="gcm will use your custom launcher"
+          FontSize="18"
+          Foreground="White"
+          TextWrapping="Wrap"
+          Margin="0,24,0,0" />
+
+                    <!-- Interactive Content -->
+                    <Grid Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Panel 1 -->
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                            <!-- Title above ToggleSwitch -->
+                            <TextBlock Text="USE CUSTOM LAUNCHER" FontSize="18" FontWeight="Bold" Foreground="White"
+                  HorizontalAlignment="Center" Margin="0,0,0,10" />
+                            <!-- ToggleSwitch -->
+                            <ToggleSwitch x:ConnectionId='5' x:Name= "use_custom" AutomationProperties.Name="switch_use_playnite"                             />
+                        </StackPanel>
+                    </Grid>
+
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                        <StackPanel>
+                            <!-- Title for the section -->
+                            <TextBlock Text="Select Playnite Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+
+                            <!-- Button for picking a file -->
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                                <Button x:ConnectionId='3' x:Name="pichcustompath" Content="Select a file"
+                                                             Margin="0,0,10,0" />
+                                <TextBlock x:ConnectionId='4' x:Name="textbox_select_custom_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
+                            </StackPanel>
+
+                            <!-- TextBox for user input -->
+                            <TextBox x:ConnectionId='2' x:Name="textbox_custom_path" AutomationProperties.Name="textbox_steam_path"
+PlaceholderText="Enter the Path"
+PlaceholderForeground="black"
+Foreground="Black" Background="White" Padding="5"  />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </ScrollViewer>
+
+
+
+</Page>
+

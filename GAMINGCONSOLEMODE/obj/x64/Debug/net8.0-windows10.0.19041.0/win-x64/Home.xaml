@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GAMINGCONSOLEMODE.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GAMINGCONSOLEMODE"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Root Grid -->
+    <!-- Root Grid -->
+    <Grid>
+        <!-- Background with a gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#1B2838" Offset="0" />
+                <GradientStop Color="#2A475E" Offset="0.5" />
+                <GradientStop Color="#1B2838" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Layout with two rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Top Section -->
+            <RowDefinition Height="2*" />
+            <!-- Bottom Section -->
+        </Grid.RowDefinitions>
+
+        <!-- Top Section: Icon and Title -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+            <!-- Large Icon -->
+            <Grid>
+                <!-- Large Icon -->
+                <Image x:ConnectionId='10' x:Name="GCMIcon" 
+           Source="/Assets/logo_gcm.png" 
+           Width="150" Height="150" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TranslateTransform x:ConnectionId='11' x:Name="IconBounceTransform" />
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+
+            <!-- Title -->
+            <TextBlock Text="Welcome to Gaming Console Mode" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       TextAlignment="Center" />
+
+            <!-- Description -->
+            <TextBlock Text="Transform your gaming experience with our modern Gaming Mode."
+                       FontSize="18" 
+                       Foreground="#CCCCCC" 
+                       TextAlignment="Center" 
+                       TextWrapping="Wrap"
+                       Width="400" />
+        </StackPanel>
+
+        <!-- Bottom Section: Steps with arrows -->
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel Spacing="16" Padding="20" HorizontalAlignment="Center">
+
+                <!-- Step 1 -->
+                <Expander x:ConnectionId='2' x:Name="Expander1" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="Step 1: Wiki" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
+
+                    </Expander.Header>
+                    <Expander.Content>
+                        <Button x:ConnectionId='9' x:Name="wikibutton"  Width="150" Height="80"                           >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                <!-- Buch-Icon -->
+                                <FontIcon Glyph="" FontSize="24" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center"/>
+
+                                <!-- Button-Text -->
+                                <TextBlock Text="See the Wiki" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+
+
+                    </Expander.Content>
+                </Expander>
+
+                <!-- Arrow -->
+                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
+
+                <!-- Step 2 -->
+                <Expander x:ConnectionId='3' x:Name="Expander2" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="Step 2: Functions" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
+
+                    </Expander.Header>
+                    <Button x:ConnectionId='8' x:Name="functionbutton" Width="150" Height="80"                             >
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <!-- Link-Icon -->
+                            <FontIcon Glyph="" FontSize="24" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center"/>
+
+                            <!-- Button-Text -->
+                            <TextBlock Text="Set your needed functions" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+
+
+                </Expander>
+
+                <!-- Arrow -->
+                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
+
+                <!-- Step 3 -->
+                <Expander x:ConnectionId='4' x:Name="Expander3" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
+                    <Expander.Header>
+                        <TextBlock Text="Step 3: GCM Mode" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
+
+                    </Expander.Header>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+
+                        <!-- Title above the buttons -->
+                        <TextBlock Text="Replace your launcher in hybrid mode like SteamOS, or keep Windows Explorer for a clean console experience. Both options enhance usability." 
+               FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" Width="300"/>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+
+                            <!-- Button with a crossed-out circle and text -->
+                            <Button x:ConnectionId='6' x:Name="withreplace" Width="150" Height="80"                          >
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                    <TextBlock Text="⚪" FontSize="24" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="With Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- Button with a filled circle and text -->
+                            <Button x:ConnectionId='7' x:Name="withoutreplace" Width="150" Height="80"                             >
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                    <TextBlock Text="⚫" FontSize="24" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Without Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+
+                </Expander>
+                <!-- Arrow -->
+                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
+
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="0">
+                    <Button x:ConnectionId='5' x:Name= "Button_gcmplay"                              Background="White"  >
+                        <Image Source="/Assets/play.png" Width="35" />
+                    </Button>
+                    <TextBlock Text="START GAMEMODE" FontSize="25" HorizontalAlignment="Center" Padding="10" Tag="HomePage" />
+                </StackPanel>
+            </StackPanel>
+            
+        </ScrollViewer>
+
+
+    </Grid>
+</Page>
+

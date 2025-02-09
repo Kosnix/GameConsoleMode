@@ -1,0 +1,33 @@
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Assets\Download.png
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Assets\steambp.png
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Assets\Uninstall Programs.png
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Assets\Xbox Controller.png
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\GAMINGCONSOLEMODE.exe
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\GAMINGCONSOLEMODE.deps.json
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\GAMINGCONSOLEMODE.runtimeconfig.json
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\GAMINGCONSOLEMODE.pdb
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.SDK.NET.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\WinRT.Runtime.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\WebView2Loader.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Web.WebView2.Core.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\resources.pri
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.InteractiveExperiences.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.WinUI.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.AppLifecycle.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.ApplicationModel.Resources.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.Management.Deployment.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.Storage.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.System.Power.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.System.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Windows.Widgets.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\Microsoft.Web.WebView2.Core.Projection.dll
+C:\Users\luis\source\repos\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE\bin\win-arm64\publish\GAMINGCONSOLEMODE.dll

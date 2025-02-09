@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "DeqQfjSPcEk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.web.webview2\\1.0.2651.64\\microsoft.web.webview2.1.0.2651.64.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.26100.1742\\microsoft.windows.sdk.buildtools.10.0.26100.1742.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsappsdk\\1.6.241114003\\microsoft.windowsappsdk.1.6.241114003.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.11\\microsoft.netcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.11\\microsoft.netcore.app.runtime.win-x86.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\8.0.11\\microsoft.netcore.app.runtime.win-arm64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-arm64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x86.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-arm64.8.0.11.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.54\\microsoft.windows.sdk.net.ref.10.0.19041.54.nupkg.sha512"
+  ],
+  "logs": []
+}

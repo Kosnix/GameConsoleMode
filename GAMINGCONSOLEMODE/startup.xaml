@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GAMINGCONSOLEMODE.startup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GAMINGCONSOLEMODE"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <SplitView x:Name="FilterSplitView"
+           IsPaneOpen="True"
+           OpenPaneLength="150"
+           CompactPaneLength="50"
+           DisplayMode="Inline"
+           PaneBackground="#2A2A2A"
+               
+               >
+        <!-- Filtermenu left Seite -->
+        <SplitView.Pane>
+            <StackPanel Spacing="16" Padding="10">
+                <TextBlock Text="FILTER" Foreground="White" FontSize="18" FontWeight="Bold" />
+                <Button Content="All" Tag="All" Click="FilterButton_Click" Foreground="White"  HorizontalAlignment="Stretch" />
+                <Button Content="Display" Tag="Display" Click="FilterButton_Click" Foreground="White"  HorizontalAlignment="Stretch" />
+                <Button Content="Design" Tag="Design" Click="FilterButton_Click" Foreground="White"  HorizontalAlignment="Stretch" />
+                <Button Content="Audio" Tag="Audio" Click="FilterButton_Click" Foreground="White"  HorizontalAlignment="Stretch"/>
+                <Button Content="Mouse" Tag="Mouse" Click="FilterButton_Click" Foreground="White" HorizontalAlignment="Stretch" />
+            </StackPanel>
+        </SplitView.Pane>
+
+        <!-- Main (right Seite) -->
+        <!-- Scrollable Content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            
+            <StackPanel x:Name="ContentArea" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="16">
+                <!-- Panel 1 CSS Loader -->
+                <Border Tag="Design" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_cssloader" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_cssloader" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                            <InfoBar
+    IsOpen="True"
+    Severity="Informational"
+    Title="Better experience"
+    Message="The GCM team recommends this function" />
+
+                            <!-- Title -->
+                            <TextBlock Text="STEAM THEMES LOADER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Customize Steam's UI with amazing designs. If not applied, please set your Steam theme manually."
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                            <!-- Buttons Area -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                <!-- First Button -->
+                                <Button x:Name="button_uninstall_cssloader" Click="button_uninstall_cssloader_Click" >
+                                    <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                                <!-- Second Button -->
+                                <Button x:Name="button_install_cssloader" Click="button_install_cssloader_Click"  >
+                                    <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                            </StackPanel>
+                            <Border >
+                                <TextBlock Text="start cssloader in gaming mode"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_cssloader" Toggled="use_cssloader_Toggled" HorizontalAlignment="Center" Margin="100,-10,10,10"/>
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/Assets/steambp.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                            <!-- Footer Text -->
+                            <TextBlock Text="Enable Designs in Steam BP over CSS Loader."
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <!-- Panel 2 Joyxoff -->
+                <Border Tag="Mouse" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_joyxoff" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_joyxoff" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                            <InfoBar
+IsOpen="True"
+Severity="Informational"
+Title="Better experience"
+Message="The GCM team recommends this function" />
+
+                            <!-- Title -->
+                            <TextBlock Text="JOYXOFF - MOUSELOADER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Customize Steam's UI with amazing designs. If not applied, please set your Steam theme manually."
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                            <!-- Buttons Area -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                <!-- First Button -->
+                                <Button x:Name="button_uninstall_joyxoff" Click="button_uninstall_joyxoff_Click" >
+                                    <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                                <!-- Second Button -->
+                                <Button x:Name="button_install_joyxoff" Click="button_install_joyxoff_Click" >
+                                    <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                            </StackPanel>
+                            <Border >
+                                <TextBlock Text="start cssloader in gaming mode"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_joyxoff" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_joyxoff_Toggled" />
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/functions/joyxoff_logo.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                            <!-- Footer Text -->
+                            <TextBlock Text="Enable gamepad mouse controll with JOYXOFF"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <!-- Panel 3 Displayfusion-->
+                <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_displayfusion" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_displayfusion" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+  
+                            <!-- Title -->
+                            <TextBlock Text="DISPLAYFUSION" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Change the screenprofile with displayfusion"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                            <!-- Buttons Area -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                <!-- First Button -->
+                                <Button x:Name="button_uninstall_displayfusion" Click="button_uninstall_displayfusion_Click_1" >
+                                    <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                                <!-- Second Button -->
+                                <Button x:Name="button_install_displayfusion" Click="button_install_displayfusion_Click_2" >
+                                    <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+
+                            </StackPanel>
+                            <Border >
+                                <TextBlock Text="Use displayfusion"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_displayfusion" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_displayfusion_Toggled" />
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/functions/displayfusion.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                <TextBox x:Name="displayfusion_start" Header="START configname" PlaceholderText="START" TextChanged="displayfusion_start_TextChanged" CornerRadius="5" />
+                                <TextBox x:Name="displayfusion_end" Header="END configname" PlaceholderText="END" TextChanged="displayfusion_end_TextChanged" CornerRadius="5" />
+                            </StackPanel>
+                            <!-- Footer Text -->
+                            <TextBlock Text="Enable display switch with displayfusion"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
+                        </StackPanel>
+            
+            </Grid>
+                </Border>
+                <!-- Panel 4 wallpaper-->
+                <Border Tag="Design" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_wallpaper" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_wallpaper" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+
+                            <!-- Title -->
+                            <TextBlock Text="WALLPAPER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Set a wallpaper in gaming mode when you go to the background"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            <Border >
+                                <TextBlock Text="Show wallpaper in background in GCM"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_wallpaper" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_wallpaper_Toggled"  />
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/functions/TV.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                                <TextBox x:Name="wallpaper_path" Header="Wallpaper Path" PlaceholderText="Path" TextChanged="wallpaper_path_TextChanged"  CornerRadius="5" />
+                            </StackPanel>
+                            <!-- Footer Text -->
+                            <TextBlock Text="if you minimize your launcher you will see your wallpaper"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" Margin="5" />
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+                <!-- Panel 5 DISCORD-->
+                <Border Tag="Design" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_discord" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_discord" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+                        
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                            <InfoBar x:Name="infobar_discord"
+IsOpen="False"
+Severity="Success"
+Title="Success"
+Message="Your settings have been saved " />
+
+                            <!-- Title -->
+                            <TextBlock Text="DISCORD AUTOMATION" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="change your audio to your headset as soon as discord starts"
+                 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            <Border>
+                                <TextBlock Text="Activate the Discord Automation function"
+                 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border>
+                                <ToggleSwitch x:Name="use_discord" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_discord_Toggled" />
+                            </Border>
+
+                            <!-- Preview Image -->
+                            <Image Source="/functions/discord.png" Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <Border>
+                                <TextBlock Text="Change audio device when OPENING the discord window"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+                            <!-- ComboBox -->
+                            <ComboBox x:Name="discord_start" Width="500" Margin="0,10,0,10" SelectionChanged="discord_start_SelectionChanged" >
+                            </ComboBox>
+                            <Border>
+                                <TextBlock Text="Change audio device when CLOSING the discord window"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+                            <!-- ComboBox -->
+                            <ComboBox x:Name="discord_end" Width="500" Margin="0,10,0,10" SelectionChanged="discord_end_SelectionChanged">
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+
+            </StackPanel>
+            
+        </ScrollViewer>
+
+
+    </SplitView>
+
+   
+</Page>

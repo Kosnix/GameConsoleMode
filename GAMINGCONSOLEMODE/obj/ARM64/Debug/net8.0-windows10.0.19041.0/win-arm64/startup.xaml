@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GAMINGCONSOLEMODE.startup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GAMINGCONSOLEMODE"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- Scrollable Content -->
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="16">
+            <!-- Panel 1 -->
+            <Border Background="#2A2A2A" CornerRadius="15" Width="500" Height="700" Padding="0" Margin="10">
+                <Grid>
+                    <!-- Define rows for layout -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <!-- Status bar -->
+                        <RowDefinition Height="*" />
+                        <!-- Content -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Status Bar -->
+                    <Border Background="Green" Grid.Row="0" CornerRadius="15,15,15,15">
+                        <TextBlock Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                    </Border>
+
+                    <!-- Content Area -->
+                    <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                        <!-- Title -->
+                        <TextBlock Text="STEAM DESIGN" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                        <!-- Description -->
+                        <TextBlock Text="Customize Steam's UI with amazing designs. If not applied, please set your Steam theme manually."
+                       FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                        <!-- Buttons Area -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <!-- First Button -->
+                            <Button >
+                                <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
+                            </Button>
+
+                            <!-- Second Button -->
+                            <Button   >
+                                <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
+                            </Button>
+
+                        </StackPanel>
+                        <Border >
+                            <TextBlock Text="start cssloader in gaming mode"
+  FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                        </Border>
+                            
+                        <Border >
+                            <ToggleSwitch x:ConnectionId='2' x:Name= "use_cssloader" HorizontalAlignment="Center" Margin="100,-10,10,10"/>
+                        </Border>
+                        <!-- Preview Image -->
+                        <Image Source="/Assets/steambp.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                        <!-- Footer Text -->
+                        <TextBlock Text="Enable Designs in Steam BP over CSS Loader."
+                       FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <!-- Panel 2 -->
+            <Border Background="#2A2A2A" CornerRadius="15" Width="500" Height="700" Padding="0" Margin="10">
+                <Grid>
+                    <!-- Define rows for layout -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <!-- Status bar -->
+                        <RowDefinition Height="*" />
+                        <!-- Content -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Status Bar -->
+                    <Border Background="Green" Grid.Row="0" CornerRadius="15,15,15,15">
+                        <TextBlock Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                    </Border>
+
+                    <!-- Content Area -->
+                    <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                        <!-- Title -->
+                        <TextBlock Text="STEAM DESIGN" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                        <!-- Description -->
+                        <TextBlock Text="Customize Steam's UI with amazing designs. If not applied, please set your Steam theme manually."
+           FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                        <!-- Buttons Area -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <!-- First Button -->
+                            <Border Background="#1E2A38" Padding="10" CornerRadius="10">
+                                <TextBlock Text="Icon 1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+
+                            <!-- Second Button -->
+                            <Border Background="#1E2A38" Padding="10" CornerRadius="10">
+                                <TextBlock Text="Icon 2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Preview Image -->
+                        <Image Source="/Assets/Xbox Controller.png"  Width="260" Height="140" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                        <!-- Footer Text -->
+                        <TextBlock Text="Enable Designs in Steam BP over CSS Loader."
+           FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <!-- Panel 3 -->
+            <Border Background="#2A2A2A" CornerRadius="15" Width="500" Height="700" Padding="0" Margin="10">
+                <Grid>
+                    <!-- Define rows for layout -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <!-- Status bar -->
+                        <RowDefinition Height="*" />
+                        <!-- Content -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Status Bar -->
+                    <Border Background="Green" Grid.Row="0" CornerRadius="15,15,15,15">
+                        <TextBlock Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                    </Border>
+
+                    <!-- Content Area -->
+                    <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                        <!-- Title -->
+                        <TextBlock Text="STEAM DESIGN" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                        <!-- Description -->
+                        <TextBlock Text="Customize Steam's UI with amazing designs. If not applied, please set your Steam theme manually."
+           FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                        <!-- Buttons Area -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <!-- First Button -->
+                            <Border Background="#1E2A38" Padding="10" CornerRadius="10">
+                                <TextBlock Text="Icon 1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+
+                            <!-- Second Button -->
+                            <Border Background="#1E2A38" Padding="10" CornerRadius="10">
+                                <TextBlock Text="Icon 2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Preview Image -->
+                        <Image Source="/Assets/Xbox Controller.png"  Width="260" Height="140" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                        <!-- Footer Text -->
+                        <TextBlock Text="Enable Designs in Steam BP over CSS Loader."
+           FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+
