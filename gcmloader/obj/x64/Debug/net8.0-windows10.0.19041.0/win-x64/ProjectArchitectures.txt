@@ -1,1 +1,1 @@
-C:\Users\luis\source\repos\GAMINGCONSOLEMODE\gcmloader\gcmloader.csproj;x64
+C:\Users\luis\Source\Repos\therealgcm\gcmloader\gcmloader.csproj;x64

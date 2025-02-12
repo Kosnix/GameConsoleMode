@@ -25,6 +25,7 @@ using Windows.Media.Protection.PlayReady;
 using System.Data;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace gcmloader
 {
@@ -216,6 +217,10 @@ namespace gcmloader
                     Console.WriteLine("Error restarting application as administrator: " + ex.Message);
                     Environment.FailFast("Failed to restart as administrator.", ex);
                 }
+            }
+            else
+            {
+                uac("off");
             }
         }
         private void SetBackgroundImage(int width, int height)
@@ -662,6 +667,44 @@ namespace gcmloader
             }
 
         }
+
+        static void uac(string art)
+        {
+
+            if (art == "on")
+            {
+                try
+                {
+                    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 5);
+                    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 1);
+
+                  //  MessageBox.Show("UAC has been successfully enabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    throw new Exception("Unauthorized access: you need to run this program as an administrator.");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Unable to restore default UAC settings: " + ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 0);
+                    Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 0);
+
+                  //  MessageBox.Show("UAC has been successfully disabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                  //  MessageBox.Show("An error occurred while disabling UAC: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         static void ConsoleModeToShell()
         {
             try
@@ -1086,6 +1129,7 @@ namespace gcmloader
                        
                     });
 
+                    uac("on");
                     this.Close();
                 }
             }

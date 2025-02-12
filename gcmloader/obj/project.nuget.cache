@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+7TBRlh1HWk=",
+  "dgSpecHash": "gqImMtSkjiM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj",
+  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luis\\.nuget\\packages\\discord.net\\3.17.1\\discord.net.3.17.1.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\discord.net.commands\\3.17.1\\discord.net.commands.3.17.1.nupkg.sha512",

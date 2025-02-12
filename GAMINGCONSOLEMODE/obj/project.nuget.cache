@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "agwUdXVQCn4=",
+  "dgSpecHash": "rXPm8W1n34c=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",

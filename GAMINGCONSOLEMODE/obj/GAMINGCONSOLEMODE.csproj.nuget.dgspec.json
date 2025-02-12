@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {}
+    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {
+    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
         "projectName": "GAMINGCONSOLEMODE",
-        "projectPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+        "projectPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
         "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE\\obj\\",
+        "outputPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

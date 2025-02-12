@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj": {}
+    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj": {
+    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj",
+        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
         "projectName": "gcmloader",
-        "projectPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\gcmloader.csproj",
+        "projectPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
         "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis\\source\\repos\\GAMINGCONSOLEMODE\\gcmloader\\obj\\",
+        "outputPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

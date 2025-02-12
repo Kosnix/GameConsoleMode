@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\luis\\source\\repos\\therealgcm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gcmloader\\gcmloaderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|solutionrelative:gcmloader\\gcmloaderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gcmloader\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|solutionrelative:gcmloader\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gcmloader\\gcmloader.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|solutionrelative:gcmloader\\gcmloader.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\gamingconsolemode.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\gamingconsolemode.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "gcmloaderwindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmloader\\gcmloaderwindow.xaml.cs",
+              "RelativeDocumentMoniker": "gcmloader\\gcmloaderwindow.xaml.cs",
+              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmloader\\gcmloaderwindow.xaml.cs",
+              "RelativeToolTip": "gcmloader\\gcmloaderwindow.xaml.cs",
+              "ViewState": "AgIAAEUDAAAAAAAAAAAuwG4EAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T17:37:10.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppSettings.cs",
+              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmloader\\AppSettings.cs",
+              "RelativeDocumentMoniker": "gcmloader\\AppSettings.cs",
+              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmloader\\AppSettings.cs",
+              "RelativeToolTip": "gcmloader\\AppSettings.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T17:36:19.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "gcmloader",
+              "DocumentMoniker": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
+              "RelativeDocumentMoniker": "gcmloader\\gcmloader.csproj",
+              "ToolTip": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
+              "RelativeToolTip": "gcmloader\\gcmloader.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-12T17:36:00.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GAMINGCONSOLEMODE",
+              "DocumentMoniker": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+              "ToolTip": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+              "RelativeToolTip": "GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-12T17:35:54.679Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
