@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\luis\\source\\repos\\therealgcm\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -16,10 +24,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsappsdk\\1.6.241114003\\buildTransitive\\Microsoft.UI.Xaml.Markup.Compiler.interop.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,10 +62,6 @@
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\launcher.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\therealgcm\\gamingconsolemode\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}",
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}"
     },
@@ -97,7 +97,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -105,33 +105,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "launcher.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\launcher.xaml.cs",
-              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\launcher.xaml.cs",
-              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\launcher.xaml.cs",
-              "RelativeToolTip": "GAMINGCONSOLEMODE\\launcher.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoBAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T12:45:18.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Home.xaml",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\Home.xaml",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\Home.xaml",
               "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\Home.xaml",
               "RelativeToolTip": "GAMINGCONSOLEMODE\\Home.xaml",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAIwI0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAwJAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-16T02:19:36.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
@@ -139,24 +126,24 @@
               "RelativeToolTip": "GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T16:47:19.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-15T16:47:19.294Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "startup.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\startup.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\startup.xaml.cs",
               "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\startup.xaml.cs",
               "RelativeToolTip": "GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T17:18:38.186Z"
+              "WhenOpened": "2025-02-15T17:18:38.186Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "app.manifest",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\app.manifest",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\app.manifest",
@@ -168,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AppSettings.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\AppSettings.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\AppSettings.cs",
@@ -180,7 +167,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\MainWindow.xaml",
+              "RelativeToolTip": "GAMINGCONSOLEMODE\\MainWindow.xaml",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-15T16:46:16.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launcher.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\launcher.xaml.cs",
+              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\launcher.xaml.cs",
+              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\launcher.xaml.cs",
+              "RelativeToolTip": "GAMINGCONSOLEMODE\\launcher.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T12:45:18.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "settings.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\settings.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\settings.xaml.cs",
@@ -192,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Home.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\Home.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\Home.xaml.cs",
@@ -204,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Microsoft.UI.Xaml.Markup.Compiler.interop.targets",
               "DocumentMoniker": "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsappsdk\\1.6.241114003\\buildTransitive\\Microsoft.UI.Xaml.Markup.Compiler.interop.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\.nuget\\packages\\microsoft.windowsappsdk\\1.6.241114003\\buildTransitive\\Microsoft.UI.Xaml.Markup.Compiler.interop.targets",
@@ -216,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\App.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\App.xaml.cs",
@@ -228,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "settings.xaml",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\settings.xaml",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\settings.xaml",
@@ -240,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GAMINGCONSOLEMODE.csproj",
               "DocumentMoniker": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
@@ -252,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "startup.xaml",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\startup.xaml",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\startup.xaml",
@@ -275,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "launcher.xaml",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\launcher.xaml",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\launcher.xaml",
@@ -283,20 +295,7 @@
               "RelativeToolTip": "GAMINGCONSOLEMODE\\launcher.xaml",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-16T12:45:14.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\GAMINGCONSOLEMODE\\MainWindow.xaml",
-              "RelativeToolTip": "GAMINGCONSOLEMODE\\MainWindow.xaml",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-15T16:46:16.412Z"
+              "WhenOpened": "2025-02-16T12:45:14.612Z"
             },
             {
               "$type": "Document",

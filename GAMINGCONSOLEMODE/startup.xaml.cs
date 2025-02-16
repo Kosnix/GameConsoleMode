@@ -30,7 +30,7 @@ namespace GAMINGCONSOLEMODE
         {
             this.InitializeComponent();
             updateui();
-            
+            //later
         }
 
         #region code functions
