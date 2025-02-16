@@ -118,29 +118,7 @@
                     </Expander.Header>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
 
-                        <!-- Title above the buttons -->
-                        <TextBlock Text="Replace your launcher in hybrid mode like SteamOS, or keep Windows Explorer for a clean console experience. Both options enhance usability." 
-               FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" Width="300"/>
-
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-
-                            <!-- Button with a crossed-out circle and text -->
-                            <Button x:Name="withreplace" Width="150" Height="80" Click="withreplace_Click">
-                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                                    <TextBlock Text="⚪" FontSize="24" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
-                                </StackPanel>
-                            </Button>
-
-                            <!-- Button with a filled circle and text -->
-                            <Button x:Name="withoutreplace" Width="150" Height="80" Click="withoutreplace_Click">
-                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                                    <TextBlock Text="⚫" FontSize="24" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Without Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
-                                </StackPanel>
-                            </Button>
-
-                        </StackPanel>
+                        <TextBlock Text="click the button below to start and enjoy the experience" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
 
                     </StackPanel>
 

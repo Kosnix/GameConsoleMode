@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rXPm8W1n34c=",
+  "dgSpecHash": "aCrHfgtelLU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\flurl\\4.0.0\\flurl.4.0.0.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\flurl.http\\4.0.2\\flurl.http.4.0.2.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\microsoft.web.webview2\\1.0.2651.64\\microsoft.web.webview2.1.0.2651.64.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
