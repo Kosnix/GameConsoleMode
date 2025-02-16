@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {}
+    "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {
+    "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
         "projectName": "GAMINGCONSOLEMODE",
-        "projectPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+        "projectPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
         "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\GAMINGCONSOLEMODE\\obj\\",
+        "outputPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,6 +53,10 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )"
+            },
+            "Flurl.Http": {
+              "target": "Package",
+              "version": "[4.0.2, )"
             },
             "Microsoft.Windows.SDK.BuildTools": {
               "target": "Package",

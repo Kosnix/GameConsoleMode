@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>b49d6f58-17dc-4b17-9150-1548a2f7ab1b</PackageIdentityName>
     <PackageIdentityPublisher>CN=luis</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>
     </WindowsSdkPath>
-    <LayoutDir>C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
+    <LayoutDir>C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>75F316F3F7EE8DB68488AE618B4F652B410561E57453333D05E3C8A698DFCEA5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>b49d6f58-17dc-4b17-9150-1548a2f7ab1b_1.0.0.0_x64__2f6aac00shrk2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>b49d6f58-17dc-4b17-9150-1548a2f7ab1b_2f6aac00shrk2!App</RegisteredUserModeAppID>
@@ -27,1004 +27,1004 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-02-16T13:41:47.494</Modified>
+      <Modified>2025-02-16T17:32:26.914</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-02-16T13:41:47.038</Modified>
+      <Modified>2025-02-16T17:32:26.308</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
       <PackagePath>GAMINGCONSOLEMODE.runtimeconfig.json</PackagePath>
-      <Modified>2025-02-16T13:41:01.914</Modified>
+      <Modified>2025-02-16T14:52:39.049</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
       <PackagePath>GAMINGCONSOLEMODE.dll</PackagePath>
-      <Modified>2025-02-16T13:41:46.619</Modified>
+      <Modified>2025-02-16T17:32:25.644</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\functions\discord.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\discord.png">
       <PackagePath>functions\discord.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.498</Modified>
+      <Modified>2025-02-16T14:27:33.744</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\functions\displayfusion.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\displayfusion.png">
       <PackagePath>functions\displayfusion.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.498</Modified>
+      <Modified>2025-02-16T14:27:33.745</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Download.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Download.png">
       <PackagePath>Assets\Download.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.480</Modified>
+      <Modified>2025-02-16T14:27:31.025</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\launcher\custom_logo.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\launcher\custom_logo.png">
       <PackagePath>Assets\launcher\custom_logo.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.485</Modified>
+      <Modified>2025-02-16T14:27:31.029</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\launcher\gcm_icon.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\launcher\gcm_icon.png">
       <PackagePath>Assets\launcher\gcm_icon.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.486</Modified>
+      <Modified>2025-02-16T14:27:31.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\launcher\playnite_logo.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\launcher\playnite_logo.png">
       <PackagePath>Assets\launcher\playnite_logo.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.486</Modified>
+      <Modified>2025-02-16T14:27:31.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\launcher\steam_logo.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\launcher\steam_logo.png">
       <PackagePath>Assets\launcher\steam_logo.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.487</Modified>
+      <Modified>2025-02-16T14:27:31.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\logo_gcm.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\logo_gcm.png">
       <PackagePath>Assets\logo_gcm.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.492</Modified>
+      <Modified>2025-02-16T14:27:31.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Play.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Play.png">
       <PackagePath>Assets\Play.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.480</Modified>
+      <Modified>2025-02-16T14:27:31.025</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\steambp.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\steambp.png">
       <PackagePath>Assets\steambp.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.494</Modified>
+      <Modified>2025-02-16T14:27:31.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Uninstall Programs.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Uninstall Programs.png">
       <PackagePath>Assets\Uninstall Programs.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.484</Modified>
+      <Modified>2025-02-16T14:27:31.028</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Xbox Controller.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Xbox Controller.png">
       <PackagePath>Assets\Xbox Controller.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.484</Modified>
+      <Modified>2025-02-16T14:27:31.029</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\functions\joyxoff_logo.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\joyxoff_logo.png">
       <PackagePath>functions\joyxoff_logo.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.498</Modified>
+      <Modified>2025-02-16T14:27:33.745</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\functions\joyxoff_panel.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\joyxoff_panel.png">
       <PackagePath>functions\joyxoff_panel.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.499</Modified>
+      <Modified>2025-02-16T14:27:33.746</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\functions\TV.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\TV.png">
       <PackagePath>functions\TV.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.497</Modified>
+      <Modified>2025-02-16T14:27:33.744</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\opensource_apps\Joyxoff.msi">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\opensource_apps\Joyxoff.msi">
       <PackagePath>opensource_apps\Joyxoff.msi</PackagePath>
-      <Modified>2025-02-16T13:40:43.918</Modified>
+      <Modified>2025-02-16T14:27:35.753</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>GAMINGCONSOLEMODE.exe</PackagePath>
-      <Modified>2025-02-16T13:41:46.622</Modified>
+      <Modified>2025-02-16T17:32:25.684</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
       <Modified>2024-07-20T08:33:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\CoreMessagingXP.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\CoreMessagingXP.dll">
       <PackagePath>CoreMessagingXP.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.572</Modified>
+      <Modified>2025-02-16T14:27:33.826</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\dcompi.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\dcompi.dll">
       <PackagePath>dcompi.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.796</Modified>
+      <Modified>2025-02-16T14:27:34.045</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\dwmcorei.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\dwmcorei.dll">
       <PackagePath>dwmcorei.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.809</Modified>
+      <Modified>2025-02-16T14:27:34.058</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\DwmSceneI.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\DwmSceneI.dll">
       <PackagePath>DwmSceneI.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.598</Modified>
+      <Modified>2025-02-16T14:27:33.851</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\DWriteCore.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\DWriteCore.dll">
       <PackagePath>DWriteCore.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.587</Modified>
+      <Modified>2025-02-16T14:27:33.841</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\marshal.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\marshal.dll">
       <PackagePath>marshal.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.835</Modified>
+      <Modified>2025-02-16T14:27:34.085</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.DirectManipulation.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.DirectManipulation.dll">
       <PackagePath>Microsoft.DirectManipulation.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.606</Modified>
+      <Modified>2025-02-16T14:27:33.859</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Graphics.Display.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Graphics.Display.dll">
       <PackagePath>Microsoft.Graphics.Display.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.607</Modified>
+      <Modified>2025-02-16T14:27:33.861</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.InputStateManager.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.InputStateManager.dll">
       <PackagePath>Microsoft.InputStateManager.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.610</Modified>
+      <Modified>2025-02-16T14:27:33.862</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Internal.FrameworkUdk.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Internal.FrameworkUdk.dll">
       <PackagePath>Microsoft.Internal.FrameworkUdk.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.613</Modified>
+      <Modified>2025-02-16T14:27:33.866</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Composition.OSSupport.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Composition.OSSupport.dll">
       <PackagePath>Microsoft.UI.Composition.OSSupport.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.618</Modified>
+      <Modified>2025-02-16T14:27:33.870</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.dll">
       <PackagePath>Microsoft.UI.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.673</Modified>
+      <Modified>2025-02-16T14:27:33.923</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Input.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Input.dll">
       <PackagePath>Microsoft.UI.Input.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.622</Modified>
+      <Modified>2025-02-16T14:27:33.873</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Windowing.Core.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Windowing.Core.dll">
       <PackagePath>Microsoft.UI.Windowing.Core.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.624</Modified>
+      <Modified>2025-02-16T14:27:33.876</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Windowing.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Windowing.dll">
       <PackagePath>Microsoft.UI.Windowing.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.627</Modified>
+      <Modified>2025-02-16T14:27:33.878</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Controls.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Controls.dll">
       <PackagePath>Microsoft.UI.Xaml.Controls.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.652</Modified>
+      <Modified>2025-02-16T14:27:33.902</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.dll">
       <PackagePath>Microsoft.ui.xaml.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.754</Modified>
+      <Modified>2025-02-16T14:27:34.003</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Internal.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Internal.dll">
       <PackagePath>Microsoft.UI.Xaml.Internal.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.661</Modified>
+      <Modified>2025-02-16T14:27:33.911</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Phone.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Phone.dll">
       <PackagePath>Microsoft.UI.Xaml.Phone.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.666</Modified>
+      <Modified>2025-02-16T14:27:33.915</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.resources.19h1.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.resources.19h1.dll">
       <PackagePath>Microsoft.ui.xaml.resources.19h1.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.756</Modified>
+      <Modified>2025-02-16T14:27:34.005</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.resources.common.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.ui.xaml.resources.common.dll">
       <PackagePath>Microsoft.ui.xaml.resources.common.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.757</Modified>
+      <Modified>2025-02-16T14:27:34.006</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.Resources.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.Resources.dll">
       <PackagePath>Microsoft.Windows.ApplicationModel.Resources.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.677</Modified>
+      <Modified>2025-02-16T14:27:33.927</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Widgets.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Widgets.dll">
       <PackagePath>Microsoft.Windows.Widgets.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.687</Modified>
+      <Modified>2025-02-16T14:27:33.938</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.WindowsAppRuntime.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.WindowsAppRuntime.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.695</Modified>
+      <Modified>2025-02-16T14:27:33.945</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.WindowsAppRuntime.Insights.Resource.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.WindowsAppRuntime.Insights.Resource.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Insights.Resource.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.688</Modified>
+      <Modified>2025-02-16T14:27:33.939</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\MRM.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\MRM.dll">
       <PackagePath>MRM.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.600</Modified>
+      <Modified>2025-02-16T14:27:33.854</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\PushNotificationsLongRunningTask.ProxyStub.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\PushNotificationsLongRunningTask.ProxyStub.dll">
       <PackagePath>PushNotificationsLongRunningTask.ProxyStub.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.757</Modified>
+      <Modified>2025-02-16T14:27:34.006</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppRuntime.DeploymentExtensions.OneCore.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppRuntime.DeploymentExtensions.OneCore.dll">
       <PackagePath>WindowsAppRuntime.DeploymentExtensions.OneCore.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.776</Modified>
+      <Modified>2025-02-16T14:27:34.026</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppSdk.AppxDeploymentExtensions.Desktop-EventLog-Instrumentation.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppSdk.AppxDeploymentExtensions.Desktop-EventLog-Instrumentation.dll">
       <PackagePath>WindowsAppSdk.AppxDeploymentExtensions.Desktop-EventLog-Instrumentation.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.777</Modified>
+      <Modified>2025-02-16T14:27:34.026</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll">
       <PackagePath>WindowsAppSdk.AppxDeploymentExtensions.Desktop.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.780</Modified>
+      <Modified>2025-02-16T14:27:34.030</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WinUIEdit.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WinUIEdit.dll">
       <PackagePath>WinUIEdit.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.774</Modified>
+      <Modified>2025-02-16T14:27:34.024</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\wuceffectsi.dll">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\wuceffectsi.dll">
       <PackagePath>wuceffectsi.dll</PackagePath>
-      <Modified>2025-02-12T14:45:28.862</Modified>
+      <Modified>2025-02-16T14:27:34.113</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\RestartAgent.exe">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\RestartAgent.exe">
       <PackagePath>RestartAgent.exe</PackagePath>
-      <Modified>2025-02-12T14:45:28.758</Modified>
+      <Modified>2025-02-16T14:27:34.006</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml\Assets\map.html">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml\Assets\map.html">
       <PackagePath>Microsoft.UI.Xaml\Assets\map.html</PackagePath>
-      <Modified>2025-02-12T14:45:28.672</Modified>
+      <Modified>2025-02-16T14:27:33.922</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\af-ZA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\af-ZA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>af-ZA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.781</Modified>
+      <Modified>2025-02-16T14:27:34.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\af-ZA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\af-ZA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>af-ZA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.781</Modified>
+      <Modified>2025-02-16T14:27:34.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\am-ET\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\am-ET\Microsoft.ui.xaml.dll.mui">
       <PackagePath>am-ET\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.782</Modified>
+      <Modified>2025-02-16T14:27:34.032</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\am-ET\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\am-ET\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>am-ET\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.781</Modified>
+      <Modified>2025-02-16T14:27:34.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ar-SA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ar-SA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ar-SA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.782</Modified>
+      <Modified>2025-02-16T14:27:34.032</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ar-SA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ar-SA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ar-SA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.782</Modified>
+      <Modified>2025-02-16T14:27:34.032</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\as-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\as-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>as-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.783</Modified>
+      <Modified>2025-02-16T14:27:34.033</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\as-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\as-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>as-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.783</Modified>
+      <Modified>2025-02-16T14:27:34.033</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\az-Latn-AZ\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\az-Latn-AZ\Microsoft.ui.xaml.dll.mui">
       <PackagePath>az-Latn-AZ\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.784</Modified>
+      <Modified>2025-02-16T14:27:34.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.783</Modified>
+      <Modified>2025-02-16T14:27:34.033</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bg-BG\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bg-BG\Microsoft.ui.xaml.dll.mui">
       <PackagePath>bg-BG\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.784</Modified>
+      <Modified>2025-02-16T14:27:34.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bg-BG\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bg-BG\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>bg-BG\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.784</Modified>
+      <Modified>2025-02-16T14:27:34.034</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bn-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bn-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>bn-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.785</Modified>
+      <Modified>2025-02-16T14:27:34.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bn-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bn-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>bn-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.785</Modified>
+      <Modified>2025-02-16T14:27:34.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bs-Latn-BA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bs-Latn-BA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>bs-Latn-BA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.786</Modified>
+      <Modified>2025-02-16T14:27:34.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.785</Modified>
+      <Modified>2025-02-16T14:27:34.035</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.787</Modified>
+      <Modified>2025-02-16T14:27:34.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.787</Modified>
+      <Modified>2025-02-16T14:27:34.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-ES\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-ES\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ca-ES\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.786</Modified>
+      <Modified>2025-02-16T14:27:34.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-ES\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ca-ES\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ca-ES\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.786</Modified>
+      <Modified>2025-02-16T14:27:34.036</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cs-CZ\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cs-CZ\Microsoft.ui.xaml.dll.mui">
       <PackagePath>cs-CZ\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.788</Modified>
+      <Modified>2025-02-16T14:27:34.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.787</Modified>
+      <Modified>2025-02-16T14:27:34.037</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cy-GB\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cy-GB\Microsoft.ui.xaml.dll.mui">
       <PackagePath>cy-GB\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.788</Modified>
+      <Modified>2025-02-16T14:27:34.038</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cy-GB\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\cy-GB\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>cy-GB\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.788</Modified>
+      <Modified>2025-02-16T14:27:34.038</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\da-DK\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\da-DK\Microsoft.ui.xaml.dll.mui">
       <PackagePath>da-DK\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.789</Modified>
+      <Modified>2025-02-16T14:27:34.039</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\da-DK\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\da-DK\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>da-DK\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.789</Modified>
+      <Modified>2025-02-16T14:27:34.038</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\de-DE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\de-DE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>de-DE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.797</Modified>
+      <Modified>2025-02-16T14:27:34.046</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\de-DE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\de-DE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>de-DE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.796</Modified>
+      <Modified>2025-02-16T14:27:34.046</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\el-GR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\el-GR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>el-GR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.810</Modified>
+      <Modified>2025-02-16T14:27:34.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\el-GR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\el-GR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>el-GR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.810</Modified>
+      <Modified>2025-02-16T14:27:34.058</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-GB\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-GB\Microsoft.ui.xaml.dll.mui">
       <PackagePath>en-GB\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.811</Modified>
+      <Modified>2025-02-16T14:27:34.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-GB\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-GB\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>en-GB\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.811</Modified>
+      <Modified>2025-02-16T14:27:34.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-us\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-us\Microsoft.ui.xaml.dll.mui">
       <PackagePath>en-us\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.812</Modified>
+      <Modified>2025-02-16T14:27:34.060</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-us\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\en-us\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>en-us\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.811</Modified>
+      <Modified>2025-02-16T14:27:34.060</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-ES\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-ES\Microsoft.ui.xaml.dll.mui">
       <PackagePath>es-ES\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.812</Modified>
+      <Modified>2025-02-16T14:27:34.061</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-ES\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-ES\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>es-ES\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.812</Modified>
+      <Modified>2025-02-16T14:27:34.061</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-MX\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-MX\Microsoft.ui.xaml.dll.mui">
       <PackagePath>es-MX\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.813</Modified>
+      <Modified>2025-02-16T14:27:34.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-MX\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\es-MX\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>es-MX\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.813</Modified>
+      <Modified>2025-02-16T14:27:34.061</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\et-EE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\et-EE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>et-EE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.814</Modified>
+      <Modified>2025-02-16T14:27:34.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\et-EE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\et-EE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>et-EE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.813</Modified>
+      <Modified>2025-02-16T14:27:34.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\eu-ES\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\eu-ES\Microsoft.ui.xaml.dll.mui">
       <PackagePath>eu-ES\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.814</Modified>
+      <Modified>2025-02-16T14:27:34.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\eu-ES\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\eu-ES\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>eu-ES\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.814</Modified>
+      <Modified>2025-02-16T14:27:34.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fa-IR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fa-IR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>fa-IR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.815</Modified>
+      <Modified>2025-02-16T14:27:34.064</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fa-IR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fa-IR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>fa-IR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.815</Modified>
+      <Modified>2025-02-16T14:27:34.063</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fi-FI\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fi-FI\Microsoft.ui.xaml.dll.mui">
       <PackagePath>fi-FI\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.815</Modified>
+      <Modified>2025-02-16T14:27:34.064</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fi-FI\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fi-FI\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>fi-FI\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.815</Modified>
+      <Modified>2025-02-16T14:27:34.064</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fil-PH\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fil-PH\Microsoft.ui.xaml.dll.mui">
       <PackagePath>fil-PH\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.816</Modified>
+      <Modified>2025-02-16T14:27:34.065</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fil-PH\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fil-PH\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>fil-PH\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.816</Modified>
+      <Modified>2025-02-16T14:27:34.065</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-CA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-CA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>fr-CA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.817</Modified>
+      <Modified>2025-02-16T14:27:34.065</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-CA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-CA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>fr-CA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.816</Modified>
+      <Modified>2025-02-16T14:27:34.065</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-FR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-FR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>fr-FR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.817</Modified>
+      <Modified>2025-02-16T14:27:34.066</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-FR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\fr-FR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>fr-FR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.817</Modified>
+      <Modified>2025-02-16T14:27:34.066</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ga-IE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ga-IE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ga-IE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.818</Modified>
+      <Modified>2025-02-16T14:27:34.067</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ga-IE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ga-IE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ga-IE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.818</Modified>
+      <Modified>2025-02-16T14:27:34.066</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gd-gb\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gd-gb\Microsoft.ui.xaml.dll.mui">
       <PackagePath>gd-gb\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.819</Modified>
+      <Modified>2025-02-16T14:27:34.067</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gd-gb\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gd-gb\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>gd-gb\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.818</Modified>
+      <Modified>2025-02-16T14:27:34.067</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gl-ES\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gl-ES\Microsoft.ui.xaml.dll.mui">
       <PackagePath>gl-ES\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.819</Modified>
+      <Modified>2025-02-16T14:27:34.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gl-ES\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gl-ES\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>gl-ES\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.819</Modified>
+      <Modified>2025-02-16T14:27:34.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gu-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gu-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>gu-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.820</Modified>
+      <Modified>2025-02-16T14:27:34.069</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gu-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\gu-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>gu-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.820</Modified>
+      <Modified>2025-02-16T14:27:34.068</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\he-IL\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\he-IL\Microsoft.ui.xaml.dll.mui">
       <PackagePath>he-IL\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.821</Modified>
+      <Modified>2025-02-16T14:27:34.069</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\he-IL\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\he-IL\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>he-IL\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.820</Modified>
+      <Modified>2025-02-16T14:27:34.069</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hi-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hi-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>hi-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.821</Modified>
+      <Modified>2025-02-16T14:27:34.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hi-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hi-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>hi-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.821</Modified>
+      <Modified>2025-02-16T14:27:34.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hr-HR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hr-HR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>hr-HR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.822</Modified>
+      <Modified>2025-02-16T14:27:34.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hr-HR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hr-HR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>hr-HR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.822</Modified>
+      <Modified>2025-02-16T14:27:34.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hu-HU\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hu-HU\Microsoft.ui.xaml.dll.mui">
       <PackagePath>hu-HU\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.823</Modified>
+      <Modified>2025-02-16T14:27:34.071</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hu-HU\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hu-HU\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>hu-HU\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.823</Modified>
+      <Modified>2025-02-16T14:27:34.071</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hy-AM\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hy-AM\Microsoft.ui.xaml.dll.mui">
       <PackagePath>hy-AM\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.824</Modified>
+      <Modified>2025-02-16T14:27:34.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hy-AM\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\hy-AM\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>hy-AM\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.823</Modified>
+      <Modified>2025-02-16T14:27:34.071</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\id-ID\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\id-ID\Microsoft.ui.xaml.dll.mui">
       <PackagePath>id-ID\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.824</Modified>
+      <Modified>2025-02-16T14:27:34.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\id-ID\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\id-ID\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>id-ID\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.824</Modified>
+      <Modified>2025-02-16T14:27:34.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\is-IS\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\is-IS\Microsoft.ui.xaml.dll.mui">
       <PackagePath>is-IS\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.825</Modified>
+      <Modified>2025-02-16T14:27:34.073</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\is-IS\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\is-IS\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>is-IS\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.825</Modified>
+      <Modified>2025-02-16T14:27:34.073</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\it-IT\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\it-IT\Microsoft.ui.xaml.dll.mui">
       <PackagePath>it-IT\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.826</Modified>
+      <Modified>2025-02-16T14:27:34.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\it-IT\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\it-IT\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>it-IT\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.825</Modified>
+      <Modified>2025-02-16T14:27:34.073</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ja-JP\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ja-JP\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ja-JP\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.826</Modified>
+      <Modified>2025-02-16T14:27:34.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ja-JP\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ja-JP\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ja-JP\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.826</Modified>
+      <Modified>2025-02-16T14:27:34.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ka-GE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ka-GE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ka-GE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.827</Modified>
+      <Modified>2025-02-16T14:27:34.075</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ka-GE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ka-GE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ka-GE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.827</Modified>
+      <Modified>2025-02-16T14:27:34.075</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kk-KZ\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kk-KZ\Microsoft.ui.xaml.dll.mui">
       <PackagePath>kk-KZ\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.828</Modified>
+      <Modified>2025-02-16T14:27:34.076</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.827</Modified>
+      <Modified>2025-02-16T14:27:34.075</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\km-KH\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\km-KH\Microsoft.ui.xaml.dll.mui">
       <PackagePath>km-KH\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.828</Modified>
+      <Modified>2025-02-16T14:27:34.077</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\km-KH\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\km-KH\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>km-KH\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.828</Modified>
+      <Modified>2025-02-16T14:27:34.076</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kn-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kn-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>kn-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.829</Modified>
+      <Modified>2025-02-16T14:27:34.077</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kn-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kn-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>kn-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.829</Modified>
+      <Modified>2025-02-16T14:27:34.077</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ko-KR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ko-KR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ko-KR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.830</Modified>
+      <Modified>2025-02-16T14:27:34.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ko-KR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ko-KR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ko-KR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.829</Modified>
+      <Modified>2025-02-16T14:27:34.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kok-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kok-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>kok-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.830</Modified>
+      <Modified>2025-02-16T14:27:34.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kok-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\kok-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>kok-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.830</Modified>
+      <Modified>2025-02-16T14:27:34.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lb-LU\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lb-LU\Microsoft.ui.xaml.dll.mui">
       <PackagePath>lb-LU\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.831</Modified>
+      <Modified>2025-02-16T14:27:34.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lb-LU\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lb-LU\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>lb-LU\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.831</Modified>
+      <Modified>2025-02-16T14:27:34.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lo-LA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lo-LA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>lo-LA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.831</Modified>
+      <Modified>2025-02-16T14:27:34.081</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lo-LA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lo-LA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>lo-LA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.831</Modified>
+      <Modified>2025-02-16T14:27:34.080</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lt-LT\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lt-LT\Microsoft.ui.xaml.dll.mui">
       <PackagePath>lt-LT\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.832</Modified>
+      <Modified>2025-02-16T14:27:34.082</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lt-LT\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lt-LT\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>lt-LT\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.832</Modified>
+      <Modified>2025-02-16T14:27:34.082</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lv-LV\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lv-LV\Microsoft.ui.xaml.dll.mui">
       <PackagePath>lv-LV\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.833</Modified>
+      <Modified>2025-02-16T14:27:34.083</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lv-LV\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\lv-LV\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>lv-LV\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.832</Modified>
+      <Modified>2025-02-16T14:27:34.083</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mi-NZ\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mi-NZ\Microsoft.ui.xaml.dll.mui">
       <PackagePath>mi-NZ\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.836</Modified>
+      <Modified>2025-02-16T14:27:34.086</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.835</Modified>
+      <Modified>2025-02-16T14:27:34.086</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mk-MK\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mk-MK\Microsoft.ui.xaml.dll.mui">
       <PackagePath>mk-MK\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.836</Modified>
+      <Modified>2025-02-16T14:27:34.087</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mk-MK\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mk-MK\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>mk-MK\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.836</Modified>
+      <Modified>2025-02-16T14:27:34.087</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ml-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ml-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ml-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.837</Modified>
+      <Modified>2025-02-16T14:27:34.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ml-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ml-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ml-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.837</Modified>
+      <Modified>2025-02-16T14:27:34.087</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mr-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mr-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>mr-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.838</Modified>
+      <Modified>2025-02-16T14:27:34.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mr-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mr-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>mr-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.837</Modified>
+      <Modified>2025-02-16T14:27:34.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ms-MY\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ms-MY\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ms-MY\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.839</Modified>
+      <Modified>2025-02-16T14:27:34.089</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ms-MY\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ms-MY\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ms-MY\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.838</Modified>
+      <Modified>2025-02-16T14:27:34.089</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mt-MT\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mt-MT\Microsoft.ui.xaml.dll.mui">
       <PackagePath>mt-MT\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.839</Modified>
+      <Modified>2025-02-16T14:27:34.090</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mt-MT\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\mt-MT\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>mt-MT\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.839</Modified>
+      <Modified>2025-02-16T14:27:34.089</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nb-NO\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nb-NO\Microsoft.ui.xaml.dll.mui">
       <PackagePath>nb-NO\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.840</Modified>
+      <Modified>2025-02-16T14:27:34.090</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nb-NO\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nb-NO\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>nb-NO\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.840</Modified>
+      <Modified>2025-02-16T14:27:34.090</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ne-NP\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ne-NP\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ne-NP\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.841</Modified>
+      <Modified>2025-02-16T14:27:34.091</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ne-NP\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ne-NP\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ne-NP\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.841</Modified>
+      <Modified>2025-02-16T14:27:34.091</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nl-NL\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nl-NL\Microsoft.ui.xaml.dll.mui">
       <PackagePath>nl-NL\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.842</Modified>
+      <Modified>2025-02-16T14:27:34.092</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nl-NL\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nl-NL\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>nl-NL\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.841</Modified>
+      <Modified>2025-02-16T14:27:34.091</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nn-NO\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nn-NO\Microsoft.ui.xaml.dll.mui">
       <PackagePath>nn-NO\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.842</Modified>
+      <Modified>2025-02-16T14:27:34.093</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nn-NO\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\nn-NO\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>nn-NO\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.842</Modified>
+      <Modified>2025-02-16T14:27:34.092</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\or-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\or-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>or-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.843</Modified>
+      <Modified>2025-02-16T14:27:34.093</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\or-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\or-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>or-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.843</Modified>
+      <Modified>2025-02-16T14:27:34.093</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pa-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pa-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>pa-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.844</Modified>
+      <Modified>2025-02-16T14:27:34.094</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pa-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pa-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>pa-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.843</Modified>
+      <Modified>2025-02-16T14:27:34.094</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pl-PL\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pl-PL\Microsoft.ui.xaml.dll.mui">
       <PackagePath>pl-PL\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.844</Modified>
+      <Modified>2025-02-16T14:27:34.095</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pl-PL\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pl-PL\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>pl-PL\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.844</Modified>
+      <Modified>2025-02-16T14:27:34.095</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-BR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-BR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>pt-BR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.845</Modified>
+      <Modified>2025-02-16T14:27:34.096</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-BR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-BR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>pt-BR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.845</Modified>
+      <Modified>2025-02-16T14:27:34.095</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-PT\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-PT\Microsoft.ui.xaml.dll.mui">
       <PackagePath>pt-PT\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.846</Modified>
+      <Modified>2025-02-16T14:27:34.096</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-PT\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\pt-PT\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>pt-PT\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.845</Modified>
+      <Modified>2025-02-16T14:27:34.096</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\quz-PE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\quz-PE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>quz-PE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.847</Modified>
+      <Modified>2025-02-16T14:27:34.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\quz-PE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\quz-PE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>quz-PE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.846</Modified>
+      <Modified>2025-02-16T14:27:34.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ro-RO\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ro-RO\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ro-RO\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.847</Modified>
+      <Modified>2025-02-16T14:27:34.098</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ro-RO\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ro-RO\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ro-RO\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.847</Modified>
+      <Modified>2025-02-16T14:27:34.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ru-RU\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ru-RU\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ru-RU\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.848</Modified>
+      <Modified>2025-02-16T14:27:34.098</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ru-RU\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ru-RU\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ru-RU\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.848</Modified>
+      <Modified>2025-02-16T14:27:34.098</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sk-SK\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sk-SK\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sk-SK\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.849</Modified>
+      <Modified>2025-02-16T14:27:34.099</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sk-SK\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sk-SK\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sk-SK\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.848</Modified>
+      <Modified>2025-02-16T14:27:34.099</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sl-SI\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sl-SI\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sl-SI\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.849</Modified>
+      <Modified>2025-02-16T14:27:34.100</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sl-SI\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sl-SI\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sl-SI\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.849</Modified>
+      <Modified>2025-02-16T14:27:34.099</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sq-AL\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sq-AL\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sq-AL\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.850</Modified>
+      <Modified>2025-02-16T14:27:34.100</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sq-AL\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sq-AL\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sq-AL\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.850</Modified>
+      <Modified>2025-02-16T14:27:34.100</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.851</Modified>
+      <Modified>2025-02-16T14:27:34.101</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.850</Modified>
+      <Modified>2025-02-16T14:27:34.101</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.851</Modified>
+      <Modified>2025-02-16T14:27:34.102</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.851</Modified>
+      <Modified>2025-02-16T14:27:34.101</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Latn-RS\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Latn-RS\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sr-Latn-RS\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.852</Modified>
+      <Modified>2025-02-16T14:27:34.102</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.852</Modified>
+      <Modified>2025-02-16T14:27:34.102</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sv-SE\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sv-SE\Microsoft.ui.xaml.dll.mui">
       <PackagePath>sv-SE\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.853</Modified>
+      <Modified>2025-02-16T14:27:34.103</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sv-SE\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\sv-SE\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>sv-SE\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.852</Modified>
+      <Modified>2025-02-16T14:27:34.103</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ta-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ta-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ta-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.854</Modified>
+      <Modified>2025-02-16T14:27:34.104</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ta-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ta-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ta-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.853</Modified>
+      <Modified>2025-02-16T14:27:34.104</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\te-IN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\te-IN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>te-IN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.854</Modified>
+      <Modified>2025-02-16T14:27:34.105</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\te-IN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\te-IN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>te-IN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.854</Modified>
+      <Modified>2025-02-16T14:27:34.104</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\th-TH\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\th-TH\Microsoft.ui.xaml.dll.mui">
       <PackagePath>th-TH\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.855</Modified>
+      <Modified>2025-02-16T14:27:34.105</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\th-TH\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\th-TH\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>th-TH\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.855</Modified>
+      <Modified>2025-02-16T14:27:34.105</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tr-TR\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tr-TR\Microsoft.ui.xaml.dll.mui">
       <PackagePath>tr-TR\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.856</Modified>
+      <Modified>2025-02-16T14:27:34.106</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tr-TR\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tr-TR\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>tr-TR\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.855</Modified>
+      <Modified>2025-02-16T14:27:34.106</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tt-RU\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tt-RU\Microsoft.ui.xaml.dll.mui">
       <PackagePath>tt-RU\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.856</Modified>
+      <Modified>2025-02-16T14:27:34.106</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tt-RU\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\tt-RU\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>tt-RU\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.856</Modified>
+      <Modified>2025-02-16T14:27:34.106</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ug-CN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ug-CN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ug-CN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.857</Modified>
+      <Modified>2025-02-16T14:27:34.107</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ug-CN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ug-CN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ug-CN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.857</Modified>
+      <Modified>2025-02-16T14:27:34.107</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uk-UA\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uk-UA\Microsoft.ui.xaml.dll.mui">
       <PackagePath>uk-UA\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.858</Modified>
+      <Modified>2025-02-16T14:27:34.108</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uk-UA\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uk-UA\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>uk-UA\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.857</Modified>
+      <Modified>2025-02-16T14:27:34.108</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ur-PK\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ur-PK\Microsoft.ui.xaml.dll.mui">
       <PackagePath>ur-PK\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.858</Modified>
+      <Modified>2025-02-16T14:27:34.109</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ur-PK\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\ur-PK\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>ur-PK\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.858</Modified>
+      <Modified>2025-02-16T14:27:34.108</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uz-Latn-UZ\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uz-Latn-UZ\Microsoft.ui.xaml.dll.mui">
       <PackagePath>uz-Latn-UZ\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.859</Modified>
+      <Modified>2025-02-16T14:27:34.109</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.859</Modified>
+      <Modified>2025-02-16T14:27:34.109</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\vi-VN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\vi-VN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>vi-VN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.860</Modified>
+      <Modified>2025-02-16T14:27:34.110</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\vi-VN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\vi-VN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>vi-VN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.859</Modified>
+      <Modified>2025-02-16T14:27:34.110</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-CN\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-CN\Microsoft.ui.xaml.dll.mui">
       <PackagePath>zh-CN\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.862</Modified>
+      <Modified>2025-02-16T14:27:34.113</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-CN\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-CN\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>zh-CN\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.862</Modified>
+      <Modified>2025-02-16T14:27:34.113</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-TW\Microsoft.ui.xaml.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-TW\Microsoft.ui.xaml.dll.mui">
       <PackagePath>zh-TW\Microsoft.ui.xaml.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.863</Modified>
+      <Modified>2025-02-16T14:27:34.114</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-TW\Microsoft.UI.Xaml.Phone.dll.mui">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\zh-TW\Microsoft.UI.Xaml.Phone.dll.mui">
       <PackagePath>zh-TW\Microsoft.UI.Xaml.Phone.dll.mui</PackagePath>
-      <Modified>2025-02-12T14:45:28.863</Modified>
+      <Modified>2025-02-16T14:27:34.114</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png">
       <PackagePath>Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.672</Modified>
+      <Modified>2025-02-16T14:27:33.921</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppRuntime.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\WindowsAppRuntime.png">
       <PackagePath>WindowsAppRuntime.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.777</Modified>
+      <Modified>2025-02-16T14:27:34.026</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Foundation.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Foundation.winmd">
       <PackagePath>Microsoft.Foundation.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.606</Modified>
+      <Modified>2025-02-16T14:27:33.860</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Graphics.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Graphics.winmd">
       <PackagePath>Microsoft.Graphics.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.608</Modified>
+      <Modified>2025-02-16T14:27:33.861</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Text.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Text.winmd">
       <PackagePath>Microsoft.UI.Text.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.622</Modified>
+      <Modified>2025-02-16T14:27:33.874</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.winmd">
       <PackagePath>Microsoft.UI.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.675</Modified>
+      <Modified>2025-02-16T14:27:33.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.winmd">
       <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.671</Modified>
+      <Modified>2025-02-16T14:27:33.921</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.DynamicDependency.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.DynamicDependency.winmd">
       <PackagePath>Microsoft.Windows.ApplicationModel.DynamicDependency.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.676</Modified>
+      <Modified>2025-02-16T14:27:33.926</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.Resources.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.Resources.winmd">
       <PackagePath>Microsoft.Windows.ApplicationModel.Resources.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.677</Modified>
+      <Modified>2025-02-16T14:27:33.927</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd">
       <PackagePath>Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.678</Modified>
+      <Modified>2025-02-16T14:27:33.928</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppLifecycle.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppLifecycle.winmd">
       <PackagePath>Microsoft.Windows.AppLifecycle.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.675</Modified>
+      <Modified>2025-02-16T14:27:33.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppNotifications.Builder.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppNotifications.Builder.winmd">
       <PackagePath>Microsoft.Windows.AppNotifications.Builder.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.675</Modified>
+      <Modified>2025-02-16T14:27:33.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppNotifications.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.AppNotifications.winmd">
       <PackagePath>Microsoft.Windows.AppNotifications.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.676</Modified>
+      <Modified>2025-02-16T14:27:33.926</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Globalization.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Globalization.winmd">
       <PackagePath>Microsoft.Windows.Globalization.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.678</Modified>
+      <Modified>2025-02-16T14:27:33.929</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Management.Deployment.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Management.Deployment.winmd">
       <PackagePath>Microsoft.Windows.Management.Deployment.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.679</Modified>
+      <Modified>2025-02-16T14:27:33.929</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.PushNotifications.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.PushNotifications.winmd">
       <PackagePath>Microsoft.Windows.PushNotifications.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.679</Modified>
+      <Modified>2025-02-16T14:27:33.929</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Security.AccessControl.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Security.AccessControl.winmd">
       <PackagePath>Microsoft.Windows.Security.AccessControl.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.679</Modified>
+      <Modified>2025-02-16T14:27:33.929</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Storage.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Storage.winmd">
       <PackagePath>Microsoft.Windows.Storage.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.679</Modified>
+      <Modified>2025-02-16T14:27:33.930</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.System.Power.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.System.Power.winmd">
       <PackagePath>Microsoft.Windows.System.Power.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.680</Modified>
+      <Modified>2025-02-16T14:27:33.930</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.System.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.System.winmd">
       <PackagePath>Microsoft.Windows.System.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.680</Modified>
+      <Modified>2025-02-16T14:27:33.930</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Widgets.winmd">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.Windows.Widgets.winmd">
       <PackagePath>Microsoft.Windows.Widgets.winmd</PackagePath>
-      <Modified>2025-02-12T14:45:28.688</Modified>
+      <Modified>2025-02-16T14:27:33.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.11\runtimes\win-x64\lib\net8.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -2878,6 +2878,14 @@
       <PackagePath>AudioSwitcher.AudioApi.CoreAudio.dll</PackagePath>
       <Modified>2023-05-20T08:21:52.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\flurl\4.0.0\lib\netstandard2.0\Flurl.dll">
+      <PackagePath>Flurl.dll</PackagePath>
+      <Modified>2023-12-13T22:42:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\flurl.http\4.0.2\lib\net6.0\Flurl.Http.dll">
+      <PackagePath>Flurl.Http.dll</PackagePath>
+      <Modified>2024-01-17T21:17:38.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\microsoft.windowsappsdk\1.6.241114003\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
       <Modified>2024-11-01T16:58:58.000</Modified>
@@ -2990,45 +2998,45 @@
       <PackagePath>Microsoft.Web.WebView2.Core.Projection.dll</PackagePath>
       <Modified>2024-07-20T08:33:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.pri">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.pri">
       <PackagePath>Microsoft.UI.pri</PackagePath>
-      <Modified>2025-02-12T14:45:28.673</Modified>
+      <Modified>2025-02-16T14:27:33.923</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Controls.pri">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MsixContent\Microsoft.UI.Xaml.Controls.pri">
       <PackagePath>Microsoft.UI.Xaml.Controls.pri</PackagePath>
-      <Modified>2025-02-12T14:45:28.656</Modified>
+      <Modified>2025-02-16T14:27:33.906</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
-      <Modified>2025-02-16T13:41:01.825</Modified>
+      <Modified>2025-02-16T14:52:39.048</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.480</Modified>
+      <Modified>2025-02-16T14:27:31.025</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.483</Modified>
+      <Modified>2025-02-16T14:27:31.027</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.483</Modified>
+      <Modified>2025-02-16T14:27:31.027</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.483</Modified>
+      <Modified>2025-02-16T14:27:31.027</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.484</Modified>
+      <Modified>2025-02-16T14:27:31.028</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.484</Modified>
+      <Modified>2025-02-16T14:27:31.028</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\therealgcm\GAMINGCONSOLEMODE\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <Modified>2025-02-12T14:45:28.484</Modified>
+      <Modified>2025-02-16T14:27:31.028</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

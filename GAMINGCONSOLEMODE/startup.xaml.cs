@@ -10,6 +10,12 @@ using NAudio.CoreAudioApi;
 using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
 using System.Data;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Flurl.Http;
+using System.Net.Http;
+using System.Net;
+using System.Text.RegularExpressions;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -30,6 +36,7 @@ namespace GAMINGCONSOLEMODE
         {
             this.InitializeComponent();
             updateui();
+            InitializeTimer();
             //later
         }
 
@@ -97,7 +104,29 @@ namespace GAMINGCONSOLEMODE
             FilterPanels(category);
         }
         #endregion filter
-        #region update ui
+        #region update ui and Timer
+
+        private DispatcherTimer _timer;
+
+        private void InitializeTimer()
+        {
+            // Create a new DispatcherTimer with a 10-second interval
+            _timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(5)
+            };
+
+            // Subscribe to the Tick event
+            _timer.Tick += Timer_Tick;
+
+            // Start the timer
+            _timer.Start();
+        }
+        private void Timer_Tick(object sender, object e)
+        {
+            // Call your update method on every tick
+            updateui();
+        }
         private void updateui()
         {
             #region cssloader
@@ -320,80 +349,93 @@ namespace GAMINGCONSOLEMODE
 
         private async void button_install_cssloader_Click(object sender, RoutedEventArgs e)
         {
-
-            try
+            // 1. Retrieve the latest release information from GitHub API
+            string latestReleaseApiUrl = "https://api.github.com/repos/DeckThemes/CSSLoader-Desktop/releases/latest";
+            using (HttpClient httpClient = new HttpClient())
             {
-                // Check if Joyxoff is already installed
-                string cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
-                if (File.Exists(cssloaderExePath))
+                // GitHub API requires a valid User-Agent header
+                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                string releaseJson;
+                try
                 {
-                    messagebox("Css Loader is installed and will start now");
-                    Process.Start(cssloaderExePath);
+                    releaseJson = await httpClient.GetStringAsync(latestReleaseApiUrl);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error retrieving the latest release info: " + ex.Message);
                     return;
                 }
 
-                // Get current directory
-                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                // 2. Parse the JSON to extract the tag name and select the MSI asset
+                JsonDocument jsonDoc = JsonDocument.Parse(releaseJson);
+                JsonElement root = jsonDoc.RootElement;
+                string tagName = root.GetProperty("tag_name").GetString();
+                Console.WriteLine("Latest release version: " + tagName);
 
-                // Path to the MSI file
-                string msiPath = Path.Combine(currentDirectory, "cssloader.msi");
-
-                // Check if the MSI file exists
-                if (!File.Exists(msiPath))
+                // Get the assets array from the JSON
+                JsonElement assets = root.GetProperty("assets");
+                JsonElement? msiAsset = null;
+                foreach (JsonElement asset in assets.EnumerateArray())
                 {
-                    messagebox("the file {msiPath} was not found.");
+                    string assetName = asset.GetProperty("name").GetString();
+                    // Select asset if it ends with .msi (case-insensitive)
+                    if (assetName.EndsWith(".msi", StringComparison.OrdinalIgnoreCase))
+                    {
+                        msiAsset = asset;
+                        break;
+                    }
+                }
+
+                if (msiAsset == null)
+                {
+                    Console.WriteLine("No MSI asset found in the latest release.");
                     return;
                 }
 
-                // Start process to install the MSI file with the passive parameter
-                Process process = new Process();
-                process.StartInfo.FileName = "msiexec";
-                process.StartInfo.Arguments = $"/i \"{msiPath}\" /passive";
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.CreateNoWindow = true;
+                string selectedAssetName = msiAsset.Value.GetProperty("name").GetString();
+                string downloadUrl = msiAsset.Value.GetProperty("browser_download_url").GetString();
 
-                // Start process
-                process.Start();
-                process.WaitForExit();
+                Console.WriteLine("Selected asset: " + selectedAssetName);
+                Console.WriteLine("Download URL: " + downloadUrl);
 
-                // Check if the installation was successful
-                if (process.ExitCode == 0)
+                // 3. Determine the destination folder (create a custom subfolder in the Downloads directory)
+                string downloadsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "cssloaderInstaller");
+                if (!Directory.Exists(downloadsFolder))
+                    Directory.CreateDirectory(downloadsFolder);
+
+                string destinationPath = Path.Combine(downloadsFolder, selectedAssetName);
+
+                // 4. Download the MSI file using Flurl.Http (the async download is awaited)
+                try
                 {
-                    messagebox("Installation completed successfully.");
-                    // Check if Joyxoff is already installed
-                    cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
-                    if (File.Exists(cssloaderExePath))
-                    {
-                        text_install_state_cssloader.Text = "INSTALLED";
-                        border_install_state_cssloader.Background = new SolidColorBrush(Colors.Green);
-                        Process.Start(cssloaderExePath);
-                        use_cssloader.IsEnabled = true;
-                        use_cssloader.IsOn = true;
-                        return;
-                    }
-                    else
-                    {
-                        text_install_state_cssloader.Text = "NOT INSTALLED";
-                        border_install_state_cssloader.Background = new SolidColorBrush(Colors.Brown);
-                        use_cssloader.IsEnabled = false;
-                        use_cssloader.IsOn = false;
-
-                    }
+                    Console.WriteLine("Starting download of the MSI asset...");
+                    await downloadUrl.DownloadFileAsync(downloadsFolder, selectedAssetName);
+                    Console.WriteLine("Download complete. File saved at:");
+                    Console.WriteLine(destinationPath);
                 }
-                else
+                catch (Exception ex)
                 {
-                    messagebox($"Installation failed. Error code: {process.ExitCode}\", \"Error");
-                    text_install_state_cssloader.Text = "NOT INSTALLED";
-                    border_install_state_cssloader.Background = new SolidColorBrush(Colors.Brown);
-                    use_cssloader.IsEnabled = false;
-                    use_cssloader.IsOn = false;
+                    Console.WriteLine("Download error: " + ex.Message);
+                    return;
+                }
+
+                // 5. Open the folder in File Explorer so the user can directly access the downloaded MSI file
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = $"\"{downloadsFolder}\"",
+                        UseShellExecute = true
+                    });
+                    Console.WriteLine("Folder opened in File Explorer.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error opening the folder: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                messagebox($"An error occurred: {ex.Message}");
-            }
-
+        
         }
 
         private void use_cssloader_Toggled(object sender, RoutedEventArgs e)
@@ -418,82 +460,76 @@ namespace GAMINGCONSOLEMODE
             Process.Start(new ProcessStartInfo("ms-settings:appsfeatures"));
         }
 
-        private void button_install_joyxoff_Click(object sender, RoutedEventArgs e)
+        private async void button_install_joyxoff_Click(object sender, RoutedEventArgs e)
         {
+            // 1. Dynamically determine the version from the download page
+            string baseDownloadUrl = "https://joyxoff.com/download.php?culture=en";
+            string pageContent = "";
             try
             {
-                // Check if Joyxoff is already installed
-                string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
-                if (File.Exists(joyxoffExePath))
+                using (WebClient wc = new WebClient())
                 {
-                    messagebox("Joyxoff is already installed and will now start");
-                    Process.Start(joyxoffExePath);
-                    return;
-                }
-
-                // Get current directory
-                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-
-                // Path to the MSI file
-                string msiPath = Path.Combine(currentDirectory, "Joyxoff.msi");
-
-                // Check if the MSI file exists
-                if (!File.Exists(msiPath))
-                {
-                    messagebox($"The file {msiPath} was not found.");
-                    return;
-                }
-
-                // Start process to install the MSI file with the passive parameter
-                Process process = new Process();
-                process.StartInfo.FileName = "msiexec";
-                process.StartInfo.Arguments = $"/i \"{msiPath}\" /passive";
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.CreateNoWindow = true;
-
-                // Start process
-                process.Start();
-                process.WaitForExit();
-
-                // Check if the installation was successful
-                if (process.ExitCode == 0)
-                {
-                    messagebox("Installation completed successfully.");
-                    // Check if Joyxoff is already installed
-                    joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
-                    if (File.Exists(joyxoffExePath))
-                    {
-                        text_install_state_joyxoff.Text = "INSTALLED";
-                        border_install_state_joyxoff.Background = new SolidColorBrush(Colors.Green);
-                        Process.Start(joyxoffExePath);
-                        use_joyxoff.IsEnabled = true;
-                        use_joyxoff.IsOn = true;
-                        return;
-                    }
-                    else
-                    {
-                        text_install_state_joyxoff.Text = "NOT INSTALLED";
-                        border_install_state_joyxoff.Background = new SolidColorBrush(Colors.Brown);
-                        use_joyxoff.IsEnabled = false;
-                        use_joyxoff.IsOn = false;
-
-                    }
-                }
-                else
-                {
-                    messagebox($"Installation failed. Error code: {process.ExitCode}");
-                    text_install_state_joyxoff.Text = "NOT INSTALLED";
-                    border_install_state_joyxoff.Background = new SolidColorBrush(Colors.Brown);
-                    use_joyxoff.IsEnabled = false;
-                    use_joyxoff.IsOn = false;
+                    wc.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                    pageContent = wc.DownloadString(baseDownloadUrl);
                 }
             }
             catch (Exception ex)
             {
-                messagebox($"An error occurred: {ex.Message}");
-                use_joyxoff.IsEnabled = false;
-                use_joyxoff.IsOn = false;
+                Console.WriteLine("Error retrieving the page: " + ex.Message);
+                return;
             }
+
+            // Regex searches for a link that contains the version pattern, e.g. ?culture=en&version=3.63.10.7
+            string pattern = @"download\.php\?culture=en&version=([\d\.]+)";
+            var match = Regex.Match(pageContent, pattern);
+            string version = match.Success ? match.Groups[1].Value : "3.63.10.7";
+            Console.WriteLine("Found version: " + version);
+
+            // 2. Build the download URL
+            string downloadUrl = $"https://joyxoff.com/download.php?culture=en&version={version}";
+            Console.WriteLine("Download URL: " + downloadUrl);
+
+            // 3. Destination folder: create a custom subfolder in the Downloads directory
+            string downloadFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Downloads",
+                "joyxoffInstaller");
+            if (!Directory.Exists(downloadFolder))
+                Directory.CreateDirectory(downloadFolder);
+
+            string fileName = "joyxoff.rar";
+            string destinationPath = Path.Combine(downloadFolder, fileName);
+
+            // 4. Download the file using Flurl.Http (the async download is executed synchronously)
+            try
+            {
+                Console.WriteLine("Starting download with Flurl.Http ...");
+                downloadUrl.DownloadFileAsync(downloadFolder, fileName).GetAwaiter().GetResult();
+                Console.WriteLine("Download complete. File saved at:");
+                Console.WriteLine(destinationPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Download error: " + ex.Message);
+                return;
+            }
+
+            // 5. Open the folder in File Explorer so the user can see the downloaded RAR file
+            try
+            {
+               Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer.exe",
+                    Arguments = $"\"{downloadFolder}\"",
+                    UseShellExecute = true
+                });
+                Console.WriteLine("Folder opened in File Explorer.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error opening the folder: " + ex.Message);
+            }
+        
         }
 
         private void use_joyxoff_Toggled(object sender, RoutedEventArgs e)

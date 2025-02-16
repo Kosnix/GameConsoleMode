@@ -3898,11 +3898,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
+      "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj",
       "projectName": "gcmloader",
-      "projectPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\gcmloader.csproj",
+      "projectPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj",
       "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luis\\Source\\Repos\\therealgcm\\gcmloader\\obj\\",
+      "outputPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
