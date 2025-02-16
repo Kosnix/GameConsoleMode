@@ -128,7 +128,7 @@
                             <Button x:Name="withreplace" Width="150" Height="80" Click="withreplace_Click">
                                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                                     <TextBlock Text="⚪" FontSize="24" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="With Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                                    <TextBlock Text="Windows Explorer replacement" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
                                 </StackPanel>
                             </Button>
 
