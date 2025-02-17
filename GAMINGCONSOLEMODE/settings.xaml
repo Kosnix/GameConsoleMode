@@ -30,7 +30,7 @@
                             <TextBlock Text="SECURITY" Grid.Column="1" FontSize="16" FontWeight="Bold" Margin="10" />
                         </Grid>
                     </Expander.Header>
-                    <TextBlock Text="Dies umfasst Dateien, Fotos, Anlagen und vieles mehr in Ihrem Microsoft-Konto." TextWrapping="Wrap" Margin="0,10,0,0" />
+                    <TextBlock Text="there will be more soon...." TextWrapping="Wrap" Margin="0,10,0,0" />
                 </Expander>
 
                 <!-- Card 2 -->
@@ -57,58 +57,15 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Icon on the left -->
-                            <FontIcon Glyph="&#xE7FC;" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" />
+                            <!-- Update icon on the left -->
+                            <FontIcon Glyph="&#xE895;" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" />
 
-                            <!-- Text in the center -->
-                            <TextBlock Text="First inner panel text" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
-
-                            <!-- Buttons on the right -->
-                            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="10">
-                                <Button Content="Enable" Margin="5" />
-                                <Button Content="Disable" Margin="5" />
-                            </StackPanel>
-                        </Grid>
-
-                        <!-- 2 Layout -->
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="500" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Icon on the left -->
-                            <FontIcon Glyph="&#xE8D1;" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" />
-
-                            <!-- Text in the center -->
-                            <TextBlock Text="Second inner panel text" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
+                            <!-- Updated text in the center -->
+                            <TextBlock x:Name="versiontext" Text="Current version 2.0" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
 
                             <!-- Buttons on the right -->
                             <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="10">
-                                <Button Content="Start" Margin="5" />
-                                <Button Content="Stop" Margin="5" />
-                            </StackPanel>
-                        </Grid>
-
-                        <!-- 3 Layout -->
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="500" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Icon on the left -->
-                            <FontIcon Glyph="&#xE946;" Grid.Column="0" Margin="10" VerticalAlignment="Stretch" />
-
-                            <!-- Text in the center -->
-                            <TextBlock Text="Third inner panel text" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
-
-                            <!-- Buttons on the right -->
-                            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="10">
-                                <Button Content="Upload" Margin="5" />
-                                <Button Content="Download" Margin="5" />
+                                <Button x:Name="changelogbutton" Content="Changelog" Margin="5" Click="changelogbutton_Click" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -117,8 +74,9 @@
                 </Expander>
 
                 <!-- Card 3 -->
-                
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>
+

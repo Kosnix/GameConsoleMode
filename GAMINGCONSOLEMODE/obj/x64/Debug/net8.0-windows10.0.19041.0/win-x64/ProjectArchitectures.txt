@@ -1,1 +1,1 @@
-F:\GameConsoleMode\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE.csproj;x64
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\GAMINGCONSOLEMODE.csproj;x64

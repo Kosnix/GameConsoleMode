@@ -49,7 +49,8 @@
     <None Remove="functions\TV.png" />
     <None Remove="Home.xaml" />
     <None Remove="launcher.xaml" />
-    <None Remove="opensource_apps\Joyxoff.msi" />
+    <None Remove="opensource_apps\audiochanger.ps1" />
+    <None Remove="opensource_apps\nircmd.exe" />
     <None Remove="settings.xaml" />
     <None Remove="startup.xaml" />
   </ItemGroup>
@@ -110,7 +111,10 @@
     <EmbeddedResource Include="functions\TV.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="opensource_apps\Joyxoff.msi">
+    <EmbeddedResource Include="opensource_apps\audiochanger.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="opensource_apps\nircmd.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -129,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="3.0.3" />
+    <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
     <PackageReference Include="NAudio" Version="2.2.1" />

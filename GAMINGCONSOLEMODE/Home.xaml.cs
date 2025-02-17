@@ -86,7 +86,20 @@ namespace GAMINGCONSOLEMODE
 
         private void wikibutton_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            string url = "https://github.com/Kosnix/GameConsoleMode/wiki";
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
+                Console.WriteLine("The URL has been opened in your default browser.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error opening the URL: " + ex.Message);
+            }
         }
 
         private void withreplace_Click(object sender, RoutedEventArgs e)

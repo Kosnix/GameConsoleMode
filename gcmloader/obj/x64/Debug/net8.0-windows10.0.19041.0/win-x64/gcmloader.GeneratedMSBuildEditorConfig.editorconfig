@@ -1,6 +1,6 @@
 is_global = true
-build_property.CsWin32InputMetadataPaths = C:\Users\nikos\.nuget\packages\microsoft.windows.sdk.win32metadata\60.0.34-preview\Windows.Win32.winmd|C:\Users\nikos\.nuget\packages\microsoft.windows.wdk.win32metadata\0.11.4-experimental\Windows.Wdk.winmd
-build_property.CsWin32InputDocPaths = C:\Users\nikos\.nuget\packages\microsoft.windows.sdk.win32docs\0.1.42-alpha\apidocs.msgpack
+build_property.CsWin32InputMetadataPaths = C:\Users\luis\.nuget\packages\microsoft.windows.sdk.win32metadata\60.0.34-preview\Windows.Win32.winmd|C:\Users\luis\.nuget\packages\microsoft.windows.wdk.win32metadata\0.11.4-experimental\Windows.Wdk.winmd
+build_property.CsWin32InputDocPaths = C:\Users\luis\.nuget\packages\microsoft.windows.sdk.win32docs\0.1.42-alpha\apidocs.msgpack
 build_property.TargetFramework = net8.0-windows10.0.19041.0
 build_property.TargetPlatformMinVersion = 10.0.17763.0
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -10,7 +10,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = gcmloader
-build_property.ProjectDir = F:\GameConsoleMode\gcmloader\
+build_property.ProjectDir = C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTAotOptimizerEnabled = true
