@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\zeusgameconsolemode\\gamingconsolemode\\startup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\zeusgameconsolemode\\gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\zeusgameconsolemode\\gamingconsolemode\\home.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\home.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\zeusgameconsolemode\\gamingconsolemode\\startup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|c:\\users\\luis\\source\\repos\\zeusgameconsolemode\\gamingconsolemode\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -96,11 +96,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
@@ -112,32 +112,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "startup.xaml",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\startup.xaml",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\startup.xaml",
-              "ToolTip": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\startup.xaml",
-              "RelativeToolTip": "GAMINGCONSOLEMODE\\startup.xaml",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAwEgAAAAqAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\startup.xaml*",
+              "RelativeToolTip": "GAMINGCONSOLEMODE\\startup.xaml*",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAAwP8AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-15T17:18:18.453Z"
+              "WhenOpened": "2025-02-15T17:18:18.453Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "startup.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\startup.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\startup.xaml.cs",
               "ToolTip": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\startup.xaml.cs",
               "RelativeToolTip": "GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkCAABdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMABAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-15T17:18:38.186Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Home.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\Home.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\Home.xaml.cs",
@@ -149,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "App.g.i.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\obj\\x64\\Debug\\net8.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\obj\\x64\\Debug\\net8.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
@@ -173,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "settings.xaml.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\settings.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\settings.xaml.cs",

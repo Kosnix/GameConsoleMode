@@ -264,7 +264,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                     </Grid>
                 </Border>
                 <!-- Panel 5 DISCORD-->
-                <Border Tag="Design" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                <Border Tag="Audio" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
                     <Grid>
                         <!-- Define rows for layout -->
                         <Grid.RowDefinitions>

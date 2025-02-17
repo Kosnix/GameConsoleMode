@@ -36,7 +36,6 @@ namespace GAMINGCONSOLEMODE
             this.InitializeComponent();
             updateui();
             InitializeTimer();
-
         }
 
         #region code functions
@@ -448,7 +447,6 @@ namespace GAMINGCONSOLEMODE
         }
         #endregion csloader
         #region joyxoff
-
         private void button_uninstall_joyxoff_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -464,7 +462,6 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine("Error opening Windows settings: " + ex.Message);
             }
         }
-
         private async void button_install_joyxoff_Click(object sender, RoutedEventArgs e)
         {
             // 1. Retrieve the latest release information from GitHub API
@@ -570,7 +567,6 @@ namespace GAMINGCONSOLEMODE
         }
         #endregion joyxoff
         #region displayfusion
-
         private void use_displayfusion_Toggled(object sender, RoutedEventArgs e)
         {
             if (use_displayfusion.IsOn == true)
@@ -582,7 +578,6 @@ namespace GAMINGCONSOLEMODE
                 AppSettings.Save("usedisplayfusion", false);
             }
         }
-
         private void button_uninstall_displayfusion_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -598,7 +593,6 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine("Error opening Windows settings: " + ex.Message);
             }
         }
-
         private void button_install_displayfusion_Click_2(object sender, RoutedEventArgs e)
         {
             // URL to open
@@ -620,19 +614,16 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine($"Error launching webpage: {ex.Message}");
             }
         }
-
         private void displayfusion_start_TextChanged(object sender, TextChangedEventArgs e)
         {
             string startprofile = displayfusion_start.Text;
             AppSettings.Save("usedisplayfusion_start", startprofile);
         }
-
         private void displayfusion_end_TextChanged(object sender, TextChangedEventArgs e)
         {
             string endprofile = displayfusion_end.Text;
             AppSettings.Save("usedisplayfusion_end", endprofile);
         }
-
         #endregion displayfusion
         #region wallpaper GCM
         private void wallpaper_path_TextChanged(object sender, TextChangedEventArgs e)
