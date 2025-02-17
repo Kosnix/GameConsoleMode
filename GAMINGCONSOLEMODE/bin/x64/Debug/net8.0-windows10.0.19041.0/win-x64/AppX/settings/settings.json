@@ -1,6 +1,4 @@
 {
   "launcher": "steam",
-  "steamlauncherpath": "C:\\Program Files (x86)\\Steam\\steam.exe",
-  "replace": true,
-  "usecssloader": false
+  "steamlauncherpath": "C:\\Program Files (x86)\\Steam\\steam.exe"
 }

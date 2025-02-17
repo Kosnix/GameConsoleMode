@@ -357,77 +357,91 @@ namespace GAMINGCONSOLEMODE
         private async void button_install_cssloader_Click(object sender, RoutedEventArgs e)
         {
 
-            try
+            // 1. Retrieve the latest release information from GitHub API
+            string latestReleaseApiUrl = "https://api.github.com/repos/DeckThemes/CSSLoader-Desktop/releases/latest";
+            using (HttpClient httpClient = new HttpClient())
             {
-                // Check if Joyxoff is already installed
-                string cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
-                if (File.Exists(cssloaderExePath))
+                // GitHub API requires a valid User-Agent header
+                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                string releaseJson;
+                try
                 {
-                    messagebox("Css Loader is installed and will start now");
-                    Process.Start(cssloaderExePath);
+                    releaseJson = await httpClient.GetStringAsync(latestReleaseApiUrl);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error retrieving the latest release info: " + ex.Message);
                     return;
                 }
 
-                // Get current directory
-                string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                // 2. Parse the JSON to extract the tag name and select the MSI asset
+                JsonDocument jsonDoc = JsonDocument.Parse(releaseJson);
+                JsonElement root = jsonDoc.RootElement;
+                string tagName = root.GetProperty("tag_name").GetString();
+                Console.WriteLine("Latest release version: " + tagName);
 
-                // Path to the MSI file
-                string msiPath = Path.Combine(currentDirectory, "cssloader.msi");
-
-                // Check if the MSI file exists
-                if (!File.Exists(msiPath))
+                // Get the assets array from the JSON
+                JsonElement assets = root.GetProperty("assets");
+                JsonElement? msiAsset = null;
+                foreach (JsonElement asset in assets.EnumerateArray())
                 {
-                    messagebox("the file {msiPath} was not found.");
+                    string assetName = asset.GetProperty("name").GetString();
+                    // Select asset if it ends with .msi (case-insensitive)
+                    if (assetName.EndsWith(".msi", StringComparison.OrdinalIgnoreCase))
+                    {
+                        msiAsset = asset;
+                        break;
+                    }
+                }
+
+                if (msiAsset == null)
+                {
+                    Console.WriteLine("No MSI asset found in the latest release.");
                     return;
                 }
 
-                // Start process to install the MSI file with the passive parameter
-                Process process = new Process();
-                process.StartInfo.FileName = "msiexec";
-                process.StartInfo.Arguments = $"/i \"{msiPath}\" /passive";
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.CreateNoWindow = true;
+                string selectedAssetName = msiAsset.Value.GetProperty("name").GetString();
+                string downloadUrl = msiAsset.Value.GetProperty("browser_download_url").GetString();
 
-                // Start process
-                process.Start();
-                process.WaitForExit();
+                Console.WriteLine("Selected asset: " + selectedAssetName);
+                Console.WriteLine("Download URL: " + downloadUrl);
 
-                // Check if the installation was successful
-                if (process.ExitCode == 0)
+                // 3. Determine the destination folder (create a custom subfolder in the Downloads directory)
+                string downloadsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "DownloadedInstaller");
+                if (!Directory.Exists(downloadsFolder))
+                    Directory.CreateDirectory(downloadsFolder);
+
+                string destinationPath = Path.Combine(downloadsFolder, selectedAssetName);
+
+                // 4. Download the MSI file using Flurl.Http (the async download is awaited)
+                try
                 {
-                    messagebox("Installation completed successfully.");
-                    // Check if Joyxoff is already installed
-                    cssloaderExePath = @"C:\Program Files\CSSLoader Desktop\CSSLoader Desktop.exe";
-                    if (File.Exists(cssloaderExePath))
-                    {
-                        text_install_state_cssloader.Text = "INSTALLED";
-                        border_install_state_cssloader.Background = new SolidColorBrush(Colors.Green);
-                        Process.Start(cssloaderExePath);
-                        use_cssloader.IsEnabled = true;
-                        use_cssloader.IsOn = true;
-                        return;
-                    }
-                    else
-                    {
-                        text_install_state_cssloader.Text = "NOT INSTALLED";
-                        border_install_state_cssloader.Background = new SolidColorBrush(Colors.Brown);
-                        use_cssloader.IsEnabled = false;
-                        use_cssloader.IsOn = false;
-
-                    }
+                    Console.WriteLine("Starting download of the MSI asset...");
+                    await downloadUrl.DownloadFileAsync(downloadsFolder, selectedAssetName);
+                    Console.WriteLine("Download complete. File saved at:");
+                    Console.WriteLine(destinationPath);
                 }
-                else
+                catch (Exception ex)
                 {
-                    messagebox($"Installation failed. Error code: {process.ExitCode}\", \"Error");
-                    text_install_state_cssloader.Text = "NOT INSTALLED";
-                    border_install_state_cssloader.Background = new SolidColorBrush(Colors.Brown);
-                    use_cssloader.IsEnabled = false;
-                    use_cssloader.IsOn = false;
+                    Console.WriteLine("Download error: " + ex.Message);
+                    return;
                 }
-            }
-            catch (Exception ex)
-            {
-                messagebox($"An error occurred: {ex.Message}");
+
+                // 5. Open the folder in File Explorer so the user can directly access the downloaded MSI file
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = $"\"{downloadsFolder}\"",
+                        UseShellExecute = true
+                    });
+                    Console.WriteLine("Folder opened in File Explorer.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error opening the folder: " + ex.Message);
+                }
             }
 
         }

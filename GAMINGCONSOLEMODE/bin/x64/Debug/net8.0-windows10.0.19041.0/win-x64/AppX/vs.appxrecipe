@@ -30,21 +30,21 @@
     <AppXManifest Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-02-17T14:23:28.380</Modified>
+      <Modified>2025-02-17T14:29:59.108</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-02-17T14:23:27.920</Modified>
+      <Modified>2025-02-17T14:29:58.646</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
       <PackagePath>GAMINGCONSOLEMODE.runtimeconfig.json</PackagePath>
-      <Modified>2025-02-17T12:24:47.521</Modified>
+      <Modified>2025-02-17T14:29:58.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
       <PackagePath>GAMINGCONSOLEMODE.dll</PackagePath>
-      <Modified>2025-02-17T14:23:27.548</Modified>
+      <Modified>2025-02-17T14:29:57.997</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\discord.png">
       <PackagePath>functions\discord.png</PackagePath>
@@ -116,7 +116,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>GAMINGCONSOLEMODE.exe</PackagePath>
-      <Modified>2025-02-17T14:23:27.552</Modified>
+      <Modified>2025-02-17T14:29:58.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
@@ -3012,7 +3012,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
-      <Modified>2025-02-17T14:00:28.315</Modified>
+      <Modified>2025-02-17T14:29:58.345</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
