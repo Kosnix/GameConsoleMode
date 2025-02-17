@@ -31,19 +31,18 @@
             <Border Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
-                    <TextBlock Text="STEAM BP" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
+                    <TextBlock Text="STEAM BP / DECK UI" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
 
                     <!-- Subtitle -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/Assets/launcher/steam_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
                         <StackPanel>
                             <TextBlock Text="STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
-                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Description -->
-                    <TextBlock Text="gcm will use steam on startup"
+                    <TextBlock Text="GCM will use steam on startup"
                            FontSize="18"
                            Foreground="White"
                            TextWrapping="Wrap"
@@ -98,13 +97,12 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/Assets/launcher/playnite_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
                         <StackPanel>
-                            <TextBlock Text="STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
-                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
+                            <TextBlock Text="PLAYNITE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Description -->
-                    <TextBlock Text="gcm will use playnite on startup"
+                    <TextBlock Text="GCM will use playnite on startup"
                 FontSize="18"
                 Foreground="White"
                 TextWrapping="Wrap"
@@ -120,7 +118,7 @@
                         <!-- Panel 1 -->
                         <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
                             <!-- Title above ToggleSwitch -->
-                            <TextBlock Text="USE PLAYNITE" FontSize="18" FontWeight="Bold" Foreground="White"
+                            <TextBlock Text="USE PLAYNITE FULLSCREEN" FontSize="18" FontWeight="Bold" Foreground="White"
                         HorizontalAlignment="Center" Margin="0,0,0,10" />
                             <!-- ToggleSwitch -->
                             <ToggleSwitch x:Name= "use_playnite" AutomationProperties.Name="switch_use_playnite" Toggled="use_playnite_Toggled"/>
@@ -140,7 +138,7 @@
                             </StackPanel>
 
                             <!-- TextBox for user input -->
-                            <TextBox x:Name="textbox_playnite_path" AutomationProperties.Name="textbox_steam_path"
+                            <TextBox x:Name="textbox_playnite_path" AutomationProperties.Name="textbox_steam_path" TextChanged="textbox_playnite_path_TextChanged"
       PlaceholderText="Enter the Path"
       PlaceholderForeground="black"
       Foreground="Black" Background="White" Padding="5"  />
@@ -160,12 +158,11 @@
                         <Image Source="/Assets/launcher/custom_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
                         <StackPanel>
                             <TextBlock Text="CUSTOM LAUNCHER" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
-                            <TextBlock Text="Caption" FontSize="16" Foreground="#B0B0B0" Margin="10"/>
                         </StackPanel>
                     </StackPanel>
 
                     <!-- Description -->
-                    <TextBlock Text="gcm will use your custom launcher"
+                    <TextBlock Text="GCM will use your custom launcher"
           FontSize="18"
           Foreground="White"
           TextWrapping="Wrap"
@@ -191,7 +188,7 @@
                     <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
                         <StackPanel>
                             <!-- Title for the section -->
-                            <TextBlock Text="Select Playnite Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+                            <TextBlock Text="Select Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
                             <!-- Button for picking a file -->
                             <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
@@ -201,7 +198,7 @@
                             </StackPanel>
 
                             <!-- TextBox for user input -->
-                            <TextBox x:Name="textbox_custom_path" AutomationProperties.Name="textbox_steam_path"
+                            <TextBox x:Name="textbox_custom_path" AutomationProperties.Name="textbox_steam_path" TextChanged="textbox_custom_path_TextChanged"
 PlaceholderText="Enter the Path"
 PlaceholderForeground="black"
 Foreground="Black" Background="White" Padding="5"  />

@@ -49,7 +49,68 @@ namespace GAMINGCONSOLEMODE
 
 
         #region programm start
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.SelectedItemContainer != null)
+            {
 
+                if (args.IsSettingsSelected)
+                {
+                    // Logik für das Settings-Element
+                    contentFrame.Navigate(typeof(settings));
+
+                }
+                else
+                {
+
+                    string selectedTag = args.SelectedItemContainer.Tag.ToString();
+
+                    // Determine the target page based on the tag
+                    Type pageType = selectedTag switch
+                    {
+                        "HomePage" => typeof(Home),
+                        "LauncherPage" => typeof(launcher),
+                        "StartupPage" => typeof(startup),
+                        _ => null
+                    };
+
+                    if (pageType != null && contentFrame.CurrentSourcePageType != pageType)
+                    {
+                        // Use SlideNavigationTransitionInfo to specify the transition direction
+                        var transitionInfo = new SlideNavigationTransitionInfo
+                        {
+                            Effect = SlideNavigationTransitionEffect.FromRight
+                        };
+
+                        // Navigate with transition info
+                        contentFrame.Navigate(pageType, null, transitionInfo);
+                    }
+                }
+            }
+        }
+
+        private void SetWindowSize(int width, int height)
+        {
+            // Get the native HWND for the current window
+            var hWnd = WindowNative.GetWindowHandle(this);
+
+            // Get the WindowId for the HWND
+            var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
+
+            // Get the AppWindow using the WindowId
+            var appWindow = AppWindow.GetFromWindowId(windowId); // Korrekt aufgerufen mit dem Typnamen AppWindow
+
+            if (appWindow != null)
+            {
+                // Set the window size
+                appWindow.Resize(new SizeInt32(width, height));
+            }
+        }
+
+        public static implicit operator string(MainWindow v)
+        {
+            throw new NotImplementedException();
+        }
         #endregion programm start
 
         #region Update
@@ -107,67 +168,6 @@ namespace GAMINGCONSOLEMODE
         }
 
         
-        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
-        {
-            if (args.SelectedItemContainer != null)
-            {
-
-                if (args.IsSettingsSelected)
-                {
-                    // Logik für das Settings-Element
-                    contentFrame.Navigate(typeof(settings));
-
-                }
-                else {
-
-                    string selectedTag = args.SelectedItemContainer.Tag.ToString();
-
-                    // Determine the target page based on the tag
-                    Type pageType = selectedTag switch
-                    {
-                        "HomePage" => typeof(Home),
-                        "LauncherPage" => typeof(launcher),
-                        "StartupPage" => typeof(startup),
-                        _ => null
-                    };
-
-                    if (pageType != null && contentFrame.CurrentSourcePageType != pageType)
-                    {
-                        // Use SlideNavigationTransitionInfo to specify the transition direction
-                        var transitionInfo = new SlideNavigationTransitionInfo
-                        {
-                            Effect = SlideNavigationTransitionEffect.FromRight
-                        };
-
-                        // Navigate with transition info
-                        contentFrame.Navigate(pageType, null, transitionInfo);
-                    }
-                }
-                }
-        }
-       
-        private void SetWindowSize(int width, int height)
-        {
-            // Get the native HWND for the current window
-            var hWnd = WindowNative.GetWindowHandle(this);
-
-            // Get the WindowId for the HWND
-            var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
-
-            // Get the AppWindow using the WindowId
-            var appWindow = AppWindow.GetFromWindowId(windowId); // Korrekt aufgerufen mit dem Typnamen AppWindow
-
-            if (appWindow != null)
-            {
-                // Set the window size
-                appWindow.Resize(new SizeInt32(width, height));
-            }
-        }
-
-        public static implicit operator string(MainWindow v)
-        {
-            throw new NotImplementedException();
-        }
         
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
