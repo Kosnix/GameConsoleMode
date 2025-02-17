@@ -1,0 +1,19 @@
+Application started...
+The folder 'settings' does not exist in 'F:\GameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppX'.
+The settings folder or file is missing. Initializing first start process...
+This application modifies the Windows registry and may temporarily block your PC if used improperly. I disclaim any responsibility for improper use. If you encounter any issues, please visit the project on GitHub: https://github.com/Kosnix/GameConsoleMode
+Thank you for downloading my app. This is the first start of the application, please configure it. The settings window will appear.
+Next time, the application will start directly.
+Error in Load method: Key 'usediscord' not found in the settings.
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error
+Error in Load method: Key 'gcmwallpaper' not found in the settings.
+wallpaper gui error

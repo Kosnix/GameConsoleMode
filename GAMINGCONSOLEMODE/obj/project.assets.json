@@ -23,35 +23,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "Flurl/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Flurl.Http/4.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Flurl": "4.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -437,35 +408,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "Flurl/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Flurl.Http/4.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Flurl": "4.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -803,35 +745,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "Flurl/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Flurl.Http/4.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Flurl": "4.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -1167,35 +1080,6 @@
         },
         "runtime": {
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
-        }
-      },
-      "Flurl/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Flurl.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Flurl.Http/4.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Flurl": "4.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Flurl.Http.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -1540,43 +1424,6 @@
         "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll",
         "lib/net472/AudioSwitcher.AudioApi.CoreAudio.dll",
         "lib/net48/AudioSwitcher.AudioApi.CoreAudio.dll"
-      ]
-    },
-    "Flurl/4.0.0": {
-      "sha512": "rpts69yYgvJqg6PPgqShBQEZ4aNzWQqWpWppcT0oDWxDCIsBqiod4pj6LQZdhk+1OozLFagemldMRACdHF3CsA==",
-      "type": "package",
-      "path": "flurl/4.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "flurl.4.0.0.nupkg.sha512",
-        "flurl.nuspec",
-        "icon.png",
-        "lib/net461/Flurl.dll",
-        "lib/net461/Flurl.xml",
-        "lib/net472/Flurl.dll",
-        "lib/net472/Flurl.xml",
-        "lib/netstandard2.0/Flurl.dll",
-        "lib/netstandard2.0/Flurl.xml"
-      ]
-    },
-    "Flurl.Http/4.0.2": {
-      "sha512": "9vCqFFyceA11yplkFD8AbCFFTvG1Lrw3tpsgOpL5sLUc28p6zcvGszNleuT6nDymRvtt5eS+rqUX+bRztg1fhA==",
-      "type": "package",
-      "path": "flurl.http/4.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "flurl.http.4.0.2.nupkg.sha512",
-        "flurl.http.nuspec",
-        "icon.png",
-        "lib/net461/Flurl.Http.dll",
-        "lib/net461/Flurl.Http.xml",
-        "lib/net6.0/Flurl.Http.dll",
-        "lib/net6.0/Flurl.Http.xml",
-        "lib/netstandard2.0/Flurl.Http.dll",
-        "lib/netstandard2.0/Flurl.Http.xml"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -2630,7 +2477,6 @@
   "projectFileDependencyGroups": {
     "net8.0-windows10.0.19041": [
       "AudioSwitcher.AudioApi.CoreAudio >= 3.0.3",
-      "Flurl.Http >= 4.0.2",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.26100.1742",
       "Microsoft.WindowsAppSDK >= 1.6.241114003",
       "NAudio >= 2.2.1",
@@ -2639,23 +2485,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luis\\.nuget\\packages\\": {},
+    "C:\\Users\\nikos\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+      "projectUniqueName": "F:\\GameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
       "projectName": "GAMINGCONSOLEMODE",
-      "projectPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
-      "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\obj\\",
+      "projectPath": "F:\\GameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+      "packagesPath": "C:\\Users\\nikos\\.nuget\\packages\\",
+      "outputPath": "F:\\GameConsoleMode\\GAMINGCONSOLEMODE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nikos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2692,10 +2538,6 @@
             "target": "Package",
             "version": "[3.0.3, )"
           },
-          "Flurl.Http": {
-            "target": "Package",
-            "version": "[4.0.2, )"
-          },
           "Microsoft.Windows.SDK.BuildTools": {
             "target": "Package",
             "version": "[10.0.26100.1742, )"
@@ -2731,43 +2573,55 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-arm64",
+            "version": "[8.0.12, 8.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[8.0.12, 8.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x86",
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.19041.54, 10.0.19041.54]"
+            "version": "[10.0.19041.57, 10.0.19041.57]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[8.0.11, 8.0.11]"
+            "version": "[8.0.12, 8.0.12]"
           }
         ],
         "frameworkReferences": {
@@ -2778,7 +2632,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
@@ -2798,7 +2652,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Das Paket \"AudioSwitcher.AudioApi 3.0.0\" wurde nicht mit dem Projektzielframework \"net8.0-windows10.0.19041\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "message": "Le package 'AudioSwitcher.AudioApi 3.0.0' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows10.0.19041'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
       "libraryId": "AudioSwitcher.AudioApi",
       "targetGraphs": [
         "net8.0-windows10.0.19041"
@@ -2808,7 +2662,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Das Paket \"AudioSwitcher.AudioApi.CoreAudio 3.0.3\" wurde nicht mit dem Projektzielframework \"net8.0-windows10.0.19041\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "message": "Le package 'AudioSwitcher.AudioApi.CoreAudio 3.0.3' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows10.0.19041'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
       "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
       "targetGraphs": [
         "net8.0-windows10.0.19041"

@@ -21,18 +21,34 @@
         </Grid.RowDefinitions>
 
         <!-- CommandBar at the top -->
-        <CommandBar Grid.Row="0" HorizontalAlignment="Right" Background="#2a475e">
-            <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Like" Label="Like"/>
-                <AppBarButton Icon="Dislike" Label="Dislike"/>
-                <AppBarSeparator />
-                <AppBarButton Icon="Setting" Label="Dislike"/>
-                <AppBarSeparator />
-            </CommandBar.PrimaryCommands>
-        </CommandBar>
+		<CommandBar x:ConnectionId='2' x:Name="UpdateBar" Grid.Row="0" Background="Green" 
+            HorizontalAlignment="Stretch" OverflowButtonVisibility="Collapsed" Visibility="Collapsed">
 
-        <!-- NavigationView filling the remaining space -->
-        <NavigationView x:ConnectionId='2' Grid.Row="1"
+			<CommandBar.PrimaryCommands>
+				
+
+				<!-- ProgressBar doit �tre dans un AppBarElementContainer -->
+				<AppBarElementContainer>
+					<ProgressBar x:ConnectionId='8' x:Name="UpdateProgressBar" Width="500" Height="20" Value="0" Visibility="Collapsed"/>
+				</AppBarElementContainer>
+                <!-- Message Update Available -->
+				<AppBarElementContainer>
+					<TextBlock x:ConnectionId='7' x:Name="UpdateBarText"  Text="Update Available" Foreground="White" FontSize="16" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+				</AppBarElementContainer>
+				<!-- Bouton Update -->
+				<AppBarButton x:ConnectionId='5' x:Name="UpdateButton" Background="White" Foreground="Green" Visibility="Visible"
+                      Icon="Download" Label="Update"                           />
+				<AppBarButton x:ConnectionId='6' x:Name="InstallUpdateButton" Background="White" Foreground="Green" Visibility="Collapsed"
+      Icon="OpenFile" Label="Install"                                  />
+			</CommandBar.PrimaryCommands>
+
+		</CommandBar>
+
+
+
+		<!-- NavigationView filling the remaining space -->
+        <NavigationView x:ConnectionId='3' Grid.Row="1"
                         x:Name="nvMain"
                         PaneDisplayMode="Left"
                                                                           
@@ -49,7 +65,7 @@
             </NavigationView.MenuItems>
 
             <!-- Frame for page content -->
-            <Frame x:ConnectionId='3' x:Name="contentFrame"> 
+            <Frame x:ConnectionId='4' x:Name="contentFrame"> 
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition />
