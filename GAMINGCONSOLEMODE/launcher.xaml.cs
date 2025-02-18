@@ -5,6 +5,7 @@ using System;
 using WinRT.Interop;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -43,7 +44,7 @@ namespace GAMINGCONSOLEMODE
             {
 
             }
-            #endregion launcher
+            
 
             string launcher = AppSettings.Load<string>("launcher");
             switch (launcher)
@@ -84,10 +85,10 @@ namespace GAMINGCONSOLEMODE
         {
             // File Picker
             string file = FilePicker.ShowDialog(
-                "C:\\",                            // Startverzeichnis
-                new string[] { "exe" },            // Dateitypen
-                "Executable Files",                // Filtername
-                "Select an EXE File"               // Dialogtitel
+                "C:\\",                            // start directory
+                new string[] { "exe" },            // file types
+                "Executable Files",                // filter name
+                "Select an EXE File"               // dialogue title
             );
 
             if (!string.IsNullOrEmpty(file))
@@ -104,7 +105,7 @@ namespace GAMINGCONSOLEMODE
             }
         }
 
-        private  async Task checklauncheraktivatedAsync()
+        private  async Task checkLauncherActivatedAsync()
         {
             if(use_steam_bp.IsOn == false & use_playnite.IsOn == false & use_custom.IsOn == false)
             {
@@ -114,7 +115,7 @@ namespace GAMINGCONSOLEMODE
                     Title = "Information",
                     Content = "Please select at least one launcher. The default launcher will now be set",
                     CloseButtonText = "OK",
-                    XamlRoot = this.Content.XamlRoot // WICHTIG: Verknüpft den Dialog mit dem aktuellen Fenster
+                    XamlRoot = this.Content.XamlRoot // IMPORTANT: Links the dialog to the current window
 
 
                 };
@@ -128,22 +129,23 @@ namespace GAMINGCONSOLEMODE
 
 
         }
-       
 
-      
+        #endregion launcher
+
 
 
         #endregion methodes
 
         #region events
 
-        private void textbox_steam_path_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            AppSettings.Save("steamlauncherpath", textbox_steam_path.Text);
-            //ui 
-            initialui();
-        }
-
+        #region Steam
+         private void textbox_steam_path_TextChanged(object sender, TextChangedEventArgs e)
+                {
+                    AppSettings.Save("steamlauncherpath", textbox_steam_path.Text);
+                    //ui 
+                    initialui();
+                }
+        
         private async void use_steam_bp_Toggled(object sender, RoutedEventArgs e)
         {
             if (use_steam_bp.IsOn == true)
@@ -154,9 +156,136 @@ namespace GAMINGCONSOLEMODE
             }
             else
             {
-               await  checklauncheraktivatedAsync();
+               await  checkLauncherActivatedAsync();
             }
         }
+
+        private void pichsteampath_Click(object sender, RoutedEventArgs e)
+        {
+            string exepath = getexe();
+
+            if (exepath == "none")
+            {
+                return;
+            }
+
+            string expectedFileName = "steam.exe"; // Expected file name
+            string selectedFile = System.IO.Path.GetFileName(exepath);
+
+            if (selectedFile.Equals(expectedFileName, StringComparison.OrdinalIgnoreCase))
+            {
+                // Save the path
+                AppSettings.Save("steamlauncherpath", exepath);
+                // Update UI
+                initialui();
+            }
+            else
+            {
+                MessageBox.Show($"Please select the correct file: {expectedFileName}", "Invalid File");
+            }
+        }
+
+
+        #endregion Steam
+        #region Playnite
+
+        private void pichplaynitepath_Click(object sender, RoutedEventArgs e)
+        {
+            string exepath = getexe();
+
+            if (exepath == "none")
+            {
+                return;
+            }
+
+            string expectedFileName = "Playnite.FullscreenApp.exe"; // Expected file name
+            string selectedFile = System.IO.Path.GetFileName(exepath);
+
+            if (selectedFile.Equals(expectedFileName, StringComparison.OrdinalIgnoreCase))
+            {
+                // Save the path
+                AppSettings.Save("playnitelauncherpath", exepath);
+                // Update UI
+                initialui();
+            }
+            else
+            {
+                MessageBox.Show($"Please select the correct file: {expectedFileName}", "Invalid File");
+            }
+        }
+
+        private async void use_playnite_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (use_playnite.IsOn == true)
+            {
+                AppSettings.Save("launcher", "playnite");
+                //ui 
+                initialui();
+            }
+            else
+            {
+                await checkLauncherActivatedAsync();
+            }
+
+        }
+
+        private void textbox_playnite_path_TextChanged(object sender, TextChangedEventArgs e)
+        {
+                AppSettings.Save("playnitelauncherpath", textbox_playnite_path.Text);
+                //ui 
+                initialui();    
+        }
+
+        #endregion Playnite
+
+        #region CustomLauncher
+
+        private void pichcustompath_Click(object sender, RoutedEventArgs e)
+                {
+                    string exepath = getexe();
+
+                    if (exepath == "none")
+                    {
+
+                    }
+                    else
+                    {
+                        // Save Path
+                        AppSettings.Save("customlauncherpath", exepath);
+                        //ui 
+                        initialui();
+                    }
+
+                }
+
+        private async void use_custom_Toggled(object sender, RoutedEventArgs e)
+                {
+                    if (use_custom.IsOn == true)
+                    {
+                        AppSettings.Save("launcher", "custom");
+                        //ui 
+                        initialui();
+                    }
+                    else
+                    {
+                        await checkLauncherActivatedAsync();
+                    }
+                }
+
+        private void textbox_custom_path_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AppSettings.Save("customlauncherpath", textbox_custom_path.Text);
+            //ui 
+            initialui();
+        }
+
+        #endregion CustomLauncher
+
+
+
+
+        #endregion events
+
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct OpenFileName
@@ -185,7 +314,7 @@ namespace GAMINGCONSOLEMODE
             public int dwReserved;
             public int flagsEx;
         }
-        public static class FilePicker
+    public static class FilePicker
         {
 
             [DllImport("comdlg32.dll", SetLastError = true, CharSet = CharSet.Auto)]
@@ -212,91 +341,6 @@ namespace GAMINGCONSOLEMODE
                 return string.Empty;
             }
         }
-
-        private void pichsteampath_Click(object sender, RoutedEventArgs e)
-        {
-         string exepath =  getexe();
-
-            if(exepath == "none")
-            {
-
-            }
-            else
-            {
-                // Save Path
-                AppSettings.Save("steamlauncherpath", exepath);
-                //ui 
-                initialui();
-            }
-        }
-
-        private void pichplaynitepath_Click(object sender, RoutedEventArgs e)
-        {
-            string exepath = getexe();
-
-            if (exepath == "none")
-            {
-
-            }
-            else
-            {
-                // Save Path
-                AppSettings.Save("playnitelauncherpath", exepath);
-                //ui 
-                initialui();
-            }
-        }
-
-        private void pichcustompath_Click(object sender, RoutedEventArgs e)
-        {
-            string exepath = getexe();
-
-            if (exepath == "none")
-            {
-
-            }
-            else
-            {
-                // Save Path
-                AppSettings.Save("customlauncherpath", exepath);
-                //ui 
-                initialui();
-            }
-
-        }
-
-
-
-        private async void use_playnite_Toggled(object sender, RoutedEventArgs e)
-        {
-            if (use_playnite.IsOn == true)
-            {
-                AppSettings.Save("launcher", "playnite");
-                //ui 
-                initialui();
-            }
-            else
-            {
-                await checklauncheraktivatedAsync();
-            }
-
-        }
-
-        private async void use_custom_Toggled(object sender, RoutedEventArgs e)
-        {
-            if (use_custom.IsOn == true)
-            {
-                AppSettings.Save("launcher", "custom");
-                //ui 
-                initialui();
-            }
-            else
-            {
-                await checklauncheraktivatedAsync();
-            }
-        }
-        
-        #endregion events
     }
 }
 

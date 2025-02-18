@@ -1,4 +1,6 @@
 {
-  "launcher": "steam",
-  "steamlauncherpath": "C:\\Program Files (x86)\\Steam\\steam.exe"
+  "launcher": "playnite",
+  "steamlauncherpath": "C:\\Program Files (x86)\\Steam\\steam.exe",
+  "customlauncherpath": "C:\\Users\\nikos\\AppData\\Local\\CapCut\\CapCut.exe",
+  "playnitelauncherpath": "C:\\Users\\nikos\\AppData\\Local\\CapCut\\CapCut.exe"
 }
