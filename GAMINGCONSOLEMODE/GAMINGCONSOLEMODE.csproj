@@ -43,12 +43,14 @@
     <None Remove="Assets\steambp.png" />
     <None Remove="Assets\Uninstall Programs.png" />
     <None Remove="Assets\Xbox Controller.png" />
+    <None Remove="audiochanger.ps1" />
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
     <None Remove="functions\joyxoff_panel.png" />
     <None Remove="functions\TV.png" />
     <None Remove="Home.xaml" />
     <None Remove="launcher.xaml" />
+    <None Remove="nircmd.exe" />
     <None Remove="opensource_apps\audiochanger.ps1" />
     <None Remove="opensource_apps\nircmd.exe" />
     <None Remove="settings.xaml" />
@@ -66,6 +68,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="audiochanger.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="functions\discord.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -109,6 +114,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\TV.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nircmd.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="opensource_apps\audiochanger.ps1">

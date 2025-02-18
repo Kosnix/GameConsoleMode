@@ -478,93 +478,73 @@ namespace GAMINGCONSOLEMODE
         }
         private async void button_install_joyxoff_Click(object sender, RoutedEventArgs e)
         {
-            // 1. Retrieve the latest release information from GitHub API
-            string latestReleaseApiUrl = "https://api.github.com/repos/DeckThemes/CSSLoader-Desktop/releases/latest";
-            using (HttpClient httpClient = new HttpClient())
+            // 1. Dynamically determine the version from the download page
+            string baseDownloadUrl = "https://joyxoff.com/download.php?culture=en";
+            string pageContent = "";
+            try
             {
-                // GitHub API requires a valid User-Agent header
-                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
-                string releaseJson;
-                try
+                using (WebClient wc = new WebClient())
                 {
-                    releaseJson = await httpClient.GetStringAsync(latestReleaseApiUrl);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error retrieving the latest release info: " + ex.Message);
-                    return;
-                }
-
-                // 2. Parse the JSON to extract the tag name and select the MSI asset
-                JsonDocument jsonDoc = JsonDocument.Parse(releaseJson);
-                JsonElement root = jsonDoc.RootElement;
-                string tagName = root.GetProperty("tag_name").GetString();
-                Console.WriteLine("Latest release version: " + tagName);
-
-                // Get the assets array from the JSON
-                JsonElement assets = root.GetProperty("assets");
-                JsonElement? msiAsset = null;
-                foreach (JsonElement asset in assets.EnumerateArray())
-                {
-                    string assetName = asset.GetProperty("name").GetString();
-                    // Select asset if it ends with .msi (case-insensitive)
-                    if (assetName.EndsWith(".msi", StringComparison.OrdinalIgnoreCase))
-                    {
-                        msiAsset = asset;
-                        break;
-                    }
-                }
-
-                if (msiAsset == null)
-                {
-                    Console.WriteLine("No MSI asset found in the latest release.");
-                    return;
-                }
-
-                string selectedAssetName = msiAsset.Value.GetProperty("name").GetString();
-                string downloadUrl = msiAsset.Value.GetProperty("browser_download_url").GetString();
-
-                Console.WriteLine("Selected asset: " + selectedAssetName);
-                Console.WriteLine("Download URL: " + downloadUrl);
-
-                // 3. Determine the destination folder (create a custom subfolder in the Downloads directory)
-                string downloadsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "cssloaderInstaller");
-                if (!Directory.Exists(downloadsFolder))
-                    Directory.CreateDirectory(downloadsFolder);
-
-                string destinationPath = Path.Combine(downloadsFolder, selectedAssetName);
-
-                // 4. Download the MSI file using Flurl.Http (the async download is awaited)
-                try
-                {
-                    Console.WriteLine("Starting download of the MSI asset...");
-                    await downloadUrl.DownloadFileAsync(downloadsFolder, selectedAssetName);
-                    Console.WriteLine("Download complete. File saved at:");
-                    Console.WriteLine(destinationPath);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Download error: " + ex.Message);
-                    return;
-                }
-
-                // 5. Open the folder in File Explorer so the user can directly access the downloaded MSI file
-                try
-                {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = "explorer.exe",
-                        Arguments = $"\"{downloadsFolder}\"",
-                        UseShellExecute = true
-                    });
-                    Console.WriteLine("Folder opened in File Explorer.");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error opening the folder: " + ex.Message);
+                    wc.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                    pageContent = wc.DownloadString(baseDownloadUrl);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving the page: " + ex.Message);
+                return;
+            }
 
+            // Regex searches for a link that contains the version pattern, e.g. ?culture=en&version=3.63.10.7
+            string pattern = @"download\.php\?culture=en&version=([\d\.]+)";
+            var match = Regex.Match(pageContent, pattern);
+            string version = match.Success ? match.Groups[1].Value : "3.63.10.7";
+            Console.WriteLine("Found version: " + version);
+
+            // 2. Build the download URL
+            string downloadUrl = $"https://joyxoff.com/download.php?culture=en&version={version}";
+            Console.WriteLine("Download URL: " + downloadUrl);
+
+            // 3. Destination folder: create a custom subfolder in the Downloads directory
+            string downloadFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                "Downloads",
+                "joyxoffInstaller");
+            if (!Directory.Exists(downloadFolder))
+                Directory.CreateDirectory(downloadFolder);
+
+            string fileName = "joyxoff.rar";
+            string destinationPath = Path.Combine(downloadFolder, fileName);
+
+            // 4. Download the file using Flurl.Http (the async download is executed synchronously)
+            try
+            {
+                Console.WriteLine("Starting download with Flurl.Http ...");
+                downloadUrl.DownloadFileAsync(downloadFolder, fileName).GetAwaiter().GetResult();
+                Console.WriteLine("Download complete. File saved at:");
+                Console.WriteLine(destinationPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Download error: " + ex.Message);
+                return;
+            }
+
+            // 5. Open the folder in File Explorer so the user can see the downloaded RAR file
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer.exe",
+                    Arguments = $"\"{downloadFolder}\"",
+                    UseShellExecute = true
+                });
+                Console.WriteLine("Folder opened in File Explorer.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error opening the folder: " + ex.Message);
+            }
         }
 
         private void use_joyxoff_Toggled(object sender, RoutedEventArgs e)

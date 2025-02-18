@@ -2639,23 +2639,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nikos\\.nuget\\packages\\": {},
+    "C:\\Users\\luis\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GCM\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+      "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
       "projectName": "GAMINGCONSOLEMODE",
-      "projectPath": "F:\\GCM\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
-      "packagesPath": "C:\\Users\\nikos\\.nuget\\packages\\",
-      "outputPath": "F:\\GCM\\GAMINGCONSOLEMODE\\obj\\",
+      "projectPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+      "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nikos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2731,55 +2731,43 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-            "version": "[8.0.12, 8.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-arm64",
-            "version": "[8.0.12, 8.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.12, 8.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x86",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x86",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.Windows.SDK.NET.Ref",
-            "version": "[10.0.19041.57, 10.0.19041.57]"
+            "version": "[10.0.19041.54, 10.0.19041.54]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-            "version": "[8.0.12, 8.0.12]"
+            "version": "[8.0.11, 8.0.11]"
           }
         ],
         "frameworkReferences": {
@@ -2790,7 +2778,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
@@ -2810,7 +2798,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'AudioSwitcher.AudioApi 3.0.0' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows10.0.19041'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Das Paket \"AudioSwitcher.AudioApi 3.0.0\" wurde nicht mit dem Projektzielframework \"net8.0-windows10.0.19041\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
       "libraryId": "AudioSwitcher.AudioApi",
       "targetGraphs": [
         "net8.0-windows10.0.19041"
@@ -2820,7 +2808,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'AudioSwitcher.AudioApi.CoreAudio 3.0.3' a été restauré en utilisant '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' au lieu du framework cible du projet 'net8.0-windows10.0.19041'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Das Paket \"AudioSwitcher.AudioApi.CoreAudio 3.0.3\" wurde nicht mit dem Projektzielframework \"net8.0-windows10.0.19041\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
       "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
       "targetGraphs": [
         "net8.0-windows10.0.19041"
