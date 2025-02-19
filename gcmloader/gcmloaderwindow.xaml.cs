@@ -112,7 +112,6 @@ namespace gcmloader
         }
 
         private DiscordSocketClient _client;
-
         #endregion needed
         #region methodes
         #region methodes for code
@@ -1136,6 +1135,55 @@ namespace gcmloader
         }
         #endregion start
         #endregion methodes
+    }
+
+    //nircmd code integration
+    namespace NirCmdUtil
+    {
+        public static class NirCmdHelper
+        {
+            /// <summary>
+            /// Executes a command using nircmd.exe.
+            /// </summary>
+            /// <param name="command">The command to pass to nircmd (e.g., "changesysvolume 5000")</param>
+            public static void ExecuteCommand(string command)
+            {
+                // Determine the path to nircmd.exe in the current directory
+                string nircmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nircmd.exe");
+
+                if (!File.Exists(nircmdPath))
+                {
+                    throw new FileNotFoundException("nircmd.exe was not found in the current directory.");
+                }
+
+                // Configure ProcessStartInfo for nircmd
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = nircmdPath,
+                    Arguments = command,
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                };
+
+                using (Process process = new Process { StartInfo = psi })
+                {
+                    process.Start();
+
+                    // Optionally capture output and error streams
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrWhiteSpace(error))
+                    {
+                        throw new Exception("Error executing nircmd command: " + error);
+                    }
+                }
+            }
+        }
     }
 
 }

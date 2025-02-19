@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Text.Json;
 using System.Net.Http;
 using Flurl.Http;
+using AudioSwitcher.AudioApi;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -30,7 +31,7 @@ namespace GAMINGCONSOLEMODE
     {
 
         private DispatcherTimer _timer;
-
+        bool ui_onetime_load = false;
         public startup()
         {
             this.InitializeComponent();
@@ -275,65 +276,104 @@ namespace GAMINGCONSOLEMODE
                 //Displayfusion not installed or error
             }
             #endregion displayfusion
-            #region gcmwallpaper
-            try
-            {
-                bool gcmwallpaper = AppSettings.Load<bool>("gcmwallpaper");
-                if (gcmwallpaper == true)
-                {
-                    use_wallpaper.IsOn = true;
-                    text_install_state_wallpaper.Text = "ACTIVATED";
-                    border_install_state_wallpaper.Background = new SolidColorBrush(Colors.Green);
-                    //text
-                    string wallpaperpath = AppSettings.Load<string>("gcmwallpaperpath");
-                    wallpaper_path.Text = wallpaperpath;
-                }
-                else
-                {
-                    use_wallpaper.IsOn = false;
-                    text_install_state_wallpaper.Text = "DISABLED";
-                    border_install_state_wallpaper.Background = new SolidColorBrush(Colors.Brown);
-                    wallpaper_path.Text = "";
-                }
-            }
-            catch
-            {
-                Console.WriteLine("wallpaper gui error");
-            }
-            #endregion gcmwallpaper
-            #region discord
-            try
-            {
-                bool usediscord = AppSettings.Load<bool>("usediscord");
-                if(usediscord == true)
-                {
-                    use_discord.IsOn = true;
-                    discord_end.IsEnabled = true;
-                    discord_start.IsEnabled = true;
-                    PopulateAudioDevices();
 
-                    text_install_state_discord.Text = "ACTIVATED";
-                    border_install_state_discord.Background = new SolidColorBrush(Colors.Green);
-                    infobar_discord.IsOpen = false;
-                }
-                else
-                {
-                    use_discord.IsOn = false;
-                    discord_end.IsEnabled = false;
-                    discord_start.IsEnabled = false;
-                    
-
-                    text_install_state_discord.Text = "DISABLED";
-                    border_install_state_discord.Background = new SolidColorBrush(Colors.Brown);
-                    infobar_discord.IsOpen = false;
-                }
-            }
-            catch
+            if (ui_onetime_load == false)
             {
+                #region gcmwallpaper
+                try
+                {
+                    bool gcmwallpaper = AppSettings.Load<bool>("gcmwallpaper");
+                    if (gcmwallpaper == true)
+                    {
+                        use_wallpaper.IsOn = true;
+                        text_install_state_wallpaper.Text = "ACTIVATED";
+                        border_install_state_wallpaper.Background = new SolidColorBrush(Colors.Green);
+                        //text
+                        string wallpaperpath = AppSettings.Load<string>("gcmwallpaperpath");
+                        wallpaper_path.Text = wallpaperpath;
+                    }
+                    else
+                    {
+                        use_wallpaper.IsOn = false;
+                        text_install_state_wallpaper.Text = "DISABLED";
+                        border_install_state_wallpaper.Background = new SolidColorBrush(Colors.Brown);
+                        wallpaper_path.Text = "";
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("wallpaper gui error");
+                }
+                #endregion gcmwallpaper
+                #region discord
+                try
+                {
+                    bool usediscord = AppSettings.Load<bool>("usediscord");
+                    if (usediscord == true)
+                    {
+                        use_discord.IsOn = true;
+                        discord_end.IsEnabled = true;
+                        discord_start.IsEnabled = true;
+                        PopulateAudioDevices("discord");
 
+                        text_install_state_discord.Text = "ACTIVATED";
+                        border_install_state_discord.Background = new SolidColorBrush(Colors.Green);
+                        infobar_discord.IsOpen = false;
+                    }
+                    else
+                    {
+                        use_discord.IsOn = false;
+                        discord_end.IsEnabled = false;
+                        discord_start.IsEnabled = false;
+
+
+                        text_install_state_discord.Text = "DISABLED";
+                        border_install_state_discord.Background = new SolidColorBrush(Colors.Brown);
+                        infobar_discord.IsOpen = false;
+                    }
+                }
+                catch
+                {
+
+                }
+
+                #endregion discord
+                #region audiochange
+                try
+                {
+                    bool usespeaker = AppSettings.Load<bool>("usespeaker");
+                    if (usespeaker == true)
+                    {
+                        use_startaudio.IsOn = true;
+                        startaudio_end.IsEnabled = true;
+                        startaudio_start.IsEnabled = true;
+                        PopulateAudioDevices("speaker");
+
+                        text_install_startaudio.Text = "ACTIVATED";
+                        border_install_state_startaudio.Background = new SolidColorBrush(Colors.Green);
+
+                    }
+                    else
+                    {
+                        use_startaudio.IsOn = false;
+                        startaudio_end.IsEnabled = false;
+                        startaudio_start.IsEnabled = false;
+
+
+                        text_install_startaudio.Text = "DISABLED";
+                        border_install_state_startaudio.Background = new SolidColorBrush(Colors.Brown);
+
+                    }
+                }
+                catch
+                {
+
+                }
+                #endregion audiochange
+
+                ui_onetime_load = true;
             }
-            
-            #endregion discord
+
         }
         #endregion update ui
         #region functions
@@ -648,7 +688,7 @@ namespace GAMINGCONSOLEMODE
         {
             try
             {
-                PopulateAudioDevices();
+                PopulateAudioDevices("discord");
 
                 if (use_discord.IsOn == true)
                 {
@@ -677,35 +717,63 @@ namespace GAMINGCONSOLEMODE
         }
 
         private Dictionary<string, string> deviceMap = new Dictionary<string, string>();
-        private void PopulateAudioDevices()
+        private void PopulateAudioDevices(string art)
         {
-            try
+            if (art == "discord")
             {
-                var enumerator = new MMDeviceEnumerator();
-
-                // Clear existing items and reset the device map
-                discord_end.Items.Clear();
-                discord_start.Items.Clear();
-                deviceMap.Clear();
-
-                // Get playback devices
-                foreach (var device in enumerator.EnumerateAudioEndPoints(DataFlow.Render, NAudio.CoreAudioApi.DeviceState.Active))
+                try
                 {
-                    // Geräte-Namen zur ComboBox hinzufügen
-                    discord_end.Items.Add(device.FriendlyName);
-                    discord_start.Items.Add(device.FriendlyName);
+                    var enumerator = new MMDeviceEnumerator();
 
-                    // Zuordnung von FriendlyName zu ID speichern
-                    deviceMap[device.FriendlyName] = device.FriendlyName;
+                    // Clear existing items and reset the device map
+                    discord_end.Items.Clear();
+                    discord_start.Items.Clear();
+                    deviceMap.Clear();
+
+                    // Get playback devices
+                    foreach (var device in enumerator.EnumerateAudioEndPoints(DataFlow.Render, NAudio.CoreAudioApi.DeviceState.Active))
+                    {
+                        // Geräte-Namen zur ComboBox hinzufügen
+                        discord_end.Items.Add(device.FriendlyName);
+                        discord_start.Items.Add(device.FriendlyName);
+                        // Zuordnung von FriendlyName zu ID speichern
+                        deviceMap[device.FriendlyName] = device.FriendlyName;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error while populating audio devices: {ex.Message}");
+                }
+            }else if (art == "speaker")
+            {
+
+                try
+                {
+                    var enumerator = new MMDeviceEnumerator();
+
+                    // Clear existing items and reset the device map
+                    startaudio_end.Items.Clear();
+                    startaudio_start.Items.Clear();
+                    deviceMap.Clear();
+
+                    // Get playback devices
+                    foreach (var device in enumerator.EnumerateAudioEndPoints(DataFlow.Render, NAudio.CoreAudioApi.DeviceState.Active))
+                    {
+                        startaudio_start.Items.Add(device.FriendlyName);
+                        startaudio_end.Items.Add(device.FriendlyName);
+                        // Zuordnung von FriendlyName zu ID speichern
+                        deviceMap[device.FriendlyName] = device.FriendlyName;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error while populating audio devices: {ex.Message}");
                 }
 
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error while populating audio devices: {ex.Message}");
-            }
         }
-
         private void discord_end_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -761,6 +829,85 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion discord
+        #region audiochange
+        private void use_startaudio_Toggled(object sender, RoutedEventArgs e)
+        {
+            
+            try
+            {
+                PopulateAudioDevices("speaker");
+
+                if (use_startaudio.IsOn == true)
+                {
+                    AppSettings.Save("usespeaker", true);
+                    startaudio_end.IsEnabled = true;
+                    startaudio_start.IsEnabled = true;
+
+                    text_install_startaudio.Text = "ACTIVATED";
+                    border_install_state_startaudio.Background = new SolidColorBrush(Colors.Green);
+
+                }
+                else
+                {
+                    AppSettings.Save("usespeaker", false);
+                    startaudio_end.IsEnabled = false;
+                    startaudio_start.IsEnabled = false;
+
+                    text_install_startaudio.Text = "DISABLED";
+                    border_install_state_startaudio.Background = new SolidColorBrush(Colors.Brown);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("problem with speaker integration");
+            }
+        }
+        private void startaudio_start_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = sender as ComboBox;
+
+                if (comboBox != null && comboBox.SelectedItem != null)
+                {
+                    // devicename
+                    string selectedDeviceName = comboBox.SelectedItem.ToString();
+                    string cleanedDeviceName = selectedDeviceName.Split('(')[0].Trim();
+
+                    // Speaker-ID
+                    AppSettings.Save("speakerstart", cleanedDeviceName);
+                    Console.WriteLine($"Saved Device ID: {cleanedDeviceName}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving selected device: {ex.Message}");
+            }
+        }
+        private void startaudio_end_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = sender as ComboBox;
+
+                if (comboBox != null && comboBox.SelectedItem != null)
+                {
+                    // devicename
+                    string selectedDeviceName = comboBox.SelectedItem.ToString();
+                    string cleanedDeviceName = selectedDeviceName.Split('(')[0].Trim();
+
+                    // device-ID
+                    AppSettings.Save("speakerend", cleanedDeviceName);
+                    Console.WriteLine($"Saved Device ID: {cleanedDeviceName}");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving selected device: {ex.Message}");
+            }
+        }
+        #endregion audiochange
         #endregion functions
     }
 }
