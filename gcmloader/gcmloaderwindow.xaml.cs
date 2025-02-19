@@ -25,7 +25,9 @@ using Windows.Media.Protection.PlayReady;
 using System.Data;
 using System.Collections.Generic;
 using System.Text.Json;
-using System.Windows.Forms;
+using Windows.Media.Core;
+using Windows.Media.Playback;
+using Microsoft.UI.Windowing;
 
 namespace gcmloader
 {
@@ -65,7 +67,7 @@ namespace gcmloader
         private static readonly string SettingsFilePath = Path.Combine(SettingsFolder, "settings.json");
         public MainWindow()
         {
-          
+
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             // Start 
@@ -164,7 +166,7 @@ namespace gcmloader
         #region functions
         public void WaitForLauncherToClose()
         {
-           
+
 
             string Launcher = AppSettings.Load<string>("launcher");
             if (Launcher == "Other")
@@ -186,7 +188,7 @@ namespace gcmloader
             BackToWindows();
             CleanupLogging();
             //close
-           
+
         }
         private static bool IsAlreadyRunning()
         {
@@ -240,7 +242,7 @@ namespace gcmloader
                     // Ensure the path is valid
                     if (System.IO.File.Exists(imagePath))
                     {
-                      
+
                         // Set the image source
                         backgroundImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
                         backgroundImage.Stretch = Stretch.UniformToFill;
@@ -279,10 +281,10 @@ namespace gcmloader
             catch
             {
                 Console.WriteLine("wallpaper gui error");
-              
+
             }
 
-          
+
         }
         private string Settwallpaper()
         {
@@ -422,7 +424,8 @@ namespace gcmloader
                         Console.WriteLine("DisplayFusion integration is disabled.");
                     }
                 }
-            }catch
+            }
+            catch
             {
                 Console.WriteLine("DisplayFusion problem-");
             }
@@ -678,7 +681,7 @@ namespace gcmloader
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 5);
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 1);
 
-                  //  MessageBox.Show("UAC has been successfully enabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  MessageBox.Show("UAC has been successfully enabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (UnauthorizedAccessException)
                 {
@@ -696,12 +699,12 @@ namespace gcmloader
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 0);
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 0);
 
-                  //  MessageBox.Show("UAC has been successfully disabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  MessageBox.Show("UAC has been successfully disabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 catch (Exception ex)
                 {
-                  //  MessageBox.Show("An error occurred while disabling UAC: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //  MessageBox.Show("An error occurred while disabling UAC: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -786,7 +789,7 @@ namespace gcmloader
                     }
                     else
                     {
-                     //MessageBox.Show("The Steam path is invalid or non-existent. Use the Settings.exe file to correct this.");
+                        //MessageBox.Show("The Steam path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         CleanupLogging();
                         Environment.Exit(0);
                     }
@@ -816,7 +819,7 @@ namespace gcmloader
                     }
                     else
                     {
-                       // MessageBox.Show("The launcher path is invalid or non-existent. Use the Settings.exe file to correct this.");
+                        // MessageBox.Show("The launcher path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         Environment.Exit(0);
                     }
                 }
@@ -938,7 +941,7 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(enddiscord))
                             {
                                 //No audio device ID found in start the configuration
-                               
+
                                 return;
                             }
                             else
@@ -962,7 +965,7 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(enddiscord))
                             {
                                 //"No audio device ID found in start the configuration
-                                
+
                                 return;
                             }
                             else
@@ -974,7 +977,7 @@ namespace gcmloader
                                 }
                                 else
                                 {
-                                   //nothing
+                                    //nothing
                                 }
 
                             }
@@ -986,13 +989,13 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(startdiscord))
                             {
 
-                               //No audio device ID found in start the configuration
-                                
+                                //No audio device ID found in start the configuration
+
                                 return;
                             }
                             else
                             {
-                                
+
                                 if (handlestate == false)
                                 {
                                     Changeaudio(startdiscord);
@@ -1017,7 +1020,7 @@ namespace gcmloader
                 }
                 catch (Exception ex)
                 {
-                   
+
                     await Task.Delay(3000); // Avoid rapid retries on error
                 }
             }
@@ -1041,7 +1044,15 @@ namespace gcmloader
             try
             {
                 string Path = AppSettings.Load<string>("steamlauncherpath");
-                string arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+                string arguments;
+              //  if (AppSettings.Load<bool>("usestartupvideo")){
+               // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+              //  }
+              //  else
+              //  {
+                arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro";
+              //  }
+                
                 Process.Start(new ProcessStartInfo(Path, arguments));
                 Console.WriteLine("Steam launched");
             }
@@ -1117,16 +1128,17 @@ namespace gcmloader
                 AdminVerify();
                 if (IsAdministrator())
                 {
-                        SettingsVerify();
+                    SettingsVerify();
+                    StartupVideo.Play();
                     displayfusion("start");
-                        IsJoyxoffInstalledAndStart(); //only check if is installed, than start
-                        cssloader(); //only check if is installed, than start
-                        StartLauncher();
-                        ConsoleModeToShell();
+                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
+                    cssloader(); //only check if is installed, than start
+                    StartLauncher();
+                    ConsoleModeToShell();
                     await Task.Run(() =>
                     {
                         WaitForLauncherToClose();
-                       
+
                     });
 
                     uac("on");
@@ -1135,7 +1147,130 @@ namespace gcmloader
             }
         }
         #endregion start
+        #region Startupvideo
+
+        public static class StartupVideo
+        {
+            [DllImport("user32.dll")]
+            private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+            [DllImport("user32.dll")]
+            private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+            private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+            private const uint SWP_NOSIZE = 0x0001;
+            private const uint SWP_NOMOVE = 0x0002;
+            private const uint SWP_SHOWWINDOW = 0x0040;
+
+            public static void Play()
+            {
+                try
+                {
+                    // Check if startup video is enabled
+                    bool useStartupVideo = AppSettings.Load<bool>("usestartupvideo");
+                    if (!useStartupVideo)
+                        return;
+
+                    // Load the video path
+                    string videoPath = AppSettings.Load<string>("startupvideo_path");
+                    if (string.IsNullOrEmpty(videoPath) || !File.Exists(videoPath))
+                    {
+                        ShowErrorMessage("The specified video file was not found.");
+                        return;
+                    }
+
+                    // Check the file extension
+                    string extension = Path.GetExtension(videoPath)?.ToLower();
+                    string[] validExtensions = { ".mp4", ".avi", ".mkv", ".mov", ".wmv" };
+                    if (Array.IndexOf(validExtensions, extension) == -1)
+                    {
+                        ShowErrorMessage("Unsupported video format.");
+                        return;
+                    }
+
+                    // Create the video playback window
+                    var videoWindow = new Window();
+                    var appWindow = GetAppWindow(videoWindow);
+
+                    if (appWindow != null)
+                    {
+                        var presenter = appWindow.Presenter as OverlappedPresenter;
+                        if (presenter != null)
+                        {
+                            presenter.IsMaximizable = false;
+                            presenter.IsMinimizable = false;
+                            presenter.IsResizable = false;
+                            presenter.SetBorderAndTitleBar(false, false);
+                        }
+                        appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+                    }
+
+                    var mediaElement = CreateMediaElement(videoPath, videoWindow);
+                    videoWindow.Content = mediaElement;
+                    videoWindow.Activate();
+
+                    // Forcer la fenêtre au premier plan
+                    IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(videoWindow);
+                    SetForegroundWindow(hWnd);
+                    SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
+
+                    // Maintenir la fenêtre au premier plan
+                    KeepWindowOnTop(hWnd);
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage($"Error playing video: {ex.Message}");
+                }
+            }
+
+            private static MediaPlayerElement CreateMediaElement(string videoPath, Window window)
+            {
+                var mediaPlayer = new MediaPlayer { AutoPlay = true };
+                mediaPlayer.Source = MediaSource.CreateFromUri(new Uri(videoPath));
+
+                // Fermer correctement la fenêtre après la lecture
+                mediaPlayer.MediaEnded += (s, e) =>
+                {
+                    window.DispatcherQueue.TryEnqueue(() =>
+                    {
+                        window.Close();
+                    });
+                };
+
+                var mediaPlayerElement = new MediaPlayerElement
+                {
+                    AreTransportControlsEnabled = false,
+                    Stretch = Microsoft.UI.Xaml.Media.Stretch.UniformToFill
+                };
+
+                mediaPlayerElement.SetMediaPlayer(mediaPlayer);
+                return mediaPlayerElement;
+            }
+
+            private static AppWindow GetAppWindow(Window window)
+            {
+                var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(window);
+                var windowId = Win32Interop.GetWindowIdFromWindow(hWnd);
+                return AppWindow.GetFromWindowId(windowId);
+            }
+
+            private static async void KeepWindowOnTop(IntPtr hWnd)
+            {
+                while (true)
+                {
+                    await Task.Delay(1000); // Vérifie toutes les secondes
+                    SetForegroundWindow(hWnd);
+                    SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
+                }
+            }
+
+            private static void ShowErrorMessage(string message)
+            {
+                Console.WriteLine(message);
+            }
+        }
+
+        #endregion Startupvideo
         #endregion methodes
     }
-
 }

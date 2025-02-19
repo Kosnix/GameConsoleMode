@@ -33,7 +33,7 @@
     <rescap:Capability Name="runFullTrust" />
   </Capabilities>
   <build:Metadata>
-    <build:Item Name="Microsoft.UI.Xaml.Markup.Compiler.dll" Version="3.0.0.2501" />
+    <build:Item Name="Microsoft.UI.Xaml.Markup.Compiler.dll" Version="3.0.0.2411" />
     <build:Item Name="makepri.exe" Version="10.0.26100.1742 (WinBuild.160101.0800)" />
   </build:Metadata>
 </Package>

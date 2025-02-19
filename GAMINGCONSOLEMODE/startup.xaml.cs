@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Text.Json;
 using System.Net.Http;
 using Flurl.Http;
+using static GAMINGCONSOLEMODE.launcher;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -332,8 +333,37 @@ namespace GAMINGCONSOLEMODE
             {
 
             }
-            
+
             #endregion discord
+            #region StartupVideo
+            try {
+                bool usestartupvideo = AppSettings.Load<bool>("usestartupvideo");
+                if (usestartupvideo == true) {
+                    text_install_state_Startup_Video.Text = "ACTIVATED";
+                    border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
+                    use_startup_video.IsOn = true;
+                }
+                else
+                {
+                    text_install_state_Startup_Video.Text = "DISABLED";
+                    border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
+                    use_startup_video.IsOn = false;
+                }
+            }
+            catch{}
+            try
+            {
+                string startupvideo_path = AppSettings.Load<string>("startupvideo_path");
+                if (startupvideo_path == "")
+                {
+                    startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.mp4");
+                    AppSettings.Save("startupvideo_path", startupvideo_path);
+                }
+                    textbox_startupvideo_path.Text = startupvideo_path;                
+            }
+            catch {}
+
+            #endregion StartupVideo
         }
         #endregion update ui
         #region functions
@@ -761,6 +791,50 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion discord
+        #region StartupVideo
+        private void textbox_startupvideo_path_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                AppSettings.Save("startupvideo_path", textbox_startupvideo_path.Text);
+            }
+            catch { }
+        }
+
+        private void use_startup_video_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (use_startup_video.IsOn == true)
+            {
+                AppSettings.Save("usestartupvideo", true);
+                text_install_state_Startup_Video.Text = "ACTIVATED";
+                border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
+
+            }
+            else
+            {
+                AppSettings.Save("usestartupvideo", false);
+                text_install_state_Startup_Video.Text = "DISABLED";
+                border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
+            }
+        }
+
+        private void pichstartupvideopath_Click(object sender, RoutedEventArgs e)
+        {
+            try { 
+            string file = FilePicker.ShowDialog(
+                "C:\\",                            // start directory
+                new string[] { "mp4" },            // file types
+                ".mp4",                // filter name
+                "Select an mp4 File"               // dialogue title
+            );
+            AppSettings.Save("startupvideo_path", file);
+            textbox_startupvideo_path.Text = file;
+            }catch { }
+        }
+        #endregion StartupVideo
+
         #endregion functions
+
+        
     }
 }
