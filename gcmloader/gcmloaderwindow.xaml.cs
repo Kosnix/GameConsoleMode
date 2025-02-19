@@ -26,12 +26,16 @@ using System.Data;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Windows.Forms;
+using System.Text;
+using Windows.System;
+
 
 namespace gcmloader
 {
     public sealed partial class MainWindow : Window
     {
         #region needed
+
         private const int GWL_STYLE = -16;
         private const int GWL_EXSTYLE = -20;
         private const long WS_POPUP = 0x80000000L;
@@ -65,7 +69,7 @@ namespace gcmloader
         private static readonly string SettingsFilePath = Path.Combine(SettingsFolder, "settings.json");
         public MainWindow()
         {
-          
+
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             // Start 
@@ -73,7 +77,6 @@ namespace gcmloader
             // ASYNC PROZES
             StartAsynctasks();
         }
-
 
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
@@ -164,29 +167,70 @@ namespace gcmloader
         #region functions
         public void WaitForLauncherToClose()
         {
-           
 
             string Launcher = AppSettings.Load<string>("launcher");
-            if (Launcher == "Other")
+            Process[] processes;
+
+            if (Launcher == "custom")
             {
                 Launcher = Path.GetFileName(AppSettings.Load<string>("customlauncherpath"));
                 Launcher = Launcher.Substring(0, Launcher.Length - 4);
-                Console.WriteLine($"OtherLauncher name: {Launcher}");
-            }
-            Process[] processes;
-            string ProcessName = Launcher;
-            do
-            {
-                Thread.Sleep(3000);
-                processes = Process.GetProcessesByName(ProcessName);
-            } while (processes.Length > 0);
 
-            // back to windows 
-            displayfusion("end");
-            BackToWindows();
-            CleanupLogging();
-            //close
-           
+                string ProcessName = Launcher;
+                do
+                {
+                    Thread.Sleep(3000);
+                    processes = Process.GetProcessesByName(ProcessName);
+                } while (processes.Length > 0);
+
+                // back to windows 
+                displayfusion("end");
+                BackToWindows();
+                CleanupLogging();
+                //close
+
+
+            }
+            else if (Launcher == "playnite")
+            {
+                string ProcessName = "Playnite.FullscreenApp";
+                do
+                {
+                    Thread.Sleep(3000);
+                    processes = Process.GetProcessesByName(ProcessName);
+                } while (processes.Length > 0);
+
+                // back to windows 
+                displayfusion("end");
+                BackToWindows();
+                CleanupLogging();
+                //close
+            }
+            else if (Launcher == "steam")
+            {
+
+                string ProcessName = Launcher;
+                do
+                {
+                    Thread.Sleep(3000);
+                    processes = Process.GetProcessesByName(ProcessName);
+                } while (processes.Length > 0);
+
+                // back to windows 
+                displayfusion("end");
+                BackToWindows();
+                CleanupLogging();
+                //close
+            }
+            else
+            {
+                // back to windows 
+                displayfusion("end");
+                BackToWindows();
+                CleanupLogging();
+                //close
+            }
+
         }
         private static bool IsAlreadyRunning()
         {
@@ -240,7 +284,7 @@ namespace gcmloader
                     // Ensure the path is valid
                     if (System.IO.File.Exists(imagePath))
                     {
-                      
+
                         // Set the image source
                         backgroundImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
                         backgroundImage.Stretch = Stretch.UniformToFill;
@@ -279,10 +323,10 @@ namespace gcmloader
             catch
             {
                 Console.WriteLine("wallpaper gui error");
-              
+
             }
 
-          
+
         }
         private string Settwallpaper()
         {
@@ -422,7 +466,8 @@ namespace gcmloader
                         Console.WriteLine("DisplayFusion integration is disabled.");
                     }
                 }
-            }catch
+            }
+            catch
             {
                 Console.WriteLine("DisplayFusion problem-");
             }
@@ -650,6 +695,7 @@ namespace gcmloader
                     break;
 
                 case "playnite":
+                    
                     StartPlaynite();
                     break;
 
@@ -678,7 +724,7 @@ namespace gcmloader
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 5);
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 1);
 
-                  //  MessageBox.Show("UAC has been successfully enabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  MessageBox.Show("UAC has been successfully enabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (UnauthorizedAccessException)
                 {
@@ -696,17 +742,19 @@ namespace gcmloader
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "ConsentPromptBehaviorAdmin", 0);
                     Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "PromptOnSecureDesktop", 0);
 
-                  //  MessageBox.Show("UAC has been successfully disabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  MessageBox.Show("UAC has been successfully disabled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 catch (Exception ex)
                 {
-                  //  MessageBox.Show("An error occurred while disabling UAC: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //  MessageBox.Show("An error occurred while disabling UAC: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
         static void ConsoleModeToShell()
         {
+           
+
             try
             {
                 const string keyName = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
@@ -716,12 +764,11 @@ namespace gcmloader
                 string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string targetExecutable = Path.Combine(currentDirectory, "gcmloader.exe");
 
-                Console.WriteLine($"Current Directory: {currentDirectory}");
-                Console.WriteLine($"Target Executable Path: {targetExecutable}");
+               
 
                 if (!File.Exists(targetExecutable))
                 {
-                    Console.WriteLine($"Error: The file '{targetExecutable}' does not exist.");
+                    //Logger.Logger.Log($"Error: The file '{targetExecutable}' does not exist.");
                     return;
                 }
 
@@ -737,7 +784,7 @@ namespace gcmloader
                         string currentValue = key.GetValue(valueName)?.ToString();
                         if (currentValue == targetExecutable)
                         {
-                            Console.WriteLine($"Successfully set '{valueName}' to '{targetExecutable}'.");
+
                             KillProcess("explorer.exe");
                         }
                         else
@@ -771,7 +818,7 @@ namespace gcmloader
 
             //verif launcher//
             string launcher = AppSettings.Load<string>("launcher");
-            if (launcher == "steam" || launcher == "Playnite.FullscreenApp" || launcher == "Other")
+            if (launcher == "steam" || launcher == "playnite" || launcher == "custom")
             {
                 Console.WriteLine("The selected launcher is valid");
 
@@ -786,13 +833,13 @@ namespace gcmloader
                     }
                     else
                     {
-                     //MessageBox.Show("The Steam path is invalid or non-existent. Use the Settings.exe file to correct this.");
+                        //MessageBox.Show("The Steam path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         CleanupLogging();
                         Environment.Exit(0);
                     }
                 }
 
-                if (launcher == "Playnite.FullscreenApp")
+                if (launcher == "playnite")
                 {
                     string PlaynitePath = AppSettings.Load<string>("playnitelauncherpath");
                     if (!string.IsNullOrEmpty(PlaynitePath) && File.Exists(PlaynitePath))
@@ -807,7 +854,7 @@ namespace gcmloader
                     }
                 }
 
-                if (launcher == "Other")
+                if (launcher == "custom")
                 {
                     string OtherLauncherPath = AppSettings.Load<string>("customlauncherpath");
                     if (!string.IsNullOrEmpty(OtherLauncherPath) && File.Exists(OtherLauncherPath))
@@ -816,7 +863,7 @@ namespace gcmloader
                     }
                     else
                     {
-                       // MessageBox.Show("The launcher path is invalid or non-existent. Use the Settings.exe file to correct this.");
+                        // MessageBox.Show("The launcher path is invalid or non-existent. Use the Settings.exe file to correct this.");
                         Environment.Exit(0);
                     }
                 }
@@ -938,7 +985,7 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(enddiscord))
                             {
                                 //No audio device ID found in start the configuration
-                               
+
                                 return;
                             }
                             else
@@ -962,7 +1009,7 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(enddiscord))
                             {
                                 //"No audio device ID found in start the configuration
-                                
+
                                 return;
                             }
                             else
@@ -974,7 +1021,7 @@ namespace gcmloader
                                 }
                                 else
                                 {
-                                   //nothing
+                                    //nothing
                                 }
 
                             }
@@ -986,13 +1033,13 @@ namespace gcmloader
                             if (string.IsNullOrEmpty(startdiscord))
                             {
 
-                               //No audio device ID found in start the configuration
-                                
+                                //No audio device ID found in start the configuration
+
                                 return;
                             }
                             else
                             {
-                                
+
                                 if (handlestate == false)
                                 {
                                     Changeaudio(startdiscord);
@@ -1017,7 +1064,7 @@ namespace gcmloader
                 }
                 catch (Exception ex)
                 {
-                   
+
                     await Task.Delay(3000); // Avoid rapid retries on error
                 }
             }
@@ -1054,27 +1101,26 @@ namespace gcmloader
         }
         static void StartPlaynite()
         {
-
             if (string.IsNullOrWhiteSpace(AppSettings.Load<string>("playnitelauncherpath")) || !File.Exists(AppSettings.Load<string>("playnitelauncherpath")))
             {
-                Console.WriteLine("Error: PlaynitePath is empty, invalid, or does not exist.");
+
+                //Logger.Logger.Log($"Error: PlaynitePath is empty, invalid, or does not exist.");
                 BackToWindows();
                 return;
             }
             KillProcess("Playnite.FullscreenApp.exe");
-
             try
             {
-                string Path = AppSettings.Load<string>("playnitelauncherpath");
                 string arguments = " --hidesplashscreen";
+                string Path = AppSettings.Load<string>("playnitelauncherpath");
                 Process.Start(new ProcessStartInfo(Path, arguments));
-                Console.WriteLine("Playnite launched");
+               // Logger.Logger.Log("Playnite launched");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error launching Playnite: " + ex.Message);
+                //Logger.Logger.Log("Error launching Playnite");
                 BackToWindows();
-                Console.WriteLine("explorer restored");
+                //Logger.Logger.Log("explorer restored");
             }
         }
         static void StartOtherLauncher()
@@ -1113,20 +1159,24 @@ namespace gcmloader
             }
             else // First Instance
             {
+               // Logger.Logger.Log($"start SETUPLOGGIN:");
                 SetupLogging();
+               // Logger.Logger.Log($"start ADMINVERIFY:");
                 AdminVerify();
                 if (IsAdministrator())
                 {
-                        SettingsVerify();
+                   // Logger.Logger.Log($"start SETTINGSVERIFY:");
+                    SettingsVerify();
                     displayfusion("start");
-                        IsJoyxoffInstalledAndStart(); //only check if is installed, than start
-                        cssloader(); //only check if is installed, than start
-                        StartLauncher();
-                        ConsoleModeToShell();
+                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
+                    cssloader(); //only check if is installed, than start
+                   // Logger.Logger.Log($"start STARTLAUNCHER:");
+                    StartLauncher();
+                    ConsoleModeToShell();
                     await Task.Run(() =>
                     {
                         WaitForLauncherToClose();
-                       
+
                     });
 
                     uac("on");
