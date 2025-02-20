@@ -321,7 +321,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                     </Grid>
                 </Border>
                 <!-- Panel 4 Startup Video-->
-                <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="900" Padding="0" Margin="10">
                     <Grid>
                         <!-- Define rows for layout -->
                         <Grid.RowDefinitions>
@@ -366,7 +366,18 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                                     <TextBox x:Name="textbox_startupvideo_path" AutomationProperties.Name="textbox_startupvideo_path" TextChanged="textbox_startupvideo_path_TextChanged"
    PlaceholderText="Enter the Path"
    PlaceholderForeground="black"
-   Foreground="Black" Background="White" Padding="5"  />
+   Foreground="Black" Background="White" Padding="5"/>
+                                    <Line Margin="0,20,0,0" Stroke="#CCCCCC"
+      X1="0" Y1="0"
+      X2="700" Y2="0"
+      StrokeThickness="5"/>
+                                    <TextBlock Text="For Steam only:" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" />
+                                    <TextBlock TextWrapping="Wrap"  Text="The default Steam startup video can be replaced with the one selected above (this will only take effect when using GCM). The video will be converted to WebM format, and a short wait is required (this will only happen once)."  Foreground="#CCCCCC" Margin="0,5,0,10" />
+                                    <CheckBox x:Name="UseSteamStartupVideo" Content="Use this method" Checked="UseSteamStartupVideoCheckBox_Checked" Unchecked="UseSteamStartupVideoCheckBox_Unchecked" />
+                                    <Button x:Name="Injectstartupvideo_button" Content="Inject video" Margin="0,10,10,0" Click="Injectstartupvideo_button_Click"/>
+                                    <ProgressBar x:Name="Injectstartupvideo_ProgressBar" Width="300" Value="0" Margin="0,10,10,0" HorizontalAlignment="Left" Background="#CCCCCC" Visibility="Collapsed"/>
+                                    <TextBlock x:Name="Injectstartupvideo_Text"  TextWrapping="Wrap"  Text="Conversion"  Foreground="#CCCCCC" Margin="0,5,0,10" Visibility="Collapsed"/>
+
                                 </StackPanel>
                             </Border>
                         </StackPanel>

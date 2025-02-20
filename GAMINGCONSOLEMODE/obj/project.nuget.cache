@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7YOQfrUX+m4=",
+  "dgSpecHash": "E2C/InTCR4U=",
   "success": true,
   "projectFilePath": "F:\\GCM\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nikos\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
     "C:\\Users\\nikos\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
+    "C:\\Users\\nikos\\.nuget\\packages\\ffmpeg.autogen\\7.0.0\\ffmpeg.autogen.7.0.0.nupkg.sha512",
     "C:\\Users\\nikos\\.nuget\\packages\\flurl\\4.0.0\\flurl.4.0.0.nupkg.sha512",
     "C:\\Users\\nikos\\.nuget\\packages\\flurl.http\\4.0.2\\flurl.http.4.0.2.nupkg.sha512",
     "C:\\Users\\nikos\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
