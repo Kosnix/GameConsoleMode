@@ -29,21 +29,21 @@
     <AppXManifest Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-02-20T19:15:13.499</Modified>
+      <Modified>2025-02-21T17:41:56.280</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-02-20T18:52:04.799</Modified>
+      <Modified>2025-02-21T17:37:15.584</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
       <PackagePath>GAMINGCONSOLEMODE.runtimeconfig.json</PackagePath>
-      <Modified>2025-02-20T18:52:04.257</Modified>
+      <Modified>2025-02-21T17:37:14.683</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
       <PackagePath>GAMINGCONSOLEMODE.dll</PackagePath>
-      <Modified>2025-02-20T19:15:12.262</Modified>
+      <Modified>2025-02-21T17:41:55.328</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\audiochanger.ps1">
       <PackagePath>audiochanger.ps1</PackagePath>
@@ -127,7 +127,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>GAMINGCONSOLEMODE.exe</PackagePath>
-      <Modified>2025-02-20T19:15:12.310</Modified>
+      <Modified>2025-02-21T17:41:55.335</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
@@ -1073,10 +1073,6 @@
       <PackagePath>System.Collections.Concurrent.dll</PackagePath>
       <Modified>2024-12-03T17:43:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Collections.Immutable.dll">
-      <PackagePath>System.Collections.Immutable.dll</PackagePath>
-      <Modified>2024-12-03T17:43:30.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Collections.NonGeneric.dll">
       <PackagePath>System.Collections.NonGeneric.dll</PackagePath>
       <Modified>2024-12-03T17:43:34.000</Modified>
@@ -1144,10 +1140,6 @@
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Diagnostics.Debug.dll">
       <PackagePath>System.Diagnostics.Debug.dll</PackagePath>
       <Modified>2024-12-03T17:36:40.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Diagnostics.DiagnosticSource.dll">
-      <PackagePath>System.Diagnostics.DiagnosticSource.dll</PackagePath>
-      <Modified>2024-12-03T17:44:04.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Diagnostics.FileVersionInfo.dll">
       <PackagePath>System.Diagnostics.FileVersionInfo.dll</PackagePath>
@@ -1580,14 +1572,6 @@
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Text.Encoding.dll">
       <PackagePath>System.Text.Encoding.dll</PackagePath>
       <Modified>2024-12-03T17:36:36.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Text.Encodings.Web.dll">
-      <PackagePath>System.Text.Encodings.Web.dll</PackagePath>
-      <Modified>2024-12-03T17:47:34.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Text.Json.dll">
-      <PackagePath>System.Text.Json.dll</PackagePath>
-      <Modified>2024-12-03T17:47:38.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.netcore.app.runtime.win-x64\8.0.12\runtimes\win-x64\lib\net8.0\System.Text.RegularExpressions.dll">
       <PackagePath>System.Text.RegularExpressions.dll</PackagePath>
@@ -2897,10 +2881,6 @@
       <PackagePath>AudioSwitcher.AudioApi.CoreAudio.dll</PackagePath>
       <Modified>2023-05-20T08:21:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\ffmpeg.autogen\7.0.0\lib\netstandard2.1\FFmpeg.AutoGen.dll">
-      <PackagePath>FFmpeg.AutoGen.dll</PackagePath>
-      <Modified>2024-04-18T05:27:00.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\flurl\4.0.0\lib\netstandard2.0\Flurl.dll">
       <PackagePath>Flurl.dll</PackagePath>
       <Modified>2023-12-13T22:42:06.000</Modified>
@@ -2908,6 +2888,102 @@
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\flurl.http\4.0.2\lib\net6.0\Flurl.Http.dll">
       <PackagePath>Flurl.Http.dll</PackagePath>
       <Modified>2024-01-17T21:17:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\jetbrains.annotations\2024.2.0\lib\netstandard2.0\JetBrains.Annotations.dll">
+      <PackagePath>JetBrains.Annotations.dll</PackagePath>
+      <Modified>2024-07-05T18:21:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\kayisoft.abp.xabeffmpeg\4.1.2\lib\netstandard2.1\Kayisoft.Abp.XabeFFmpeg.dll">
+      <PackagePath>Kayisoft.Abp.XabeFFmpeg.dll</PackagePath>
+      <Modified>2025-02-20T05:01:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
+      <Modified>2024-10-29T02:43:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:43:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.binder\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Binder.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Binder.dll</PackagePath>
+      <Modified>2024-10-29T02:43:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.commandline\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.CommandLine.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.CommandLine.dll</PackagePath>
+      <Modified>2024-10-29T02:43:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.environmentvariables\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.EnvironmentVariables.dll</PackagePath>
+      <Modified>2024-10-29T02:43:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.fileextensions\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+      <Modified>2024-10-29T02:47:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.json\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+      <Modified>2024-10-29T02:48:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.configuration.usersecrets\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.UserSecrets.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.UserSecrets.dll</PackagePath>
+      <Modified>2024-10-29T02:49:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.dependencyinjection\9.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.dll</PackagePath>
+      <Modified>2024-10-29T02:42:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:41:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.diagnostics.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Diagnostics.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:48:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.fileproviders.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:43:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.fileproviders.physical\9.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+      <Modified>2024-10-29T02:47:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.filesystemglobbing\9.0.0\lib\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
+      <Modified>2024-10-29T02:39:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.hosting.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Hosting.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:49:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.localization\9.0.0\lib\netstandard2.0\Microsoft.Extensions.Localization.dll">
+      <PackagePath>Microsoft.Extensions.Localization.dll</PackagePath>
+      <Modified>2024-10-29T13:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.localization.abstractions\9.0.0\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Localization.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T13:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.logging\9.0.0\lib\net8.0\Microsoft.Extensions.Logging.dll">
+      <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
+      <Modified>2024-10-29T02:49:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.logging.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Logging.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
+      <Modified>2024-10-29T02:48:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.options\9.0.0\lib\net8.0\Microsoft.Extensions.Options.dll">
+      <PackagePath>Microsoft.Extensions.Options.dll</PackagePath>
+      <Modified>2024-10-29T02:43:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.options.configurationextensions\9.0.0\lib\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Options.ConfigurationExtensions.dll</PackagePath>
+      <Modified>2024-10-29T02:43:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.extensions.primitives\9.0.0\lib\net8.0\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+      <Modified>2024-10-29T02:40:20.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.windowsappsdk\1.6.250205002\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
       <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
@@ -3005,6 +3081,54 @@
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2023-03-08T07:09:54.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\nito.asyncex.context\5.1.2\lib\netstandard2.0\Nito.AsyncEx.Context.dll">
+      <PackagePath>Nito.AsyncEx.Context.dll</PackagePath>
+      <Modified>2021-09-26T00:23:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\nito.asyncex.tasks\5.1.2\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll">
+      <PackagePath>Nito.AsyncEx.Tasks.dll</PackagePath>
+      <Modified>2021-09-26T00:23:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\nito.disposables\2.2.1\lib\netstandard2.1\Nito.Disposables.dll">
+      <PackagePath>Nito.Disposables.dll</PackagePath>
+      <Modified>2021-09-25T21:43:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.collections.immutable\9.0.0\lib\net8.0\System.Collections.Immutable.dll">
+      <PackagePath>System.Collections.Immutable.dll</PackagePath>
+      <Modified>2024-10-29T02:47:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.diagnostics.diagnosticsource\9.0.0\lib\net8.0\System.Diagnostics.DiagnosticSource.dll">
+      <PackagePath>System.Diagnostics.DiagnosticSource.dll</PackagePath>
+      <Modified>2024-10-29T02:47:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.io.pipelines\9.0.0\lib\net8.0\System.IO.Pipelines.dll">
+      <PackagePath>System.IO.Pipelines.dll</PackagePath>
+      <Modified>2024-10-29T02:46:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.linq.dynamic.core\1.4.5\lib\net8.0\System.Linq.Dynamic.Core.dll">
+      <PackagePath>System.Linq.Dynamic.Core.dll</PackagePath>
+      <Modified>2024-08-20T18:38:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.text.encodings.web\9.0.0\lib\net8.0\System.Text.Encodings.Web.dll">
+      <PackagePath>System.Text.Encodings.Web.dll</PackagePath>
+      <Modified>2024-10-29T02:40:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\system.text.json\9.0.0\lib\net8.0\System.Text.Json.dll">
+      <PackagePath>System.Text.Json.dll</PackagePath>
+      <Modified>2024-10-29T02:47:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\volo.abp.core\9.0.5\lib\net8.0\Volo.Abp.Core.dll">
+      <PackagePath>Volo.Abp.Core.dll</PackagePath>
+      <Modified>2025-02-13T08:38:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\volo.abp.threading\9.0.5\lib\net8.0\Volo.Abp.Threading.dll">
+      <PackagePath>Volo.Abp.Threading.dll</PackagePath>
+      <Modified>2025-02-13T08:38:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\xabe.ffmpeg\6.0.1\lib\netstandard2.0\Xabe.FFmpeg.dll">
+      <PackagePath>Xabe.FFmpeg.dll</PackagePath>
+      <Modified>2025-02-13T22:12:46.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>WebView2Loader.dll</PackagePath>
       <Modified>2024-07-20T08:33:54.000</Modified>
@@ -3031,7 +3155,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
-      <Modified>2025-02-20T18:52:04.187</Modified>
+      <Modified>2025-02-21T17:37:14.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -3060,6 +3184,10 @@
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <Modified>2025-02-20T16:28:23.857</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\logo.ico">
+      <PackagePath>logo.ico</PackagePath>
+      <Modified>2025-01-11T00:46:03.324</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

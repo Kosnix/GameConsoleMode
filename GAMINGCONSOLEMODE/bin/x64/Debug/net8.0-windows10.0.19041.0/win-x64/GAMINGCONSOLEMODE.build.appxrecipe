@@ -2293,6 +2293,9 @@
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\logo.ico">
+      <PackagePath>logo.ico</PackagePath>
+    </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

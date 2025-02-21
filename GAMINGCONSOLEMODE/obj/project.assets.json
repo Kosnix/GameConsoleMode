@@ -23,19 +23,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "FFmpeg.AutoGen/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Flurl/4.0.0": {
         "type": "package",
         "compile": {
@@ -450,19 +437,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "FFmpeg.AutoGen/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Flurl/4.0.0": {
         "type": "package",
         "compile": {
@@ -829,19 +803,6 @@
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
         }
       },
-      "FFmpeg.AutoGen/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Flurl/4.0.0": {
         "type": "package",
         "compile": {
@@ -1206,19 +1167,6 @@
         },
         "runtime": {
           "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
-        }
-      },
-      "FFmpeg.AutoGen/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Flurl/4.0.0": {
@@ -1592,22 +1540,6 @@
         "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll",
         "lib/net472/AudioSwitcher.AudioApi.CoreAudio.dll",
         "lib/net48/AudioSwitcher.AudioApi.CoreAudio.dll"
-      ]
-    },
-    "FFmpeg.AutoGen/7.0.0": {
-      "sha512": "RzSgOmHWzEpYzA3zl2Ac3iOdkk1ZCDgJBlRjHBIlaXHJg9aWEmPCzo0qDgEESZDNA7RaD2g4xn7yrKvT1q0Paw==",
-      "type": "package",
-      "path": "ffmpeg.autogen/7.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "ffmpeg.autogen.7.0.0.nupkg.sha512",
-        "ffmpeg.autogen.nuspec",
-        "lib/netstandard2.0/FFmpeg.AutoGen.dll",
-        "lib/netstandard2.0/FFmpeg.AutoGen.xml",
-        "lib/netstandard2.1/FFmpeg.AutoGen.dll",
-        "lib/netstandard2.1/FFmpeg.AutoGen.xml"
       ]
     },
     "Flurl/4.0.0": {
@@ -2698,7 +2630,6 @@
   "projectFileDependencyGroups": {
     "net8.0-windows10.0.19041": [
       "AudioSwitcher.AudioApi.CoreAudio >= 3.0.3",
-      "FFmpeg.AutoGen >= 7.0.0",
       "Flurl.Http >= 4.0.2",
       "Microsoft.Windows.SDK.BuildTools >= 10.0.26100.1742",
       "Microsoft.WindowsAppSDK >= 1.6.250205002",
@@ -2760,10 +2691,6 @@
           "AudioSwitcher.AudioApi.CoreAudio": {
             "target": "Package",
             "version": "[3.0.3, )"
-          },
-          "FFmpeg.AutoGen": {
-            "target": "Package",
-            "version": "[7.0.0, )"
           },
           "Flurl.Http": {
             "target": "Package",

@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[3.0.3, )"
             },
-            "FFmpeg.AutoGen": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
             "Flurl.Http": {
               "target": "Package",
               "version": "[4.0.2, )"

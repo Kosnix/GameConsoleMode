@@ -16,6 +16,12 @@
 	<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="functions\ffmpeg\**" />
+    <EmbeddedResource Remove="functions\ffmpeg\**" />
+    <None Remove="functions\ffmpeg\**" />
+    <Page Remove="functions\ffmpeg\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Remove="Assets\displayfusion.png" />
     <Content Remove="Assets\Download.png" />
     <Content Remove="Assets\GCM_Startup_Video.mp4" />
@@ -68,6 +74,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -147,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="3.0.3" />
-    <PackageReference Include="FFmpeg.AutoGen" Version="7.0.0" />
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
@@ -183,6 +189,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -200,5 +219,11 @@
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <UseWPF>False</UseWPF>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
+  <ItemGroup>
+    <PRIResource Remove="functions\ffmpeg\**" />
+  </ItemGroup>
 </Project>

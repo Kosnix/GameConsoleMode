@@ -28,6 +28,7 @@ using System.Text.Json;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Microsoft.UI.Windowing;
+using System.Xml.Linq;
 
 namespace gcmloader
 {
@@ -1140,7 +1141,12 @@ namespace gcmloader
                         WaitForLauncherToClose();
 
                     });
-
+                    try
+                    {
+                        StartupVideo.RenameSteamStartupVideo_End();
+                    }
+                    catch { }
+                    
                     uac("on");
                     this.Close();
                 }
@@ -1162,6 +1168,49 @@ namespace gcmloader
             private const uint SWP_NOMOVE = 0x0002;
             private const uint SWP_SHOWWINDOW = 0x0040;
 
+            #region SteamStartup
+
+            public static void RenameFile(string oldFilePath, string newFilePath)
+            {
+                try
+                {
+                    // Vérifie si le fichier existe
+                    if (File.Exists(oldFilePath))
+                    {
+                        // Renomme le fichier
+                        File.Move(oldFilePath, newFilePath);
+                        Console.WriteLine($"Le fichier a été renommé avec succès : {newFilePath}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Le fichier spécifié n'existe pas.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erreur lors du renommage du fichier : {ex.Message}");
+                }
+            }
+
+            public static void RenameSteamStartupVideo_Start()
+            {
+               string SteamVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.webm");
+               string SteamVideoPathNew = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.old.webm");
+               string GCMVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "GCM_vid.webm");
+                RenameFile(SteamVideoPath, SteamVideoPathNew); //change the name of the real file
+                RenameFile(GCMVideoPath, SteamVideoPath); //put the name of the real file to the selected video
+            }
+
+            public static void RenameSteamStartupVideo_End()
+            {
+                string SteamVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.webm");
+                string SteamVideoPathNew = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.old.webm");
+                string GCMVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "GCM_vid.webm");
+                RenameFile(SteamVideoPath, GCMVideoPath); // give the GCM Video file its real name
+                RenameFile(SteamVideoPathNew, SteamVideoPath); // give the steam file its real name
+            }
+            #endregion SteamStartup
+
             public static void Play()
             {
                 try
@@ -1171,51 +1220,61 @@ namespace gcmloader
                     if (!useStartupVideo)
                         return;
 
-                    // Load the video path
-                    string videoPath = AppSettings.Load<string>("startupvideo_path");
-                    if (string.IsNullOrEmpty(videoPath) || !File.Exists(videoPath))
-                    {
-                        ShowErrorMessage("The specified video file was not found.");
-                        return;
+                    if (AppSettings.Load<bool>("usesteamstartupvideo")){
+                        RenameSteamStartupVideo_Start();
                     }
-
-                    // Check the file extension
-                    string extension = Path.GetExtension(videoPath)?.ToLower();
-                    string[] validExtensions = { ".mp4", ".avi", ".mkv", ".mov", ".wmv" };
-                    if (Array.IndexOf(validExtensions, extension) == -1)
+                    else
                     {
-                        ShowErrorMessage("Unsupported video format.");
-                        return;
-                    }
 
-                    // Create the video playback window
-                    var videoWindow = new Window();
-                    var appWindow = GetAppWindow(videoWindow);
-
-                    if (appWindow != null)
-                    {
-                        var presenter = appWindow.Presenter as OverlappedPresenter;
-                        if (presenter != null)
+                        // Load the video path
+                        string videoPath = AppSettings.Load<string>("startupvideo_path");
+                        if (string.IsNullOrEmpty(videoPath) || !File.Exists(videoPath))
                         {
-                            presenter.IsMaximizable = false;
-                            presenter.IsMinimizable = false;
-                            presenter.IsResizable = false;
-                            presenter.SetBorderAndTitleBar(false, false);
+                            ShowErrorMessage("The specified video file was not found.");
+                            return;
                         }
-                        appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+
+                        // Check the file extension
+                        string extension = Path.GetExtension(videoPath)?.ToLower();
+                        string[] validExtensions = { ".mp4", ".avi", ".mkv", ".mov", ".wmv" };
+                        if (Array.IndexOf(validExtensions, extension) == -1)
+                        {
+                            ShowErrorMessage("Unsupported video format.");
+                            return;
+                        }
+
+                        // Create the video playback window
+                        var videoWindow = new Window();
+                        var appWindow = GetAppWindow(videoWindow);
+
+                        if (appWindow != null)
+                        {
+                            var presenter = appWindow.Presenter as OverlappedPresenter;
+                            if (presenter != null)
+                            {
+                                presenter.IsMaximizable = false;
+                                presenter.IsMinimizable = false;
+                                presenter.IsResizable = false;
+                                presenter.SetBorderAndTitleBar(false, false);
+                            }
+                            appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+                        }
+
+                        var mediaElement = CreateMediaElement(videoPath, videoWindow);
+                        videoWindow.Content = mediaElement;
+                        videoWindow.Activate();
+
+                        // Forcer la fenêtre au premier plan
+                        IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(videoWindow);
+                        SetForegroundWindow(hWnd);
+                        SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
+
+                        // Maintenir la fenêtre au premier plan
+                        KeepWindowOnTop(hWnd);
+
                     }
 
-                    var mediaElement = CreateMediaElement(videoPath, videoWindow);
-                    videoWindow.Content = mediaElement;
-                    videoWindow.Activate();
-
-                    // Forcer la fenêtre au premier plan
-                    IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(videoWindow);
-                    SetForegroundWindow(hWnd);
-                    SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
-
-                    // Maintenir la fenêtre au premier plan
-                    KeepWindowOnTop(hWnd);
+                    
                 }
                 catch (Exception ex)
                 {

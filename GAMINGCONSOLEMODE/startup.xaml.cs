@@ -16,8 +16,8 @@ using System.Text.Json;
 using System.Net.Http;
 using Flurl.Http;
 using static GAMINGCONSOLEMODE.launcher;
-using FFmpeg.AutoGen;
 using System.Threading.Tasks;
+using System.Reflection;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -40,7 +40,7 @@ namespace GAMINGCONSOLEMODE
             updateui();
             InitializeTimer();
         }
-
+        
         #region code functions
         MMDeviceEnumerator enumerator = new MMDeviceEnumerator();
         private async void messagebox(string dialog)
@@ -351,17 +351,24 @@ namespace GAMINGCONSOLEMODE
                     border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
                     use_startup_video.IsOn = false;
                 }
-            }
-            catch{}
-            try
-            {
                 string startupvideo_path = AppSettings.Load<string>("startupvideo_path");
                 if (startupvideo_path == "")
                 {
-                    startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.mp4");
+                    startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.webm");
                     AppSettings.Save("startupvideo_path", startupvideo_path);
                 }
-                    textbox_startupvideo_path.Text = startupvideo_path;                
+                    textbox_startupvideo_path.Text = startupvideo_path;
+
+            if(AppSettings.Load<bool>("usesteamstartupvideo") == true)
+                {
+                    UseSteamStartupVideo.IsChecked = true;
+                    Injectstartupvideo_button.IsEnabled = true;
+                }
+                else
+                {
+                    UseSteamStartupVideo.IsChecked = false;
+                    Injectstartupvideo_button.IsEnabled = false;
+                }
             }
             catch {}
 
@@ -808,42 +815,52 @@ namespace GAMINGCONSOLEMODE
             if (use_startup_video.IsOn == true)
             {
                 AppSettings.Save("usestartupvideo", true);
-                text_install_state_Startup_Video.Text = "ACTIVATED";
+                text_install_state_Startup_Video.Text = "ACTIVÉ";
                 border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
-
             }
             else
             {
                 AppSettings.Save("usestartupvideo", false);
-                text_install_state_Startup_Video.Text = "DISABLED";
+                text_install_state_Startup_Video.Text = "DÉSACTIVÉ";
                 border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
             }
         }
 
         private void pichstartupvideopath_Click(object sender, RoutedEventArgs e)
         {
-            try { 
-            string file = FilePicker.ShowDialog(
-                "C:\\",                            // start directory
-                new string[] { "mp4" },            // file types
-                ".mp4",                // filter name
-                "Select an mp4 File"               // dialogue title
-            );
-            AppSettings.Save("startupvideo_path", file);
-            textbox_startupvideo_path.Text = file;
-            }catch { }
+            try
+            {
+                pichstartupvideopath.IsEnabled = false;
+                string? file = FilePicker.ShowDialog(
+                    "C:\\",  // Starting folder
+                    new string[] { "*" },  // Accepted extensions
+                    "*",  // Full filter with correct syntax
+                    "Select a video file"  // Dialog box title
+                );
+
+                if (!string.IsNullOrEmpty(file))
+                {
+                    AppSettings.Save("startupvideo_path", file);
+                    textbox_startupvideo_path.Text = file;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error when selecting the file: {ex.Message}");
+            }
+            pichstartupvideopath.IsEnabled = true;
         }
 
         private void UseSteamStartupVideoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Sauvegarder l'état de la case à cocher dans les paramètres
+                // Save the checkbox state in the settings
                 AppSettings.Save("usesteamstartupvideo", true);
 
-                // Activer l'injection de vidéo
+                // Enable video injection
                 Injectstartupvideo_button.IsEnabled = true;
-                textbox_select_startupvideo_path.Visibility = Visibility.Collapsed; // Masquer le champ de texte
+                textbox_select_startupvideo_path.Visibility = Visibility.Collapsed; // Hide the text field
             }
             catch { }
         }
@@ -852,153 +869,95 @@ namespace GAMINGCONSOLEMODE
         {
             try
             {
-                // Sauvegarder l'état de la case à cocher dans les paramètres
+                // Save the checkbox state in the settings
                 AppSettings.Save("usesteamstartupvideo", false);
 
-                // Désactiver l'injection de vidéo
+                // Disable video injection
                 Injectstartupvideo_button.IsEnabled = false;
-                textbox_select_startupvideo_path.Visibility = Visibility.Visible; // Afficher le champ de texte
+                textbox_select_startupvideo_path.Visibility = Visibility.Visible; // Show the text field
             }
             catch { }
         }
 
         private void Injectstartupvideo_button_Click(object sender, RoutedEventArgs e)
         {
+            try
             {
-                try
+                Injectstartupvideo_Text.Text = "";
+                Injectstartupvideo_Text.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Value = 0;
+                Debug.WriteLine("Start of Injectstartupvideo_button_Click function");
+
+                Injectstartupvideo_button.IsEnabled = false; // Disable the button
+
+                string videoPath = AppSettings.Load<string>("startupvideo_path");
+                Debug.WriteLine($"Video path retrieved: {videoPath}");
+
+                if (string.IsNullOrEmpty(videoPath) || !File.Exists(videoPath))
                 {
-                    // Désactiver le bouton pendant l'injection pour éviter de multiples clics
-                    Injectstartupvideo_button.IsEnabled = false;
-
-                    // Afficher la barre de progression et le texte de conversion
-                    Injectstartupvideo_ProgressBar.Visibility = Visibility.Visible;
-                    Injectstartupvideo_Text.Visibility = Visibility.Visible;
-                    Injectstartupvideo_Text.Text = "Initialisation...";
-
-                    // Récupérer le chemin du fichier vidéo à convertir
-                    string videoPath = AppSettings.Load<string>("startupvideo_path");
-
-                    if (string.IsNullOrEmpty(videoPath))
-                    {
-                        throw new Exception("Aucun fichier vidéo sélectionné.");
-                    }
-
-                    // Récupérer le dossier Steam
-                    string steamPath = AppSettings.Load<string>("steamlauncherpath");
-                    string outputPath = Path.Combine(steamPath, "steamui", "movies", "GCM_vid.webm");
-
-                    // Vérifier si le dossier "movies" existe, sinon le créer
-                    if (!Directory.Exists(Path.GetDirectoryName(outputPath)))
-                    {
-                        Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
-                    }
-
-                    // Commencer la conversion de la vidéo en WebM
-                    // Créer une instance de VideoConverter
-                    VideoConverter converter = new VideoConverter();
-
-                    // Appeler la méthode ConvertVideoToWebM sur cette instance
-                    converter.ConvertVideoToWebM(videoPath, outputPath);
-
-                    // Une fois la conversion terminée, masquer la barre de progression et afficher un message
+                    Injectstartupvideo_Text.Text = "No valid video file selected.";
                     Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
-                    Injectstartupvideo_Text.Visibility = Visibility.Collapsed;
-
-                    // Réactiver le bouton
-                    Injectstartupvideo_button.IsEnabled = true;
-                    Injectstartupvideo_Text.Text = "Conversion terminée.";
-
-                    // Sauvegarder le chemin du fichier converti
-                    AppSettings.Save("startupvideo_converted", outputPath);
+                    throw new Exception("No valid video file selected.");
                 }
-                catch (Exception ex)
+
+                // Check if the source file is already WebM
+                if (Path.GetExtension(videoPath).ToLower() != ".webm")
                 {
-                    // Gérer les erreurs
+                    Injectstartupvideo_Text.Text = "The selected file is not in WebM format.";
                     Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
-                    Injectstartupvideo_Text.Visibility = Visibility.Collapsed;
-                    Injectstartupvideo_button.IsEnabled = true;
-                    Injectstartupvideo_Text.Text = "Erreur : " + ex.Message;
+                    Injectstartupvideo_ProgressBar.Value = 0;
+                    throw new Exception("The selected file is not in WebM format.");
                 }
+
+                string steamPath = AppSettings.Load<string>("steamlauncherpath");
+                if (steamPath.EndsWith("steam.exe", StringComparison.OrdinalIgnoreCase))
+                {
+                    steamPath = Path.GetDirectoryName(steamPath);
+                }
+
+                string outputPath = Path.Combine(steamPath, "steamui", "movies", "GCM_vid.webm");
+
+                // Check and create the folder if needed
+                string moviesFolder = Path.GetDirectoryName(outputPath);
+                if (!Directory.Exists(moviesFolder))
+                {
+                    Directory.CreateDirectory(moviesFolder);
+                }
+
+                // Copy the WebM file
+                Injectstartupvideo_ProgressBar.Value = 50;
+                File.Copy(videoPath, outputPath, true);
+                Debug.WriteLine("File copy complete");
+
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Value = 100;
+                Injectstartupvideo_Text.Text = "Video copied successfully.";
+                Injectstartupvideo_button.IsEnabled = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ERROR: {ex.Message}");
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
+                Injectstartupvideo_Text.Text = "Error: " + ex.Message;
+                Injectstartupvideo_button.IsEnabled = true;
             }
         }
 
-
-        public class VideoConverter
-{
-            public unsafe void ConvertVideoToWebM(string inputFilePath, string outputFilePath)
+        private void Resetstartupvideopath_Click(object sender, RoutedEventArgs e)
+        {
+            try
             {
-                // Initialisation de FFmpeg
-                ffmpeg.avformat_network_init();
-
-                AVFormatContext* inputContext = null;
-                AVFormatContext* outputContext = null;
-
-                // Ouvrir le fichier d'entrée
-                if (ffmpeg.avformat_open_input(&inputContext, inputFilePath, null, null) != 0)
-                {
-                    throw new Exception("Impossible d'ouvrir le fichier d'entrée.");
-                }
-
-                // Lire les informations du fichier
-                if (ffmpeg.avformat_find_stream_info(inputContext, null) < 0)
-                {
-                    throw new Exception("Impossible de récupérer les informations du fichier.");
-                }
-
-                // Créer le fichier de sortie
-                if (ffmpeg.avformat_alloc_output_context2(&outputContext, null, "webm", outputFilePath) < 0)
-                {
-                    throw new Exception("Impossible de créer le contexte de sortie.");
-                }
-
-                // Copier les flux du fichier d'entrée vers le fichier de sortie
-                for (int i = 0; i < inputContext->nb_streams; i++)
-                {
-                    AVStream* inStream = inputContext->streams[i];
-                    AVStream* outStream = ffmpeg.avformat_new_stream(outputContext, null);
-
-                    // Copier les paramètres du flux
-                    ffmpeg.avcodec_parameters_copy(outStream->codecpar, inStream->codecpar);
-                }
-
-                // Ouvrir le fichier de sortie pour l'écriture
-                if (ffmpeg.avio_open(&outputContext->pb, outputFilePath, ffmpeg.AVIO_FLAG_WRITE) < 0)
-                {
-                    throw new Exception("Impossible d'ouvrir le fichier de sortie.");
-                }
-
-                // Écrire l'en-tête du fichier WebM
-                if (ffmpeg.avformat_write_header(outputContext, null) < 0)
-                {
-                    throw new Exception("Impossible d'écrire l'en-tête du fichier.");
-                }
-
-                // Lire les paquets du fichier d'entrée et les écrire dans le fichier de sortie
-                AVPacket packet;
-                while (ffmpeg.av_read_frame(inputContext, &packet) >= 0)
-                {
-                    // Écrire les paquets vidéo ou audio dans le fichier de sortie
-                    for (int i = 0; i < inputContext->nb_streams; i++)
-                    {
-                        if (packet.stream_index == i)
-                        {
-                            ffmpeg.av_interleaved_write_frame(outputContext, &packet);
-                            break;
-                        }
-                    }
-
-                    ffmpeg.av_packet_unref(&packet);
-                }
-
-                // Écrire la fin du fichier de sortie
-                ffmpeg.av_write_trailer(outputContext);
-
-                // Libérer les ressources
-                ffmpeg.avformat_close_input(&inputContext);
-                ffmpeg.avformat_free_context(outputContext);
+                string startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.webm");
+                AppSettings.Save("startupvideo_path", startupvideo_path);
+                textbox_startupvideo_path.Text = startupvideo_path;
             }
+            catch { }
         }
+
         #endregion StartupVideo
+
         #endregion functions
+
     }
 }

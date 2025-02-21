@@ -359,11 +359,12 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                                     <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
                                         <Button x:Name="pichstartupvideopath" Content="Select a file"
                                             Click="pichstartupvideopath_Click"    Margin="0,0,10,0" />
+                                        <Button x:Name="Resetstartupvideopath" Content="Reset" Click="Resetstartupvideopath_Click" Margin="0,0,10,0" />
                                         <TextBlock x:Name="textbox_select_startupvideo_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
                                     </StackPanel>
 
                                     <!-- TextBox for user input -->
-                                    <TextBox x:Name="textbox_startupvideo_path" AutomationProperties.Name="textbox_startupvideo_path" TextChanged="textbox_startupvideo_path_TextChanged"
+                                    <TextBox x:Name="textbox_startupvideo_path" IsReadOnly="True" AutomationProperties.Name="textbox_startupvideo_path" TextChanged="textbox_startupvideo_path_TextChanged"
    PlaceholderText="Enter the Path"
    PlaceholderForeground="black"
    Foreground="Black" Background="White" Padding="5"/>
@@ -372,7 +373,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
       X2="700" Y2="0"
       StrokeThickness="5"/>
                                     <TextBlock Text="For Steam only:" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" />
-                                    <TextBlock TextWrapping="Wrap"  Text="The default Steam startup video can be replaced with the one selected above (this will only take effect when using GCM). The video will be converted to WebM format, and a short wait is required (this will only happen once)."  Foreground="#CCCCCC" Margin="0,5,0,10" />
+                                    <TextBlock TextWrapping="Wrap"  Text="The default Steam startup video can be replaced with the one selected above (this will only take effect when using GCM). The selected video must be in WebM."  Foreground="#CCCCCC" Margin="0,5,0,10" />
                                     <CheckBox x:Name="UseSteamStartupVideo" Content="Use this method" Checked="UseSteamStartupVideoCheckBox_Checked" Unchecked="UseSteamStartupVideoCheckBox_Unchecked" />
                                     <Button x:Name="Injectstartupvideo_button" Content="Inject video" Margin="0,10,10,0" Click="Injectstartupvideo_button_Click"/>
                                     <ProgressBar x:Name="Injectstartupvideo_ProgressBar" Width="300" Value="0" Margin="0,10,10,0" HorizontalAlignment="Left" Background="#CCCCCC" Visibility="Collapsed"/>
