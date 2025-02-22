@@ -853,30 +853,26 @@ namespace GAMINGCONSOLEMODE
 
         private void UseSteamStartupVideoCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            
                 // Save the checkbox state in the settings
                 AppSettings.Save("usesteamstartupvideo", true);
 
                 // Enable video injection
                 Injectstartupvideo_button.IsEnabled = true;
                 textbox_select_startupvideo_path.Visibility = Visibility.Collapsed; // Hide the text field
-            }
-            catch { }
+           
         }
 
         private void UseSteamStartupVideoCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            
                 // Save the checkbox state in the settings
                 AppSettings.Save("usesteamstartupvideo", false);
 
                 // Disable video injection
                 Injectstartupvideo_button.IsEnabled = false;
                 textbox_select_startupvideo_path.Visibility = Visibility.Visible; // Show the text field
-            }
-            catch { }
+            
         }
 
         private void Injectstartupvideo_button_Click(object sender, RoutedEventArgs e)

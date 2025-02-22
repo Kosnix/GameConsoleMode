@@ -116,8 +116,6 @@ namespace GAMINGCONSOLEMODE
         #region Update
         public async Task UpdateCheck(MainWindow mainWindow)
         {
-            
-
             string latestVersion = await GetLatestReleaseVersion(owner, repo); // Await the async call
 
             if (!string.IsNullOrEmpty(latestVersion))
@@ -167,8 +165,6 @@ namespace GAMINGCONSOLEMODE
             return latest > current;
         }
 
-        
-        
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             _ = DownloadLatestRelease(owner, repo, UpdateProgressBar);
@@ -178,15 +174,15 @@ namespace GAMINGCONSOLEMODE
         {
             try
             {
-                // Lancer le fichier Update.exe
+                // Starte die Update.exe aus dem AppData\gcmsettings Ordner
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
-                    FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Update", "Update.exe"),
+                    FileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gcmsettings", "Update.exe"),
                     UseShellExecute = true
                 };
                 Process.Start(startInfo);
 
-                // Fermer l'application actuelle
+                // Schlieﬂe die aktuelle Anwendung
                 Application.Current.Exit();
             }
             catch (Exception ex)
@@ -207,15 +203,14 @@ namespace GAMINGCONSOLEMODE
             if (!string.IsNullOrEmpty(downloadUrl))
             {
                 string fileName = Path.GetFileName(new Uri(downloadUrl).AbsolutePath);
-                string updateDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Update");
+                // Download in den AppData\gcmsettings Ordner
+                string updateDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gcmsettings");
                 if (!Directory.Exists(updateDir))
                 {
                     Directory.CreateDirectory(updateDir);
                 }
 
                 string filePath = Path.Combine(updateDir, "Update.exe");
-
-
 
                 using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
                 using var httpStream = await client.GetStreamAsync(downloadUrl);
@@ -260,10 +255,9 @@ namespace GAMINGCONSOLEMODE
             }
             return string.Empty;
         }
-
-
         #endregion Update
 
-        
+
+
     }
 }

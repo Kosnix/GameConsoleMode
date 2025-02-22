@@ -71,12 +71,10 @@ namespace gcmloader
         private static readonly string SettingsFilePath = Path.Combine(SettingsFolder, "settings.json");
         public MainWindow()
         {
-
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
-            // Start 
             Start();
-            // ASYNC PROZES
+            //ASYNC PROZES
             StartAsynctasks();
         }
 
@@ -530,19 +528,19 @@ namespace gcmloader
         {
             try
             {
-                // Hole den Pfad des Verzeichnisses, in dem die ausführbare Datei liegt
-                string exeFolderPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                // Get the path of the AppData folder
+                string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-                // Erstelle den vollständigen Pfad zum "settings"-Ordner
-                string settingsFolderPath = Path.Combine(exeFolderPath, "settings");
+                // Create the full path to the "gcmsettings" folder in AppData
+                string settingsFolderPath = Path.Combine(appDataPath, "gcmsettings");
 
-                // Erstelle den vollständigen Pfad zur Datei "settings.json"
+                // Create the full path to the "settings.json" file within the folder
                 string settingsFilePath = Path.Combine(settingsFolderPath, "settings.json");
 
-                // Überprüfe, ob der Ordner "settings" existiert
+                // Check if the "gcmsettings" folder exists
                 if (Directory.Exists(settingsFolderPath))
                 {
-                    // Überprüfe, ob die Datei "settings.json" im Ordner existiert
+                    // Check if the "settings.json" file exists in the folder
                     if (File.Exists(settingsFilePath))
                     {
                         Console.WriteLine($"The file 'settings.json' exists in the folder '{settingsFolderPath}'.");
@@ -556,7 +554,7 @@ namespace gcmloader
                 }
                 else
                 {
-                    Console.WriteLine($"The folder 'settings' does not exist in '{exeFolderPath}'.");
+                    Console.WriteLine($"The folder 'gcmsettings' does not exist in AppData.");
                     return false;
                 }
             }
@@ -565,6 +563,7 @@ namespace gcmloader
                 Console.WriteLine($"An error occurred while verifying the settings: {ex.Message}");
                 return false;
             }
+
         }
         private void FirstStart()
         {
@@ -1261,6 +1260,7 @@ namespace gcmloader
             {
                 try
                 {
+                    Console.WriteLine("Playing startup video...");
                     // Check if startup video is enabled
                     bool useStartupVideo = AppSettings.Load<bool>("usestartupvideo");
                     if (!useStartupVideo)
@@ -1310,12 +1310,12 @@ namespace gcmloader
                         videoWindow.Content = mediaElement;
                         videoWindow.Activate();
 
-                        // Forcer la fenêtre au premier plan
+                        //Forcer la fenêtre au premier plan
                         IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(videoWindow);
                         SetForegroundWindow(hWnd);
                         SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
 
-                        // Maintenir la fenêtre au premier plan
+                        //Maintenir la fenêtre au premier plan
                         KeepWindowOnTop(hWnd);
 
                     }
