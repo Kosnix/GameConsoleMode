@@ -15,6 +15,9 @@ using System.Text.RegularExpressions;
 using System.Text.Json;
 using System.Net.Http;
 using Flurl.Http;
+using static GAMINGCONSOLEMODE.launcher;
+using System.Threading.Tasks;
+using System.Reflection;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -37,7 +40,7 @@ namespace GAMINGCONSOLEMODE
             updateui();
             InitializeTimer();
         }
-
+        
         #region code functions
         MMDeviceEnumerator enumerator = new MMDeviceEnumerator();
         private async void messagebox(string dialog)
@@ -332,8 +335,44 @@ namespace GAMINGCONSOLEMODE
             {
 
             }
-            
+
             #endregion discord
+            #region StartupVideo
+            try {
+                bool usestartupvideo = AppSettings.Load<bool>("usestartupvideo");
+                if (usestartupvideo == true) {
+                    text_install_state_Startup_Video.Text = "ACTIVATED";
+                    border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
+                    use_startup_video.IsOn = true;
+                }
+                else
+                {
+                    text_install_state_Startup_Video.Text = "DISABLED";
+                    border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
+                    use_startup_video.IsOn = false;
+                }
+                string startupvideo_path = AppSettings.Load<string>("startupvideo_path");
+                if (startupvideo_path == "")
+                {
+                    startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.webm");
+                    AppSettings.Save("startupvideo_path", startupvideo_path);
+                }
+                    textbox_startupvideo_path.Text = startupvideo_path;
+
+            if(AppSettings.Load<bool>("usesteamstartupvideo") == true)
+                {
+                    UseSteamStartupVideo.IsChecked = true;
+                    Injectstartupvideo_button.IsEnabled = true;
+                }
+                else
+                {
+                    UseSteamStartupVideo.IsChecked = false;
+                    Injectstartupvideo_button.IsEnabled = false;
+                }
+            }
+            catch {}
+
+            #endregion StartupVideo
         }
         #endregion update ui
         #region functions
@@ -761,6 +800,164 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion discord
+        #region StartupVideo
+        private void textbox_startupvideo_path_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                AppSettings.Save("startupvideo_path", textbox_startupvideo_path.Text);
+            }
+            catch { }
+        }
+
+        private void use_startup_video_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (use_startup_video.IsOn == true)
+            {
+                AppSettings.Save("usestartupvideo", true);
+                text_install_state_Startup_Video.Text = "ACTIVÉ";
+                border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                AppSettings.Save("usestartupvideo", false);
+                text_install_state_Startup_Video.Text = "DÉSACTIVÉ";
+                border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Brown);
+            }
+        }
+
+        private void pichstartupvideopath_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                pichstartupvideopath.IsEnabled = false;
+                string? file = FilePicker.ShowDialog(
+                    "C:\\",  // Starting folder
+                    new string[] { "*" },  // Accepted extensions
+                    "*",  // Full filter with correct syntax
+                    "Select a video file"  // Dialog box title
+                );
+
+                if (!string.IsNullOrEmpty(file))
+                {
+                    AppSettings.Save("startupvideo_path", file);
+                    textbox_startupvideo_path.Text = file;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error when selecting the file: {ex.Message}");
+            }
+            pichstartupvideopath.IsEnabled = true;
+        }
+
+        private void UseSteamStartupVideoCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Save the checkbox state in the settings
+                AppSettings.Save("usesteamstartupvideo", true);
+
+                // Enable video injection
+                Injectstartupvideo_button.IsEnabled = true;
+                textbox_select_startupvideo_path.Visibility = Visibility.Collapsed; // Hide the text field
+            }
+            catch { }
+        }
+
+        private void UseSteamStartupVideoCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Save the checkbox state in the settings
+                AppSettings.Save("usesteamstartupvideo", false);
+
+                // Disable video injection
+                Injectstartupvideo_button.IsEnabled = false;
+                textbox_select_startupvideo_path.Visibility = Visibility.Visible; // Show the text field
+            }
+            catch { }
+        }
+
+        private void Injectstartupvideo_button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Injectstartupvideo_Text.Text = "";
+                Injectstartupvideo_Text.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Value = 0;
+                Debug.WriteLine("Start of Injectstartupvideo_button_Click function");
+
+                Injectstartupvideo_button.IsEnabled = false; // Disable the button
+
+                string videoPath = AppSettings.Load<string>("startupvideo_path");
+                Debug.WriteLine($"Video path retrieved: {videoPath}");
+
+                if (string.IsNullOrEmpty(videoPath) || !File.Exists(videoPath))
+                {
+                    Injectstartupvideo_Text.Text = "No valid video file selected.";
+                    Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
+                    throw new Exception("No valid video file selected.");
+                }
+
+                // Check if the source file is already WebM
+                if (Path.GetExtension(videoPath).ToLower() != ".webm")
+                {
+                    Injectstartupvideo_Text.Text = "The selected file is not in WebM format.";
+                    Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
+                    Injectstartupvideo_ProgressBar.Value = 0;
+                    throw new Exception("The selected file is not in WebM format.");
+                }
+
+                string steamPath = AppSettings.Load<string>("steamlauncherpath");
+                if (steamPath.EndsWith("steam.exe", StringComparison.OrdinalIgnoreCase))
+                {
+                    steamPath = Path.GetDirectoryName(steamPath);
+                }
+
+                string outputPath = Path.Combine(steamPath, "steamui", "movies", "GCM_vid.webm");
+
+                // Check and create the folder if needed
+                string moviesFolder = Path.GetDirectoryName(outputPath);
+                if (!Directory.Exists(moviesFolder))
+                {
+                    Directory.CreateDirectory(moviesFolder);
+                }
+
+                // Copy the WebM file
+                Injectstartupvideo_ProgressBar.Value = 50;
+                File.Copy(videoPath, outputPath, true);
+                Debug.WriteLine("File copy complete");
+
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Visible;
+                Injectstartupvideo_ProgressBar.Value = 100;
+                Injectstartupvideo_Text.Text = "Video copied successfully.";
+                Injectstartupvideo_button.IsEnabled = true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"ERROR: {ex.Message}");
+                Injectstartupvideo_ProgressBar.Visibility = Visibility.Collapsed;
+                Injectstartupvideo_Text.Text = "Error: " + ex.Message;
+                Injectstartupvideo_button.IsEnabled = true;
+            }
+        }
+
+        private void Resetstartupvideopath_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.webm");
+                AppSettings.Save("startupvideo_path", startupvideo_path);
+                textbox_startupvideo_path.Text = startupvideo_path;
+            }
+            catch { }
+        }
+
+        #endregion StartupVideo
+
         #endregion functions
+
     }
 }

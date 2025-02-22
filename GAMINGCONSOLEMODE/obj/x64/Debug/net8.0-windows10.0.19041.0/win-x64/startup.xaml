@@ -46,8 +46,8 @@
                         </Grid.RowDefinitions>
 
                         <!-- Status Bar -->
-                        <Border x:ConnectionId='31' x:Name="border_install_state_cssloader" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
-                            <TextBlock x:ConnectionId='35' x:Name="text_install_state_cssloader" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        <Border x:ConnectionId='42' x:Name="border_install_state_cssloader" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='46' x:Name="text_install_state_cssloader" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
 
                         </Border>
 
@@ -69,12 +69,12 @@
                             <!-- Buttons Area -->
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                                 <!-- First Button -->
-                                <Button x:ConnectionId='33' x:Name="button_uninstall_cssloader"                                          >
+                                <Button x:ConnectionId='44' x:Name="button_uninstall_cssloader"                                          >
                                     <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
                                 <!-- Second Button -->
-                                <Button x:ConnectionId='34' x:Name="button_install_cssloader"                                         >
+                                <Button x:ConnectionId='45' x:Name="button_install_cssloader"                                         >
                                     <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
@@ -85,7 +85,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
 
                             <Border >
-                                <ToggleSwitch x:ConnectionId='32' x:Name= "use_cssloader"                                 HorizontalAlignment="Center" Margin="100,-10,10,10"/>
+                                <ToggleSwitch x:ConnectionId='43' x:Name= "use_cssloader"                                 HorizontalAlignment="Center" Margin="100,-10,10,10"/>
                             </Border>
                             <!-- Preview Image -->
                             <Image Source="/Assets/steambp.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
@@ -109,8 +109,8 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                         </Grid.RowDefinitions>
 
                         <!-- Status Bar -->
-                        <Border x:ConnectionId='26' x:Name="border_install_state_joyxoff" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
-                            <TextBlock x:ConnectionId='30' x:Name="text_install_state_joyxoff" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        <Border x:ConnectionId='37' x:Name="border_install_state_joyxoff" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='41' x:Name="text_install_state_joyxoff" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
                         </Border>
 
                         <!-- Content Area -->
@@ -131,12 +131,12 @@ Message="The GCM team recommends this function" />
                             <!-- Buttons Area -->
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                                 <!-- First Button -->
-                                <Button x:ConnectionId='28' x:Name="button_uninstall_joyxoff"                                        >
+                                <Button x:ConnectionId='39' x:Name="button_uninstall_joyxoff"                                        >
                                     <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
                                 <!-- Second Button -->
-                                <Button x:ConnectionId='29' x:Name="button_install_joyxoff"                                      >
+                                <Button x:ConnectionId='40' x:Name="button_install_joyxoff"                                      >
                                     <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
@@ -147,7 +147,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
 
                             <Border >
-                                <ToggleSwitch x:ConnectionId='27' x:Name= "use_joyxoff" HorizontalAlignment="Center" Margin="100,-10,10,10"                               />
+                                <ToggleSwitch x:ConnectionId='38' x:Name= "use_joyxoff" HorizontalAlignment="Center" Margin="100,-10,10,10"                               />
                             </Border>
                             <!-- Preview Image -->
                             <Image Source="/functions/joyxoff_logo.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
@@ -171,8 +171,8 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                         </Grid.RowDefinitions>
 
                         <!-- Status Bar -->
-                        <Border x:ConnectionId='19' x:Name="border_install_state_displayfusion" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
-                            <TextBlock x:ConnectionId='25' x:Name="text_install_state_displayfusion" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        <Border x:ConnectionId='30' x:Name="border_install_state_displayfusion" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='36' x:Name="text_install_state_displayfusion" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
                         </Border>
 
                         <!-- Content Area -->
@@ -188,12 +188,12 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             <!-- Buttons Area -->
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                                 <!-- First Button -->
-                                <Button x:ConnectionId='23' x:Name="button_uninstall_displayfusion"                                                >
+                                <Button x:ConnectionId='34' x:Name="button_uninstall_displayfusion"                                                >
                                     <Image Source="/Assets/Uninstall Programs.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
                                 <!-- Second Button -->
-                                <Button x:ConnectionId='24' x:Name="button_install_displayfusion"                                              >
+                                <Button x:ConnectionId='35' x:Name="button_install_displayfusion"                                              >
                                     <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
                                 </Button>
 
@@ -204,13 +204,13 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
 
                             <Border >
-                                <ToggleSwitch x:ConnectionId='22' x:Name= "use_displayfusion" HorizontalAlignment="Center" Margin="100,-10,10,10"                                     />
+                                <ToggleSwitch x:ConnectionId='33' x:Name= "use_displayfusion" HorizontalAlignment="Center" Margin="100,-10,10,10"                                     />
                             </Border>
                             <!-- Preview Image -->
                             <Image Source="/functions/displayfusion.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                                <TextBox x:ConnectionId='20' x:Name="displayfusion_start" Header="START configname" PlaceholderText="START"                                               CornerRadius="5" />
-                                <TextBox x:ConnectionId='21' x:Name="displayfusion_end" Header="END configname" PlaceholderText="END"                                             CornerRadius="5" />
+                                <TextBox x:ConnectionId='31' x:Name="displayfusion_start" Header="START configname" PlaceholderText="START"                                               CornerRadius="5" />
+                                <TextBox x:ConnectionId='32' x:Name="displayfusion_end" Header="END configname" PlaceholderText="END"                                             CornerRadius="5" />
                             </StackPanel>
                             <!-- Footer Text -->
                             <TextBlock Text="Enable display switch with displayfusion"
@@ -230,8 +230,8 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             <!-- Content -->
                         </Grid.RowDefinitions>
                         <!-- Status Bar -->
-                        <Border x:ConnectionId='15' x:Name="border_install_state_wallpaper" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
-                            <TextBlock x:ConnectionId='18' x:Name="text_install_state_wallpaper" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        <Border x:ConnectionId='26' x:Name="border_install_state_wallpaper" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='29' x:Name="text_install_state_wallpaper" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
                         </Border>
 
                         <!-- Content Area -->
@@ -249,12 +249,12 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
 
                             <Border >
-                                <ToggleSwitch x:ConnectionId='17' x:Name= "use_wallpaper" HorizontalAlignment="Center" Margin="100,-10,10,10"                                  />
+                                <ToggleSwitch x:ConnectionId='28' x:Name= "use_wallpaper" HorizontalAlignment="Center" Margin="100,-10,10,10"                                  />
                             </Border>
                             <!-- Preview Image -->
                             <Image Source="/functions/TV.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                                <TextBox x:ConnectionId='16' x:Name="wallpaper_path" Header="Wallpaper Path" PlaceholderText="Path"                                           CornerRadius="5" />
+                                <TextBox x:ConnectionId='27' x:Name="wallpaper_path" Header="Wallpaper Path" PlaceholderText="Path"                                           CornerRadius="5" />
                             </StackPanel>
                             <!-- Footer Text -->
                             <TextBlock Text="if you minimize your launcher you will see your wallpaper"
@@ -274,13 +274,13 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             <!-- Content -->
                         </Grid.RowDefinitions>
                         <!-- Status Bar -->
-                        <Border x:ConnectionId='9' x:Name="border_install_state_discord" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
-                            <TextBlock x:ConnectionId='14' x:Name="text_install_state_discord" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        <Border x:ConnectionId='20' x:Name="border_install_state_discord" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='25' x:Name="text_install_state_discord" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
                         </Border>
                         
                         <!-- Content Area -->
                         <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
-                            <InfoBar x:ConnectionId='10' x:Name="infobar_discord"
+                            <InfoBar x:ConnectionId='21' x:Name="infobar_discord"
 IsOpen="False"
 Severity="Success"
 Title="Success"
@@ -298,7 +298,7 @@ Message="Your settings have been saved " />
                             </Border>
 
                             <Border>
-                                <ToggleSwitch x:ConnectionId='13' x:Name="use_discord" HorizontalAlignment="Center" Margin="100,-10,10,10"                               />
+                                <ToggleSwitch x:ConnectionId='24' x:Name="use_discord" HorizontalAlignment="Center" Margin="100,-10,10,10"                               />
                             </Border>
 
                             <!-- Preview Image -->
@@ -308,16 +308,81 @@ Message="Your settings have been saved " />
 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
                             <!-- ComboBox -->
-                            <ComboBox x:ConnectionId='11' x:Name="discord_start" Width="500" Margin="0,10,0,10"                                                   >
+                            <ComboBox x:ConnectionId='22' x:Name="discord_start" Width="500" Margin="0,10,0,10"                                                   >
                             </ComboBox>
                             <Border>
                                 <TextBlock Text="Change audio device when CLOSING the discord window"
 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
                             <!-- ComboBox -->
-                            <ComboBox x:ConnectionId='12' x:Name="discord_end" Width="500" Margin="0,10,0,10"                                                >
+                            <ComboBox x:ConnectionId='23' x:Name="discord_end" Width="500" Margin="0,10,0,10"                                                >
                             </ComboBox>
                         </StackPanel>
+                    </Grid>
+                </Border>
+                <!-- Panel 4 Startup Video-->
+                <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="900" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+                        <!-- Status Bar -->
+                        <Border x:ConnectionId='9' x:Name="border_install_state_Startup_Video" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:ConnectionId='19' x:Name="text_install_state_Startup_Video" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+
+                            <!-- Title -->
+                            <TextBlock Text="STARTUP VIDEO" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Show a video when GCM starts to give your launcher time to start in the background"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                            <Border >
+                                <ToggleSwitch x:ConnectionId='18' x:Name= "use_startup_video" HorizontalAlignment="Center" Margin="100,-10,10,10"                                      />
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/functions/Startup_Video.gif"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <Border CornerRadius="10" Padding="16" Margin="16">
+                                <StackPanel>
+                                    <!-- Title for the section -->
+                                    <TextBlock Text="Select Video Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+
+                                    <!-- Button for picking a file -->
+                                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                                        <Button x:ConnectionId='15' x:Name="pichstartupvideopath" Content="Select a file"
+                                                                                  Margin="0,0,10,0" />
+                                        <Button x:ConnectionId='16' x:Name="Resetstartupvideopath" Content="Reset"                                     Margin="0,0,10,0" />
+                                        <TextBlock x:ConnectionId='17' x:Name="textbox_select_startupvideo_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
+                                    </StackPanel>
+
+                                    <!-- TextBox for user input -->
+                                    <TextBox x:ConnectionId='10' x:Name="textbox_startupvideo_path" IsReadOnly="True" AutomationProperties.Name="textbox_startupvideo_path"                                                    
+   PlaceholderText="Enter the Path"
+   PlaceholderForeground="black"
+   Foreground="Black" Background="White" Padding="5"/>
+                                    <Line Margin="0,20,0,0" Stroke="#CCCCCC"
+      X1="0" Y1="0"
+      X2="700" Y2="0"
+      StrokeThickness="5"/>
+                                    <TextBlock Text="For Steam only:" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" />
+                                    <TextBlock TextWrapping="Wrap"  Text="The default Steam startup video can be replaced with the one selected above (this will only take effect when using GCM). The selected video must be in WebM."  Foreground="#CCCCCC" Margin="0,5,0,10" />
+                                    <CheckBox x:ConnectionId='11' x:Name="UseSteamStartupVideo" Content="Use this method"                                                                                                   />
+                                    <Button x:ConnectionId='12' x:Name="Injectstartupvideo_button" Content="Inject video" Margin="0,10,10,0"                                        />
+                                    <ProgressBar x:ConnectionId='13' x:Name="Injectstartupvideo_ProgressBar" Width="300" Value="0" Margin="0,10,10,0" HorizontalAlignment="Left" Background="#CCCCCC" Visibility="Collapsed"/>
+                                    <TextBlock x:ConnectionId='14' x:Name="Injectstartupvideo_Text"  TextWrapping="Wrap"  Text="Conversion"  Foreground="#CCCCCC" Margin="0,5,0,10" Visibility="Collapsed"/>
+
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
                     </Grid>
                 </Border>
 

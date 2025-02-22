@@ -320,6 +320,71 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>
                 </Border>
+                <!-- Panel 4 Startup Video-->
+                <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="900" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_Startup_Video" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_Startup_Video" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+
+                            <!-- Title -->
+                            <TextBlock Text="STARTUP VIDEO" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Show a video when GCM starts to give your launcher time to start in the background"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_startup_video" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_startup_video_Toggled"  />
+                            </Border>
+                            <!-- Preview Image -->
+                            <Image Source="/functions/Startup_Video.gif"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <Border CornerRadius="10" Padding="16" Margin="16">
+                                <StackPanel>
+                                    <!-- Title for the section -->
+                                    <TextBlock Text="Select Video Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+
+                                    <!-- Button for picking a file -->
+                                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                                        <Button x:Name="pichstartupvideopath" Content="Select a file"
+                                            Click="pichstartupvideopath_Click"    Margin="0,0,10,0" />
+                                        <Button x:Name="Resetstartupvideopath" Content="Reset" Click="Resetstartupvideopath_Click" Margin="0,0,10,0" />
+                                        <TextBlock x:Name="textbox_select_startupvideo_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
+                                    </StackPanel>
+
+                                    <!-- TextBox for user input -->
+                                    <TextBox x:Name="textbox_startupvideo_path" IsReadOnly="True" AutomationProperties.Name="textbox_startupvideo_path" TextChanged="textbox_startupvideo_path_TextChanged"
+   PlaceholderText="Enter the Path"
+   PlaceholderForeground="black"
+   Foreground="Black" Background="White" Padding="5"/>
+                                    <Line Margin="0,20,0,0" Stroke="#CCCCCC"
+      X1="0" Y1="0"
+      X2="700" Y2="0"
+      StrokeThickness="5"/>
+                                    <TextBlock Text="For Steam only:" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" />
+                                    <TextBlock TextWrapping="Wrap"  Text="The default Steam startup video can be replaced with the one selected above (this will only take effect when using GCM). The selected video must be in WebM."  Foreground="#CCCCCC" Margin="0,5,0,10" />
+                                    <CheckBox x:Name="UseSteamStartupVideo" Content="Use this method" Checked="UseSteamStartupVideoCheckBox_Checked" Unchecked="UseSteamStartupVideoCheckBox_Unchecked" />
+                                    <Button x:Name="Injectstartupvideo_button" Content="Inject video" Margin="0,10,10,0" Click="Injectstartupvideo_button_Click"/>
+                                    <ProgressBar x:Name="Injectstartupvideo_ProgressBar" Width="300" Value="0" Margin="0,10,10,0" HorizontalAlignment="Left" Background="#CCCCCC" Visibility="Collapsed"/>
+                                    <TextBlock x:Name="Injectstartupvideo_Text"  TextWrapping="Wrap"  Text="Conversion"  Foreground="#CCCCCC" Margin="0,5,0,10" Visibility="Collapsed"/>
+
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
 
 
             </StackPanel>

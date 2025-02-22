@@ -16,8 +16,12 @@
 	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\GCM_Startup_Video.webm" />
     <Content Remove="Assets\logo.ico" />
     <Content Remove="Assets\logo_gcm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\GCM_Startup_Video.webm" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\GCM_Startup_Video.webm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\logo_gcm.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
