@@ -360,6 +360,11 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                                         <Button x:ConnectionId='15' x:Name="pichstartupvideopath" Content="Select a file"
                                                                                   Margin="0,0,10,0" />
                                         <Button x:ConnectionId='16' x:Name="Resetstartupvideopath" Content="Reset"                                     Margin="0,0,10,0" />
+                                        <InfoBar
+    IsOpen="True"
+    Severity="Informational"
+    Title="Important"
+    Message="Please note, if not intended for Steam then do not use webm" />
                                         <TextBlock x:ConnectionId='17' x:Name="textbox_select_startupvideo_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
                                     </StackPanel>
 
