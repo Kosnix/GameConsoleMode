@@ -30,29 +30,29 @@
     <AppXManifest Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-02-19T16:19:50.553</Modified>
+      <Modified>2025-02-24T14:32:57.641</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-02-19T02:17:31.097</Modified>
+      <Modified>2025-02-24T14:32:57.132</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
       <PackagePath>GAMINGCONSOLEMODE.runtimeconfig.json</PackagePath>
-      <Modified>2025-02-19T02:17:30.625</Modified>
+      <Modified>2025-02-24T14:32:56.715</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
       <PackagePath>GAMINGCONSOLEMODE.dll</PackagePath>
-      <Modified>2025-02-19T16:19:49.834</Modified>
+      <Modified>2025-02-24T14:32:56.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\audiochanger.ps1">
       <PackagePath>audiochanger.ps1</PackagePath>
-      <Modified>2025-02-19T00:54:40.638</Modified>
+      <Modified>2025-02-21T01:03:10.864</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\opensource_apps\audiochanger.ps1">
       <PackagePath>opensource_apps\audiochanger.ps1</PackagePath>
-      <Modified>2025-02-18T00:30:00.204</Modified>
+      <Modified>2025-02-21T01:03:11.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\discord.png">
       <PackagePath>functions\discord.png</PackagePath>
@@ -112,7 +112,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\speaker.png">
       <PackagePath>functions\speaker.png</PackagePath>
-      <Modified>2025-02-19T01:19:43.906</Modified>
+      <Modified>2025-02-24T13:13:07.225</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\functions\TV.png">
       <PackagePath>functions\TV.png</PackagePath>
@@ -120,15 +120,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\nircmd.exe">
       <PackagePath>nircmd.exe</PackagePath>
-      <Modified>2025-02-19T00:54:41.772</Modified>
+      <Modified>2025-02-21T01:03:11.901</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\opensource_apps\nircmd.exe">
       <PackagePath>opensource_apps\nircmd.exe</PackagePath>
-      <Modified>2025-02-18T00:30:00.205</Modified>
+      <Modified>2025-02-21T01:03:11.952</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>GAMINGCONSOLEMODE.exe</PackagePath>
-      <Modified>2025-02-19T16:19:49.869</Modified>
+      <Modified>2025-02-24T14:32:56.063</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
@@ -3024,7 +3024,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
-      <Modified>2025-02-19T02:17:30.513</Modified>
+      <Modified>2025-02-24T14:32:56.621</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

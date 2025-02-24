@@ -2,7 +2,7 @@
   "launcher": "steam",
   "steamlauncherpath": "C:\\Program Files (x86)\\Steam\\steam.exe",
   "usespeaker": true,
-  "speakerstart": "Kopfhörer",
-  "speakerend": "Lautsprecher",
+  "speakerstart": "Odyssey G70NC",
+  "speakerend": "Kopfhörer",
   "usediscord": false
 }

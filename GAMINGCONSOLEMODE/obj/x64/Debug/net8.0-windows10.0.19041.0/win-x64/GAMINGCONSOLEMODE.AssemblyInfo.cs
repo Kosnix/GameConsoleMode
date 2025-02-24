@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GAMINGCONSOLEMODE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+214ec8f88010f4a63fa2fe38a2ec5bcbd065f145")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0b0e966881d4fa5bf9ac2eaf796709e7a97da3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GAMINGCONSOLEMODE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GAMINGCONSOLEMODE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
