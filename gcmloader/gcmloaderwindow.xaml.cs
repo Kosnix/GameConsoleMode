@@ -1,4 +1,4 @@
-using GAMINGCONSOLEMODE;
+ï»¿using GAMINGCONSOLEMODE;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
@@ -29,9 +29,16 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using Microsoft.UI.Windowing;
 using System.Xml.Linq;
-using System.Windows.Forms;
 using System.Text;
 using Windows.System;
+using SharpDX.XInput;
+using System.Timers;
+//
+using Button = Microsoft.UI.Xaml.Controls.Button;
+using System.Drawing;
+using System.Windows.Forms;
+
+
 namespace gcmloader
 {
     public sealed partial class MainWindow : Window
@@ -62,6 +69,23 @@ namespace gcmloader
         private static extern IntPtr GetDC(IntPtr hWnd);
         [DllImport("user32.dll")]
         private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
+        #region TaskManager
+        [DllImport("user32.dll")]
+        private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
+        private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool IsWindowVisible(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern int GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+        #endregion TaskManager
+
+
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
         private const int HORZRES = 8; // Horizontal resolution
@@ -75,6 +99,7 @@ namespace gcmloader
             this.Activated += MainWindow_Activated;
             Start();
             //ASYNC PROZES
+            ShowTaskManager(); //after 10 seconds
             StartAsynctasks();
         }
 
@@ -129,7 +154,7 @@ namespace gcmloader
                 XamlRoot = this.Content.XamlRoot
             };
 
-            return messagebox.ShowAsync().AsTask(); // Rückgabe des Tasks
+            return messagebox.ShowAsync().AsTask(); // RÃ¼ckgabe des Tasks
         }
         static string exeFolder()
         {
@@ -1180,7 +1205,13 @@ namespace gcmloader
                     IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     cssloader(); //only check if is installed, than start
                     StartLauncher();
+                    SetupGamepad();
+                    // TaskManager //
+                    LoadTaskManagerList();
+                    InitializeTaskManagerRefresh();
+                    ///////////////
                     ConsoleModeToShell();
+                    LoadTaskManagerList();
                     await Task.Run(() =>
                     {
                         WaitForLauncherToClose();
@@ -1198,6 +1229,398 @@ namespace gcmloader
             }
         }
         #endregion start
+
+        #region TaskManager
+
+        public bool TaskManagerVisibility;
+
+        // Internal class to represent an application row
+        private class ProgramRow
+        {
+            public StackPanel RowPanel;   // the horizontal "row"
+            public TextBlock NameText;    // the name of the application
+            public Button FocusButton;    // Focus button
+            public Button KillButton;     // Kill button
+
+            public IntPtr Hwnd;           // window handle
+            public Process Proc;          // corresponding Process
+        }
+
+        // Index for 2D navigation: _selectedRow (row) and _selectedCol (column)
+        private int _selectedRow = 0;     // current row index
+        private int _selectedCol = 0;     // 0 = Focus, 1 = Kill
+        private DateTime _lastInputTime = DateTime.Now;
+
+        // Stores whether the window is currently in the foreground
+        private bool _isForeground = false;
+
+        // Timer to refresh the list every second
+        private DispatcherTimer _refreshTimer;
+
+        private List<ProgramRow> _rows = new List<ProgramRow>();
+
+        // AppWindow, for detecting minimized / non-minimized
+        private AppWindow _appWindow;
+
+        // ====================================================================
+        // Initializes the window and the refresh timer
+        // ====================================================================
+        private void InitializeTaskManagerRefresh()
+        {
+            // 1) Retrieve the AppWindow
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+            _appWindow = AppWindow.GetFromWindowId(windowId);
+
+            if (_appWindow != null)
+            {
+                _appWindow.Changed += OnAppWindowChanged;
+            }
+
+            // 2) One-second timer for refresh
+            _refreshTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+            _refreshTimer.Tick += (s, e) =>
+            {
+                if (_isForeground)
+                {
+                    LoadTaskManagerList();
+                }
+            };
+            _refreshTimer.Start();
+        }
+
+        private void OnAppWindowChanged(AppWindow sender, AppWindowChangedEventArgs args)
+        {
+            // Checks if we are minimized
+            if (sender.Presenter is OverlappedPresenter p)
+            {
+                bool isMinimized = p.State == OverlappedPresenterState.Minimized;
+                _isForeground = !isMinimized; // Consider that we are in the foreground if not minimized
+            }
+        }
+
+        private void ShowTaskManager()
+        {
+            // Creates a timer for 10 seconds
+            var hideTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(10)
+            };
+            hideTimer.Tick += (s, e) =>
+            {
+                // Stops the timer and shows the StackPanel
+                hideTimer.Stop();
+                buttonsPanel.Visibility = Visibility.Visible;
+            };
+            hideTimer.Start();
+        }
+
+        // ====================================================================
+        // Loads the list of applications
+        // ====================================================================
+        private void LoadTaskManagerList()
+        {
+            if (buttonsPanel == null) return;
+
+            buttonsPanel.Children.Clear();
+            _rows.Clear();
+
+            // Enumerates windows (P/Invoke already declared elsewhere)
+            EnumWindows((hWnd, lParam) =>
+            {
+                if (IsWindowVisible(hWnd))
+                {
+                    // Retrieve the process
+                    uint pid;
+                    GetWindowThreadProcessId(hWnd, out pid);
+
+                    Process p;
+                    try
+                    {
+                        p = Process.GetProcessById((int)pid);
+                    }
+                    catch
+                    {
+                        return true;
+                    }
+
+                    // Ignore if it's GCMLoader
+                    if (pid == (uint)Process.GetCurrentProcess().Id)
+                        return true;
+
+                    // Program name
+                    string productName;
+                    try
+                    {
+                        productName = p.MainModule?.FileVersionInfo?.ProductName;
+                    }
+                    catch
+                    {
+                        productName = null;
+                    }
+                    if (string.IsNullOrWhiteSpace(productName))
+                        productName = p.ProcessName;
+
+                    // Exclusions
+                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
+                        || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true;
+                    }
+                    if (productName?.Contains("Steam Client WebHelper", StringComparison.OrdinalIgnoreCase) == true)
+                    {
+                        productName = "Steam";
+                    }
+
+                    // Builds the row
+                    var row = CreateProgramRow(productName, p, hWnd);
+                    buttonsPanel.Children.Add(row.RowPanel);
+
+                    _rows.Add(row);
+                }
+                return true;
+            }, IntPtr.Zero);
+
+            if (_rows.Count > 0)
+            {
+                if (_selectedRow >= _rows.Count)
+                    _selectedRow = _rows.Count - 1;
+                if (_selectedCol > 1)
+                    _selectedCol = 0;
+
+                UpdateRowSelection();
+            }
+        }
+
+        private ProgramRow CreateProgramRow(string programName, Process proc, IntPtr hwnd)
+        {
+            double fontSize = 24;
+            int buttonWidth = 120;
+            int rowHeight = 80;
+            var margin = new Thickness(0);
+            var buttonmargin = new Thickness(10);
+
+            // Creation of the row
+            var rowPanel = new StackPanel
+            {
+                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal,
+                Margin = margin,
+                Height = rowHeight
+            };
+
+            var nameText = new TextBlock
+            {
+                Text = programName,
+                FontSize = fontSize,
+                Width = 400,
+                Margin = new Thickness(20, 0, 20, 0),
+                VerticalAlignment = VerticalAlignment.Center
+            };
+
+            // Base color (very dark) + white text
+            var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
+            var baseText = new SolidColorBrush(Colors.White);
+
+            // Color when selected = lighter gray + black text
+            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
+            var highlightText = new SolidColorBrush(Colors.Black);
+
+            var focusButton = new Button
+            {
+                Content = "Show",
+                FontSize = fontSize,
+                Width = buttonWidth,
+                Margin = buttonmargin,
+                Background = baseGrey,
+                Foreground = baseText,
+                Visibility = Visibility.Collapsed
+            };
+            focusButton.Click += (s, e) => SetForegroundWindow(hwnd);
+
+            var killButton = new Button
+            {
+                Content = "Close",
+                FontSize = fontSize,
+                Width = buttonWidth,
+                Margin = margin,
+                Background = baseGrey,
+                Foreground = baseText,
+                Visibility = Visibility.Collapsed
+            };
+            killButton.Click += (s, e) =>
+            {
+                try { proc.Kill(); } catch { }
+                LoadTaskManagerList();
+            };
+
+            rowPanel.Children.Add(nameText);
+            rowPanel.Children.Add(focusButton);
+            rowPanel.Children.Add(killButton);
+
+            return new ProgramRow
+            {
+                RowPanel = rowPanel,
+                NameText = nameText,
+                FocusButton = focusButton,
+                KillButton = killButton,
+                Hwnd = hwnd,
+                Proc = proc
+            };
+        }
+
+        private void UpdateRowSelection()
+        {
+            // Base color (very dark) + white text
+            var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
+            var baseText = new SolidColorBrush(Colors.White);
+
+            // Color when selected = lighter gray + black text
+            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
+            var highlightText = new SolidColorBrush(Colors.Black);
+
+            for (int i = 0; i < _rows.Count; i++)
+            {
+                var row = _rows[i];
+                if (i == _selectedRow)
+                {
+                    // Apply a lighter background if you wish to color the entire selected row
+                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 50, 50, 50));
+
+                    // Show the buttons
+                    row.FocusButton.Visibility = Visibility.Visible;
+                    row.KillButton.Visibility = Visibility.Visible;
+
+                    // Standard color (very dark gray + white text)
+                    row.FocusButton.Background = baseGrey;
+                    row.FocusButton.Foreground = baseText;
+                    row.KillButton.Background = baseGrey;
+                    row.KillButton.Foreground = baseText;
+
+                    // Highlight the selected button (Focus or Kill)
+                    if (_selectedCol == 0)
+                    {
+                        row.FocusButton.Background = highlightGrey;
+                        row.FocusButton.Foreground = highlightText;
+                    }
+                    else
+                    {
+                        row.KillButton.Background = highlightGrey;
+                        row.KillButton.Foreground = highlightText;
+                    }
+                }
+                else
+                {
+                    // Non-selected row:
+                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
+
+                    // Hide the buttons
+                    row.FocusButton.Visibility = Visibility.Collapsed;
+                    row.KillButton.Visibility = Visibility.Collapsed;
+
+                    // Revert to the base color (dark gray + white text)
+                    row.FocusButton.Background = baseGrey;
+                    row.FocusButton.Foreground = baseText;
+                    row.KillButton.Background = baseGrey;
+                    row.KillButton.Foreground = baseText;
+                }
+            }
+        }
+
+        private void MoveRow(int delta)
+        {
+            if (_rows.Count == 0) return;
+
+            _selectedRow += delta;
+            if (_selectedRow < 0)
+                _selectedRow = _rows.Count - 1;
+            else if (_selectedRow >= _rows.Count)
+                _selectedRow = 0;
+
+            UpdateRowSelection();
+        }
+
+        private void MoveCol(int delta)
+        {
+            _selectedCol += delta;
+            if (_selectedCol < 0) _selectedCol = 1;
+            else if (_selectedCol > 1) _selectedCol = 0;
+
+            UpdateRowSelection();
+        }
+
+        private void ExecuteSelectedAction()
+        {
+            if (_selectedRow < 0 || _selectedRow >= _rows.Count) return;
+
+            var row = _rows[_selectedRow];
+            if (_selectedCol == 0)
+            {
+                // Focus
+                SetForegroundWindow(row.Hwnd);
+            }
+            else
+            {
+                // Kill
+                try { row.Proc.Kill(); } catch { }
+                LoadTaskManagerList();
+            }
+        }
+
+        #endregion // TaskManager
+
+        #region GamepadNavigation
+
+        private Controller _controller;
+        private DispatcherTimer _gamepadTimer;
+
+        private void SetupGamepad()
+        {
+            _controller = new Controller(UserIndex.One);
+            _gamepadTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
+            _gamepadTimer.Tick += GamepadTick;
+            _gamepadTimer.Start();
+        }
+
+        private void GamepadTick(object sender, object e)
+        {
+            if (!_controller.IsConnected) return;
+
+            var state = _controller.GetState();
+            var gpad = state.Gamepad;
+
+            TimeSpan elapsed = DateTime.Now - _lastInputTime;
+            if (elapsed.TotalMilliseconds < 50) return;
+
+            // Up/Down movement
+            if (gpad.LeftThumbY < -5000 || (gpad.Buttons & GamepadButtonFlags.DPadDown) != 0)
+            {
+                MoveRow(1);
+            }
+            else if (gpad.LeftThumbY > 5000 || (gpad.Buttons & GamepadButtonFlags.DPadUp) != 0)
+            {
+                MoveRow(-1);
+            }
+            // Left/Right (Focus/Kill)
+            else if (gpad.LeftThumbX > 5000 || (gpad.Buttons & GamepadButtonFlags.DPadRight) != 0)
+            {
+                MoveCol(1);
+            }
+            else if (gpad.LeftThumbX < -5000 || (gpad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
+            {
+                MoveCol(-1);
+            }
+            // Button A => Execute action
+            else if ((gpad.Buttons & GamepadButtonFlags.A) != 0)
+            {
+                ExecuteSelectedAction();
+            }
+
+            _lastInputTime = DateTime.Now;
+        }
+
+        #endregion
+
+
         #region Startupvideo
 
         public static class StartupVideo
@@ -1219,16 +1642,16 @@ namespace gcmloader
             {
                 try
                 {
-                    // Vérifie si le fichier existe
+                    // VÃ©rifie si le fichier existe
                     if (File.Exists(oldFilePath))
                     {
                         // Renomme le fichier
                         File.Move(oldFilePath, newFilePath);
-                        Console.WriteLine($"Le fichier a été renommé avec succès : {newFilePath}");
+                        Console.WriteLine($"Le fichier a Ã©tÃ© renommÃ© avec succÃ¨s : {newFilePath}");
                     }
                     else
                     {
-                        Console.WriteLine("Le fichier spécifié n'existe pas.");
+                        Console.WriteLine("Le fichier spÃ©cifiÃ© n'existe pas.");
                     }
                 }
                 catch (Exception ex)
@@ -1310,12 +1733,12 @@ namespace gcmloader
                         videoWindow.Content = mediaElement;
                         videoWindow.Activate();
 
-                        //Forcer la fenêtre au premier plan
+                        //Forcer la fenÃªtre au premier plan
                         IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(videoWindow);
                         SetForegroundWindow(hWnd);
                         SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
 
-                        //Maintenir la fenêtre au premier plan
+                        //Maintenir la fenÃªtre au premier plan
                         KeepWindowOnTop(hWnd);
 
                     }
@@ -1333,7 +1756,7 @@ namespace gcmloader
                 var mediaPlayer = new MediaPlayer { AutoPlay = true };
                 mediaPlayer.Source = MediaSource.CreateFromUri(new Uri(videoPath));
 
-                // Fermer correctement la fenêtre après la lecture
+                // Fermer correctement la fenÃªtre aprÃ¨s la lecture
                 mediaPlayer.MediaEnded += (s, e) =>
                 {
                     window.DispatcherQueue.TryEnqueue(() =>
@@ -1363,7 +1786,7 @@ namespace gcmloader
             {
                 while (true)
                 {
-                    await Task.Delay(1000); // Vérifie toutes les secondes
+                    await Task.Delay(1000); // VÃ©rifie toutes les secondes
                     SetForegroundWindow(hWnd);
                     SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_SHOWWINDOW);
                 }
