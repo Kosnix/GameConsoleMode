@@ -33,14 +33,16 @@ using System.Text;
 using Windows.System;
 using SharpDX.XInput;
 using System.Timers;
-//
 using Button = Microsoft.UI.Xaml.Controls.Button;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
+using WinRT.Interop;
 
 
 namespace gcmloader
 {
+
     public sealed partial class MainWindow : Window
     {
         #region needed
@@ -71,6 +73,7 @@ namespace gcmloader
         private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         #region TaskManager
+
         [DllImport("user32.dll")]
         private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
         private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
@@ -82,9 +85,16 @@ namespace gcmloader
         private static extern bool IsWindowVisible(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        private static extern int GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
-        #endregion TaskManager
+        private static extern IntPtr GetForegroundWindow();
 
+        [DllImport("user32.dll")]
+        private static extern int GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private const int SW_RESTORE = 9;
+
+        #endregion TaskManager
 
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
@@ -124,6 +134,13 @@ namespace gcmloader
             // Set the wallpaper as the background
             SetBackgroundImage(screenWidth, screenHeight);
         }
+
+        private bool IsWindowInForeground()
+        {
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            return GetForegroundWindow() == hWnd;
+        }
+
         private int GetScreenWidth()
         {
             IntPtr hdc = GetDC(IntPtr.Zero);
@@ -739,7 +756,6 @@ namespace gcmloader
             }
 
         }
-
         static void uac(string art)
         {
 
@@ -975,8 +991,6 @@ namespace gcmloader
         }
         #region discord automatic need
         // Importing user32.dll functions to interact with window handles
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
         private static extern bool IsIconic(IntPtr hWnd); // Checks if a window is minimized
@@ -1281,7 +1295,7 @@ namespace gcmloader
             _refreshTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             _refreshTimer.Tick += (s, e) =>
             {
-                if (_isForeground)
+                if (IsWindowInForeground())
                 {
                     LoadTaskManagerList();
                 }
@@ -1291,12 +1305,18 @@ namespace gcmloader
 
         private void OnAppWindowChanged(AppWindow sender, AppWindowChangedEventArgs args)
         {
-            // Checks if we are minimized
-            if (sender.Presenter is OverlappedPresenter p)
+            try
             {
-                bool isMinimized = p.State == OverlappedPresenterState.Minimized;
-                _isForeground = !isMinimized; // Consider that we are in the foreground if not minimized
+                if (sender.Presenter is OverlappedPresenter p)
+                            {
+                                IntPtr foregroundWindow = GetForegroundWindow();
+                                IntPtr appWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(sender);
+
+                                _isForeground = (foregroundWindow == appWindowHandle);
+                            }
             }
+            catch { }
+            
         }
 
         private void ShowTaskManager()
@@ -1310,7 +1330,7 @@ namespace gcmloader
             {
                 // Stops the timer and shows the StackPanel
                 hideTimer.Stop();
-                buttonsPanel.Visibility = Visibility.Visible;
+                TaskManagerPanel.Visibility = Visibility.Visible;
             };
             hideTimer.Start();
         }
@@ -1320,9 +1340,9 @@ namespace gcmloader
         // ====================================================================
         private void LoadTaskManagerList()
         {
-            if (buttonsPanel == null) return;
+            if (TaskManagerPanel == null) return;
 
-            buttonsPanel.Children.Clear();
+            TaskManagerPanel.Children.Clear();
             _rows.Clear();
 
             // Enumerates windows (P/Invoke already declared elsewhere)
@@ -1374,7 +1394,7 @@ namespace gcmloader
 
                     // Builds the row
                     var row = CreateProgramRow(productName, p, hWnd);
-                    buttonsPanel.Children.Add(row.RowPanel);
+                    TaskManagerPanel.Children.Add(row.RowPanel);
 
                     _rows.Add(row);
                 }
@@ -1528,42 +1548,76 @@ namespace gcmloader
 
         private void MoveRow(int delta)
         {
-            if (_rows.Count == 0) return;
+            if (IsWindowInForeground()) // Checks if the window is in the foreground
+            {
+                PlayNavigationSound();
+                if (_rows.Count == 0) return;
 
-            _selectedRow += delta;
-            if (_selectedRow < 0)
-                _selectedRow = _rows.Count - 1;
-            else if (_selectedRow >= _rows.Count)
-                _selectedRow = 0;
+                _selectedRow += delta;
+                if (_selectedRow < 0)
+                    _selectedRow = _rows.Count - 1;
+                else if (_selectedRow >= _rows.Count)
+                    _selectedRow = 0;
 
-            UpdateRowSelection();
+                UpdateRowSelection();
+            }
         }
 
         private void MoveCol(int delta)
         {
-            _selectedCol += delta;
-            if (_selectedCol < 0) _selectedCol = 1;
-            else if (_selectedCol > 1) _selectedCol = 0;
+            if (IsWindowInForeground()) // Checks if the window is in the foreground
+            {
+                PlayNavigationSound();
+                _selectedCol += delta;
+                if (_selectedCol < 0) _selectedCol = 1;
+                else if (_selectedCol > 1) _selectedCol = 0;
 
-            UpdateRowSelection();
+                UpdateRowSelection();
+            }
         }
+
 
         private void ExecuteSelectedAction()
         {
-            if (_selectedRow < 0 || _selectedRow >= _rows.Count) return;
+            if (IsWindowInForeground()) // Checks if the window is in the foreground
+            {
+                PlayActivationSound();
+                if (_selectedRow < 0 || _selectedRow >= _rows.Count) return;
 
-            var row = _rows[_selectedRow];
-            if (_selectedCol == 0)
-            {
-                // Focus
-                SetForegroundWindow(row.Hwnd);
+                var row = _rows[_selectedRow];
+                if (_selectedCol == 0)
+                {
+                    // Focus
+                    ShowWindow(row.Hwnd, SW_RESTORE);
+                    SetForegroundWindow(row.Hwnd);
+                }
+                else
+                {
+                    // Kill
+                    try { row.Proc.Kill(); } catch { }
+                    LoadTaskManagerList();
+                }
             }
-            else
+        }
+
+        private void PlayNavigationSound()
+        {
+            try
             {
-                // Kill
-                try { row.Proc.Kill(); } catch { }
-                LoadTaskManagerList();
+                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\navigation.wav"));
+                player.Play();
             }
+            catch { }
+        }
+
+        private void PlayActivationSound()
+        {
+            try
+            {
+                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\activation.wav"));
+                player.Play();
+            }
+            catch { }
         }
 
         #endregion // TaskManager
@@ -1614,12 +1668,22 @@ namespace gcmloader
             {
                 ExecuteSelectedAction();
             }
+            // Start + Back => Bring window to foreground
+            else if ((gpad.Buttons & GamepadButtonFlags.Start) != 0 && (gpad.Buttons & GamepadButtonFlags.Back) != 0)
+            {
+                BringWindowToForeground();
+            }
 
             _lastInputTime = DateTime.Now;
         }
 
-        #endregion
+        private void BringWindowToForeground()
+        {
+            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            SetForegroundWindow(hWnd);
+        }
 
+        #endregion
 
         #region Startupvideo
 

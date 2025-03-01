@@ -34,6 +34,12 @@
     <AppxPackagedFile Include="F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.dll">
       <PackagePath>gcmloader.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\activation.wav">
+      <PackagePath>Assets\activation.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\navigation.wav">
+      <PackagePath>Assets\navigation.wav</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\GCM_Startup_Video.webm">
       <PackagePath>Assets\GCM_Startup_Video.webm</PackagePath>
     </AppxPackagedFile>

@@ -11,8 +11,8 @@
       "RelativeMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|solutionrelative:gcmloader\\gcmloaderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|f:\\gcm\\gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|f:\\gcm\\gamingconsolemode\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}|gcmloader\\gcmloader.csproj|f:\\gcm\\gcmloader\\gcmloader.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -47,14 +47,6 @@
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\startup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|f:\\gcm\\gamingconsolemode\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|f:\\gcm\\gamingconsolemode\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|f:\\gcm\\gamingconsolemode\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C37F388-B75F-4692-B8FE-4751184BD11B}|GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj|solutionrelative:gamingconsolemode\\appsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -81,7 +73,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -94,19 +86,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-02-19T16:00:45.265Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "startup.xaml.cs",
-              "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "ToolTip": "F:\\GCM\\GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "RelativeToolTip": "GAMINGCONSOLEMODE\\startup.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkBAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T17:18:38.186Z",
               "IsPinned": true
             },
             {
@@ -129,7 +108,7 @@
               "RelativeDocumentMoniker": "gcmloader\\gcmloaderwindow.xaml",
               "ToolTip": "F:\\GCM\\gcmloader\\gcmloaderwindow.xaml",
               "RelativeToolTip": "gcmloader\\gcmloaderwindow.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-23T20:01:13.436Z"
             },
@@ -141,7 +120,7 @@
               "RelativeDocumentMoniker": "gcmloader\\gcmloaderwindow.xaml.cs",
               "ToolTip": "F:\\GCM\\gcmloader\\gcmloaderwindow.xaml.cs",
               "RelativeToolTip": "gcmloader\\gcmloaderwindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUGAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0GAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-12T17:37:10.372Z",
               "EditorCaption": ""
@@ -217,27 +196,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "settings.xaml.cs",
               "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\settings.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\settings.xaml.cs",
               "ToolTip": "F:\\GCM\\GAMINGCONSOLEMODE\\settings.xaml.cs",
               "RelativeToolTip": "GAMINGCONSOLEMODE\\settings.xaml.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAEwCMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T17:39:36.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
-              "ToolTip": "F:\\GCM\\GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
-              "RelativeToolTip": "GAMINGCONSOLEMODE\\MainWindow.xaml.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAABBwHMAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T17:39:17.197Z"
             },
             {
               "$type": "Document",
@@ -253,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "AppSettings.cs",
               "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\AppSettings.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\AppSettings.cs",
@@ -265,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\App.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\App.xaml.cs",
@@ -277,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "Home.xaml.cs",
               "DocumentMoniker": "F:\\GCM\\GAMINGCONSOLEMODE\\Home.xaml.cs",
               "RelativeDocumentMoniker": "GAMINGCONSOLEMODE\\Home.xaml.cs",
@@ -289,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "F:\\GCM\\gcmloader\\App.xaml.cs",
               "RelativeDocumentMoniker": "gcmloader\\App.xaml.cs",
@@ -301,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "App.g.i.cs",
               "DocumentMoniker": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmgamepad\\obj\\x64\\Debug\\net8.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",
               "ToolTip": "C:\\Users\\luis\\source\\repos\\therealgcm\\gcmgamepad\\obj\\x64\\Debug\\net8.0-windows10.0.19041.0\\win-x64\\App.g.i.cs",

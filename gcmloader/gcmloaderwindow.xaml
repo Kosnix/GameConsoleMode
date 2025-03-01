@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel
-            x:Name="buttonsPanel"
+            x:Name="TaskManagerPanel"
             Orientation="Vertical"
             Background="#1E1E1E"      
             HorizontalAlignment="Left"

@@ -16,12 +16,16 @@
 	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\activation.wav" />
     <Content Remove="Assets\GCM_Startup_Video.webm" />
     <Content Remove="Assets\logo.ico" />
     <Content Remove="Assets\logo_gcm.png" />
+    <Content Remove="Assets\navigation.wav" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\activation.wav" />
     <None Remove="Assets\GCM_Startup_Video.webm" />
+    <None Remove="Assets\navigation.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,10 +39,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\activation.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\GCM_Startup_Video.webm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\logo_gcm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\navigation.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
