@@ -3115,3 +3115,7 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-wi
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.genpublishdeps.cache
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
+F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.dll
+F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.XInput.dll
+F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\activation.wav
+F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\navigation.wav

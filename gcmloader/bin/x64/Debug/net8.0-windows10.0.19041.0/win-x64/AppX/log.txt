@@ -1,0 +1,21 @@
+Application started...
+The file 'settings.json' exists in the folder 'C:\Users\nikos\AppData\Roaming\gcmsettings'.
+The selected launcher is valid
+The Steam path is valid.
+Playing startup video...
+Le fichier a été renommé avec succès : C:\Program Files (x86)\Steam\steamui\movies\bigpicture_startup.old.webm
+Le fichier a été renommé avec succès : C:\Program Files (x86)\Steam\steamui\movies\bigpicture_startup.webm
+DisplayFusionCommand.exe not found at the expected location.
+Error in Load method: Key 'usecssloader' not found in the settings.
+All explorer.exe processes have been successfully killed.
+try start Steam
+Steam launched
+Explorer.exe process killed successfully.
+All explorer.exe processes have been successfully killed.
+DisplayFusionCommand.exe not found at the expected location.
+Registry key opened successfully.
+All explorer.exe processes have been successfully killed.
+Value 'Shell' has been changed to 'explorer.exe'.
+Successfully set 'Shell' to 'explorer.exe'.
+explorer.exe restarted.
+Application stopped...
