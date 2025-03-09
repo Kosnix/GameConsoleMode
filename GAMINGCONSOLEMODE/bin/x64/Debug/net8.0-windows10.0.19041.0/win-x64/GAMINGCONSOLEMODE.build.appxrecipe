@@ -2272,6 +2272,12 @@
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\disabled.png">
+      <PackagePath>Assets\disabled.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\enabled.png">
+      <PackagePath>Assets\enabled.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

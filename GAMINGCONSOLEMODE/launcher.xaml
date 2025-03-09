@@ -9,14 +9,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" MinHeight="25">
         <Grid>
             <!-- Define columns for the panels -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <!-- Add more columns as needed -->
             </Grid.ColumnDefinitions>
             <!-- Hintergrund mit Verlauf -->
@@ -27,17 +27,20 @@
                     <GradientStop Color="#1B2838" Offset="1" />
                 </LinearGradientBrush>
             </Grid.Background>
+            <!-- Title -->
+            <TextBlock Text="CHOOSE YOUR LAUNCHER :" Grid.ColumnSpan="4" Margin="0,75,0,0" FontWeight="Bold" TextAlignment="Center" FontSize="50" ></TextBlock>
             <!-- Panel 1 STEAM -->
-            <Border Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="0" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
-                    <TextBlock Text="STEAM BP / DECK UI" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
+                    <TextBlock Text="STEAM" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
 
                     <!-- Subtitle -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/Assets/launcher/steam_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
                         <StackPanel>
                             <TextBlock Text="STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <HyperlinkButton Content="Download" NavigateUri="https://store.steampowered.com/about/download" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -47,7 +50,6 @@
                            Foreground="White"
                            TextWrapping="Wrap"
                            Margin="0,24,0,0" />
-
                     <!-- Interactive Content -->
                     <Grid Margin="0,24,0,0">
                         <Grid.ColumnDefinitions>
@@ -56,7 +58,7 @@
                         </Grid.ColumnDefinitions>
 
                         <!-- Panel 1 -->
-                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White"
                                    HorizontalAlignment="Center" Margin="0,0,0,10" />
@@ -88,7 +90,7 @@
                 </StackPanel>
             </Border>
             <!-- Panel 2 PLAYNITE  -->
-            <Border Grid.Column="1" Margin="16" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="1" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
                     <TextBlock Text="PLAYNITE" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
@@ -97,7 +99,8 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Source="/Assets/launcher/playnite_logo.png" Width="80" Height="80" Margin="0,0,20,0" />
                         <StackPanel>
-                            <TextBlock Text="PLAYNITE" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <TextBlock Text="PLAYNITE FULLSCREEN" FontSize="18" FontWeight="Bold" Foreground="White" Margin="10"/>
+                            <HyperlinkButton Content="Download" NavigateUri="https://playnite.link/" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -106,8 +109,7 @@
                 FontSize="18"
                 Foreground="White"
                 TextWrapping="Wrap"
-                Margin="0,24,0,0" />
-
+                Margin="0,24,0,0"/>
                     <!-- Interactive Content -->
                     <Grid Margin="0,24,0,0">
                         <Grid.ColumnDefinitions>
@@ -116,7 +118,7 @@
                         </Grid.ColumnDefinitions>
 
                         <!-- Panel 1 -->
-                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE PLAYNITE FULLSCREEN" FontSize="18" FontWeight="Bold" Foreground="White"
                         HorizontalAlignment="Center" Margin="0,0,0,10" />
@@ -148,7 +150,7 @@
                 </StackPanel>
             </Border>
             <!-- Panel 2 CUSTOM -->
-            <Border Grid.Column="2" Margin="16" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="2" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
                     <TextBlock Text="CUSTOM" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
@@ -166,7 +168,7 @@
           FontSize="18"
           Foreground="White"
           TextWrapping="Wrap"
-          Margin="0,24,0,0" />
+          Margin="0,55,0,0" />
 
                     <!-- Interactive Content -->
                     <Grid Margin="0,24,0,0">
@@ -176,7 +178,7 @@
                         </Grid.ColumnDefinitions>
 
                         <!-- Panel 1 -->
-                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38" CornerRadius="15">
+                        <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE CUSTOM LAUNCHER" FontSize="18" FontWeight="Bold" Foreground="White"
                   HorizontalAlignment="Center" Margin="0,0,0,10" />

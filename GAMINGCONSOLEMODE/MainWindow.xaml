@@ -62,6 +62,8 @@
                 <NavigationViewItem Content="Launcher" Icon="StopSlideShow" Tag="LauncherPage" />
                 <!-- STARTUP -->
                 <NavigationViewItem Content="Functions" Icon="Play" Tag="StartupPage" />
+                <!-- Links -->
+                <NavigationViewItem Content="Links" Icon="Link" Tag="LinksPage" />
             </NavigationView.MenuItems>
 
             <!-- Frame for page content -->
