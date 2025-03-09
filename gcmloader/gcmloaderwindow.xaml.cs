@@ -38,6 +38,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
 using WinRT.Interop;
+using System.Windows.Input;
+using Microsoft.UI.Xaml.Input;
 
 
 namespace gcmloader
@@ -75,6 +77,12 @@ namespace gcmloader
         #region TaskManager
 
         [DllImport("user32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
         private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
         private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
@@ -88,11 +96,17 @@ namespace gcmloader
         private static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
-        private static extern int GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
-
-        [DllImport("user32.dll")]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         private const int SW_RESTORE = 9;
+
+        [DllImport("user32.dll")]
+        private static extern bool AllowSetForegroundWindow(int dwProcessId);
+
+        [DllImport("user32.dll")]
+        private static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
+
+        [DllImport("kernel32.dll")]
+        private static extern uint GetCurrentThreadId();
 
         #endregion TaskManager
 
@@ -107,6 +121,8 @@ namespace gcmloader
         {
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
+            this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
+            this.Content.KeyDown += MainWindow_KeyDown;
             Start();
             //ASYNC PROZES
             ShowTaskManager(); //after 10 seconds
@@ -134,6 +150,7 @@ namespace gcmloader
             // Set the wallpaper as the background
             SetBackgroundImage(screenWidth, screenHeight);
         }
+
 
         private bool IsWindowInForeground()
         {
@@ -738,7 +755,7 @@ namespace gcmloader
                     break;
 
                 case "playnite":
-                    
+
                     StartPlaynite();
                     break;
 
@@ -795,7 +812,7 @@ namespace gcmloader
         }
         static void ConsoleModeToShell()
         {
-           
+
 
             try
             {
@@ -806,7 +823,7 @@ namespace gcmloader
                 string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string targetExecutable = Path.Combine(currentDirectory, "gcmloader.exe");
 
-               
+
 
                 if (!File.Exists(targetExecutable))
                 {
@@ -1129,14 +1146,14 @@ namespace gcmloader
             {
                 string Path = AppSettings.Load<string>("steamlauncherpath");
                 string arguments;
-              //  if (AppSettings.Load<bool>("usestartupvideo")){
-               // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
-              //  }
-              //  else
-              //  {
+                //  if (AppSettings.Load<bool>("usestartupvideo")){
+                // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+                //  }
+                //  else
+                //  {
                 arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro";
-              //  }
-                
+                //  }
+
                 Process.Start(new ProcessStartInfo(Path, arguments));
                 Console.WriteLine("Steam launched");
             }
@@ -1162,7 +1179,7 @@ namespace gcmloader
                 string arguments = " --hidesplashscreen";
                 string Path = AppSettings.Load<string>("playnitelauncherpath");
                 Process.Start(new ProcessStartInfo(Path, arguments));
-               // Logger.Logger.Log("Playnite launched");
+                // Logger.Logger.Log("Playnite launched");
             }
             catch (Exception ex)
             {
@@ -1207,9 +1224,9 @@ namespace gcmloader
             }
             else // First Instance
             {
-               // Logger.Logger.Log($"start SETUPLOGGIN:");
+                // Logger.Logger.Log($"start SETUPLOGGIN:");
                 SetupLogging();
-               // Logger.Logger.Log($"start ADMINVERIFY:");
+                // Logger.Logger.Log($"start ADMINVERIFY:");
                 AdminVerify();
                 if (IsAdministrator())
                 {
@@ -1236,7 +1253,7 @@ namespace gcmloader
                         StartupVideo.RenameSteamStartupVideo_End();
                     }
                     catch { }
-                    
+
                     uac("on");
                     this.Close();
                 }
@@ -1308,15 +1325,15 @@ namespace gcmloader
             try
             {
                 if (sender.Presenter is OverlappedPresenter p)
-                            {
-                                IntPtr foregroundWindow = GetForegroundWindow();
-                                IntPtr appWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(sender);
+                {
+                    IntPtr foregroundWindow = GetForegroundWindow();
+                    IntPtr appWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(sender);
 
-                                _isForeground = (foregroundWindow == appWindowHandle);
-                            }
+                    _isForeground = (foregroundWindow == appWindowHandle);
+                }
             }
             catch { }
-            
+
         }
 
         private void ShowTaskManager()
@@ -1622,67 +1639,128 @@ namespace gcmloader
 
         #endregion // TaskManager
 
-        #region GamepadNavigation
+        #region Gamepad/Keyboard_Navigation
 
-        private Controller _controller;
-        private DispatcherTimer _gamepadTimer;
+        private Controller _xinputController;
+        private bool _controllerConnected = false;
 
         private void SetupGamepad()
         {
-            _controller = new Controller(UserIndex.One);
-            _gamepadTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(100) };
-            _gamepadTimer.Tick += GamepadTick;
-            _gamepadTimer.Start();
+            _xinputController = new Controller(UserIndex.One);
+            _controllerConnected = _xinputController.IsConnected;
+
+            DispatcherTimer gamepadInputTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(150) };
+            gamepadInputTimer.Tick += (s, e) => GamepadButtonCheck();
+            gamepadInputTimer.Start();
         }
 
-        private void GamepadTick(object sender, object e)
+        private void GamepadButtonCheck()
         {
-            if (!_controller.IsConnected) return;
+            if (!_controllerConnected || !_xinputController.IsConnected)
+                return;
 
-            var state = _controller.GetState();
-            var gpad = state.Gamepad;
+            var state = _xinputController.GetState();
+            var gamepad = state.Gamepad;
 
-            TimeSpan elapsed = DateTime.Now - _lastInputTime;
-            if (elapsed.TotalMilliseconds < 50) return;
-
-            // Up/Down movement
-            if (gpad.LeftThumbY < -5000 || (gpad.Buttons & GamepadButtonFlags.DPadDown) != 0)
+            if ((gamepad.Buttons & GamepadButtonFlags.DPadDown) != 0)
             {
                 MoveRow(1);
             }
-            else if (gpad.LeftThumbY > 5000 || (gpad.Buttons & GamepadButtonFlags.DPadUp) != 0)
+            else if ((gamepad.Buttons & GamepadButtonFlags.DPadUp) != 0)
             {
                 MoveRow(-1);
             }
-            // Left/Right (Focus/Kill)
-            else if (gpad.LeftThumbX > 5000 || (gpad.Buttons & GamepadButtonFlags.DPadRight) != 0)
-            {
-                MoveCol(1);
-            }
-            else if (gpad.LeftThumbX < -5000 || (gpad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
+            else if ((gamepad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
             {
                 MoveCol(-1);
             }
-            // Button A => Execute action
-            else if ((gpad.Buttons & GamepadButtonFlags.A) != 0)
+            else if ((gamepad.Buttons & GamepadButtonFlags.DPadRight) != 0)
+            {
+                MoveCol(1);
+            }
+            else if ((gamepad.Buttons & GamepadButtonFlags.A) != 0)
             {
                 ExecuteSelectedAction();
             }
-            // Start + Back => Bring window to foreground
-            else if ((gpad.Buttons & GamepadButtonFlags.Start) != 0 && (gpad.Buttons & GamepadButtonFlags.Back) != 0)
+            else if ((gamepad.Buttons & GamepadButtonFlags.Start) != 0 &&
+                     (gamepad.Buttons & GamepadButtonFlags.Back) != 0)
             {
                 BringWindowToForeground();
             }
+        }
 
-            _lastInputTime = DateTime.Now;
+
+
+
+        private void MainWindow_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case VirtualKey.Down:
+                    MoveRow(1);
+                    break;
+                case VirtualKey.Up:
+                    MoveRow(-1);
+                    break;
+                case VirtualKey.Left:
+                    MoveCol(-1);
+                    break;
+                case VirtualKey.Right:
+                    MoveCol(1);
+                    break;
+                case VirtualKey.Enter:
+                    ExecuteSelectedAction();
+                    break;
+            }
         }
 
         private void BringWindowToForeground()
         {
-            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            SetForegroundWindow(hWnd);
-        }
+            try
+            {
+                Process currentProcess = Process.GetCurrentProcess();
+                IntPtr hWnd = currentProcess.MainWindowHandle; // Récupérer la vraie fenêtre principale
+                Console.WriteLine($"gcmloader Window detected : {hWnd}");
 
+                if (hWnd == IntPtr.Zero)
+                {
+                    Console.WriteLine("gcmloader not found !");
+                    return;
+                }
+
+                // Vérifier si une autre fenêtre est déjà en premier plan
+                IntPtr foregroundHwnd = GetForegroundWindow();
+                if (foregroundHwnd == IntPtr.Zero)
+                {
+                    Console.WriteLine("No window in foreground!");
+                    return;
+                }
+
+                uint activeThreadId = GetWindowThreadProcessId(foregroundHwnd, out uint activeProcessId);
+                uint currentThreadId = GetCurrentThreadId();
+
+                // Attacher l'entrée du thread actif à notre fenêtre
+                AttachThreadInput(currentThreadId, activeThreadId, true);
+
+                // Afficher la fenêtre si elle est minimisée
+                ShowWindow(hWnd, 9); // SW_RESTORE
+
+                // Mettre la fenêtre en avant
+                SetForegroundWindow(hWnd);
+
+                // Détacher les threads d'entrée
+                AttachThreadInput(currentThreadId, activeThreadId, false);
+
+                // Permettre au programme de prendre le focus
+                AllowSetForegroundWindow(-1);
+
+                Console.WriteLine("gcmloader brought to the foreground");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur BringWindowToForeground : {ex.Message}");
+            }
+        }
         #endregion
 
         #region Startupvideo
@@ -1726,9 +1804,9 @@ namespace gcmloader
 
             public static void RenameSteamStartupVideo_Start()
             {
-               string SteamVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.webm");
-               string SteamVideoPathNew = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.old.webm");
-               string GCMVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "GCM_vid.webm");
+                string SteamVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.webm");
+                string SteamVideoPathNew = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "bigpicture_startup.old.webm");
+                string GCMVideoPath = Path.Combine(Path.GetDirectoryName(AppSettings.Load<string>("steamlauncherpath")), "steamui", "movies", "GCM_vid.webm");
                 RenameFile(SteamVideoPath, SteamVideoPathNew); //change the name of the real file
                 RenameFile(GCMVideoPath, SteamVideoPath); //put the name of the real file to the selected video
             }
@@ -1753,7 +1831,8 @@ namespace gcmloader
                     if (!useStartupVideo)
                         return;
 
-                    if (AppSettings.Load<bool>("usesteamstartupvideo")){
+                    if (AppSettings.Load<bool>("usesteamstartupvideo"))
+                    {
                         RenameSteamStartupVideo_Start();
                     }
                     else
@@ -1807,7 +1886,7 @@ namespace gcmloader
 
                     }
 
-                    
+
                 }
                 catch (Exception ex)
                 {
