@@ -71,6 +71,7 @@ namespace GAMINGCONSOLEMODE
                         "HomePage" => typeof(Home),
                         "LauncherPage" => typeof(launcher),
                         "StartupPage" => typeof(startup),
+                        "LinksPage" => typeof(Links),
                         _ => null
                     };
 

@@ -59,6 +59,7 @@
     <None Remove="functions\TV.png" />
     <None Remove="Home.xaml" />
     <None Remove="launcher.xaml" />
+    <None Remove="Links.xaml" />
     <None Remove="nircmd.exe" />
     <None Remove="opensource_apps\audiochanger.ps1" />
     <None Remove="opensource_apps\nircmd.exe" />
@@ -225,5 +226,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="functions\ffmpeg\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Links.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
