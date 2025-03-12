@@ -6,20 +6,20 @@
 
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <StackPanel
             x:Name="TaskManagerPanel"
-            Orientation="Vertical"
+            Orientation="Horizontal"
             Background="#1E1E1E"      
-            HorizontalAlignment="Left"
-            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
             Width="auto"
             Margin="0"
-            Visibility="Collapsed"
+            Visibility="Visible"
             />
 
             <Image
@@ -28,7 +28,7 @@
             Height="200"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Column="1"
+            Grid.Row="1"
             />
     </Grid>
 </Window>

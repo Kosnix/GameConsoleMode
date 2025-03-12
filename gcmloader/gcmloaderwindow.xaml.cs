@@ -40,6 +40,10 @@ using System.Media;
 using WinRT.Interop;
 using System.Windows.Input;
 using Microsoft.UI.Xaml.Input;
+using Image = Microsoft.UI.Xaml.Controls.Image;
+
+using HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment;
+using Microsoft.VisualBasic;
 
 
 namespace gcmloader
@@ -1268,18 +1272,18 @@ namespace gcmloader
         // Internal class to represent an application row
         private class ProgramRow
         {
-            public StackPanel RowPanel;   // the horizontal "row"
-            public TextBlock NameText;    // the name of the application
-            public Button FocusButton;    // Focus button
-            public Button KillButton;     // Kill button
+            public StackPanel ColumnPanel;  // Vertical column for each application
+            public TextBlock NameText;      // Application name
+            public Button FocusButton;      // Focus button
+            public Button KillButton;       // Kill button
 
-            public IntPtr Hwnd;           // window handle
-            public Process Proc;          // corresponding Process
+            public IntPtr Hwnd;             // Window handle
+            public Process Proc;            // Corresponding process
         }
 
         // Index for 2D navigation: _selectedRow (row) and _selectedCol (column)
-        private int _selectedRow = 0;     // current row index
-        private int _selectedCol = 0;     // 0 = Focus, 1 = Kill
+        private int _selectedRow = 0;     // 0 = Name, 1 = Focus, 2 = Kill
+        private int _selectedCol = 0;     // current column (application index)
         private DateTime _lastInputTime = DateTime.Now;
 
         // Stores whether the window is currently in the foreground
@@ -1293,12 +1297,8 @@ namespace gcmloader
         // AppWindow, for detecting minimized / non-minimized
         private AppWindow _appWindow;
 
-        // ====================================================================
-        // Initializes the window and the refresh timer
-        // ====================================================================
         private void InitializeTaskManagerRefresh()
         {
-            // 1) Retrieve the AppWindow
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
             _appWindow = AppWindow.GetFromWindowId(windowId);
@@ -1308,7 +1308,6 @@ namespace gcmloader
                 _appWindow.Changed += OnAppWindowChanged;
             }
 
-            // 2) One-second timer for refresh
             _refreshTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             _refreshTimer.Tick += (s, e) =>
             {
@@ -1333,28 +1332,19 @@ namespace gcmloader
                 }
             }
             catch { }
-
         }
 
         private void ShowTaskManager()
         {
-            // Creates a timer for 10 seconds
-            var hideTimer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(10)
-            };
+            var hideTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(10) };
             hideTimer.Tick += (s, e) =>
             {
-                // Stops the timer and shows the StackPanel
                 hideTimer.Stop();
                 TaskManagerPanel.Visibility = Visibility.Visible;
             };
             hideTimer.Start();
         }
 
-        // ====================================================================
-        // Loads the list of applications
-        // ====================================================================
         private void LoadTaskManagerList()
         {
             if (TaskManagerPanel == null) return;
@@ -1362,12 +1352,10 @@ namespace gcmloader
             TaskManagerPanel.Children.Clear();
             _rows.Clear();
 
-            // Enumerates windows (P/Invoke already declared elsewhere)
             EnumWindows((hWnd, lParam) =>
             {
                 if (IsWindowVisible(hWnd))
                 {
-                    // Retrieve the process
                     uint pid;
                     GetWindowThreadProcessId(hWnd, out pid);
 
@@ -1381,11 +1369,9 @@ namespace gcmloader
                         return true;
                     }
 
-                    // Ignore if it's GCMLoader
                     if (pid == (uint)Process.GetCurrentProcess().Id)
                         return true;
 
-                    // Program name
                     string productName;
                     try
                     {
@@ -1398,9 +1384,7 @@ namespace gcmloader
                     if (string.IsNullOrWhiteSpace(productName))
                         productName = p.ProcessName;
 
-                    // Exclusions
-                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
-                        || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
+                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
@@ -1409,94 +1393,89 @@ namespace gcmloader
                         productName = "Steam";
                     }
 
-                    // Builds the row
-                    var row = CreateProgramRow(productName, p, hWnd);
-                    TaskManagerPanel.Children.Add(row.RowPanel);
+                    var row = CreateProgramCol(productName, p, hWnd);
+                    TaskManagerPanel.Children.Add(row.ColumnPanel);
 
                     _rows.Add(row);
                 }
                 return true;
             }, IntPtr.Zero);
 
-            if (_rows.Count > 0)
-            {
-                if (_selectedRow >= _rows.Count)
-                    _selectedRow = _rows.Count - 1;
-                if (_selectedCol > 1)
-                    _selectedCol = 0;
-
-                UpdateRowSelection();
-            }
+            UpdateRowSelection();
         }
 
-        private ProgramRow CreateProgramRow(string programName, Process proc, IntPtr hwnd)
+        private ProgramRow CreateProgramCol(string programName, Process proc, IntPtr hwnd)
         {
-            double fontSize = 24;
-            int buttonWidth = 120;
-            int rowHeight = 80;
-            var margin = new Thickness(0);
-            var buttonmargin = new Thickness(10);
-
-            // Creation of the row
-            var rowPanel = new StackPanel
-            {
-                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal,
-                Margin = margin,
-                Height = rowHeight
-            };
-
-            var nameText = new TextBlock
-            {
-                Text = programName,
-                FontSize = fontSize,
-                Width = 400,
-                Margin = new Thickness(20, 0, 20, 0),
-                VerticalAlignment = VerticalAlignment.Center
-            };
-
-            // Base color (very dark) + white text
             var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
             var baseText = new SolidColorBrush(Colors.White);
 
-            // Color when selected = lighter gray + black text
-            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
-            var highlightText = new SolidColorBrush(Colors.Black);
+            var rowPanel = new StackPanel
+            {
+                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Vertical,
+                Margin = new Thickness(10),
+                Width = 500,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
+            };
+
+            // Boutons en haut (cachés par défaut)
+            var buttonPanel = new StackPanel
+            {
+                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                Visibility = Visibility.Collapsed // Caché par défaut
+            };
 
             var focusButton = new Button
             {
                 Content = "Show",
-                FontSize = fontSize,
-                Width = buttonWidth,
-                Margin = buttonmargin,
+                FontSize = 18,
+                Margin = new Thickness(5),
                 Background = baseGrey,
-                Foreground = baseText,
-                Visibility = Visibility.Collapsed
+                Foreground = baseText
             };
-            focusButton.Click += (s, e) => SetForegroundWindow(hwnd);
 
             var killButton = new Button
             {
                 Content = "Close",
-                FontSize = fontSize,
-                Width = buttonWidth,
-                Margin = margin,
+                FontSize = 18,
+                Margin = new Thickness(5),
                 Background = baseGrey,
-                Foreground = baseText,
-                Visibility = Visibility.Collapsed
-            };
-            killButton.Click += (s, e) =>
-            {
-                try { proc.Kill(); } catch { }
-                LoadTaskManagerList();
+                Foreground = baseText
             };
 
+            focusButton.Click += (s, e) => SetForegroundWindow(hwnd);
+            killButton.Click += (s, e) => { try { proc.Kill(); } catch { } LoadTaskManagerList(); };
+
+            buttonPanel.Children.Add(focusButton);
+            buttonPanel.Children.Add(killButton);
+
+            // Icône du programme
+            var iconSource = GetLargestIconFromExe(proc);
+            var programIcon = new Image
+            {
+                Source = iconSource,
+                Width = 96, // Icône plus grande
+                Height = 96,
+                Margin = new Thickness(5),
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
+            };
+
+            // Nom du programme en bas
+            var nameText = new TextBlock
+            {
+                Text = programName,
+                FontSize = 20,
+                Foreground = baseText,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
+            };
+
+            rowPanel.Children.Add(buttonPanel);
+            rowPanel.Children.Add(programIcon);
             rowPanel.Children.Add(nameText);
-            rowPanel.Children.Add(focusButton);
-            rowPanel.Children.Add(killButton);
 
             return new ProgramRow
             {
-                RowPanel = rowPanel,
+                ColumnPanel = rowPanel,
                 NameText = nameText,
                 FocusButton = focusButton,
                 KillButton = killButton,
@@ -1505,139 +1484,294 @@ namespace gcmloader
             };
         }
 
+
         private void UpdateRowSelection()
         {
-            // Base color (very dark) + white text
-            var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
-            var baseText = new SolidColorBrush(Colors.White);
-
-            // Color when selected = lighter gray + black text
-            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
-            var highlightText = new SolidColorBrush(Colors.Black);
-
             for (int i = 0; i < _rows.Count; i++)
             {
                 var row = _rows[i];
-                if (i == _selectedRow)
+
+                bool isSelected = (_selectedCol == i);
+                row.ColumnPanel.Background = isSelected ? new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 50, 50, 50)) : null;
+
+                row.FocusButton.Visibility = isSelected ? Visibility.Visible : Visibility.Collapsed;
+                row.KillButton.Visibility = isSelected ? Visibility.Visible : Visibility.Collapsed;
+                row.ColumnPanel.Children[0].Visibility = isSelected ? Visibility.Visible : Visibility.Collapsed; // Affiche ou cache le `buttonPanel`
+            }
+        }
+
+        private BitmapImage GetLargestIconFromExe(Process proc)
+        {
+            try
+            {
+                if (proc?.MainModule == null) return null;
+                string exePath = proc.MainModule.FileName;
+                if (!File.Exists(exePath)) return null;
+
+                List<Icon> icons = ExtractAllIconsFromExe(exePath);
+                if (icons == null || icons.Count == 0) return null;
+
+                Icon largest = null;
+                int largestSize = 0;
+
+                // Find largest icon
+                foreach (Icon ico in icons)
                 {
-                    // Apply a lighter background if you wish to color the entire selected row
-                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 50, 50, 50));
-
-                    // Show the buttons
-                    row.FocusButton.Visibility = Visibility.Visible;
-                    row.KillButton.Visibility = Visibility.Visible;
-
-                    // Standard color (very dark gray + white text)
-                    row.FocusButton.Background = baseGrey;
-                    row.FocusButton.Foreground = baseText;
-                    row.KillButton.Background = baseGrey;
-                    row.KillButton.Foreground = baseText;
-
-                    // Highlight the selected button (Focus or Kill)
-                    if (_selectedCol == 0)
+                    using (Bitmap bmp = ico.ToBitmap())
                     {
-                        row.FocusButton.Background = highlightGrey;
-                        row.FocusButton.Foreground = highlightText;
-                    }
-                    else
-                    {
-                        row.KillButton.Background = highlightGrey;
-                        row.KillButton.Foreground = highlightText;
+                        int size = Math.Max(bmp.Width, bmp.Height);
+                        if (size > largestSize)
+                        {
+                            largestSize = size;
+                            if (largest != null) largest.Dispose();
+                            largest = (Icon)ico.Clone();
+                        }
                     }
                 }
-                else
+
+                if (largest != null)
                 {
-                    // Non-selected row:
-                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
+                    using (var ms = new MemoryStream())
+                    {
+                        ((System.Drawing.Bitmap)largest.ToBitmap()).Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 
-                    // Hide the buttons
-                    row.FocusButton.Visibility = Visibility.Collapsed;
-                    row.KillButton.Visibility = Visibility.Collapsed;
+                        ms.Position = 0;
 
-                    // Revert to the base color (dark gray + white text)
-                    row.FocusButton.Background = baseGrey;
-                    row.FocusButton.Foreground = baseText;
-                    row.KillButton.Background = baseGrey;
-                    row.KillButton.Foreground = baseText;
+                        BitmapImage bmpImg = new BitmapImage();
+                        bmpImg.SetSource(ms.AsRandomAccessStream()); // extension method
+                        return bmpImg;
+                    }
                 }
             }
+            catch
+            {
+                // ignore errors
+            }
+            return null;
+        }
+
+
+
+        // Extracts all icon resources (all sizes) from an exe file
+        private List<Icon> ExtractAllIconsFromExe(string filePath)
+        {
+            // This method enumerates RT_GROUP_ICON and RT_ICON resources from the exe
+            // Then reconstructs each icon in all available resolutions
+            List<Icon> result = new List<Icon>();
+
+            IntPtr hModule = LoadLibraryEx(filePath, IntPtr.Zero, LOAD_LIBRARY_AS_DATAFILE);
+            if (hModule == IntPtr.Zero) return result;
+
+            try
+            {
+                // EnumResourceNames callback
+                EnumResourceNames(hModule, RT_GROUP_ICON, (h, t, name, lParam) =>
+                {
+                    IntPtr grpRes = FindResource(h, name, RT_GROUP_ICON);
+                    if (grpRes != IntPtr.Zero)
+                    {
+                        IntPtr grpResLock = LoadResource(h, grpRes);
+                        if (grpResLock != IntPtr.Zero)
+                        {
+                            IntPtr grpPtr = LockResource(grpResLock);
+                            if (grpPtr != IntPtr.Zero)
+                            {
+                                // Parse the GRPICONDIR structure
+                                var grpHeader = Marshal.PtrToStructure<GRPICONDIR>(grpPtr);
+                                var entries = new GRPICONDIRENTRY[grpHeader.Count];
+                                long entryOffset = Marshal.SizeOf<GRPICONDIR>();
+
+                                for (int i = 0; i < grpHeader.Count; i++)
+                                {
+                                    IntPtr entryPtr = IntPtr.Add(grpPtr, (int)(entryOffset));
+                                    entries[i] = Marshal.PtrToStructure<GRPICONDIRENTRY>(entryPtr);
+                                    entryOffset += Marshal.SizeOf<GRPICONDIRENTRY>();
+                                }
+
+                                // Build an .ico file in memory, containing all sizes from this group
+                                using (var icoStream = new MemoryStream())
+                                using (var writer = new BinaryWriter(icoStream))
+                                {
+                                    // ICONDIR header
+                                    writer.Write((short)0);       // Reserved
+                                    writer.Write((short)1);       // Type: 1 = icons
+                                    writer.Write((short)grpHeader.Count); // Count
+
+                                    int imageDataOffset = Marshal.SizeOf<ICONDIR>() + (Marshal.SizeOf<ICONDIRENTRY>() * grpHeader.Count);
+
+                                    // Write each ICONDIRENTRY
+                                    for (int i = 0; i < grpHeader.Count; i++)
+                                    {
+                                        GRPICONDIRENTRY grpEntry = entries[i];
+                                        ICONDIRENTRY iconEntry = new ICONDIRENTRY
+                                        {
+                                            Width = grpEntry.Width,
+                                            Height = grpEntry.Height,
+                                            ColorCount = grpEntry.ColorCount,
+                                            Reserved = grpEntry.Reserved,
+                                            Planes = grpEntry.Planes,
+                                            BitCount = grpEntry.BitCount,
+                                            BytesInRes = grpEntry.BytesInRes,
+                                            ImageOffset = imageDataOffset
+                                        };
+                                        writer.Write(iconEntry.Width);
+                                        writer.Write(iconEntry.Height);
+                                        writer.Write(iconEntry.ColorCount);
+                                        writer.Write(iconEntry.Reserved);
+                                        writer.Write(iconEntry.Planes);
+                                        writer.Write(iconEntry.BitCount);
+                                        writer.Write(iconEntry.BytesInRes);
+                                        writer.Write(iconEntry.ImageOffset);
+
+                                        imageDataOffset += iconEntry.BytesInRes;
+                                    }
+
+                                    // Now, write the actual icon images
+                                    for (int i = 0; i < grpHeader.Count; i++)
+                                    {
+                                        // Each icon image is an RT_ICON resource
+                                        IntPtr iconRes = FindResource(h, (IntPtr)entries[i].ID, RT_ICON);
+                                        if (iconRes != IntPtr.Zero)
+                                        {
+                                            IntPtr iconResLock = LoadResource(h, iconRes);
+                                            IntPtr iconPtr = LockResource(iconResLock);
+                                            int size = SizeofResource(h, iconRes);
+
+                                            byte[] iconData = new byte[size];
+                                            Marshal.Copy(iconPtr, iconData, 0, size);
+                                            writer.Write(iconData, 0, size);
+                                        }
+                                    }
+
+                                    writer.Flush();
+                                    icoStream.Position = 0;
+
+                                    // Create an Icon from this in-memory stream
+                                    Icon iconMulti = new Icon(icoStream);
+                                    result.Add(iconMulti);
+                                }
+                            }
+                        }
+                    }
+                    return true;
+                }, IntPtr.Zero);
+            }
+            finally
+            {
+                FreeLibrary(hModule);
+            }
+
+            return result;
+        }
+
+        #region Win32 Resource Stuff
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hFile, uint dwFlags);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool FreeLibrary(IntPtr hModule);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern IntPtr FindResource(IntPtr hModule, IntPtr lpName, IntPtr lpType);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern IntPtr LoadResource(IntPtr hModule, IntPtr hResInfo);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern IntPtr LockResource(IntPtr hResData);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern int SizeofResource(IntPtr hModule, IntPtr hResInfo);
+
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        static extern IntPtr FindResource(IntPtr hModule, string lpName, IntPtr lpType);
+
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        static extern bool EnumResourceNames(IntPtr hModule, IntPtr lpszType, EnumResNameProc lpEnumFunc, IntPtr lParam);
+
+        internal delegate bool EnumResNameProc(IntPtr hModule, IntPtr lpszType, IntPtr lpszName, IntPtr lParam);
+
+        private static readonly IntPtr RT_ICON = (IntPtr)3;
+        private static readonly IntPtr RT_GROUP_ICON = (IntPtr)14;
+
+        private const uint LOAD_LIBRARY_AS_DATAFILE = 0x00000002;
+
+        // Structures for .ICO header
+        [StructLayout(LayoutKind.Sequential, Pack = 2)]
+        private struct ICONDIR
+        {
+            public short Reserved;
+            public short Type;
+            public short Count;
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 2)]
+        private struct ICONDIRENTRY
+        {
+            public byte Width;
+            public byte Height;
+            public byte ColorCount;
+            public byte Reserved;
+            public short Planes;
+            public short BitCount;
+            public int BytesInRes;
+            public int ImageOffset;
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 2)]
+        private struct GRPICONDIR
+        {
+            public short Reserved;
+            public short Type;
+            public short Count;
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 2)]
+        private struct GRPICONDIRENTRY
+        {
+            public byte Width;
+            public byte Height;
+            public byte ColorCount;
+            public byte Reserved;
+            public short Planes;
+            public short BitCount;
+            public int BytesInRes;
+            public short ID; // resource ID
+        }
+
+        #endregion
+
+        private void MoveCol(int delta)
+        {
+            _selectedRow = (_selectedRow + delta + 3) % 3;
+            UpdateRowSelection();
         }
 
         private void MoveRow(int delta)
         {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayNavigationSound();
-                if (_rows.Count == 0) return;
-
-                _selectedRow += delta;
-                if (_selectedRow < 0)
-                    _selectedRow = _rows.Count - 1;
-                else if (_selectedRow >= _rows.Count)
-                    _selectedRow = 0;
-
-                UpdateRowSelection();
-            }
+            _selectedCol = (_selectedCol + delta + _rows.Count) % _rows.Count;
+            UpdateRowSelection();
         }
-
-        private void MoveCol(int delta)
-        {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayNavigationSound();
-                _selectedCol += delta;
-                if (_selectedCol < 0) _selectedCol = 1;
-                else if (_selectedCol > 1) _selectedCol = 0;
-
-                UpdateRowSelection();
-            }
-        }
-
 
         private void ExecuteSelectedAction()
         {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayActivationSound();
-                if (_selectedRow < 0 || _selectedRow >= _rows.Count) return;
+            if (_rows.Count == 0) return;
+            var row = _rows[_selectedCol];
 
-                var row = _rows[_selectedRow];
-                if (_selectedCol == 0)
-                {
-                    // Focus
-                    ShowWindow(row.Hwnd, SW_RESTORE);
-                    SetForegroundWindow(row.Hwnd);
-                }
-                else
-                {
-                    // Kill
-                    try { row.Proc.Kill(); } catch { }
-                    LoadTaskManagerList();
-                }
+            if (_selectedRow == 1)
+            {
+                ShowWindow(row.Hwnd, SW_RESTORE);
+                SetForegroundWindow(row.Hwnd);
+            }
+            else if (_selectedRow == 2)
+            {
+                try { row.Proc.Kill(); } catch { }
+                LoadTaskManagerList();
             }
         }
 
-        private void PlayNavigationSound()
-        {
-            try
-            {
-                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\navigation.wav"));
-                player.Play();
-            }
-            catch { }
-        }
-
-        private void PlayActivationSound()
-        {
-            try
-            {
-                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\activation.wav"));
-                player.Play();
-            }
-            catch { }
-        }
-
-        #endregion // TaskManager
+        #endregion
 
         #region Gamepad/Keyboard_Navigation
 
@@ -1664,19 +1798,19 @@ namespace gcmloader
 
             if ((gamepad.Buttons & GamepadButtonFlags.DPadDown) != 0)
             {
-                MoveRow(1);
+                MoveCol(1);
             }
             else if ((gamepad.Buttons & GamepadButtonFlags.DPadUp) != 0)
             {
-                MoveRow(-1);
+                MoveCol(-1);
             }
             else if ((gamepad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
             {
-                MoveCol(-1);
+                MoveRow(-1);
             }
             else if ((gamepad.Buttons & GamepadButtonFlags.DPadRight) != 0)
             {
-                MoveCol(1);
+                MoveRow(1);
             }
             else if ((gamepad.Buttons & GamepadButtonFlags.A) != 0)
             {

@@ -29,21 +29,21 @@
     <AppXManifest Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-03-12T14:45:24.660</Modified>
+      <Modified>2025-03-12T17:11:15.415</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-03-12T14:45:23.879</Modified>
+      <Modified>2025-03-12T17:11:14.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.runtimeconfig.json">
       <PackagePath>GAMINGCONSOLEMODE.runtimeconfig.json</PackagePath>
-      <Modified>2025-03-12T14:45:22.999</Modified>
+      <Modified>2025-03-12T17:11:13.762</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.dll">
       <PackagePath>GAMINGCONSOLEMODE.dll</PackagePath>
-      <Modified>2025-03-12T14:45:21.598</Modified>
+      <Modified>2025-03-12T17:11:13.115</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\audiochanger.ps1">
       <PackagePath>audiochanger.ps1</PackagePath>
@@ -127,7 +127,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>GAMINGCONSOLEMODE.exe</PackagePath>
-      <Modified>2025-03-12T14:45:21.643</Modified>
+      <Modified>2025-03-12T17:11:13.131</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
@@ -3027,7 +3027,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.deps.json">
       <PackagePath>GAMINGCONSOLEMODE.deps.json</PackagePath>
-      <Modified>2025-03-12T14:45:22.858</Modified>
+      <Modified>2025-03-12T17:11:13.628</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\GAMINGCONSOLEMODE\Assets\disabled.png">
       <PackagePath>Assets\disabled.png</PackagePath>
