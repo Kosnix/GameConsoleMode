@@ -726,6 +726,18 @@ namespace gcmloader
                             Console.WriteLine($"Failed to set '{valueName}'. Current value: {currentValue}");
                         }
 
+                        //End Decky Loader process if running
+                        Process[] deckyLoaderProcesses = Process.GetProcessesByName("PluginLoader_noconsole");
+                        if (deckyLoaderProcesses.Length > 0)
+                        {
+                            foreach (var process in deckyLoaderProcesses)
+                            {
+                                process.Kill();
+                                process.WaitForExit();
+                                Console.WriteLine("Decky Loader process killed successfully.");
+                            }
+                        }
+
                         // Restart explorer.exe
                         Process.Start("explorer.exe");
                         Console.WriteLine("explorer.exe restarted.");
@@ -1142,6 +1154,108 @@ namespace gcmloader
 
             KillProcess("steam.exe");
             Console.WriteLine("try start Steam");
+            // Check if decky Loader is activated
+            if (AppSettings.Load<bool>("usedeckyloader") == true)
+            {
+                //first clear other process with deckyloader
+                //End Decky Loader process if running
+                Process[] deckyLoaderProcesses = Process.GetProcessesByName("PluginLoader_noconsole");
+                if (deckyLoaderProcesses.Length > 0)
+                {
+                    foreach (var process in deckyLoaderProcesses)
+                    {
+                        process.Kill();
+                        process.WaitForExit();
+                        Console.WriteLine("Decky Loader process killed successfully.");
+                    }
+                }
+
+                //Start Decky Loader Steam
+                //search and start decky loader no console for steam.
+                // Get the user's home directory dynamically
+                string userHome = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+                // Construct the full path to PluginLoader_noconsole.exe
+                string pluginLoaderPath = Path.Combine(userHome, "homebrew", "services", "PluginLoader_noconsole.exe");
+
+                // Check if the executable file exists
+                if (File.Exists(pluginLoaderPath))
+                {
+                    Console.WriteLine("PluginLoader_noconsole.exe found. Starting...");
+
+                    // Start the process
+                    Process process = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = pluginLoaderPath,
+                            UseShellExecute = true // Ensures the executable runs properly
+                        }
+                    };
+                    process.Start();
+
+                    // Wait for 3 seconds before continuing
+                    Task.Delay(3000);
+
+                    Console.WriteLine("Continuing after 3 seconds...");
+
+                    try
+                    {
+                        string Path = AppSettings.Load<string>("steamlauncherpath");
+                        string arguments;
+                        //  if (AppSettings.Load<bool>("usestartupvideo")){
+                        // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+                        //  }
+                        //  else
+                        //  {
+                        arguments = "-dev -gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro ";
+                        //  }
+
+                        Process.Start(new ProcessStartInfo(Path, arguments));
+                        Console.WriteLine("Steam launched");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error launching Steam: " + ex.Message);
+                        BackToWindows();
+                        Console.WriteLine("explorer restored");
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Error: PluginLoader_noconsole.exe not found start normal!");
+                    // Start Steam normal
+                    try
+                    {
+                        string Path = AppSettings.Load<string>("steamlauncherpath");
+                        string arguments;
+                        //  if (AppSettings.Load<bool>("usestartupvideo")){
+                        // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+                        //  }
+                        //  else
+                        //  {
+                        arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro";
+                        //  }
+
+                        Process.Start(new ProcessStartInfo(Path, arguments));
+                        Console.WriteLine("Steam launched");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error launching Steam: " + ex.Message);
+                        BackToWindows();
+                        Console.WriteLine("explorer restored");
+                    }
+
+
+                }
+
+              
+            }
+            else
+            {
+                // Start Steam normal
             try
             {
                 string Path = AppSettings.Load<string>("steamlauncherpath");
@@ -1162,6 +1276,7 @@ namespace gcmloader
                 Console.WriteLine("Error launching Steam: " + ex.Message);
                 BackToWindows();
                 Console.WriteLine("explorer restored");
+            }
             }
         }
         static void StartPlaynite()
@@ -1230,6 +1345,7 @@ namespace gcmloader
                 AdminVerify();
                 if (IsAdministrator())
                 {
+                    
                     SettingsVerify();
                     StartupVideo.Play();
                     displayfusion("start");
