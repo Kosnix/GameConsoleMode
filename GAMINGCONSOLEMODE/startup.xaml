@@ -320,7 +320,7 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>
                 </Border>
-                <!-- Panel 4 Startup Video-->
+                <!-- Panel 6 Startup Video-->
                 <Border Tag="Display" Background="#2A2A2A" CornerRadius="15" Width="800" Height="900" Padding="0" Margin="10">
                     <Grid>
                         <!-- Define rows for layout -->
@@ -388,6 +388,104 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                             </Border>
                         </StackPanel>
 
+                    </Grid>
+                </Border>
+                <!-- Panel 7 Decky Loader -->
+                <Border Tag="Design" Background="#2A2A2A" CornerRadius="15" Width="800" Height="865" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_decky_loader" Background="Green" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_decky_loader" Text="INSTALLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+
+                        </Border>
+
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                            <InfoBar
+    IsOpen="True"
+    Severity="Informational"
+    Title="Better experience"
+    Message="The GCM team recommends this function" />
+
+                            <!-- Title -->
+                            <TextBlock Text="DECKY LOADER FOR WINDOWS" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Unlock your Steam-PC potential"
+                     FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            <InfoBar 
+                                x:Name="instruction_deckyloader"
+Title="Installation instructions"
+Message="Please extract all files into a folder and run the executable inside. Then, return to GCM."
+Severity="Informational"
+IsOpen="False"
+HorizontalAlignment="Stretch"/>
+
+                            <!-- Buttons Area -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                               
+
+                                <!-- Second Button -->
+                                <Button x:Name="button_install_decky_loader" Click="button_install_decky_loader_Click"  >
+                                    <Image Source="/Assets/Download.png" AutomationProperties.Name="Slice"/>
+                                </Button>
+                                
+
+                            </StackPanel>
+                            
+
+                            <Border >
+                                <ToggleSwitch x:Name= "use_decky_loader" Toggled="use_decky_loader_Toggled_1"  HorizontalAlignment="Center" Margin="100,-10,10,10"/>
+                            
+                            </Border>
+
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Spacing="10">
+
+                                <!-- Warnmeldung als InfoBar -->
+                                <InfoBar 
+            Title="Decky Loader - Windows Warning"
+            Message="Decky Loader is not officially supported on Windows; however, it is compatible with certain plugins that can significantly enhance the experience."
+            Severity="Warning"
+            IsOpen="True"
+            HorizontalAlignment="Stretch"/>
+
+                                <Expander
+IsExpanded="False"
+ExpandDirection="Down"
+VerticalAlignment="Center"
+HorizontalAlignment="Center"
+Header="Compatible plugins in Windows">
+                                    <StackPanel>
+                                        <TextBlock Text="Audio Loader"/>
+                                        <TextBlock Text="CSS Loader"/>
+                                        <TextBlock Text="IsThereAnyDeal For Deck"/>
+                                        <TextBlock Text="PlayCount"/>
+                                        <TextBlock Text="PlayTime"/>
+                                        <TextBlock Text="ProtonDB Badges"/>
+                                        <TextBlock Text="SteamGridDB"/>
+                                        <TextBlock Text="TabMaster"/>
+                                        <TextBlock Text="Web Browser"/>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                           
+
+                            <!-- Preview Image -->
+                            <Image Source="/functions/deckyloader.png"  Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+
+
+                            <!-- Footer Text -->
+
+                            <HyperlinkButton Content="Go to plugin creator" NavigateUri="https://github.com/ACCESS-DENIIED/Decky-Loader-For-Windows" HorizontalAlignment="Center" />
+                        </StackPanel>
                     </Grid>
                 </Border>
 

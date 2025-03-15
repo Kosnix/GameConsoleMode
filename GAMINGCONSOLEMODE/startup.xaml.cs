@@ -373,6 +373,45 @@ namespace GAMINGCONSOLEMODE
             catch {}
 
             #endregion StartupVideo
+            #region deckyloader
+            try
+            {
+                // Get the user's home directory
+                string userHome = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+                // Construct the full path to PluginLoader.exe
+                string homebrewPath = Path.Combine(userHome, "homebrew");
+                string deckyloaderExePath = Path.Combine(homebrewPath, "services", "PluginLoader.exe");
+
+                if (File.Exists(deckyloaderExePath))
+                {
+                    text_install_state_decky_loader.Text = "INSTALLED";
+                    border_install_state_decky_loader.Background = new SolidColorBrush(Colors.Green);
+                    use_decky_loader.IsEnabled = true;
+                    //toggle ui
+                    bool deckyloadertogglestatus = AppSettings.Load<bool>("usedeckyloader");
+                    if (deckyloadertogglestatus == true)
+                    {
+                        use_decky_loader.IsOn = true;
+                    }
+                    else
+                    {
+                        use_decky_loader.IsOn = false;
+                    }
+                }
+                else
+                {
+                    text_install_state_decky_loader.Text = "NOT INSTALLED";
+                    border_install_state_decky_loader.Background = new SolidColorBrush(Colors.Brown);
+                    use_decky_loader.IsEnabled = false;
+                    use_decky_loader.IsOn = false;
+                    AppSettings.Save("usedeckyloader", false);
+                }
+            }
+            catch
+            {
+            }
+            #endregion deckyloader
         }
         #endregion update ui
         #region functions
@@ -952,8 +991,116 @@ namespace GAMINGCONSOLEMODE
         }
 
         #endregion StartupVideo
+        #region Deckyloader
+        private async void button_install_decky_loader_Click(object sender, RoutedEventArgs e)
+        {
+            // 1. Retrieve the latest release information from GitHub API
+            string latestReleaseApiUrl = "https://api.github.com/repos/ACCESS-DENIIED/Decky-Loader-For-Windows/releases/latest";
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // GitHub API requires a valid User-Agent header
+                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+                string releaseJson;
+                try
+                {
+                    releaseJson = await httpClient.GetStringAsync(latestReleaseApiUrl);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error retrieving the latest release info: " + ex.Message);
+                    return;
+                }
+
+                // 2. Parse the JSON to extract the tag name and select the MSI asset
+                JsonDocument jsonDoc = JsonDocument.Parse(releaseJson);
+                JsonElement root = jsonDoc.RootElement;
+                string tagName = root.GetProperty("tag_name").GetString();
+                Console.WriteLine("Latest release version: " + tagName);
+
+                // Get the assets array from the JSON
+                JsonElement assets = root.GetProperty("assets");
+                JsonElement? msiAsset = null;
+                foreach (JsonElement asset in assets.EnumerateArray())
+                {
+                    string assetName = asset.GetProperty("name").GetString();
+                    // Select asset if it ends with .msi (case-insensitive)
+                    if (assetName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
+                    {
+                        msiAsset = asset;
+                        break;
+                    }
+                }
+
+                if (msiAsset == null)
+                {
+                    Console.WriteLine("No Zip asset found in the latest release.");
+                    return;
+                }
+
+                string selectedAssetName = msiAsset.Value.GetProperty("name").GetString();
+                string downloadUrl = msiAsset.Value.GetProperty("browser_download_url").GetString();
+
+                Console.WriteLine("Selected asset: " + selectedAssetName);
+                Console.WriteLine("Download URL: " + downloadUrl);
+
+                // 3. Determine the destination folder (create a custom subfolder in the Downloads directory)
+                string downloadsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", "deckyloader");
+                if (!Directory.Exists(downloadsFolder))
+                    Directory.CreateDirectory(downloadsFolder);
+
+                string destinationPath = Path.Combine(downloadsFolder, selectedAssetName);
+
+                // 4. Download the MSI file using Flurl.Http (the async download is awaited)
+                try
+                {
+                    Console.WriteLine("Starting download of the MSI asset...");
+                    await downloadUrl.DownloadFileAsync(downloadsFolder, selectedAssetName);
+                    Console.WriteLine("Download complete. File saved at:");
+                    Console.WriteLine(destinationPath);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Download error: " + ex.Message);
+                    return;
+                }
+
+                // 5. Open the folder in File Explorer so the user can directly access the downloaded zip file
+                try
+                {
+                    //Installinstructions
+                    instruction_deckyloader.IsOpen = true;
+
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = $"\"{downloadsFolder}\"",
+                        UseShellExecute = true
+                    });
+                    Console.WriteLine("Folder opened in File Explorer.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error opening the folder: " + ex.Message);
+                }
+            }
+        }
+        private void use_decky_loader_Toggled_1(object sender, RoutedEventArgs e)
+        {
+            if (use_decky_loader.IsOn == true)
+            {
+                AppSettings.Save("usedeckyloader", true);
+                text_install_state_decky_loader.Text = "INSTALLED";
+                border_install_state_decky_loader.Background = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                AppSettings.Save("usedeckyloader", false);
+                text_install_state_decky_loader.Text = "NOT INSTALLED";
+                border_install_state_decky_loader.Background = new SolidColorBrush(Colors.Brown);
+            }
+        }
+        #endregion Deckyloader
 
         #endregion functions
-
     }
 }

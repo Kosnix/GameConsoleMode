@@ -3119,3 +3119,7 @@ F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.dll
 F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.XInput.dll
 F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\activation.wav
 F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\navigation.wav
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\activation.wav
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\navigation.wav
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.dll
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\SharpDX.XInput.dll

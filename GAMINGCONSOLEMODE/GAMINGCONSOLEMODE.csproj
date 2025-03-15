@@ -52,6 +52,7 @@
     <None Remove="Assets\Uninstall Programs.png" />
     <None Remove="Assets\Xbox Controller.png" />
     <None Remove="audiochanger.ps1" />
+    <None Remove="functions\deckyloader.png" />
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
     <None Remove="functions\joyxoff_panel.png" />
@@ -83,6 +84,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="audiochanger.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functions\deckyloader.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\discord.png">
@@ -155,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="3.0.3" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.1.240916" />
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250205002" />
