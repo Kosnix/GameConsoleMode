@@ -488,7 +488,63 @@ Header="Compatible plugins in Windows">
                         </StackPanel>
                     </Grid>
                 </Border>
+                <!-- Panel 5 PREAUDIO-->
+                <Border Tag="Audio" Background="#2A2A2A" CornerRadius="15" Width="800" Height="700" Padding="0" Margin="10">
+                    <Grid>
+                        <!-- Define rows for layout -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <!-- Status bar -->
+                            <RowDefinition Height="*" />
+                            <!-- Content -->
+                        </Grid.RowDefinitions>
+                        <!-- Status Bar -->
+                        <Border x:Name="border_install_state_preaudio" Background="Brown" Grid.Row="0" CornerRadius="15,15,0,0">
+                            <TextBlock x:Name="text_install_state_preaudio" Text="DISABLED" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Bold" />
+                        </Border>
 
+                        <!-- Content Area -->
+                        <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
+                            <InfoBar x:Name="infobar_preaudio"
+IsOpen="False"
+Severity="Success"
+Title="Success"
+Message="Your settings have been saved " />
+
+                            <!-- Title -->
+                            <TextBlock Text="AUDIO DEVICE" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />
+
+                            <!-- Description -->
+                            <TextBlock Text="Change your audio device when starting and stopping the GCM"
+                 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            <Border>
+                                <TextBlock Text="Activate the Audio Device function"
+                 FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+
+                            <Border>
+                                <ToggleSwitch x:Name="use_preaudio" HorizontalAlignment="Center" Margin="100,-10,10,10" Toggled="use_discord_Toggled" />
+                            </Border>
+
+                            <!-- Preview Image -->
+                            <Image Source="/functions/speaker.png" Width="450" Height="220" Stretch="Uniform" Margin="0,10,0,10" />
+                            <Border>
+                                <TextBlock Text="Change audio device when start GCM"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+                            <!-- ComboBox -->
+                            <ComboBox x:Name="preaudio_start" Width="500" Margin="0,10,0,10" SelectionChanged="discord_start_SelectionChanged" >
+                            </ComboBox>
+                            <Border>
+                                <TextBlock Text="Change audio device when end GCM"
+FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
+                            </Border>
+                            <!-- ComboBox -->
+                            <ComboBox x:Name="preaudio_end" Width="500" Margin="0,10,0,10" SelectionChanged="discord_end_SelectionChanged">
+                            </ComboBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>
 
             </StackPanel>
             

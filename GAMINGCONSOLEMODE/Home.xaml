@@ -91,11 +91,14 @@
                 <!-- Step 2 -->
                 <Expander x:Name="Expander2" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
                     <Expander.Header>
-                        <TextBlock Text="Step 2: Functions" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
+                        <TextBlock Text="Step 2: Build your own gaming console experience" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
 
                     </Expander.Header>
+                    
                     <Button x:Name="functionbutton" Width="150" Height="80" Click="functionbutton_Click">
+
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
                             <!-- Link-Icon -->
                             <FontIcon Glyph="" FontSize="24" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center"/>
 

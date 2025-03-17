@@ -56,6 +56,7 @@
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
     <None Remove="functions\joyxoff_panel.png" />
+    <None Remove="functions\speaker.png" />
     <None Remove="functions\Startup_Video.gif" />
     <None Remove="functions\TV.png" />
     <None Remove="Home.xaml" />
@@ -129,6 +130,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\joyxoff_panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functions\speaker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\TV.png">
