@@ -18,6 +18,7 @@ using Flurl.Http;
 using static GAMINGCONSOLEMODE.launcher;
 using System.Threading.Tasks;
 using System.Reflection;
+using AudioSwitcher.AudioApi;
 
 
 // To learn more about WinUI, the WinUI project structure,
@@ -33,6 +34,7 @@ namespace GAMINGCONSOLEMODE
     {
 
         private DispatcherTimer _timer;
+        bool updatetimer_once = false;
 
         public startup()
         {
@@ -129,6 +131,69 @@ namespace GAMINGCONSOLEMODE
 
         private void updateui()
         {
+            if(updatetimer_once == false)
+            {
+                #region discord
+                try
+                {
+                    bool usediscord = AppSettings.Load<bool>("usediscord");
+                    if (usediscord == true)
+                    {
+                        use_discord.IsOn = true;
+                        discord_end.IsEnabled = true;
+                        discord_start.IsEnabled = true;
+                        PopulateAudioDevices(true, false);
+
+                        text_install_state_discord.Text = "ACTIVATED";
+                        border_install_state_discord.Background = new SolidColorBrush(Colors.Green);
+                        infobar_discord.IsOpen = false;
+                    }
+                    else
+                    {
+                        use_discord.IsOn = false;
+                        discord_end.IsEnabled = false;
+                        discord_start.IsEnabled = false;
+
+
+                        text_install_state_discord.Text = "DISABLED";
+                        border_install_state_discord.Background = new SolidColorBrush(Colors.Brown);
+                        infobar_discord.IsOpen = false;
+                    }
+                }
+                catch
+                {
+
+                }
+
+                #endregion discord
+                #region preaudio
+                try
+                {
+                    bool preaudio = AppSettings.Load<bool>("usepreaudio");
+                    if (preaudio == true)
+                    {
+                        use_preaudio.IsOn = true;
+                        PopulateAudioDevices(false, true);
+
+                        string preaudiostart = AppSettings.Load<string>("preaudiostart");
+                        string preaudioend = AppSettings.Load<string>("preaudioend");
+
+                        preaudio_end.PlaceholderText = preaudioend;
+                        preaudio_start.PlaceholderText = preaudiostart;
+                    }
+                    else
+                    {
+                        use_preaudio.IsOn = false;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("preaudio gui error");
+                }
+                #endregion
+
+                updatetimer_once = true;
+            }
             #region cssloader
             try
             {
@@ -304,39 +369,6 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine("wallpaper gui error");
             }
             #endregion gcmwallpaper
-            #region discord
-            try
-            {
-                bool usediscord = AppSettings.Load<bool>("usediscord");
-                if(usediscord == true)
-                {
-                    use_discord.IsOn = true;
-                    discord_end.IsEnabled = true;
-                    discord_start.IsEnabled = true;
-                    PopulateAudioDevices();
-
-                    text_install_state_discord.Text = "ACTIVATED";
-                    border_install_state_discord.Background = new SolidColorBrush(Colors.Green);
-                    infobar_discord.IsOpen = false;
-                }
-                else
-                {
-                    use_discord.IsOn = false;
-                    discord_end.IsEnabled = false;
-                    discord_start.IsEnabled = false;
-                    
-
-                    text_install_state_discord.Text = "DISABLED";
-                    border_install_state_discord.Background = new SolidColorBrush(Colors.Brown);
-                    infobar_discord.IsOpen = false;
-                }
-            }
-            catch
-            {
-
-            }
-
-            #endregion discord
             #region StartupVideo
             try {
                 bool usestartupvideo = AppSettings.Load<bool>("usestartupvideo");
@@ -726,7 +758,8 @@ namespace GAMINGCONSOLEMODE
         {
             try
             {
-                PopulateAudioDevices();
+              
+                PopulateAudioDevices(true,false); //discord
 
                 if (use_discord.IsOn == true)
                 {
@@ -754,8 +787,7 @@ namespace GAMINGCONSOLEMODE
             }
         }
 
-        private Dictionary<string, string> deviceMap = new Dictionary<string, string>();
-        private void PopulateAudioDevices()
+        private void PopulateAudioDevices(bool discord,bool preaudio)
         {
             try
             {
@@ -764,17 +796,23 @@ namespace GAMINGCONSOLEMODE
                 // Clear existing items and reset the device map
                 discord_end.Items.Clear();
                 discord_start.Items.Clear();
-                deviceMap.Clear();
+                preaudio_end.Items.Clear();
+                preaudio_start.Items.Clear();
 
                 // Get playback devices
                 foreach (var device in enumerator.EnumerateAudioEndPoints(DataFlow.Render, NAudio.CoreAudioApi.DeviceState.Active))
                 {
-                    // Geräte-Namen zur ComboBox hinzufügen
-                    discord_end.Items.Add(device.FriendlyName);
-                    discord_start.Items.Add(device.FriendlyName);
+                    if (discord == true)
+                    {
+                        // Geräte-Namen zur ComboBox hinzufügen
+                        discord_end.Items.Add(device.FriendlyName);
+                        discord_start.Items.Add(device.FriendlyName);
+                    }else if (preaudio ==  true)
+                    {
+                        preaudio_end.Items.Add(device.FriendlyName);
+                        preaudio_start.Items.Add(device.FriendlyName);
+                    }
 
-                    // Zuordnung von FriendlyName zu ID speichern
-                    deviceMap[device.FriendlyName] = device.FriendlyName;
                 }
 
             }
@@ -1100,7 +1138,137 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion Deckyloader
+        #region preaudio
+        private void preaudio_start_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = sender as ComboBox;
 
+                if (comboBox != null && comboBox.SelectedItem != null)
+                {
+                    // devicename
+                    string selectedDeviceName = comboBox.SelectedItem.ToString();
+                    string cleanedDeviceName = selectedDeviceName.Split('(')[0].Trim();
+
+                    // Speaker-ID
+                    AppSettings.Save("preaudiostart", cleanedDeviceName);
+                    Console.WriteLine($"Saved Device ID: {cleanedDeviceName}");
+                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{cleanedDeviceName}\"");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving selected device: {ex.Message}");
+            }
+        }
+
+        private void preaudio_end_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = sender as ComboBox;
+
+                if (comboBox != null && comboBox.SelectedItem != null)
+                {
+                    // devicename
+                    string selectedDeviceName = comboBox.SelectedItem.ToString();
+                    string cleanedDeviceName = selectedDeviceName.Split('(')[0].Trim();
+
+                    // device-ID
+                    AppSettings.Save("preaudioend", cleanedDeviceName);
+                    Console.WriteLine($"Saved Device ID: {cleanedDeviceName}");
+                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{cleanedDeviceName}\"");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving selected device: {ex.Message}");
+            }
+        }
+
+        private void use_preaudio_Toggled(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                PopulateAudioDevices(false,true);
+
+                if (use_preaudio.IsOn == true)
+                {
+                    AppSettings.Save("usepreaudio", true);
+                    preaudio_end.IsEnabled = true;
+                    preaudio_start.IsEnabled = true;
+
+                    text_install_state_preaudio.Text = "ACTIVATED";
+                    border_install_state_preaudio.Background = new SolidColorBrush(Colors.Green);
+
+                }
+                else
+                {
+                    AppSettings.Save("usepreaudio", false);
+                    preaudio_end.IsEnabled = false;
+                    preaudio_start.IsEnabled = false;
+
+                    text_install_state_preaudio.Text = "DISABLED";
+                    border_install_state_preaudio.Background = new SolidColorBrush(Colors.Brown);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("problem with speaker integration");
+            }
+        }
+        #endregion preaudio
         #endregion functions
+    }
+}
+
+//region nircmd code
+namespace NirCmdUtil
+{
+    public static class NirCmdHelper
+    {
+        /// <summary>
+        /// Executes a command using nircmd.exe.
+        /// </summary>
+        /// <param name="command">The command to pass to nircmd (e.g., "changesysvolume 5000")</param>
+        public static void ExecuteCommand(string command)
+        {
+            // Determine the path to nircmd.exe in the current directory
+            string nircmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nircmd.exe");
+
+            if (!File.Exists(nircmdPath))
+            {
+                throw new FileNotFoundException("nircmd.exe was not found in the current directory.");
+            }
+
+            // Configure ProcessStartInfo for nircmd
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = nircmdPath,
+                Arguments = command,
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            };
+
+            using (Process process = new Process { StartInfo = psi })
+            {
+                process.Start();
+
+                // Optionally capture output and error streams
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+
+                process.WaitForExit();
+
+                if (!string.IsNullOrWhiteSpace(error))
+                {
+                    throw new Exception("Error executing nircmd command: " + error);
+                }
+            }
+        }
     }
 }
