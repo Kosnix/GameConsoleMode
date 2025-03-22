@@ -224,6 +224,35 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
+
+        public void preaudio(bool start,bool end)
+        {
+            try
+            {
+                bool preaudio = AppSettings.Load<bool>("usepreaudio");
+                if (preaudio == true)
+                {
+                    if (end == true)
+                    {
+                        string preaudioend = AppSettings.Load<string>("preaudioend");
+                        NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{preaudioend}\"");
+                    }
+                    else if (start == true)
+                    {
+                        string preaudiostart = AppSettings.Load<string>("preaudiostart");
+                        NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{preaudiostart}\"");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("no preaudio set");
+                }
+            }
+            catch
+            {
+
+            }
+        }
         public void WaitForLauncherToClose()
         {
 
@@ -963,61 +992,6 @@ namespace gcmloader
             }
         }
         #region discord 
-        static void Changeaudio(string playback)
-        {
-            string scriptPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "audiochanger.ps1");
-            string nircmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nircmd.exe");
-            // Check if the script file exists
-            if (!File.Exists(scriptPath))
-            {
-                Console.WriteLine($"Error: PowerShell script not found in the directory: {scriptPath}");
-                return;
-            }
-
-            try
-            {
-                // Build PowerShell arguments
-                string arguments = $"-ExecutionPolicy Bypass -File \"{scriptPath}\" -nircmdPath \"{nircmdPath}\" -deviceName \"{playback}\"";
-
-                // Set up the process to run PowerShell
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = arguments,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                // Start the process
-                using (Process process = Process.Start(psi))
-                {
-                    // Capture the output
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-
-                    process.WaitForExit();
-
-                    // Display the output or errors
-                    if (!string.IsNullOrEmpty(output))
-                    {
-                        Console.WriteLine($"Output: {output}");
-                    }
-
-                    if (!string.IsNullOrEmpty(error))
-                    {
-                        Console.WriteLine($"Error: {error}");
-                    }
-
-                    Console.WriteLine("PowerShell script executed successfully.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error while executing PowerShell script: {ex.Message}");
-            }
-        }
         #region discord automatic need
         // Importing user32.dll functions to interact with window handles
 
@@ -1061,7 +1035,7 @@ namespace gcmloader
                             {
                                 if (handlestate == true)
                                 {
-                                    Changeaudio(enddiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
                                     handlestate = false;
                                 }
                                 else
@@ -1085,7 +1059,7 @@ namespace gcmloader
                             {
                                 if (handlestate == true)
                                 {
-                                    Changeaudio(enddiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
                                     handlestate = false;
                                 }
                                 else
@@ -1111,7 +1085,7 @@ namespace gcmloader
 
                                 if (handlestate == false)
                                 {
-                                    Changeaudio(startdiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{startdiscord}\"");
                                     handlestate = true;
                                 }
                                 else
@@ -1359,6 +1333,7 @@ namespace gcmloader
                     ///////////////
                     ConsoleModeToShell();
                     LoadTaskManagerList();
+                    preaudio(true,false);
                     await Task.Run(() =>
                     {
                         WaitForLauncherToClose();
@@ -1369,14 +1344,13 @@ namespace gcmloader
                         StartupVideo.RenameSteamStartupVideo_End();
                     }
                     catch { }
-
+                    preaudio(false, true);
                     uac("on");
                     this.Close();
                 }
             }
         }
         #endregion start
-
         #region TaskManager
 
         public bool TaskManagerVisibility;
@@ -1754,7 +1728,6 @@ namespace gcmloader
         }
 
         #endregion // TaskManager
-
         #region Gamepad/Keyboard_Navigation
 
         private Controller _xinputController;
@@ -1878,7 +1851,6 @@ namespace gcmloader
             }
         }
         #endregion
-
         #region Startupvideo
 
         public static class StartupVideo
@@ -2059,5 +2031,54 @@ namespace gcmloader
 
         #endregion Startupvideo
         #endregion methodes
+    }
+
+    //nircmd code
+    namespace NirCmdUtil
+    {
+        public static class NirCmdHelper
+        {
+            /// <summary>
+            /// Executes a command using nircmd.exe.
+            /// </summary>
+            /// <param name="command">The command to pass to nircmd (e.g., "changesysvolume 5000")</param>
+            public static void ExecuteCommand(string command)
+            {
+                // Determine the path to nircmd.exe in the current directory
+                string nircmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nircmd.exe");
+
+                if (!File.Exists(nircmdPath))
+                {
+                    throw new FileNotFoundException("nircmd.exe was not found in the current directory.");
+                }
+
+                // Configure ProcessStartInfo for nircmd
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = nircmdPath,
+                    Arguments = command,
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true
+                };
+
+                using (Process process = new Process { StartInfo = psi })
+                {
+                    process.Start();
+
+                    // Optionally capture output and error streams
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrWhiteSpace(error))
+                    {
+                        throw new Exception("Error executing nircmd command: " + error);
+                    }
+                }
+            }
+        }
     }
 }

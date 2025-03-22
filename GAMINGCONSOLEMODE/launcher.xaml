@@ -27,10 +27,9 @@
                     <GradientStop Color="#1B2838" Offset="1" />
                 </LinearGradientBrush>
             </Grid.Background>
-            <!-- Title -->
-            <TextBlock Text="CHOOSE YOUR LAUNCHER :" Grid.ColumnSpan="4" Margin="0,75,0,0" FontWeight="Bold" TextAlignment="Center" FontSize="50" ></TextBlock>
+           
             <!-- Panel 1 STEAM -->
-            <Border Grid.Column="0" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="0" Margin="10,10,10,10" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
                     <TextBlock Text="STEAM" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
@@ -61,13 +60,13 @@
                         <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE STEAM BIG PICTURE" FontSize="18" FontWeight="Bold" Foreground="White"
-                                   HorizontalAlignment="Center" Margin="0,0,0,10" />
+                                   HorizontalAlignment="Center" Margin="10,10,10,10" />
                             <!-- ToggleSwitch -->
                             <ToggleSwitch x:Name= "use_steam_bp" Toggled="use_steam_bp_Toggled" />
                         </StackPanel>
                     </Grid>
 
-                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" >
                         <StackPanel>
                             <!-- Title for the section -->
                             <TextBlock Text="Select Steam Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
@@ -90,7 +89,7 @@
                 </StackPanel>
             </Border>
             <!-- Panel 2 PLAYNITE  -->
-            <Border Grid.Column="1" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="1" Margin="10,10,10,10" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
                     <TextBlock Text="PLAYNITE" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
@@ -121,13 +120,13 @@
                         <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE PLAYNITE FULLSCREEN" FontSize="18" FontWeight="Bold" Foreground="White"
-                        HorizontalAlignment="Center" Margin="0,0,0,10" />
+                        HorizontalAlignment="Center" Margin="10,10,10,10" />
                             <!-- ToggleSwitch -->
                             <ToggleSwitch x:Name= "use_playnite" AutomationProperties.Name="switch_use_playnite" Toggled="use_playnite_Toggled"/>
                         </StackPanel>
                     </Grid>
 
-                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" >
                         <StackPanel>
                             <!-- Title for the section -->
                             <TextBlock Text="Select Playnite Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
@@ -135,7 +134,7 @@
                             <!-- Button for picking a file -->
                             <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
                                 <Button x:Name="pichplaynitepath" Content="Select a file"
-   Click="pichplaynitepath_Click"      Margin="0,0,10,0" />
+   Click="pichplaynitepath_Click"      Margin="10,10,10,10" />
                                 <TextBlock x:Name="textbox_select_playnite_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />
                             </StackPanel>
 
@@ -150,7 +149,7 @@
                 </StackPanel>
             </Border>
             <!-- Panel 2 CUSTOM -->
-            <Border Grid.Column="2" Margin="16,200,0,0" Background="#1E2A38" CornerRadius="15">
+            <Border Grid.Column="2" Margin="10,10,10,10" Background="#1E2A38" CornerRadius="15">
                 <StackPanel Margin="24">
                     <!-- Title -->
                     <TextBlock Text="CUSTOM" FontSize="26" FontWeight="Bold" Foreground="White" Margin="0,0,0,20" />
@@ -168,7 +167,7 @@
           FontSize="18"
           Foreground="White"
           TextWrapping="Wrap"
-          Margin="0,55,0,0" />
+          Margin="0,24,0,0" />
 
                     <!-- Interactive Content -->
                     <Grid Margin="0,24,0,0">
@@ -181,19 +180,19 @@
                         <StackPanel Grid.Column="0" Margin="16" Background="#1E2A38">
                             <!-- Title above ToggleSwitch -->
                             <TextBlock Text="USE CUSTOM LAUNCHER" FontSize="18" FontWeight="Bold" Foreground="White"
-                  HorizontalAlignment="Center" Margin="0,0,0,10" />
+                  HorizontalAlignment="Center" Margin="10,10,10,10" />
                             <!-- ToggleSwitch -->
                             <ToggleSwitch x:Name= "use_custom" AutomationProperties.Name="switch_use_playnite" Toggled="use_custom_Toggled"/>
                         </StackPanel>
                     </Grid>
 
-                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" Margin="16">
+                    <Border Background="DarkSlateBlue" CornerRadius="10" Padding="16" >
                         <StackPanel>
                             <!-- Title for the section -->
                             <TextBlock Text="Select Path" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
                             <!-- Button for picking a file -->
-                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                            <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10,10,10,10">
                                 <Button x:Name="pichcustompath" Content="Select a file"
                           Click="pichcustompath_Click"       Margin="0,0,10,0" />
                                 <TextBlock x:Name="textbox_select_custom_path" TextWrapping="Wrap" Foreground="White" Padding="20,5,0,0" />

@@ -33,6 +33,7 @@
     <Content Remove="Assets\Play.png" />
     <Content Remove="Assets\playnite_logo.png" />
     <Content Remove="Assets\Screenshot 2025-01-02 104920.png" />
+    <Content Remove="Assets\settings\usblogon.png" />
     <Content Remove="Assets\steambp.png" />
     <Content Remove="Assets\steam_logo.png" />
     <Content Remove="Assets\Uninstall Programs.png" />
@@ -48,14 +49,15 @@
     <None Remove="Assets\launcher\steam_logo.png" />
     <None Remove="Assets\logo_gcm.png" />
     <None Remove="Assets\Play.png" />
+    <None Remove="Assets\settings\usblogon.png" />
     <None Remove="Assets\steambp.png" />
     <None Remove="Assets\Uninstall Programs.png" />
     <None Remove="Assets\Xbox Controller.png" />
-    <None Remove="audiochanger.ps1" />
     <None Remove="functions\deckyloader.png" />
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
     <None Remove="functions\joyxoff_panel.png" />
+    <None Remove="functions\speaker.png" />
     <None Remove="functions\Startup_Video.gif" />
     <None Remove="functions\TV.png" />
     <None Remove="Home.xaml" />
@@ -83,7 +85,7 @@
     <EmbeddedResource Include="Assets\GCM_Startup_Video.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="audiochanger.ps1">
+    <EmbeddedResource Include="Assets\settings\usblogon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\deckyloader.png">
@@ -129,6 +131,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\joyxoff_panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functions\speaker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\TV.png">

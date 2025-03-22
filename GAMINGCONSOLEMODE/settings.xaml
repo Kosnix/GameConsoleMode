@@ -17,8 +17,10 @@
 
         <ScrollViewer Grid.Row="1" Padding="10">
             <StackPanel Spacing="10">
+                <StackPanel Spacing="10">
+                
                 <!-- Card 1 -->
-                <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
+                <Expander IsExpanded="False" Padding="10" BorderThickness="1" HorizontalAlignment="Stretch">
                     <Expander.Header>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -27,12 +29,55 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <FontIcon Glyph="&#xE72E;" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
-                            <TextBlock Text="SECURITY" Grid.Column="1" FontSize="16" FontWeight="Bold" Margin="10" />
+                                <TextBlock Text="SECURITY - LOGIN WITHOUT PASSWORD" Grid.Column="1" FontSize="16" FontWeight="Bold" Margin="10" Foreground="White"/>
                         </Grid>
                     </Expander.Header>
-                    <TextBlock Text="there will be more soon...." TextWrapping="Wrap" Margin="0,10,0,0" />
-                </Expander>
 
+                    <!-- Content inside Expander -->
+                    
+                    <StackPanel Spacing="10" Padding="10">
+                            <!-- With USB -->
+                            <Border BorderBrush="#444444" BorderThickness="1" Padding="10" CornerRadius="10">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Button on the left -->
+                                        <ColumnDefinition Width="2*"/>
+                                        <!-- Explanation text in the middle -->
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Image on the right -->
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Button on the left -->
+                                    <Button x:Name="windowsloginwithoutpassword" Grid.Column="0" Content="Windows login without password"
+                        Padding="10,5" Margin="10,0,20,0"
+                        Background="LightBlue" Foreground="Black"
+                        HorizontalAlignment="Left"
+                        Click="windowsloginwithoutpassword_Click"/>
+
+                                    <!-- Explanation text in the center -->
+                                    <TextBlock Grid.Column="1" Text="We believe that a password-free login is the right approach because Windows does not offer this simple functionality, and entering a password every time you start your PC can ruin the experience.
+
+With USB logon, we have found a way to maintain security while allowing access to GCM without a password. Please make sure to configure the settings correctly as shown in the image to ensure that your computer locks automatically when the USB stick is removed."
+                           VerticalAlignment="Center" TextWrapping="Wrap"
+                           FontSize="14" Foreground="White"/>
+
+                                    <!-- Image on the right -->
+                                    <Image Grid.Column="2" Height="150" VerticalAlignment="Center" Stretch="Uniform" Margin="10,10,10,10">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="/Assets/settings/usblogon.png" DecodePixelHeight="400"/>
+
+                                        </Image.Source>
+                                    </Image>
+
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                 
+                    
+                </Expander>
+                    
+                </StackPanel>
                 <!-- Card 2 -->
                 <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
                     <Expander.Header>

@@ -36,109 +36,82 @@
                 <!-- Large Icon -->
                 <Image x:Name="GCMIcon" 
            Source="/Assets/logo_gcm.png" 
-           Width="150" Height="150" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">
+           Width="150" Height="150" Stretch="Uniform" RenderTransformOrigin="0.0,0.0">
                     <Image.RenderTransform>
                         <TranslateTransform x:Name="IconBounceTransform" />
                     </Image.RenderTransform>
                 </Image>
             </Grid>
 
-            <!-- Title -->
-            <TextBlock Text="Welcome to Gaming Console Mode" 
-                       FontSize="32" 
-                       FontWeight="Bold" 
-                       Foreground="White" 
-                       TextAlignment="Center" />
-
-            <!-- Description -->
-            <TextBlock Text="Transform your gaming experience with our modern Gaming Mode."
-                       FontSize="18" 
-                       Foreground="#CCCCCC" 
-                       TextAlignment="Center" 
-                       TextWrapping="Wrap"
-                       Width="400" />
         </StackPanel>
 
         <!-- Bottom Section: Steps with arrows -->
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel Spacing="16" Padding="20" HorizontalAlignment="Center">
+            <StackPanel Spacing="16" Padding="0" HorizontalAlignment="Center">
 
-                <!-- Step 1 -->
-                <Expander x:Name="Expander1" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
-                    <Expander.Header>
-                        <TextBlock Text="Step 1: Wiki" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
+              
 
-                    </Expander.Header>
-                    <Expander.Content>
-                        <Button x:Name="wikibutton"  Width="150" Height="80" Click="wikibutton_Click_1">
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                                <!-- Buch-Icon -->
-                                <FontIcon Glyph="" FontSize="24" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center"/>
+                <!-- Description -->
+                <Grid Padding="20" Background="Transparent">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
 
-                                <!-- Button-Text -->
-                                <TextBlock Text="See the Wiki" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
+                        <!-- Überschrift -->
+                        <TextBlock Text="🎮 Enhance Your Gaming Experience with GCM!" 
+ FontSize="24" 
+ FontWeight="Bold" 
+ Foreground="White"
+ TextAlignment="Center"/>
 
-
-
-                    </Expander.Content>
-                </Expander>
-
-                <!-- Arrow -->
-                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
-
-                <!-- Step 2 -->
-                <Expander x:Name="Expander2" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
-                    <Expander.Header>
-                        <TextBlock Text="Step 2: Functions" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
-
-                    </Expander.Header>
-                    <Button x:Name="functionbutton" Width="150" Height="80" Click="functionbutton_Click">
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                            <!-- Link-Icon -->
-                            <FontIcon Glyph="" FontSize="24" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center"/>
-
-                            <!-- Button-Text -->
-                            <TextBlock Text="Set your needed functions" FontSize="12" TextWrapping="Wrap" TextAlignment="Center"/>
+                        <!-- Features Abschnitt -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <FontIcon Glyph="&#xE945;" FontSize="24" Foreground="LightGray"/>
+                            <!-- Lightning Bolt -->
+                            <TextBlock Text="We offer additional features that you can activate alongside the core functionalities." 
+     FontSize="16" 
+     Foreground="LightGray"/>
                         </StackPanel>
-                    </Button>
 
+                        <!-- Customization Abschnitt -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <FontIcon Glyph="&#xE790;" FontSize="24" Foreground="LightGray"/>
+                            <!-- Settings Icon -->
+                            <TextBlock Text="Customize your launcher, select your preferred settings, and start the GCM." 
+     FontSize="16" 
+     Foreground="LightGray"/>
+                        </StackPanel>
 
-                </Expander>
+                        <!-- Seamless Gaming Abschnitt -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <FontIcon Glyph="&#xE7FC;" FontSize="24" Foreground="LightGray"/>
+                            <!-- Rocket Icon -->
+                            <TextBlock Text="Enjoy a seamless gaming session without interruptions." 
+     FontSize="16" 
+     Foreground="LightGray"/>
+                        </StackPanel>
 
-                <!-- Arrow -->
-                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
-
-                <!-- Step 3 -->
-                <Expander x:Name="Expander3" Width="800" Background="#2A2A2A" CornerRadius="15" IsExpanded="True">
-                    <Expander.Header>
-                        <TextBlock Text="Step 3: GCM Mode" FontSize="20" Foreground="#CCCCCC" FontWeight="Bold" />
-
-                    </Expander.Header>
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-
-                        <!-- Title above the buttons -->
-                        <TextBlock Text="click the button below and improve your gaming experience" 
-               FontSize="16" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" Width="300"/>
+                        <!-- Exit to Desktop Abschnitt -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                            <FontIcon Glyph="&#xE7F7;" FontSize="24" Foreground="LightGray"/>
+                            <!-- Refresh Icon -->
+                            <TextBlock Text="You will return to your desktop once you exit the selected launcher." 
+     FontSize="16" 
+     Foreground="LightGray"/>
+                        </StackPanel>
 
                     </StackPanel>
-
-
-                </Expander>
-                <!-- Arrow -->
-                <TextBlock Text="⬇" FontSize="32" Foreground="#CCCCCC" HorizontalAlignment="Center" />
-
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="0">
+                </Grid>
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10" Margin="30">
                     <Button x:Name= "Button_gcmplay" Click="Button_gcmplay_Click" Background="White"  >
-                        <Image Source="/Assets/play.png" Width="35" />
+                        <Image Source="/Assets/play.png" Width="50" />
                     </Button>
                     <TextBlock Text="START GAMEMODE" FontSize="25" HorizontalAlignment="Center" Padding="10" Tag="HomePage" />
                 </StackPanel>
+
             </StackPanel>
             
+            
         </ScrollViewer>
-
+       
 
     </Grid>
 </Page>
