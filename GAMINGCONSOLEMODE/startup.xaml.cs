@@ -147,6 +147,10 @@ namespace GAMINGCONSOLEMODE
                         text_install_state_discord.Text = "ACTIVATED";
                         border_install_state_discord.Background = new SolidColorBrush(Colors.Green);
                         infobar_discord.IsOpen = false;
+                        string preaudiostart = AppSettings.Load<string>("discordstart");
+                        string preaudioend = AppSettings.Load<string>("discordend");
+                        discord_end.PlaceholderText = preaudioend;
+                        discord_start.PlaceholderText = preaudiostart;
                     }
                     else
                     {

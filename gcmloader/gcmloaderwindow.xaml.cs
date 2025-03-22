@@ -992,61 +992,6 @@ namespace gcmloader
             }
         }
         #region discord 
-        static void Changeaudio(string playback)
-        {
-            string scriptPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "audiochanger.ps1");
-            string nircmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nircmd.exe");
-            // Check if the script file exists
-            if (!File.Exists(scriptPath))
-            {
-                Console.WriteLine($"Error: PowerShell script not found in the directory: {scriptPath}");
-                return;
-            }
-
-            try
-            {
-                // Build PowerShell arguments
-                string arguments = $"-ExecutionPolicy Bypass -File \"{scriptPath}\" -nircmdPath \"{nircmdPath}\" -deviceName \"{playback}\"";
-
-                // Set up the process to run PowerShell
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = "powershell.exe",
-                    Arguments = arguments,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
-
-                // Start the process
-                using (Process process = Process.Start(psi))
-                {
-                    // Capture the output
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-
-                    process.WaitForExit();
-
-                    // Display the output or errors
-                    if (!string.IsNullOrEmpty(output))
-                    {
-                        Console.WriteLine($"Output: {output}");
-                    }
-
-                    if (!string.IsNullOrEmpty(error))
-                    {
-                        Console.WriteLine($"Error: {error}");
-                    }
-
-                    Console.WriteLine("PowerShell script executed successfully.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error while executing PowerShell script: {ex.Message}");
-            }
-        }
         #region discord automatic need
         // Importing user32.dll functions to interact with window handles
 
@@ -1090,7 +1035,7 @@ namespace gcmloader
                             {
                                 if (handlestate == true)
                                 {
-                                    Changeaudio(enddiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
                                     handlestate = false;
                                 }
                                 else
@@ -1114,7 +1059,7 @@ namespace gcmloader
                             {
                                 if (handlestate == true)
                                 {
-                                    Changeaudio(enddiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
                                     handlestate = false;
                                 }
                                 else
@@ -1140,7 +1085,7 @@ namespace gcmloader
 
                                 if (handlestate == false)
                                 {
-                                    Changeaudio(startdiscord);
+                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{startdiscord}\"");
                                     handlestate = true;
                                 }
                                 else

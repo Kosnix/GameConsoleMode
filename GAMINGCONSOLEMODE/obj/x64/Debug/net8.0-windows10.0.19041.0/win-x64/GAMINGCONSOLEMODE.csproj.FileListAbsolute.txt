@@ -3488,7 +3488,6 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\n
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Microsoft.Windows.System.winmd
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Microsoft.Windows.Widgets.winmd
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.exe
-C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\audiochanger.ps1
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\opensource_apps\audiochanger.ps1
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\deckyloader.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\discord.png
@@ -4055,3 +4054,4 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\n
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\speaker.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\settings\usblogon.png

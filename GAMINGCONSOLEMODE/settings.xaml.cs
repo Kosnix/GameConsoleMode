@@ -83,5 +83,35 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine("Error opening the URL: " + ex.Message);
             }
         }
+
+        private void windowsloginwithoutpassword_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://usblogon.quadsoft.org/de/downloads/USBLogonSetup.exe"; // URL of the installer
+            string tempPath = Path.Combine(Path.GetTempPath(), "USBLogonSetup.exe"); // Save path in temp folder
+
+            try
+            {
+                Console.WriteLine("Downloading USBLogonSetup.exe...");
+
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(url, tempPath);
+                }
+
+                Console.WriteLine("Download complete. Launching installer...");
+
+                // Start the installer
+                Process process = new Process();
+                process.StartInfo.FileName = tempPath;
+                process.StartInfo.UseShellExecute = true; // Ensures it runs with UI
+                process.Start();
+
+                Console.WriteLine("Installer started successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
     }
 }
