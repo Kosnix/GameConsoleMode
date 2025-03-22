@@ -4883,3 +4883,4 @@ C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
+C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\preloadlist.png

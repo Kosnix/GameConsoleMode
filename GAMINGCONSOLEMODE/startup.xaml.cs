@@ -131,7 +131,7 @@ namespace GAMINGCONSOLEMODE
 
         private void updateui()
         {
-            if(updatetimer_once == false)
+            if (updatetimer_once == false)
             {
                 #region discord
                 try
@@ -262,9 +262,10 @@ namespace GAMINGCONSOLEMODE
                     use_joyxoff.IsOn = false;
 
                 }
-            }catch 
+            }
+            catch
             {
-            
+
             }
 
 
@@ -374,9 +375,11 @@ namespace GAMINGCONSOLEMODE
             }
             #endregion gcmwallpaper
             #region StartupVideo
-            try {
+            try
+            {
                 bool usestartupvideo = AppSettings.Load<bool>("usestartupvideo");
-                if (usestartupvideo == true) {
+                if (usestartupvideo == true)
+                {
                     text_install_state_Startup_Video.Text = "ACTIVATED";
                     border_install_state_Startup_Video.Background = new SolidColorBrush(Colors.Green);
                     use_startup_video.IsOn = true;
@@ -393,9 +396,9 @@ namespace GAMINGCONSOLEMODE
                     startupvideo_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\GCM_Startup_Video.webm");
                     AppSettings.Save("startupvideo_path", startupvideo_path);
                 }
-                    textbox_startupvideo_path.Text = startupvideo_path;
+                textbox_startupvideo_path.Text = startupvideo_path;
 
-            if(AppSettings.Load<bool>("usesteamstartupvideo") == true)
+                if (AppSettings.Load<bool>("usesteamstartupvideo") == true)
                 {
                     UseSteamStartupVideo.IsChecked = true;
                     Injectstartupvideo_button.IsEnabled = true;
@@ -406,7 +409,7 @@ namespace GAMINGCONSOLEMODE
                     Injectstartupvideo_button.IsEnabled = false;
                 }
             }
-            catch {}
+            catch { }
 
             #endregion StartupVideo
             #region deckyloader
@@ -448,10 +451,38 @@ namespace GAMINGCONSOLEMODE
             {
             }
             #endregion deckyloader
+            #region preloadlist
+            try
+            {
+                bool usepreloadlist = AppSettings.Load<bool>("usepreloadlist");
+                if (usepreloadlist == true)
+                {
+                    text_install_state_preloadlist.Text = "ACTIVATED";
+                    border_install_state_preloadlist.Background = new SolidColorBrush(Colors.Green);
+                    use_preloadlist.IsOn = true;
+                    string preloadListFilePath = AppSettings.Load<string>("prealoadlistpath");
+                    preloadlist_path.Text = preloadListFilePath;
+                }
+                else
+                {
+                    text_install_state_preloadlist.Text = "DISABLED";
+                    border_install_state_preloadlist.Background = new SolidColorBrush(Colors.Brown);
+                    use_preloadlist.IsOn = false;
+                }
+
+
+            }
+            catch
+            {
+                Console.WriteLine("preloadlist gui error");
+            }
+
+            #endregion preloadlist
         }
-        #endregion update ui
-        #region functions
-        #region csloader
+            #endregion update ui
+
+            #region functions
+            #region csloader
         private void button_uninstall_cssloader_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -1224,6 +1255,92 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion preaudio
+        #region preload
+        private void btn_create_or_open_preloadlist_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the AppData\Roaming folder path
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            // Build the gcmsettings folder path
+            string gcmFolderPath = Path.Combine(appDataPath, "gcmsettings");
+
+            // Ensure the folder exists
+            if (!Directory.Exists(gcmFolderPath))
+            {
+                Directory.CreateDirectory(gcmFolderPath);
+            }
+
+            // Define the full path to the preloadlist.txt file
+            string preloadListFilePath = Path.Combine(gcmFolderPath, "preloadlist.txt");
+
+            // Check if the file exists, create if it doesn't
+            if (!File.Exists(preloadListFilePath))
+            {
+                // Create the file and write an initial line
+                File.WriteAllText(preloadListFilePath, " ");
+                //Initial txt in list path
+                AppSettings.Save("prealoadlistpath", preloadListFilePath);
+                preloadlist_path.Text = preloadListFilePath;
+            }
+
+            // Open the file with the default associated editor
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = preloadListFilePath,
+
+                    UseShellExecute = true
+                });
+
+                AppSettings.Save("prealoadlistpath", preloadListFilePath);
+                preloadlist_path.Text = preloadListFilePath;
+            }
+            catch (Exception ex)
+            {
+                // Optional: show an error message or log it
+                ContentDialog errorDialog = new ContentDialog
+                {
+                    Title = "Error",
+                    Content = $"Could not open the file.\n\n{ex.Message}",
+                    CloseButtonText = "OK",
+                    XamlRoot = this.Content.XamlRoot
+                };
+                _ = errorDialog.ShowAsync();
+            }
+
+           
+        }
+
+        private void preloadlist_path_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void use_preloadlist_Toggled(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (use_preloadlist.IsOn == true)
+                {
+                    AppSettings.Save("usepreloadlist", true);
+                    text_install_state_preloadlist.Text = "ACTIVATED";
+                    border_install_state_preloadlist.Background = new SolidColorBrush(Colors.Green);
+
+                }
+                else
+                {
+                    AppSettings.Save("usepreloadlist", false);
+                    text_install_state_preloadlist.Text = "DISABLED";
+                    border_install_state_preloadlist.Background = new SolidColorBrush(Colors.Brown);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("problem with preloadlist integration");
+            }
+        }
+        #endregion preload
         #endregion functions
     }
 }

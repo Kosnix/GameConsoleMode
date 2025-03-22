@@ -224,7 +224,93 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
+        public void prestartlist()
+        {
+            try
+            {
+                bool prestartlist = AppSettings.Load<bool>("usepreloadlist");
 
+                if (prestartlist == true)
+                {
+                    string prestartlistpath = AppSettings.Load<string>("prealoadlistpath");
+
+                    if (File.Exists(prestartlistpath))
+                    {
+                        string[] lines = File.ReadAllLines(prestartlistpath);
+
+                        foreach (var line in lines)
+                        {
+                            string entry = line.Trim();
+
+                            // Skip empty lines or comments
+                            if (string.IsNullOrWhiteSpace(entry) || entry.StartsWith("#"))
+                                continue;
+
+                            try
+                            {
+                                // Open URLs in default browser
+                                if (entry.StartsWith("http://") || entry.StartsWith("https://"))
+                                {
+                                    Process.Start(new ProcessStartInfo
+                                    {
+                                        FileName = entry,
+                                        UseShellExecute = true
+                                    });
+                                }
+                                // Run executable files
+                                else if (entry.EndsWith(".exe", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    if (File.Exists(entry))
+                                    {
+                                        Process.Start(new ProcessStartInfo
+                                        {
+                                            FileName = entry,
+                                            UseShellExecute = true
+                                        });
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"Executable not found: {entry}");
+                                    }
+                                }
+                                // Open other files (e.g., images, txt, etc.)
+                                else if (File.Exists(entry))
+                                {
+                                    Process.Start(new ProcessStartInfo
+                                    {
+                                        FileName = entry,
+                                        UseShellExecute = true
+                                    });
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"File not found: {entry}");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                // Log error but continue
+                                Console.WriteLine($"Error with entry '{entry}': {ex.Message}");
+                            }
+                        }
+
+                        Console.WriteLine("Finished running preload list.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("prestartlist not found");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("no prestartlist set");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unhandled error in preload list processing: {ex.Message}");
+            }
+        }
         public void preaudio(bool start,bool end)
         {
             try
@@ -930,6 +1016,37 @@ namespace gcmloader
                     if (!string.IsNullOrEmpty(steamPath) && File.Exists(steamPath))
                     {
                         Console.WriteLine("The Steam path is valid.");
+
+                        // Try to load deckyloader setting
+                        bool usedeckyloader = false;
+
+                        try
+                        {
+                            // Try to load the value from settings
+                            usedeckyloader = AppSettings.Load<bool>("usedeckyloader");
+                        }
+                        catch
+                        {
+                            // Key doesn't exist or loading failed → set to false
+                            AppSettings.Save("usedeckyloader", false);
+                            usedeckyloader = false;
+                        }
+
+                        // Now handle logic cleanly
+                        if (usedeckyloader)
+                        {
+                            // deckyloader is enabled
+                            Console.WriteLine("DeckyLoader is enabled");
+                        }
+                        else
+                        {
+                            // deckyloader is disabled or was not set and now defaulted
+                            Console.WriteLine("DeckyLoader is disabled or not set");
+                            //set deckyloader disabled
+                            AppSettings.Save("usedeckyloader", false);
+                        }
+
+
                     }
                     else
                     {
@@ -1119,6 +1236,10 @@ namespace gcmloader
         #region launcher
         static void StartSteam()
         {
+
+            //for deckyloader
+            bool deckyloadertrigger = false;
+
             if (string.IsNullOrWhiteSpace(AppSettings.Load<string>("steamlauncherpath")) || !File.Exists(AppSettings.Load<string>("steamlauncherpath")))
             {
                 Console.WriteLine("Error: SteamPath is empty, invalid, or does not exist.");
@@ -1128,9 +1249,12 @@ namespace gcmloader
 
             KillProcess("steam.exe");
             Console.WriteLine("try start Steam");
+
             // Check if decky Loader is activated
             if (AppSettings.Load<bool>("usedeckyloader") == true)
             {
+
+                deckyloadertrigger = true;
                 //first clear other process with deckyloader
                 //End Decky Loader process if running
                 Process[] deckyLoaderProcesses = Process.GetProcessesByName("PluginLoader_noconsole");
@@ -1143,6 +1267,8 @@ namespace gcmloader
                         Console.WriteLine("Decky Loader process killed successfully.");
                     }
                 }
+                //set the trigger for Deckyloader
+               
 
                 //Start Decky Loader Steam
                 //search and start decky loader no console for steam.
@@ -1209,7 +1335,7 @@ namespace gcmloader
                         //  }
                         //  else
                         //  {
-                        arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro";
+                        arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -nointro";
                         //  }
 
                         Process.Start(new ProcessStartInfo(Path, arguments));
@@ -1229,28 +1355,36 @@ namespace gcmloader
             }
             else
             {
-                // Start Steam normal
-            try
-            {
-                string Path = AppSettings.Load<string>("steamlauncherpath");
-                string arguments;
-                //  if (AppSettings.Load<bool>("usestartupvideo")){
-                // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
-                //  }
-                //  else
-                //  {
-                arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -noinstro";
-                //  }
+          
+            }
 
-                Process.Start(new ProcessStartInfo(Path, arguments));
-                Console.WriteLine("Steam launched");
-            }
-            catch (Exception ex)
+            if (deckyloadertrigger == true) // deckyloader is not triggered
             {
-                Console.WriteLine("Error launching Steam: " + ex.Message);
-                BackToWindows();
-                Console.WriteLine("explorer restored");
             }
+            else if (deckyloadertrigger == false)
+            {
+                // Start Steam normal
+                try
+                {
+                    string Path = AppSettings.Load<string>("steamlauncherpath");
+                    string arguments;
+                    //  if (AppSettings.Load<bool>("usestartupvideo")){
+                    // arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl";
+                    //  }
+                    //  else
+                    //  {
+                    arguments = "-gamepadui -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -overridepackageurl -nointro";
+                    //  }
+
+                    Process.Start(new ProcessStartInfo(Path, arguments));
+                    Console.WriteLine("Steam launched");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error launching Steam: " + ex.Message);
+                    BackToWindows();
+                    Console.WriteLine("explorer restored");
+                }
             }
         }
         static void StartPlaynite()
@@ -1323,6 +1457,7 @@ namespace gcmloader
                     SettingsVerify();
                     StartupVideo.Play();
                     displayfusion("start");
+                    
                     IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     cssloader(); //only check if is installed, than start
                     StartLauncher();
@@ -1334,6 +1469,7 @@ namespace gcmloader
                     ConsoleModeToShell();
                     LoadTaskManagerList();
                     preaudio(true,false);
+                    prestartlist();
                     await Task.Run(() =>
                     {
                         WaitForLauncherToClose();
