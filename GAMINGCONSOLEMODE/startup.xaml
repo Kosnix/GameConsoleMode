@@ -117,9 +117,9 @@ FontSize="14" Foreground="#CCCCCC" TextAlignment="Center" TextWrapping="Wrap" />
                         <StackPanel Grid.Row="1" Padding="20" Spacing="10" HorizontalAlignment="Center">
                             <InfoBar
 IsOpen="True"
-Severity="Informational"
-Title="Better experience"
-Message="The GCM team recommends this function" />
+Severity="Warning"
+Title="Only use in Windows mode"
+Message="Could collide in GCM mode" />
 
                             <!-- Title -->
                             <TextBlock Text="JOYXOFF - MOUSELOADER" FontSize="20" FontWeight="Bold" Foreground="White" TextAlignment="Center" />

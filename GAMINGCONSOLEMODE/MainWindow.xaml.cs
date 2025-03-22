@@ -46,8 +46,6 @@ namespace GAMINGCONSOLEMODE
             _ = UpdateCheck(this);
         }
 
-
-
         #region programm start
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
@@ -258,7 +256,7 @@ namespace GAMINGCONSOLEMODE
         }
         #endregion Update
 
-
-
+        #region filter
+        #endregion filter
     }
 }
