@@ -46,6 +46,9 @@
     <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\logo_gcm.png">
       <PackagePath>Assets\logo_gcm.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\discord.png">
+      <PackagePath>Assets\discord.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>gcmloader.exe</PackagePath>
     </AppxPackagedFile>

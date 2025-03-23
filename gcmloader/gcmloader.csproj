@@ -17,6 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\activation.wav" />
+    <Content Remove="Assets\Discord.png" />
     <Content Remove="Assets\GCM_Startup_Video.webm" />
     <Content Remove="Assets\logo.ico" />
     <Content Remove="Assets\logo_gcm.png" />
@@ -77,6 +78,11 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\discord.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <!--

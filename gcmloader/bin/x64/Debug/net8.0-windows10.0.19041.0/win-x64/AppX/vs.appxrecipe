@@ -29,21 +29,21 @@
     <AppXManifest Include="F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-03-12T22:36:03.198</Modified>
+      <Modified>2025-03-23T10:28:07.422</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-03-12T22:36:02.308</Modified>
+      <Modified>2025-03-23T10:28:06.615</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.runtimeconfig.json">
       <PackagePath>gcmloader.runtimeconfig.json</PackagePath>
-      <Modified>2025-03-12T22:36:01.462</Modified>
+      <Modified>2025-03-22T18:06:09.597</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.dll">
       <PackagePath>gcmloader.dll</PackagePath>
-      <Modified>2025-03-12T22:36:00.714</Modified>
+      <Modified>2025-03-23T10:28:06.007</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\activation.wav">
       <PackagePath>Assets\activation.wav</PackagePath>
@@ -61,9 +61,13 @@
       <PackagePath>Assets\logo_gcm.png</PackagePath>
       <Modified>2025-03-09T14:58:31.866</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\discord.png">
+      <PackagePath>Assets\discord.png</PackagePath>
+      <Modified>2025-03-22T16:13:16.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\apphost.exe">
       <PackagePath>gcmloader.exe</PackagePath>
-      <Modified>2025-03-12T22:36:00.729</Modified>
+      <Modified>2025-03-23T10:28:06.011</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nikos\.nuget\packages\microsoft.web.webview2\1.0.2651.64\runtimes\win-x64\native\WebView2Loader.dll">
       <PackagePath>runtimes\win-x64\native\WebView2Loader.dll</PackagePath>
@@ -2995,7 +2999,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.deps.json">
       <PackagePath>gcmloader.deps.json</PackagePath>
-      <Modified>2025-03-12T22:36:02.888</Modified>
+      <Modified>2025-03-23T10:25:10.804</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\GCM\gcmloader\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>

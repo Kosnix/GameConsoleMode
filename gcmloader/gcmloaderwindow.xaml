@@ -7,28 +7,32 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-
-        <StackPanel
-            x:Name="TaskManagerPanel"
-            Orientation="Horizontal"
-            Background="#1E1E1E"      
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
-            Width="auto"
-            Margin="0"
-            Visibility="Visible"
-            />
-
             <Image
             Source="Assets/logo_gcm.png"
             Width="200"
             Height="200"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Grid.Row="1"
             />
+        <StackPanel
+        x:Name="TaskManagerPanel"
+        Orientation="Horizontal"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Bottom"
+        Width="auto"
+        Margin="0"
+        Visibility="Collapsed"
+        Grid.Row="1"
+        >
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+
+                    <AddDeleteThemeTransition />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
+        </StackPanel>
     </Grid>
 </Window>
