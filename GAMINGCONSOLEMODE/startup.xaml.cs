@@ -338,6 +338,7 @@ namespace GAMINGCONSOLEMODE
                         displayfusion_start.IsEnabled = false;
                         displayfusion_end.IsEnabled = false;
                         use_displayfusion.IsEnabled = false;
+                        AppSettings.Save("usedisplayfusion", false);
                     }
                 }
             }
@@ -468,6 +469,8 @@ namespace GAMINGCONSOLEMODE
                     text_install_state_preloadlist.Text = "DISABLED";
                     border_install_state_preloadlist.Background = new SolidColorBrush(Colors.Brown);
                     use_preloadlist.IsOn = false;
+
+                    AppSettings.Save("usepreloadlist", false);
                 }
 
 
