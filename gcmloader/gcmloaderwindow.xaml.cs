@@ -1108,6 +1108,12 @@ namespace gcmloader
 
             }
         }
+        public void deckyloader()
+        { 
+        
+        
+        
+        }
         #region discord 
         #region discord automatic need
         // Importing user32.dll functions to interact with window handles
@@ -1294,10 +1300,32 @@ namespace gcmloader
                     };
                     process.Start();
 
-                    // Wait for 3 seconds before continuing
-                    Task.Delay(3000);
+                    // Wait until the process is running and not exited
+                    while (true)
+                    {
+                        process.Refresh(); // Update the process info
 
-                    Console.WriteLine("Continuing after 3 seconds...");
+                        if (process.HasExited)
+                        {
+                            Console.WriteLine("PluginLoader exited unexpectedly.");
+                            break;
+                        }
+
+                        try
+                        {
+                            // Check if the process has a valid start time (indicates it has initialized)
+                            var _ = process.StartTime;
+                            break;
+                        }
+                        catch
+                        {
+                            // StartTime not yet available, wait and try again
+                        }
+
+                        Thread.Sleep(1000); // Wait a bit before checking again
+                    }
+
+                    Console.WriteLine("PluginLoader is running. Continuing...");
 
                     try
                     {
@@ -1320,7 +1348,6 @@ namespace gcmloader
                         BackToWindows();
                         Console.WriteLine("explorer restored");
                     }
-
                 }
                 else
                 {
