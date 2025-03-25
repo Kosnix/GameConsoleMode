@@ -40,6 +40,7 @@ using System.Media;
 using WinRT.Interop;
 using System.Windows.Input;
 using Microsoft.UI.Xaml.Input;
+using System.Windows.Threading;
 
 
 namespace gcmloader
@@ -48,6 +49,570 @@ namespace gcmloader
     public sealed partial class MainWindow : Window
     {
         #region needed
+        #region taskmanager
+        /// <summary>
+        /// If the old selected window still exists in the new slice, restore _selectedTileIndex and SubFocus.
+        /// </summary>
+        private void RestoreSelection(WindowItem oldItem, int oldSubFocus)
+        {
+            // If we had no old item, nothing to do
+            if (oldItem == null) return;
+
+            // Search the newly-built _tiles for the same window (by Hwnd, for example)
+            for (int i = 0; i < _tiles.Count; i++)
+            {
+                if (_tiles[i].Item != null && _tiles[i].Item.Hwnd == oldItem.Hwnd)
+                {
+                    _selectedTileIndex = i;
+                    _tiles[i].SubFocus = oldSubFocus;
+                    UpdateTileSelectionUI();
+                    return; // done
+                }
+            }
+
+            // If we get here, the old item wasn't found in the new slice => 
+            // leave the selection as it is (which might default to tile 0).
+        }
+
+        // Current offset for which window in _windowList is shown in tile index 0
+        private int _offset = 0;
+
+      
+
+  
+
+        private class TileControls
+        {
+            public Border TileBorder { get; set; }      // The outer border
+            public Button ShowButton { get; set; }      // The "Show" button
+            public Button CloseButton { get; set; }     // The "Close" button
+
+            // We could also store the WindowItem or any data if needed
+            public WindowItem Item { get; set; }
+
+            // Current sub-focus (0 = tile, 1 = show btn, 2 = close btn)
+            public int SubFocus { get; set; } = 0;
+        }
+
+        private void UpdateTileSelectionUI()
+        {
+            for (int i = 0; i < _tiles.Count; i++)
+            {
+                var tileC = _tiles[i];
+
+                // normal border color
+                var normalBorderBrush = new SolidColorBrush(ConvertColor("#2A475E"));
+                var highlightBorderBrush = new SolidColorBrush(ConvertColor("#66C0F4"));
+
+                // normal button opacity
+                double normalBtnOpacity = 0.5;
+                double highlightBtnOpacity = 1.0;
+
+                if (i == _selectedTileIndex)
+                {
+                    // The selected tile
+                    if (tileC.SubFocus == 0)
+                    {
+                        // Highlight tile border in #66C0F4, thicker
+                        tileC.TileBorder.BorderBrush = highlightBorderBrush;
+                        tileC.TileBorder.BorderThickness = new Thickness(4);
+
+                        // Buttons partially dim
+                        if (tileC.ShowButton != null) tileC.ShowButton.Opacity = 0.7;
+                        if (tileC.CloseButton != null) tileC.CloseButton.Opacity = 0.7;
+                    }
+                    else if (tileC.SubFocus == 1)
+                    {
+                        // Normal tile border
+                        tileC.TileBorder.BorderBrush = normalBorderBrush;
+                        tileC.TileBorder.BorderThickness = new Thickness(2);
+
+                        // Show button fully highlighted
+                        if (tileC.ShowButton != null) tileC.ShowButton.Opacity = highlightBtnOpacity;
+                        if (tileC.CloseButton != null) tileC.CloseButton.Opacity = normalBtnOpacity;
+                    }
+                    else if (tileC.SubFocus == 2)
+                    {
+                        // Normal tile border
+                        tileC.TileBorder.BorderBrush = normalBorderBrush;
+                        tileC.TileBorder.BorderThickness = new Thickness(2);
+
+                        // Close button fully highlighted
+                        if (tileC.ShowButton != null) tileC.ShowButton.Opacity = normalBtnOpacity;
+                        if (tileC.CloseButton != null) tileC.CloseButton.Opacity = highlightBtnOpacity;
+                    }
+                }
+                else
+                {
+                    // Non-selected tile
+                    tileC.TileBorder.BorderBrush = normalBorderBrush;
+                    tileC.TileBorder.BorderThickness = new Thickness(2);
+
+                    // Dim both buttons
+                    if (tileC.ShowButton != null) tileC.ShowButton.Opacity = normalBtnOpacity;
+                    if (tileC.CloseButton != null) tileC.CloseButton.Opacity = normalBtnOpacity;
+                }
+            }
+        }
+
+
+        // Full list of open windows
+        private List<WindowItem> _windowList = new List<WindowItem>();
+        // We'll keep a list of 5 TileControls
+        private List<TileControls> _tiles = new List<TileControls>();
+
+        private void RefreshTiles()
+        {
+            // 1) Update our window list
+            _windowList = GetAllOpenWindows(); // or re-use a previously stored list
+
+            // 2) Get the 5-window slice for display
+            var slice = _windowList.Skip(_offset).Take(5).ToList();
+
+            // We'll re-create the _tiles list each time
+            _tiles.Clear();
+
+            // Collect the 5 border controls (Tile1..Tile5 already defined in XAML)
+            var tileBorders = new List<Border> { Tile1, Tile2, Tile3, Tile4, Tile5 };
+
+            for (int i = 0; i < 5; i++)
+            {
+                // Create a new TileControls for this slot
+                var tileC = new TileControls
+                {
+                    TileBorder = tileBorders[i],
+                    SubFocus = 0 // default to focusing the tile area
+                };
+
+                // Clear old child
+                tileBorders[i].Child = null;
+
+                if (i < slice.Count)
+                {
+                    // There's a window for this tile
+                    var item = slice[i];
+                    tileC.Item = item;
+
+                    // NEW PART: use our modern method to build the tile content
+                    // and set tileBorders[i].Child to that UI
+                    tileBorders[i].Child = CreateTileContent(item, tileC);
+                }
+
+                _tiles.Add(tileC);
+            }
+
+            // Ensure the selectedTileIndex is valid
+            if (_selectedTileIndex >= slice.Count)
+                _selectedTileIndex = slice.Count - 1;
+            if (_selectedTileIndex < 0)
+                _selectedTileIndex = 0;
+
+            UpdateTileSelectionUI();
+        }
+
+        private UIElement CreateTileContent(WindowItem item, TileControls tileC)
+        {
+            // Main vertical stack: Title on top, "Show" below, "Close" below that
+            var stack = new StackPanel
+            {
+                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Vertical,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Spacing = 10
+            };
+
+            // Title in steam-like color
+            var titleText = new TextBlock
+            {
+                Text = item.DisplayName,
+                FontSize = 20,
+                FontWeight = Microsoft.UI.Text.FontWeights.Bold,
+                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")), // steam text color
+                TextWrapping = TextWrapping.Wrap,
+                TextAlignment = TextAlignment.Center
+            };
+
+            // "Show" button
+            var showBtn = new Button
+            {
+                Content = "Show",
+                Width = 200,
+                Height = 40,
+                FontSize = 16,
+                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")), // text color
+                Background = new SolidColorBrush(ConvertColor("#2A475E")), // steam-ish button bg
+                BorderBrush = new SolidColorBrush(ConvertColor("#66C0F4")), // we can do a subtle accent
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(5),
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            showBtn.Click += (s, e) =>
+            {
+                ShowWindow(item.Hwnd, SW_RESTORE);
+                SetForegroundWindow(item.Hwnd);
+            };
+
+            // "Close" button, lower
+            var closeBtn = new Button
+            {
+                Content = "Close",
+                Width = 200,
+                Height = 40,
+                FontSize = 16,
+                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")),
+                Background = new SolidColorBrush(ConvertColor("#A02A2A")), // darker red, slightly matching theme
+                BorderBrush = new SolidColorBrush(ConvertColor("#66C0F4")),
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(5),
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            closeBtn.Click += (s, e) =>
+            {
+                try
+                {
+                    item.Proc.CloseMainWindow();
+                    // or item.Proc.Kill();
+                    RefreshTiles();
+                }
+                catch { }
+            };
+
+            // Store references for subFocus highlighting
+            tileC.ShowButton = showBtn;
+            tileC.CloseButton = closeBtn;
+
+            // Add everything to the vertical stack
+            stack.Children.Add(titleText);
+            stack.Children.Add(showBtn);
+            stack.Children.Add(closeBtn);
+
+            return stack;
+        }
+
+        private Windows.UI.Color ConvertColor(string hex)
+        {
+            // Expected format: #RRGGBB or #AARRGGBB
+            hex = hex.Replace("#", "");
+            byte a = 255; // default alpha
+            byte r = 0;
+            byte g = 0;
+            byte b = 0;
+
+            if (hex.Length == 8)
+            {
+                // AARRGGBB
+                a = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                r = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                g = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+                b = byte.Parse(hex.Substring(6, 2), System.Globalization.NumberStyles.HexNumber);
+            }
+            else if (hex.Length == 6)
+            {
+                // RRGGBB
+                r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+            }
+
+            return Windows.UI.Color.FromArgb(a, r, g, b);
+        }
+
+
+
+        private static string GetWindowTitle(IntPtr hWnd)
+        {
+            int length = GetWindowTextLength(hWnd);
+            if (length == 0)
+                return string.Empty;
+
+            var sb = new StringBuilder(length + 1);
+            GetWindowText(hWnd, sb, sb.Capacity);
+            return sb.ToString();
+        }
+
+
+        private List<WindowItem> GetAllOpenWindows()
+        {
+            var results = new List<WindowItem>();
+
+            // We'll use EnumWindows to capture everything that might be a top-level window.
+            EnumWindows((hWnd, lParam) =>
+            {
+                // Optional: skip if the window is not "visible" to the OS
+                // (Minimized windows are still "visible" in many cases, so they won't be skipped here.)
+                if (!IsWindowVisible(hWnd))
+                    return true; // continue enumeration
+
+                // If there's no text, probably not a real user-facing window
+                string title = GetWindowTitle(hWnd);
+                if (string.IsNullOrWhiteSpace(title))
+                    return true;
+
+                // Retrieve process ID from window handle
+                GetWindowThreadProcessId(hWnd, out uint pid);
+
+                // Skip if invalid or zero
+                if (pid == 0)
+                    return true;
+
+                // Skip our own process
+                if (pid == (uint)Process.GetCurrentProcess().Id)
+                    return true;
+
+                // Attempt to grab the process
+                Process proc;
+                try
+                {
+                    proc = Process.GetProcessById((int)pid);
+                }
+                catch
+                {
+                    return true;
+                }
+
+                // If the process's MainWindowHandle is zero, skip
+                // (This often indicates no normal main window, or it's a child window.)
+                if (proc.MainWindowHandle == IntPtr.Zero)
+                    return true;
+
+                // Build a nicer "displayName" from product name or process name
+                string displayName = null;
+                try
+                {
+                    displayName = proc.MainModule?.FileVersionInfo?.ProductName;
+                }
+                catch
+                {
+                    // ignore
+                }
+                if (string.IsNullOrWhiteSpace(displayName))
+                    displayName = proc.ProcessName;
+
+                // We store both the real window title + the displayName so you can choose how to show it
+                results.Add(new WindowItem
+                {
+                    Hwnd = hWnd,
+                    Proc = proc,
+                    DisplayName = displayName,
+                    WindowTitle = title // might be handy to also store
+                });
+
+                return true; // continue enumeration
+            }, IntPtr.Zero);
+
+            return results;
+        }
+
+
+
+        private class WindowItem
+        {
+            public IntPtr Hwnd { get; set; }
+            public Process Proc { get; set; }
+            public string DisplayName { get; set; }
+            public string WindowTitle { get; set; } // optional
+        }
+
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        [DllImport("user32.dll")]
+        private static extern int GetWindowTextLength(IntPtr hWnd);
+
+
+        [DllImport("user32.dll")]
+        private static extern bool EnumWindows(EnumWindowsProc lpEnumFunc, IntPtr lParam);
+
+        private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        private static extern bool IsWindowVisible(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        private const int SW_RESTORE = 9;
+
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+
+
+        #endregion taskmanager
+        #region taskmanager controll
+        // Index of which tile is currently selected (0..4)
+        private int _selectedTileIndex = 0;
+
+        // We'll populate this after InitializeComponent
+        private List<Border> _tileList;
+
+        private void MainWindow_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case VirtualKey.Left:
+                    HandleLeftArrow();
+                    break;
+
+                case VirtualKey.Right:
+                    HandleRightArrow();
+                    break;
+
+                case VirtualKey.Up:
+                    {
+                        var tile = _tiles[_selectedTileIndex];
+                        tile.SubFocus++;
+                        if (tile.SubFocus > 2) tile.SubFocus = 2;
+                        UpdateTileSelectionUI();
+                    }
+                    break;
+
+                case VirtualKey.Down:
+                    {
+                        var tile = _tiles[_selectedTileIndex];
+                        tile.SubFocus--;
+                        if (tile.SubFocus < 0) tile.SubFocus = 0;
+                        UpdateTileSelectionUI();
+                    }
+                    break;
+
+                case VirtualKey.Enter:
+                    OnEnterPressed();
+                    break;
+            }
+        }
+
+        private void HandleLeftArrow()
+        {
+            // If we're not at tile 0, just move left
+            if (_selectedTileIndex > 0)
+            {
+                _selectedTileIndex--;
+                _tiles[_selectedTileIndex].SubFocus = 0;
+                UpdateTileSelectionUI();
+            }
+            else
+            {
+                // We ARE at tile 0. Let's see if we can scroll the offset left:
+                if (_offset > 0)
+                {
+                    // Move offset one left
+                    _offset--;
+                    // Keep selectedTileIndex at 0 so we remain on the left tile
+                    RefreshTiles();
+                    // SubFocus resets to 0 or keep it? Let's keep it 0 for now:
+                    _tiles[_selectedTileIndex].SubFocus = 0;
+                    UpdateTileSelectionUI();
+                }
+                else
+                {
+                    // offset=0 => there's no more to the left
+                    // Possibly wrap or do nothing
+                }
+            }
+        }
+
+        private void HandleRightArrow()
+        {
+            // How many windows are in the big list?
+            int totalWindows = _windowList.Count;
+            // The last index in that big list is totalWindows-1
+
+            // First see how many are in the current slice
+            int sliceCount = _windowList.Skip(_offset).Take(5).Count();
+
+            if (_selectedTileIndex < sliceCount - 1 && _selectedTileIndex < 4)
+            {
+                // Move within the 5 displayed tiles if there's room to the right
+                _selectedTileIndex++;
+                _tiles[_selectedTileIndex].SubFocus = 0;
+                UpdateTileSelectionUI();
+            }
+            else
+            {
+                // We are at the far-right displayed tile
+                // Check if there's more windows beyond offset+4
+                if ((_offset + 5) < totalWindows)
+                {
+                    // Shift offset one to the right
+                    _offset++;
+                    // We'll remain on tile 4 (the rightmost tile),
+                    // but it will now represent the *next* window
+                    RefreshTiles();
+                    _tiles[_selectedTileIndex].SubFocus = 0;
+                    UpdateTileSelectionUI();
+                }
+                else
+                {
+                    // There's no more windows to the right
+                    // Possibly wrap or do nothing
+                }
+            }
+        }
+
+
+        private void OnEnterPressed()
+        {
+            if (_selectedTileIndex < 0 || _selectedTileIndex >= _tiles.Count) return;
+
+            var tileC = _tiles[_selectedTileIndex];
+            if (tileC.Item == null) return;
+
+            switch (tileC.SubFocus)
+            {
+                case 0:
+                    // tile area
+                    ShowWindow(tileC.Item.Hwnd, SW_RESTORE);
+                    SetForegroundWindow(tileC.Item.Hwnd);
+                    break;
+                case 1:
+                    // show button
+                    ShowWindow(tileC.Item.Hwnd, SW_RESTORE);
+                    SetForegroundWindow(tileC.Item.Hwnd);
+                    break;
+                case 2:
+                    // close button
+                    try
+                    {
+                        tileC.Item.Proc.CloseMainWindow();
+                        RefreshTiles();
+                    }
+                    catch { }
+                    break;
+            }
+        }
+
+
+
+        private List<WindowItem> _currentWindowItems = new List<WindowItem>();
+
+        private void OnTileEnterPressed(int index)
+        {
+            // Check if there's even a WindowItem for that tile
+            if (index >= 0 && index < _currentWindowItems.Count)
+            {
+                var item = _currentWindowItems[index];
+                if (item != null)
+                {
+                    // For instance, bring the window to foreground:
+                    ShowWindow(item.Hwnd, SW_RESTORE);
+                    SetForegroundWindow(item.Hwnd);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No window data for this tile index.");
+            }
+        }
+
+        #endregion taskmanager controll
+
+
 
         private const int GWL_STYLE = -16;
         private const int GWL_EXSTYLE = -20;
@@ -74,41 +639,7 @@ namespace gcmloader
         [DllImport("user32.dll")]
         private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-        #region TaskManager
-
-        [DllImport("user32.dll")]
-        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        [DllImport("user32.dll")]
-        private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
-        private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
-
-        [DllImport("user32.dll")]
-        private static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        [DllImport("user32.dll")]
-        private static extern bool IsWindowVisible(IntPtr hWnd);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll")]
-        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        private const int SW_RESTORE = 9;
-
-        [DllImport("user32.dll")]
-        private static extern bool AllowSetForegroundWindow(int dwProcessId);
-
-        [DllImport("user32.dll")]
-        private static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
-
-        [DllImport("kernel32.dll")]
-        private static extern uint GetCurrentThreadId();
-
-        #endregion TaskManager
+   
 
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
@@ -122,55 +653,81 @@ namespace gcmloader
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
+
+            // Make sure we can receive key input
+            this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
+
+            // Suppose you already define the 5 tile borders: _tileList
+            _tileList = new List<Border> { Tile1, Tile2, Tile3, Tile4, Tile5 };
+
+            // Attach KeyDown
             this.Content.KeyDown += MainWindow_KeyDown;
+
+            // Set up a timer that runs every 5 seconds
+            var dispatcherTimer = new Microsoft.UI.Xaml.DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(5)
+            };
+
+            dispatcherTimer.Tick += (s, e) =>
+            {
+                // 1) Capture current tile selection (which item & subFocus is selected)
+                TileControls oldTile = null;
+                if (_selectedTileIndex >= 0 && _selectedTileIndex < _tiles.Count)
+                {
+                    oldTile = _tiles[_selectedTileIndex];
+                }
+                WindowItem oldItem = oldTile?.Item;
+                int oldSubFocus = oldTile?.SubFocus ?? 0;
+
+                // 2) Refresh the tiles
+                RefreshTiles();
+
+                // 3) Attempt to restore the same selection if that window still exists
+                RestoreSelection(oldItem, oldSubFocus);
+            };
+
+            // Start the timer
+            dispatcherTimer.Start();
+
+            // Initial population of the tiles
+            RefreshTiles();
+
+
             Start();
             //ASYNC PROZES
-            ShowTaskManager(); //after 10 seconds
             StartAsynctasks();
         }
 
 
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
-            // Get the window handle
-            var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            try
+            {
+                // Get the current window handle and AppWindow
+                var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+                var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
+                var appWindow = AppWindow.GetFromWindowId(windowId);
 
-            // Remove window borders and set to popup style
-            IntPtr style = GetWindowLongPtr(hwnd, GWL_STYLE);
-            style = (IntPtr)((long)style & ~WS_OVERLAPPEDWINDOW | WS_POPUP);
-            SetWindowLongPtr(hwnd, GWL_STYLE, style);
+                if (appWindow != null)
+                {
+                    // Set fullscreen via WinUI 3 API
+                    appWindow.SetPresenter(AppWindowPresenterKind.FullScreen);
+                }
 
-            // Get screen dimensions
-            int screenWidth = GetScreenWidth();
-            int screenHeight = GetScreenHeight();
+                // Optional: set wallpaper as background
+                // This uses window bounds, no need to get screen resolution manually
+                var displayArea = DisplayArea.GetFromWindowId(windowId, DisplayAreaFallback.Primary);
+                int width = displayArea.WorkArea.Width;
+                int height = displayArea.WorkArea.Height;
 
-            // Set the window size to fullscreen
-            SetWindowPos(hwnd, IntPtr.Zero, 0, 0, screenWidth, screenHeight, SWP_NOZORDER | SWP_SHOWWINDOW);
+                SetBackgroundImage(width, height); // your existing method for wallpaper
 
-            // Set the wallpaper as the background
-            SetBackgroundImage(screenWidth, screenHeight);
-        }
-
-
-        private bool IsWindowInForeground()
-        {
-            IntPtr hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            return GetForegroundWindow() == hWnd;
-        }
-
-        private int GetScreenWidth()
-        {
-            IntPtr hdc = GetDC(IntPtr.Zero);
-            int width = GetDeviceCaps(hdc, HORZRES);
-            ReleaseDC(IntPtr.Zero, hdc);
-            return width;
-        }
-        private int GetScreenHeight()
-        {
-            IntPtr hdc = GetDC(IntPtr.Zero);
-            int height = GetDeviceCaps(hdc, VERTRES);
-            ReleaseDC(IntPtr.Zero, hdc);
-            return height;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error setting fullscreen: {ex.Message}");
+            }
         }
 
         private DiscordSocketClient _client;
@@ -224,6 +781,13 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
+
+        #region taskmanager
+     
+
+        #endregion taskmanager
+
+
         public void prestartlist()
         {
             try
@@ -446,62 +1010,39 @@ namespace gcmloader
             try
             {
                 bool gcmwallpaper = AppSettings.Load<bool>("gcmwallpaper");
-                if (gcmwallpaper == true)
+                if (!gcmwallpaper) return;
+
+                string imagePath = Settwallpaper();
+                if (!File.Exists(imagePath)) return;
+
+                var backgroundImage = new Microsoft.UI.Xaml.Controls.Image
                 {
-                    // Create an Image control
-                    Microsoft.UI.Xaml.Controls.Image backgroundImage = new Microsoft.UI.Xaml.Controls.Image();
+                    Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute)),
+                    Stretch = Stretch.UniformToFill, // DPI-aware scaling
+                    HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Stretch
+                };
 
-                    string getwallpaper = Settwallpaper();
-                    // Absolute path of the background image
-                    string imagePath = getwallpaper;
-
-                    // Ensure the path is valid
-                    if (System.IO.File.Exists(imagePath))
-                    {
-
-                        // Set the image source
-                        backgroundImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
-                        backgroundImage.Stretch = Stretch.UniformToFill;
-
-                        // Set the size of the image to match the window size
-                        backgroundImage.Width = width;
-                        backgroundImage.Height = height;
-
-                        // Add the background image to the main content
-                        if (this.Content is Grid mainGrid)
-                        {
-                            mainGrid.Children.Insert(0, backgroundImage); // Add background to the first layer
-                        }
-                        else
-                        {
-                            // Use a new Grid as a container
-                            Grid grid = new Grid();
-                            grid.Children.Add(backgroundImage); // Add background image
-                            if (this.Content != null)
-                                grid.Children.Add((UIElement)this.Content); // Add the existing content
-                            this.Content = grid;
-                        }
-                    }
-                    else
-                    {
-                        // Log an error if the path is invalid
-                        System.Diagnostics.Debug.WriteLine($"Image path not found: {imagePath}");
-                    }
-
+                if (this.Content is Grid mainGrid)
+                {
+                    mainGrid.Children.Insert(0, backgroundImage);
                 }
                 else
                 {
-                    return;
+                    Grid grid = new Grid();
+                    grid.Children.Add(backgroundImage);
+                    if (this.Content != null)
+                        grid.Children.Add((UIElement)this.Content);
+
+                    this.Content = grid;
                 }
             }
             catch
             {
-                Console.WriteLine("wallpaper gui error");
-
+                Console.WriteLine("Wallpaper GUI error");
             }
-
-
         }
+
         private string Settwallpaper()
         {
             try
@@ -1121,8 +1662,6 @@ namespace gcmloader
         [DllImport("user32.dll")]
         private static extern bool IsIconic(IntPtr hWnd); // Checks if a window is minimized
 
-        [DllImport("user32.dll")]
-        private static extern int GetWindowText(IntPtr hWnd, System.Text.StringBuilder text, int count);
         #endregion discord automatic need
         private static async Task MonitorDiscordProcessAndWindow()
         {
@@ -1488,13 +2027,7 @@ namespace gcmloader
                     IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     cssloader(); //only check if is installed, than start
                     StartLauncher();
-                    SetupGamepad();
-                    // TaskManager //
-                    LoadTaskManagerList();
-                    InitializeTaskManagerRefresh();
-                    ///////////////
                     ConsoleModeToShell();
-                    LoadTaskManagerList();
                     preaudio(true,false);
                     prestartlist();
                     await Task.Run(() =>
@@ -1514,506 +2047,7 @@ namespace gcmloader
             }
         }
         #endregion start
-        #region TaskManager
-
-        public bool TaskManagerVisibility;
-
-        // Internal class to represent an application row
-        private class ProgramRow
-        {
-            public StackPanel RowPanel;   // the horizontal "row"
-            public TextBlock NameText;    // the name of the application
-            public Button FocusButton;    // Focus button
-            public Button KillButton;     // Kill button
-
-            public IntPtr Hwnd;           // window handle
-            public Process Proc;          // corresponding Process
-        }
-
-        // Index for 2D navigation: _selectedRow (row) and _selectedCol (column)
-        private int _selectedRow = 0;     // current row index
-        private int _selectedCol = 0;     // 0 = Focus, 1 = Kill
-        private DateTime _lastInputTime = DateTime.Now;
-
-        // Stores whether the window is currently in the foreground
-        private bool _isForeground = false;
-
-        // Timer to refresh the list every second
-        private DispatcherTimer _refreshTimer;
-
-        private List<ProgramRow> _rows = new List<ProgramRow>();
-
-        // AppWindow, for detecting minimized / non-minimized
-        private AppWindow _appWindow;
-
-        // ====================================================================
-        // Initializes the window and the refresh timer
-        // ====================================================================
-        private void InitializeTaskManagerRefresh()
-        {
-            // 1) Retrieve the AppWindow
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
-            var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
-            _appWindow = AppWindow.GetFromWindowId(windowId);
-
-            if (_appWindow != null)
-            {
-                _appWindow.Changed += OnAppWindowChanged;
-            }
-
-            // 2) One-second timer for refresh
-            _refreshTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
-            _refreshTimer.Tick += (s, e) =>
-            {
-                if (IsWindowInForeground())
-                {
-                    LoadTaskManagerList();
-                }
-            };
-            _refreshTimer.Start();
-        }
-
-        private void OnAppWindowChanged(AppWindow sender, AppWindowChangedEventArgs args)
-        {
-            try
-            {
-                if (sender.Presenter is OverlappedPresenter p)
-                {
-                    IntPtr foregroundWindow = GetForegroundWindow();
-                    IntPtr appWindowHandle = WinRT.Interop.WindowNative.GetWindowHandle(sender);
-
-                    _isForeground = (foregroundWindow == appWindowHandle);
-                }
-            }
-            catch { }
-
-        }
-
-        private void ShowTaskManager()
-        {
-            // Creates a timer for 10 seconds
-            var hideTimer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(10)
-            };
-            hideTimer.Tick += (s, e) =>
-            {
-                // Stops the timer and shows the StackPanel
-                hideTimer.Stop();
-                TaskManagerPanel.Visibility = Visibility.Visible;
-            };
-            hideTimer.Start();
-        }
-
-        // ====================================================================
-        // Loads the list of applications
-        // ====================================================================
-        private void LoadTaskManagerList()
-        {
-            if (TaskManagerPanel == null) return;
-
-            TaskManagerPanel.Children.Clear();
-            _rows.Clear();
-
-            // Enumerates windows (P/Invoke already declared elsewhere)
-            EnumWindows((hWnd, lParam) =>
-            {
-                if (IsWindowVisible(hWnd))
-                {
-                    // Retrieve the process
-                    uint pid;
-                    GetWindowThreadProcessId(hWnd, out pid);
-
-                    Process p;
-                    try
-                    {
-                        p = Process.GetProcessById((int)pid);
-                    }
-                    catch
-                    {
-                        return true;
-                    }
-
-                    // Ignore if it's GCMLoader
-                    if (pid == (uint)Process.GetCurrentProcess().Id)
-                        return true;
-
-                    // Program name
-                    string productName;
-                    try
-                    {
-                        productName = p.MainModule?.FileVersionInfo?.ProductName;
-                    }
-                    catch
-                    {
-                        productName = null;
-                    }
-                    if (string.IsNullOrWhiteSpace(productName))
-                        productName = p.ProcessName;
-
-                    // Exclusions
-                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
-                        || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                    if (productName?.Contains("Steam Client WebHelper", StringComparison.OrdinalIgnoreCase) == true)
-                    {
-                        productName = "Steam";
-                    }
-
-                    // Builds the row
-                    var row = CreateProgramRow(productName, p, hWnd);
-                    TaskManagerPanel.Children.Add(row.RowPanel);
-
-                    _rows.Add(row);
-                }
-                return true;
-            }, IntPtr.Zero);
-
-            if (_rows.Count > 0)
-            {
-                if (_selectedRow >= _rows.Count)
-                    _selectedRow = _rows.Count - 1;
-                if (_selectedCol > 1)
-                    _selectedCol = 0;
-
-                UpdateRowSelection();
-            }
-        }
-
-        private ProgramRow CreateProgramRow(string programName, Process proc, IntPtr hwnd)
-        {
-            double fontSize = 24;
-            int buttonWidth = 120;
-            int rowHeight = 80;
-            var margin = new Thickness(0);
-            var buttonmargin = new Thickness(10);
-
-            // Creation of the row
-            var rowPanel = new StackPanel
-            {
-                Orientation = Microsoft.UI.Xaml.Controls.Orientation.Horizontal,
-                Margin = margin,
-                Height = rowHeight
-            };
-
-            var nameText = new TextBlock
-            {
-                Text = programName,
-                FontSize = fontSize,
-                Width = 400,
-                Margin = new Thickness(20, 0, 20, 0),
-                VerticalAlignment = VerticalAlignment.Center
-            };
-
-            // Base color (very dark) + white text
-            var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
-            var baseText = new SolidColorBrush(Colors.White);
-
-            // Color when selected = lighter gray + black text
-            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
-            var highlightText = new SolidColorBrush(Colors.Black);
-
-            var focusButton = new Button
-            {
-                Content = "Show",
-                FontSize = fontSize,
-                Width = buttonWidth,
-                Margin = buttonmargin,
-                Background = baseGrey,
-                Foreground = baseText,
-                Visibility = Visibility.Collapsed
-            };
-            focusButton.Click += (s, e) => SetForegroundWindow(hwnd);
-
-            var killButton = new Button
-            {
-                Content = "Close",
-                FontSize = fontSize,
-                Width = buttonWidth,
-                Margin = margin,
-                Background = baseGrey,
-                Foreground = baseText,
-                Visibility = Visibility.Collapsed
-            };
-            killButton.Click += (s, e) =>
-            {
-                try { proc.Kill(); } catch { }
-                LoadTaskManagerList();
-            };
-
-            rowPanel.Children.Add(nameText);
-            rowPanel.Children.Add(focusButton);
-            rowPanel.Children.Add(killButton);
-
-            return new ProgramRow
-            {
-                RowPanel = rowPanel,
-                NameText = nameText,
-                FocusButton = focusButton,
-                KillButton = killButton,
-                Hwnd = hwnd,
-                Proc = proc
-            };
-        }
-
-        private void UpdateRowSelection()
-        {
-            // Base color (very dark) + white text
-            var baseGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
-            var baseText = new SolidColorBrush(Colors.White);
-
-            // Color when selected = lighter gray + black text
-            var highlightGrey = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 210, 210, 210));
-            var highlightText = new SolidColorBrush(Colors.Black);
-
-            for (int i = 0; i < _rows.Count; i++)
-            {
-                var row = _rows[i];
-                if (i == _selectedRow)
-                {
-                    // Apply a lighter background if you wish to color the entire selected row
-                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 50, 50, 50));
-
-                    // Show the buttons
-                    row.FocusButton.Visibility = Visibility.Visible;
-                    row.KillButton.Visibility = Visibility.Visible;
-
-                    // Standard color (very dark gray + white text)
-                    row.FocusButton.Background = baseGrey;
-                    row.FocusButton.Foreground = baseText;
-                    row.KillButton.Background = baseGrey;
-                    row.KillButton.Foreground = baseText;
-
-                    // Highlight the selected button (Focus or Kill)
-                    if (_selectedCol == 0)
-                    {
-                        row.FocusButton.Background = highlightGrey;
-                        row.FocusButton.Foreground = highlightText;
-                    }
-                    else
-                    {
-                        row.KillButton.Background = highlightGrey;
-                        row.KillButton.Foreground = highlightText;
-                    }
-                }
-                else
-                {
-                    // Non-selected row:
-                    row.RowPanel.Background = new SolidColorBrush(global::Windows.UI.Color.FromArgb(255, 30, 30, 30));
-
-                    // Hide the buttons
-                    row.FocusButton.Visibility = Visibility.Collapsed;
-                    row.KillButton.Visibility = Visibility.Collapsed;
-
-                    // Revert to the base color (dark gray + white text)
-                    row.FocusButton.Background = baseGrey;
-                    row.FocusButton.Foreground = baseText;
-                    row.KillButton.Background = baseGrey;
-                    row.KillButton.Foreground = baseText;
-                }
-            }
-        }
-
-        private void MoveRow(int delta)
-        {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayNavigationSound();
-                if (_rows.Count == 0) return;
-
-                _selectedRow += delta;
-                if (_selectedRow < 0)
-                    _selectedRow = _rows.Count - 1;
-                else if (_selectedRow >= _rows.Count)
-                    _selectedRow = 0;
-
-                UpdateRowSelection();
-            }
-        }
-
-        private void MoveCol(int delta)
-        {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayNavigationSound();
-                _selectedCol += delta;
-                if (_selectedCol < 0) _selectedCol = 1;
-                else if (_selectedCol > 1) _selectedCol = 0;
-
-                UpdateRowSelection();
-            }
-        }
-
-
-        private void ExecuteSelectedAction()
-        {
-            if (IsWindowInForeground()) // Checks if the window is in the foreground
-            {
-                PlayActivationSound();
-                if (_selectedRow < 0 || _selectedRow >= _rows.Count) return;
-
-                var row = _rows[_selectedRow];
-                if (_selectedCol == 0)
-                {
-                    // Focus
-                    ShowWindow(row.Hwnd, SW_RESTORE);
-                    SetForegroundWindow(row.Hwnd);
-                }
-                else
-                {
-                    // Kill
-                    try { row.Proc.Kill(); } catch { }
-                    LoadTaskManagerList();
-                }
-            }
-        }
-
-        private void PlayNavigationSound()
-        {
-            try
-            {
-                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\navigation.wav"));
-                player.Play();
-            }
-            catch { }
-        }
-
-        private void PlayActivationSound()
-        {
-            try
-            {
-                SoundPlayer player = new SoundPlayer(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets\\activation.wav"));
-                player.Play();
-            }
-            catch { }
-        }
-
-        #endregion // TaskManager
-        #region Gamepad/Keyboard_Navigation
-
-        private Controller _xinputController;
-        private bool _controllerConnected = false;
-
-        private void SetupGamepad()
-        {
-            _xinputController = new Controller(UserIndex.One);
-            _controllerConnected = _xinputController.IsConnected;
-
-            DispatcherTimer gamepadInputTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(150) };
-            gamepadInputTimer.Tick += (s, e) => GamepadButtonCheck();
-            gamepadInputTimer.Start();
-        }
-
-        private void GamepadButtonCheck()
-        {
-            if (!_controllerConnected || !_xinputController.IsConnected)
-                return;
-
-            var state = _xinputController.GetState();
-            var gamepad = state.Gamepad;
-
-            if ((gamepad.Buttons & GamepadButtonFlags.DPadDown) != 0)
-            {
-                MoveRow(1);
-            }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadUp) != 0)
-            {
-                MoveRow(-1);
-            }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
-            {
-                MoveCol(-1);
-            }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadRight) != 0)
-            {
-                MoveCol(1);
-            }
-            else if ((gamepad.Buttons & GamepadButtonFlags.A) != 0)
-            {
-                ExecuteSelectedAction();
-            }
-            else if ((gamepad.Buttons & GamepadButtonFlags.Start) != 0 &&
-                     (gamepad.Buttons & GamepadButtonFlags.Back) != 0)
-            {
-                BringWindowToForeground();
-            }
-        }
-
-
-
-
-        private void MainWindow_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case VirtualKey.Down:
-                    MoveRow(1);
-                    break;
-                case VirtualKey.Up:
-                    MoveRow(-1);
-                    break;
-                case VirtualKey.Left:
-                    MoveCol(-1);
-                    break;
-                case VirtualKey.Right:
-                    MoveCol(1);
-                    break;
-                case VirtualKey.Enter:
-                    ExecuteSelectedAction();
-                    break;
-            }
-        }
-
-        private void BringWindowToForeground()
-        {
-            try
-            {
-                Process currentProcess = Process.GetCurrentProcess();
-                IntPtr hWnd = currentProcess.MainWindowHandle; // Récupérer la vraie fenêtre principale
-                Console.WriteLine($"gcmloader Window detected : {hWnd}");
-
-                if (hWnd == IntPtr.Zero)
-                {
-                    Console.WriteLine("gcmloader not found !");
-                    return;
-                }
-
-                // Vérifier si une autre fenêtre est déjà en premier plan
-                IntPtr foregroundHwnd = GetForegroundWindow();
-                if (foregroundHwnd == IntPtr.Zero)
-                {
-                    Console.WriteLine("No window in foreground!");
-                    return;
-                }
-
-                uint activeThreadId = GetWindowThreadProcessId(foregroundHwnd, out uint activeProcessId);
-                uint currentThreadId = GetCurrentThreadId();
-
-                // Attacher l'entrée du thread actif à notre fenêtre
-                AttachThreadInput(currentThreadId, activeThreadId, true);
-
-                // Afficher la fenêtre si elle est minimisée
-                ShowWindow(hWnd, 9); // SW_RESTORE
-
-                // Mettre la fenêtre en avant
-                SetForegroundWindow(hWnd);
-
-                // Détacher les threads d'entrée
-                AttachThreadInput(currentThreadId, activeThreadId, false);
-
-                // Permettre au programme de prendre le focus
-                AllowSetForegroundWindow(-1);
-
-                Console.WriteLine("gcmloader brought to the foreground");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur BringWindowToForeground : {ex.Message}");
-            }
-        }
-        #endregion
+ 
         #region Startupvideo
 
         public static class StartupVideo
