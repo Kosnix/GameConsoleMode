@@ -52,6 +52,10 @@ namespace gcmloader
     {
         #region needed
         #region taskmanager
+        [DllImport("user32.dll")]
+
+        private static extern IntPtr GetForegroundWindow();
+
         /// <summary>
         /// If the old selected window still exists in the new slice, restore _selectedTileIndex and SubFocus.
         /// </summary>
@@ -646,9 +650,129 @@ namespace gcmloader
         }
 
         #endregion taskmanager controll
+        #region taskmanager xbox controll
+        private Controller _controller;
+        private bool _controllerConnected = false;
+        private GamepadButtonFlags _lastButtons = GamepadButtonFlags.None;
+        private System.Threading.Timer _controllerPollTimer;
+        private bool _broughtToFront = false;
+
+
+        private void StartControllerPolling()
+        {
+            // We create an empty controller to initialize the polling loop
+            _controller = new Controller(UserIndex.One);
+
+            _controllerPollTimer = new System.Threading.Timer(state =>
+            {
+                // Always create a new controller instance to check connection state
+                var newController = new Controller(UserIndex.One);
+
+                if (newController.IsConnected)
+                {
+                    // Update the main controller reference
+                    _controller = newController;
+
+                    // Handle first-time connection
+                    if (!_controllerConnected)
+                    {
+                        _controllerConnected = true;
+                        Console.WriteLine("Controller connected.");
+                    }
+
+                    // Read the current state of the controller
+                    var controllerstate = _controller.GetState();
+                    var buttons = controllerstate.Gamepad.Buttons;
+
+                    // Detect newly pressed buttons (only edge trigger)
+                    var newlyPressed = buttons & ~_lastButtons;
+
+                    // 👉 1. GLOBAL: Select + Start → bring GCM window to front
+                    bool comboStart = (buttons & GamepadButtonFlags.Start) != 0 &&
+                                      (buttons & GamepadButtonFlags.Back) != 0;
+
+                    if (comboStart)
+                    {
+                        DispatcherQueue.TryEnqueue(() =>
+                        {
+                            IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+                            ShowWindow(hwnd, SW_RESTORE);
+                            SetForegroundWindow(hwnd);
+                        });
+                    }
+
+                    // 👉 2. GLOBAL: Select + DPadRight → simulate Alt+Tab
+                    bool comboAltTab = (buttons & GamepadButtonFlags.Back) != 0 &&
+                                       (buttons & GamepadButtonFlags.DPadRight) != 0;
+
+                    if (comboAltTab)
+                    {
+                        _controllerHotkeys.SendAltTab(); // Call your existing Alt+Tab method
+                    }
+
+                    // 👉 3. UI Navigation: only if window is focused
+                    IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
+                    bool isFocused = GetForegroundWindow() == windowHandle;
+
+                    if (isFocused)
+                    {
+                        if ((newlyPressed & GamepadButtonFlags.DPadLeft) != 0)
+                            DispatcherQueue.TryEnqueue(() => HandleLeftArrow());
+
+                        if ((newlyPressed & GamepadButtonFlags.DPadRight) != 0)
+                            DispatcherQueue.TryEnqueue(() => HandleRightArrow());
+
+                        if ((newlyPressed & GamepadButtonFlags.DPadUp) != 0)
+                            DispatcherQueue.TryEnqueue(() =>
+                            {
+                                var tile = _tiles[_selectedTileIndex];
+                                tile.SubFocus++;
+                                if (tile.SubFocus > 2) tile.SubFocus = 2;
+                                UpdateTileSelectionUI();
+                            });
+
+                        if ((newlyPressed & GamepadButtonFlags.DPadDown) != 0)
+                            DispatcherQueue.TryEnqueue(() =>
+                            {
+                                var tile = _tiles[_selectedTileIndex];
+                                tile.SubFocus--;
+                                if (tile.SubFocus < 0) tile.SubFocus = 0;
+                                UpdateTileSelectionUI();
+                            });
+
+                        if ((newlyPressed & GamepadButtonFlags.A) != 0)
+                            DispatcherQueue.TryEnqueue(() => OnEnterPressed());
+                    }
+
+                    // Store current button state for next poll comparison
+                    _lastButtons = buttons;
+                }
+                else
+                {
+                    // Controller is disconnected
+                    if (_controllerConnected)
+                    {
+                        _controllerConnected = false;
+                        Console.WriteLine("Controller disconnected.");
+                    }
+
+                    // Reset button tracking
+                    _lastButtons = GamepadButtonFlags.None;
+                }
+            }, null, 0, 100); // Poll every 100ms
+        }
+
+
+
+        #endregion taskmanager xbox controll
+        #region shortcuts
+        private ControllerHotkeyListener _controllerHotkey;
+
+        private ControllerHotkeyListener _controllerHotkeys;
+        #endregion shortcuts
 
         private const int GWL_STYLE = -16;
-        private const int GWL_EXSTYLE = -20;
+               private const int GWL_EXSTYLE = -20;
         private const long WS_POPUP = 0x80000000L;
         private const long WS_OVERLAPPEDWINDOW = 0x00CF0000L;
         private const uint WS_EX_NOACTIVATE = 0x08000000;
@@ -672,7 +796,8 @@ namespace gcmloader
         [DllImport("user32.dll")]
         private static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-   
+       
+
 
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
@@ -686,6 +811,10 @@ namespace gcmloader
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             #region taskmanager
+
+           
+
+
             // Make sure we can receive key input
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
 
@@ -730,6 +859,9 @@ namespace gcmloader
             Start();
             //ASYNC PROZES
             StartAsynctasks();
+            StartControllerPolling();
+            _controllerHotkeys = new ControllerHotkeyListener(this);
+            _controllerHotkeys.Start();
         }
 
 
@@ -801,13 +933,6 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
-
-        #region taskmanager
-     
-
-        #endregion taskmanager
-
-
         public void prestartlist()
         {
             try
