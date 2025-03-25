@@ -41,6 +41,8 @@ using WinRT.Interop;
 using System.Windows.Input;
 using Microsoft.UI.Xaml.Input;
 using System.Windows.Threading;
+using Image = Microsoft.UI.Xaml.Controls.Image;
+using Microsoft.UI.Text;
 
 
 namespace gcmloader
@@ -76,10 +78,6 @@ namespace gcmloader
 
         // Current offset for which window in _windowList is shown in tile index 0
         private int _offset = 0;
-
-      
-
-  
 
         private class TileControls
         {
@@ -155,7 +153,6 @@ namespace gcmloader
             }
         }
 
-
         // Full list of open windows
         private List<WindowItem> _windowList = new List<WindowItem>();
         // We'll keep a list of 5 TileControls
@@ -196,6 +193,9 @@ namespace gcmloader
                     // NEW PART: use our modern method to build the tile content
                     // and set tileBorders[i].Child to that UI
                     tileBorders[i].Child = CreateTileContent(item, tileC);
+                    tileC.TileBorder.Background = new SolidColorBrush(ConvertColor("#1B2838")); // dunkler Steam-Hintergrund
+                    tileC.TileBorder.Opacity = 0.9; // leicht durchsichtig
+
                 }
 
                 _tiles.Add(tileC);
@@ -209,10 +209,8 @@ namespace gcmloader
 
             UpdateTileSelectionUI();
         }
-
         private UIElement CreateTileContent(WindowItem item, TileControls tileC)
         {
-            // Main vertical stack: Title on top, "Show" below, "Close" below that
             var stack = new StackPanel
             {
                 Orientation = Microsoft.UI.Xaml.Controls.Orientation.Vertical,
@@ -221,39 +219,53 @@ namespace gcmloader
                 Spacing = 10
             };
 
-            // Title in steam-like color
+            // 1. App Icon (optional fallback)
+            var iconImage = new Image
+            {
+                Width = 64,
+                Height = 64,
+                Margin = new Thickness(0, 5, 0, 5),
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
+            };
+
+            // Try to load icon from process
+            try
+            {
+                var icon = System.Drawing.Icon.ExtractAssociatedIcon(item.Proc.MainModule.FileName);
+                if (icon != null)
+                {
+                    using (var bmp = icon.ToBitmap())
+                    {
+                        var stream = new MemoryStream();
+                        bmp.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        stream.Position = 0;
+
+                        var bitmap = new BitmapImage();
+                        bitmap.SetSource(stream.AsRandomAccessStream());
+                        iconImage.Source = bitmap;
+                    }
+                }
+            }
+            catch
+            {
+                // Leave blank or use placeholder
+            }
+
+            // 2. App Title
             var titleText = new TextBlock
             {
                 Text = item.DisplayName,
-                FontSize = 20,
-                FontWeight = Microsoft.UI.Text.FontWeights.Bold,
-                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")), // steam text color
+                FontSize = 14,
+                FontWeight = FontWeights.SemiBold,
+                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")),
                 TextWrapping = TextWrapping.Wrap,
-                TextAlignment = TextAlignment.Center
+                MaxLines = 2,
+                TextTrimming = TextTrimming.CharacterEllipsis,
+                TextAlignment = TextAlignment.Center,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center
             };
 
-            // "Show" button
-            var showBtn = new Button
-            {
-                Content = "Show",
-                Width = 200,
-                Height = 40,
-                FontSize = 16,
-                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")), // text color
-                Background = new SolidColorBrush(ConvertColor("#2A475E")), // steam-ish button bg
-                BorderBrush = new SolidColorBrush(ConvertColor("#66C0F4")), // we can do a subtle accent
-                BorderThickness = new Thickness(1),
-                CornerRadius = new CornerRadius(5),
-                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
-            };
-            showBtn.Click += (s, e) =>
-            {
-                ShowWindow(item.Hwnd, SW_RESTORE);
-                SetForegroundWindow(item.Hwnd);
-            };
-
-            // "Close" button, lower
+            // 3. Close Button (OBEN)
             var closeBtn = new Button
             {
                 Content = "Close",
@@ -261,35 +273,51 @@ namespace gcmloader
                 Height = 40,
                 FontSize = 16,
                 Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")),
-                Background = new SolidColorBrush(ConvertColor("#A02A2A")), // darker red, slightly matching theme
+                Background = new SolidColorBrush(ConvertColor("#A02A2A")),
                 BorderBrush = new SolidColorBrush(ConvertColor("#66C0F4")),
                 BorderThickness = new Thickness(1),
                 CornerRadius = new CornerRadius(5),
                 HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center
+                 IsTabStop = false 
             };
             closeBtn.Click += (s, e) =>
             {
-                try
-                {
-                    item.Proc.CloseMainWindow();
-                    // or item.Proc.Kill();
-                    RefreshTiles();
-                }
-                catch { }
+                try { item.Proc.CloseMainWindow(); RefreshTiles(); } catch { }
             };
 
-            // Store references for subFocus highlighting
+            // 4. Show Button (UNTEN)
+            var showBtn = new Button
+            {
+                Content = "Show",
+                Width = 200,
+                Height = 40,
+                FontSize = 16,
+                Foreground = new SolidColorBrush(ConvertColor("#C7D5E0")),
+                Background = new SolidColorBrush(ConvertColor("#2A475E")),
+                BorderBrush = new SolidColorBrush(ConvertColor("#66C0F4")),
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(5),
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                IsTabStop = false 
+            };
+            showBtn.Click += (s, e) =>
+            {
+                ShowWindow(item.Hwnd, SW_RESTORE);
+                SetForegroundWindow(item.Hwnd);
+            };
+
             tileC.ShowButton = showBtn;
             tileC.CloseButton = closeBtn;
 
-            // Add everything to the vertical stack
+            // Add in correct order
+            stack.Children.Add(iconImage);
             stack.Children.Add(titleText);
-            stack.Children.Add(showBtn);
             stack.Children.Add(closeBtn);
+            stack.Children.Add(showBtn);
 
             return stack;
         }
+
 
         private Windows.UI.Color ConvertColor(string hex)
         {
@@ -337,23 +365,28 @@ namespace gcmloader
         {
             var results = new List<WindowItem>();
 
-            // We'll use EnumWindows to capture everything that might be a top-level window.
+            // List of excluded process names (case-insensitive)
+            var excludedProcesses = new List<string>
+    {
+        "explorer",
+        "RuntimeBroker"
+        // Add more as needed
+    };
+
+            // Enumerate all top-level windows
             EnumWindows((hWnd, lParam) =>
             {
-                // Optional: skip if the window is not "visible" to the OS
-                // (Minimized windows are still "visible" in many cases, so they won't be skipped here.)
+                // Skip windows that are not visible
                 if (!IsWindowVisible(hWnd))
-                    return true; // continue enumeration
+                    return true;
 
-                // If there's no text, probably not a real user-facing window
+                // Get window title
                 string title = GetWindowTitle(hWnd);
                 if (string.IsNullOrWhiteSpace(title))
                     return true;
 
-                // Retrieve process ID from window handle
+                // Get the process ID for this window
                 GetWindowThreadProcessId(hWnd, out uint pid);
-
-                // Skip if invalid or zero
                 if (pid == 0)
                     return true;
 
@@ -361,7 +394,7 @@ namespace gcmloader
                 if (pid == (uint)Process.GetCurrentProcess().Id)
                     return true;
 
-                // Attempt to grab the process
+                // Try to get the process from the PID
                 Process proc;
                 try
                 {
@@ -372,12 +405,15 @@ namespace gcmloader
                     return true;
                 }
 
-                // If the process's MainWindowHandle is zero, skip
-                // (This often indicates no normal main window, or it's a child window.)
+                // Skip processes without a main window handle
                 if (proc.MainWindowHandle == IntPtr.Zero)
                     return true;
 
-                // Build a nicer "displayName" from product name or process name
+                // Skip if the process name is in the exclusion list
+                if (excludedProcesses.Contains(proc.ProcessName, StringComparer.OrdinalIgnoreCase))
+                    return true;
+
+                // Try to get a friendly display name from the product info
                 string displayName = null;
                 try
                 {
@@ -385,25 +421,27 @@ namespace gcmloader
                 }
                 catch
                 {
-                    // ignore
+                    // Fallback to process name
                 }
+
                 if (string.IsNullOrWhiteSpace(displayName))
                     displayName = proc.ProcessName;
 
-                // We store both the real window title + the displayName so you can choose how to show it
+                // Add the window to the result list
                 results.Add(new WindowItem
                 {
                     Hwnd = hWnd,
                     Proc = proc,
                     DisplayName = displayName,
-                    WindowTitle = title // might be handy to also store
+                    WindowTitle = title
                 });
 
-                return true; // continue enumeration
+                return true;
             }, IntPtr.Zero);
 
             return results;
         }
+
 
 
 
@@ -566,17 +604,12 @@ namespace gcmloader
             switch (tileC.SubFocus)
             {
                 case 0:
-                    // tile area
-                    ShowWindow(tileC.Item.Hwnd, SW_RESTORE);
-                    SetForegroundWindow(tileC.Item.Hwnd);
-                    break;
                 case 1:
-                    // show button
+                    // Always bring the window to front
                     ShowWindow(tileC.Item.Hwnd, SW_RESTORE);
                     SetForegroundWindow(tileC.Item.Hwnd);
                     break;
                 case 2:
-                    // close button
                     try
                     {
                         tileC.Item.Proc.CloseMainWindow();
@@ -586,6 +619,8 @@ namespace gcmloader
                     break;
             }
         }
+
+
 
 
 
@@ -611,8 +646,6 @@ namespace gcmloader
         }
 
         #endregion taskmanager controll
-
-
 
         private const int GWL_STYLE = -16;
         private const int GWL_EXSTYLE = -20;
@@ -652,8 +685,7 @@ namespace gcmloader
         {
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
-            this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
-
+            #region taskmanager
             // Make sure we can receive key input
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
 
@@ -693,6 +725,7 @@ namespace gcmloader
             // Initial population of the tiles
             RefreshTiles();
 
+            #endregion taskmanager
 
             Start();
             //ASYNC PROZES
@@ -730,23 +763,10 @@ namespace gcmloader
             }
         }
 
-        private DiscordSocketClient _client;
-
         #endregion needed
         #region methodes
         #region methodes for code
-        private Task messagebox(string dialog)
-        {
-            var messagebox = new ContentDialog
-            {
-                Title = "Information",
-                Content = dialog,
-                CloseButtonText = "OK",
-                XamlRoot = this.Content.XamlRoot
-            };
 
-            return messagebox.ShowAsync().AsTask(); // Rückgabe des Tasks
-        }
         static string exeFolder()
         {
             string exePath = Assembly.GetExecutingAssembly().Location;
@@ -2047,7 +2067,6 @@ namespace gcmloader
             }
         }
         #endregion start
- 
         #region Startupvideo
 
         public static class StartupVideo

@@ -2,77 +2,85 @@
     x:Class="gcmloader.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="gcmloader"
-    >
+    Title="gcmloader">
 
-    <!-- 
-        Main container with a dark background (similar to your app's theme).
-        We center everything using the Grid.
-    -->
     <Grid Background="#FF1E1E1E">
-
         <!-- 
-            A StackPanel to hold 5 horizontal tiles.
-            Orientation="Horizontal" means the elements are laid out left-to-right.
-            HorizontalAlignment/VerticalAlignment center the panel on the screen.
-            Spacing sets the distance between each child.
+            A semi?transparent bar along the bottom 
+            with big rounded top corners. The Margin 
+            makes it inset from the left, right, and bottom. 
         -->
-        <StackPanel 
-            Orientation="Horizontal"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Spacing="40">
+        <Border
+            x:Name="BottomBar"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Stretch"
+            Height="300"
+            Margin="20"
+            CornerRadius="40,40,0,0"
+            Background="#80000000">
 
-            <!-- Tile 1 -->
-            <Border 
-                x:Name="Tile1"
-                Width="150"
-                Height="250"
-                CornerRadius="20"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                Margin="10"/>
+            <!-- 
+                Place the 5 tiles inside this bar, 
+                centered both horizontally and vertically. 
+                Spacing=40 gives gaps between the tiles.
+            -->
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="40">
 
-            <!-- Tile 2 -->
-            <Border 
-                x:Name="Tile2"
-                Width="150"
-                Height="250"
-                CornerRadius="20"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                Margin="10"/>
+                <!-- Tile 1 -->
+                <Border 
+                    x:Name="Tile1"
+                    Width="150"
+                    Height="250"
+                    CornerRadius="20"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Margin="10"/>
 
-            <!-- Tile 3 -->
-            <Border 
-                x:Name="Tile3"
-                Width="150"
-                Height="250"
-                CornerRadius="20"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                Margin="10"/>
+                <!-- Tile 2 -->
+                <Border 
+                    x:Name="Tile2"
+                    Width="150"
+                    Height="250"
+                    CornerRadius="20"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Margin="10"/>
 
-            <!-- Tile 4 -->
-            <Border 
-                x:Name="Tile4"
-                Width="150"
-                Height="250"
-                CornerRadius="20"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                Margin="10"/>
+                <!-- Tile 3 -->
+                <Border 
+                    x:Name="Tile3"
+                    Width="150"
+                    Height="250"
+                    CornerRadius="20"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Margin="10"/>
 
-            <!-- Tile 5 -->
-            <Border 
-                x:Name="Tile5"
-                Width="150"
-                Height="250"
-                CornerRadius="20"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                Margin="10"/>
+                <!-- Tile 4 -->
+                <Border 
+                    x:Name="Tile4"
+                    Width="150"
+                    Height="250"
+                    CornerRadius="20"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Margin="10"/>
 
-        </StackPanel>
+                <!-- Tile 5 -->
+                <Border 
+                    x:Name="Tile5"
+                    Width="150"
+                    Height="250"
+                    CornerRadius="20"
+                    BorderBrush="Transparent"
+                    BorderThickness="1"
+                    Margin="10"/>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
