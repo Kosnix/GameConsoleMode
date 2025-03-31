@@ -3488,7 +3488,6 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\n
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Microsoft.Windows.System.winmd
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Microsoft.Windows.Widgets.winmd
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\GAMINGCONSOLEMODE.exe
-C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\opensource_apps\audiochanger.ps1
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\deckyloader.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\discord.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\displayfusion.png
@@ -3506,7 +3505,6 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\n
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\joyxoff_panel.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\TV.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\nircmd.exe
-C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\opensource_apps\nircmd.exe
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\Startup_Video.gif
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\App.xbf
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Home.xbf
@@ -4884,3 +4882,13 @@ C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
 C:\Users\luisg\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\preloadlist.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\functions\preloadlist.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\onboarding.g.i.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\onboarding.g.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\onboarding.xaml
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\onboarding.xbf
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\onboarding.xbf
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\flowlauncher.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\taskmanager_gcmloader.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\functions_gcm.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\discord.jpg

@@ -39,6 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="amdnvidiap.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\activation.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

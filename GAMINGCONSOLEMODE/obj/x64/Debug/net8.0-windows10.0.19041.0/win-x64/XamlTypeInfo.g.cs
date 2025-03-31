@@ -226,24 +226,24 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[54];
+            _typeNameTable = new string[55];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "Boolean";
-            _typeNameTable[4] = "GAMINGCONSOLEMODE.Home";
-            _typeNameTable[5] = "Microsoft.UI.Xaml.Controls.Page";
-            _typeNameTable[6] = "Microsoft.UI.Xaml.Controls.UserControl";
-            _typeNameTable[7] = "GAMINGCONSOLEMODE.launcher";
-            _typeNameTable[8] = "Microsoft.UI.Xaml.Controls.Expander";
-            _typeNameTable[9] = "Microsoft.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[10] = "Microsoft.UI.Xaml.Controls.ExpandDirection";
-            _typeNameTable[11] = "System.Enum";
-            _typeNameTable[12] = "System.ValueType";
-            _typeNameTable[13] = "Microsoft.UI.Xaml.DataTemplate";
-            _typeNameTable[14] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings";
-            _typeNameTable[16] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[4] = "Microsoft.UI.Xaml.Controls.Expander";
+            _typeNameTable[5] = "Microsoft.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[6] = "Microsoft.UI.Xaml.Controls.ExpandDirection";
+            _typeNameTable[7] = "System.Enum";
+            _typeNameTable[8] = "System.ValueType";
+            _typeNameTable[9] = "Microsoft.UI.Xaml.DataTemplate";
+            _typeNameTable[10] = "Microsoft.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[11] = "Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings";
+            _typeNameTable[12] = "Microsoft.UI.Xaml.DependencyObject";
+            _typeNameTable[13] = "GAMINGCONSOLEMODE.Home";
+            _typeNameTable[14] = "Microsoft.UI.Xaml.Controls.Page";
+            _typeNameTable[15] = "Microsoft.UI.Xaml.Controls.UserControl";
+            _typeNameTable[16] = "GAMINGCONSOLEMODE.launcher";
             _typeNameTable[17] = "GAMINGCONSOLEMODE.Links";
             _typeNameTable[18] = "Microsoft.UI.Xaml.Controls.NavigationView";
             _typeNameTable[19] = "Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode";
@@ -270,36 +270,37 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             _typeNameTable[40] = "Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings";
             _typeNameTable[41] = "GAMINGCONSOLEMODE.MainWindow";
             _typeNameTable[42] = "Microsoft.UI.Xaml.Window";
-            _typeNameTable[43] = "GAMINGCONSOLEMODE.settings";
-            _typeNameTable[44] = "Microsoft.UI.Xaml.Controls.InfoBar";
-            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
-            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
-            _typeNameTable[47] = "System.Windows.Input.ICommand";
-            _typeNameTable[48] = "Microsoft.UI.Xaml.Controls.IconSource";
-            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
-            _typeNameTable[50] = "GAMINGCONSOLEMODE.startup";
-            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[52] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[53] = "Int32";
+            _typeNameTable[43] = "GAMINGCONSOLEMODE.onboarding";
+            _typeNameTable[44] = "GAMINGCONSOLEMODE.settings";
+            _typeNameTable[45] = "Microsoft.UI.Xaml.Controls.InfoBar";
+            _typeNameTable[46] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
+            _typeNameTable[47] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
+            _typeNameTable[48] = "System.Windows.Input.ICommand";
+            _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[50] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
+            _typeNameTable[51] = "GAMINGCONSOLEMODE.startup";
+            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[53] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[54] = "Int32";
 
-            _typeTable = new global::System.Type[54];
+            _typeTable = new global::System.Type[55];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.Boolean);
-            _typeTable[4] = typeof(global::GAMINGCONSOLEMODE.Home);
-            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
-            _typeTable[6] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
-            _typeTable[7] = typeof(global::GAMINGCONSOLEMODE.launcher);
-            _typeTable[8] = typeof(global::Microsoft.UI.Xaml.Controls.Expander);
-            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
-            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection);
-            _typeTable[11] = typeof(global::System.Enum);
-            _typeTable[12] = typeof(global::System.ValueType);
-            _typeTable[13] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
-            _typeTable[14] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings);
-            _typeTable[16] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[4] = typeof(global::Microsoft.UI.Xaml.Controls.Expander);
+            _typeTable[5] = typeof(global::Microsoft.UI.Xaml.Controls.ContentControl);
+            _typeTable[6] = typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection);
+            _typeTable[7] = typeof(global::System.Enum);
+            _typeTable[8] = typeof(global::System.ValueType);
+            _typeTable[9] = typeof(global::Microsoft.UI.Xaml.DataTemplate);
+            _typeTable[10] = typeof(global::Microsoft.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[11] = typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings);
+            _typeTable[12] = typeof(global::Microsoft.UI.Xaml.DependencyObject);
+            _typeTable[13] = typeof(global::GAMINGCONSOLEMODE.Home);
+            _typeTable[14] = typeof(global::Microsoft.UI.Xaml.Controls.Page);
+            _typeTable[15] = typeof(global::Microsoft.UI.Xaml.Controls.UserControl);
+            _typeTable[16] = typeof(global::GAMINGCONSOLEMODE.launcher);
             _typeTable[17] = typeof(global::GAMINGCONSOLEMODE.Links);
             _typeTable[18] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationView);
             _typeTable[19] = typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode);
@@ -326,17 +327,18 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             _typeTable[40] = typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings);
             _typeTable[41] = typeof(global::GAMINGCONSOLEMODE.MainWindow);
             _typeTable[42] = typeof(global::Microsoft.UI.Xaml.Window);
-            _typeTable[43] = typeof(global::GAMINGCONSOLEMODE.settings);
-            _typeTable[44] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
-            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
-            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
-            _typeTable[47] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[48] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
-            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
-            _typeTable[50] = typeof(global::GAMINGCONSOLEMODE.startup);
-            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[52] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[53] = typeof(global::System.Int32);
+            _typeTable[43] = typeof(global::GAMINGCONSOLEMODE.onboarding);
+            _typeTable[44] = typeof(global::GAMINGCONSOLEMODE.settings);
+            _typeTable[45] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
+            _typeTable[46] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
+            _typeTable[47] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
+            _typeTable[48] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[50] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
+            _typeTable[51] = typeof(global::GAMINGCONSOLEMODE.startup);
+            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[53] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[54] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -372,9 +374,9 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         }
 
         private object Activate_0_XamlControlsResources() { return new global::Microsoft.UI.Xaml.Controls.XamlControlsResources(); }
-        private object Activate_4_Home() { return new global::GAMINGCONSOLEMODE.Home(); }
-        private object Activate_7_launcher() { return new global::GAMINGCONSOLEMODE.launcher(); }
-        private object Activate_8_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
+        private object Activate_4_Expander() { return new global::Microsoft.UI.Xaml.Controls.Expander(); }
+        private object Activate_13_Home() { return new global::GAMINGCONSOLEMODE.Home(); }
+        private object Activate_16_launcher() { return new global::GAMINGCONSOLEMODE.launcher(); }
         private object Activate_17_Links() { return new global::GAMINGCONSOLEMODE.Links(); }
         private object Activate_18_NavigationView() { return new global::Microsoft.UI.Xaml.Controls.NavigationView(); }
         private object Activate_32_NavigationViewTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.NavigationViewTemplateSettings(); }
@@ -382,19 +384,20 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         private object Activate_36_InfoBadge() { return new global::Microsoft.UI.Xaml.Controls.InfoBadge(); }
         private object Activate_38_ProgressBar() { return new global::Microsoft.UI.Xaml.Controls.ProgressBar(); }
         private object Activate_41_MainWindow() { return new global::GAMINGCONSOLEMODE.MainWindow(); }
-        private object Activate_43_settings() { return new global::GAMINGCONSOLEMODE.settings(); }
-        private object Activate_44_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
-        private object Activate_49_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
-        private object Activate_50_startup() { return new global::GAMINGCONSOLEMODE.startup(); }
-        private object Activate_51_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_43_onboarding() { return new global::GAMINGCONSOLEMODE.onboarding(); }
+        private object Activate_44_settings() { return new global::GAMINGCONSOLEMODE.settings(); }
+        private object Activate_45_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
+        private object Activate_50_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
+        private object Activate_51_startup() { return new global::GAMINGCONSOLEMODE.startup(); }
+        private object Activate_52_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
-        private void StaticInitializer_4_Home() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.Home).TypeHandle);
-        private void StaticInitializer_7_launcher() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.launcher).TypeHandle);
-        private void StaticInitializer_8_Expander() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.Expander).TypeHandle);
-        private void StaticInitializer_10_ExpandDirection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection).TypeHandle);
-        private void StaticInitializer_11_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
-        private void StaticInitializer_12_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
-        private void StaticInitializer_15_ExpanderTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings).TypeHandle);
+        private void StaticInitializer_4_Expander() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.Expander).TypeHandle);
+        private void StaticInitializer_6_ExpandDirection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection).TypeHandle);
+        private void StaticInitializer_7_Enum() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Enum).TypeHandle);
+        private void StaticInitializer_8_ValueType() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.ValueType).TypeHandle);
+        private void StaticInitializer_11_ExpanderTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings).TypeHandle);
+        private void StaticInitializer_13_Home() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.Home).TypeHandle);
+        private void StaticInitializer_16_launcher() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.launcher).TypeHandle);
         private void StaticInitializer_17_Links() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.Links).TypeHandle);
         private void StaticInitializer_18_NavigationView() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationView).TypeHandle);
         private void StaticInitializer_19_NavigationViewPaneDisplayMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode).TypeHandle);
@@ -411,14 +414,15 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         private void StaticInitializer_38_ProgressBar() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ProgressBar).TypeHandle);
         private void StaticInitializer_40_ProgressBarTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ProgressBarTemplateSettings).TypeHandle);
         private void StaticInitializer_41_MainWindow() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.MainWindow).TypeHandle);
-        private void StaticInitializer_43_settings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.settings).TypeHandle);
-        private void StaticInitializer_44_InfoBar() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBar).TypeHandle);
-        private void StaticInitializer_45_InfoBarSeverity() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity).TypeHandle);
-        private void StaticInitializer_47_ICommand() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Windows.Input.ICommand).TypeHandle);
-        private void StaticInitializer_49_InfoBarTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings).TypeHandle);
-        private void StaticInitializer_50_startup() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.startup).TypeHandle);
-        private void StaticInitializer_51_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_52_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_43_onboarding() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.onboarding).TypeHandle);
+        private void StaticInitializer_44_settings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.settings).TypeHandle);
+        private void StaticInitializer_45_InfoBar() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBar).TypeHandle);
+        private void StaticInitializer_46_InfoBarSeverity() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity).TypeHandle);
+        private void StaticInitializer_48_ICommand() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Windows.Input.ICommand).TypeHandle);
+        private void StaticInitializer_50_InfoBarTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings).TypeHandle);
+        private void StaticInitializer_51_startup() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.startup).TypeHandle);
+        private void StaticInitializer_52_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_53_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -432,7 +436,7 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_52_IList(object instance, object item)
+        private void VectorAdd_53_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -470,84 +474,84 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  GAMINGCONSOLEMODE.Home
-                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Home;
-                userType.StaticInitializer = StaticInitializer_4_Home;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 5:   //  Microsoft.UI.Xaml.Controls.Page
-                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 6:   //  Microsoft.UI.Xaml.Controls.UserControl
-                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 7:   //  GAMINGCONSOLEMODE.launcher
-                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_launcher;
-                userType.StaticInitializer = StaticInitializer_7_launcher;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 8:   //  Microsoft.UI.Xaml.Controls.Expander
+            case 4:   //  Microsoft.UI.Xaml.Controls.Expander
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_8_Expander;
-                userType.StaticInitializer = StaticInitializer_8_Expander;
+                userType.Activator = Activate_4_Expander;
+                userType.StaticInitializer = StaticInitializer_4_Expander;
+                userType.AddMemberName("IsExpanded");
                 userType.AddMemberName("Header");
                 userType.AddMemberName("ExpandDirection");
                 userType.AddMemberName("HeaderTemplate");
                 userType.AddMemberName("HeaderTemplateSelector");
-                userType.AddMemberName("IsExpanded");
                 userType.AddMemberName("TemplateSettings");
                 xamlType = userType;
                 break;
 
-            case 9:   //  Microsoft.UI.Xaml.Controls.ContentControl
+            case 5:   //  Microsoft.UI.Xaml.Controls.ContentControl
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  Microsoft.UI.Xaml.Controls.ExpandDirection
+            case 6:   //  Microsoft.UI.Xaml.Controls.ExpandDirection
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_10_ExpandDirection;
+                userType.StaticInitializer = StaticInitializer_6_ExpandDirection;
                 userType.AddEnumValue("Down", global::Microsoft.UI.Xaml.Controls.ExpandDirection.Down);
                 userType.AddEnumValue("Up", global::Microsoft.UI.Xaml.Controls.ExpandDirection.Up);
                 xamlType = userType;
                 break;
 
-            case 11:   //  System.Enum
+            case 7:   //  System.Enum
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_11_Enum;
+                userType.StaticInitializer = StaticInitializer_7_Enum;
                 xamlType = userType;
                 break;
 
-            case 12:   //  System.ValueType
+            case 8:   //  System.ValueType
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_12_ValueType;
+                userType.StaticInitializer = StaticInitializer_8_ValueType;
                 xamlType = userType;
                 break;
 
-            case 13:   //  Microsoft.UI.Xaml.DataTemplate
+            case 9:   //  Microsoft.UI.Xaml.DataTemplate
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
+            case 10:   //  Microsoft.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings
+            case 11:   //  Microsoft.UI.Xaml.Controls.ExpanderTemplateSettings
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_15_ExpanderTemplateSettings;
+                userType.StaticInitializer = StaticInitializer_11_ExpanderTemplateSettings;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 16:   //  Microsoft.UI.Xaml.DependencyObject
+            case 12:   //  Microsoft.UI.Xaml.DependencyObject
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 13:   //  GAMINGCONSOLEMODE.Home
+                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_13_Home;
+                userType.StaticInitializer = StaticInitializer_13_Home;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  Microsoft.UI.Xaml.Controls.Page
+                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 15:   //  Microsoft.UI.Xaml.Controls.UserControl
+                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 16:   //  GAMINGCONSOLEMODE.launcher
+                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_launcher;
+                userType.StaticInitializer = StaticInitializer_16_launcher;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
 
             case 17:   //  GAMINGCONSOLEMODE.Links
@@ -767,18 +771,26 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 43:   //  GAMINGCONSOLEMODE.settings
+            case 43:   //  GAMINGCONSOLEMODE.onboarding
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_43_settings;
-                userType.StaticInitializer = StaticInitializer_43_settings;
+                userType.Activator = Activate_43_onboarding;
+                userType.StaticInitializer = StaticInitializer_43_onboarding;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 44:   //  Microsoft.UI.Xaml.Controls.InfoBar
+            case 44:   //  GAMINGCONSOLEMODE.settings
+                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_44_settings;
+                userType.StaticInitializer = StaticInitializer_44_settings;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 45:   //  Microsoft.UI.Xaml.Controls.InfoBar
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_44_InfoBar;
-                userType.StaticInitializer = StaticInitializer_44_InfoBar;
+                userType.Activator = Activate_45_InfoBar;
+                userType.StaticInitializer = StaticInitializer_45_InfoBar;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.InfoBar.Content");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("IsOpen");
@@ -797,9 +809,9 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 45:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
+            case 46:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_45_InfoBarSeverity;
+                userType.StaticInitializer = StaticInitializer_46_InfoBarSeverity;
                 userType.AddEnumValue("Informational", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Informational);
                 userType.AddEnumValue("Success", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Success);
                 userType.AddEnumValue("Warning", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Warning);
@@ -807,40 +819,40 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 46:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
+            case 47:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 47:   //  System.Windows.Input.ICommand
+            case 48:   //  System.Windows.Input.ICommand
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_47_ICommand;
+                userType.StaticInitializer = StaticInitializer_48_ICommand;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 48:   //  Microsoft.UI.Xaml.Controls.IconSource
+            case 49:   //  Microsoft.UI.Xaml.Controls.IconSource
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 49:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
+            case 50:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_49_InfoBarTemplateSettings;
+                userType.StaticInitializer = StaticInitializer_50_InfoBarTemplateSettings;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 50:   //  GAMINGCONSOLEMODE.startup
+            case 51:   //  GAMINGCONSOLEMODE.startup
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_50_startup;
-                userType.StaticInitializer = StaticInitializer_50_startup;
+                userType.Activator = Activate_51_startup;
+                userType.StaticInitializer = StaticInitializer_51_startup;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 51:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 52:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_51_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_51_TreeViewNode;
+                userType.Activator = Activate_52_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_52_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -852,15 +864,15 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 52:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 53:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_52_IList;
-                userType.CollectionAdd = VectorAdd_52_IList;
+                userType.StaticInitializer = StaticInitializer_53_IList;
+                userType.CollectionAdd = VectorAdd_53_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 53:   //  Int32
+            case 54:   //  Int32
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -934,55 +946,55 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.XamlControlsResources)instance;
             that.UseCompactResources = (global::System.Boolean)Value;
         }
-        private object get_1_Expander_Header(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            return that.Header;
-        }
-        private void set_1_Expander_Header(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            that.Header = (global::System.Object)Value;
-        }
-        private object get_2_Expander_ExpandDirection(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            return that.ExpandDirection;
-        }
-        private void set_2_Expander_ExpandDirection(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            that.ExpandDirection = (global::Microsoft.UI.Xaml.Controls.ExpandDirection)Value;
-        }
-        private object get_3_Expander_HeaderTemplate(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            return that.HeaderTemplate;
-        }
-        private void set_3_Expander_HeaderTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_4_Expander_HeaderTemplateSelector(object instance)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            return that.HeaderTemplateSelector;
-        }
-        private void set_4_Expander_HeaderTemplateSelector(object instance, object Value)
-        {
-            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
-            that.HeaderTemplateSelector = (global::Microsoft.UI.Xaml.Controls.DataTemplateSelector)Value;
-        }
-        private object get_5_Expander_IsExpanded(object instance)
+        private object get_1_Expander_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             return that.IsExpanded;
         }
-        private void set_5_Expander_IsExpanded(object instance, object Value)
+        private void set_1_Expander_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
             that.IsExpanded = (global::System.Boolean)Value;
+        }
+        private object get_2_Expander_Header(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            return that.Header;
+        }
+        private void set_2_Expander_Header(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_3_Expander_ExpandDirection(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            return that.ExpandDirection;
+        }
+        private void set_3_Expander_ExpandDirection(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            that.ExpandDirection = (global::Microsoft.UI.Xaml.Controls.ExpandDirection)Value;
+        }
+        private object get_4_Expander_HeaderTemplate(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            return that.HeaderTemplate;
+        }
+        private void set_4_Expander_HeaderTemplate(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_5_Expander_HeaderTemplateSelector(object instance)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            return that.HeaderTemplateSelector;
+        }
+        private void set_5_Expander_HeaderTemplateSelector(object instance, object Value)
+        {
+            var that = (global::Microsoft.UI.Xaml.Controls.Expander)instance;
+            that.HeaderTemplateSelector = (global::Microsoft.UI.Xaml.Controls.DataTemplateSelector)Value;
         }
         private object get_6_Expander_TemplateSettings(object instance)
         {
@@ -1659,40 +1671,40 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlMember.Getter = get_0_XamlControlsResources_UseCompactResources;
                 xamlMember.Setter = set_0_XamlControlsResources_UseCompactResources;
                 break;
+            case "Microsoft.UI.Xaml.Controls.Expander.IsExpanded":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_Expander_IsExpanded;
+                xamlMember.Setter = set_1_Expander_IsExpanded;
+                break;
             case "Microsoft.UI.Xaml.Controls.Expander.Header":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_Expander_Header;
-                xamlMember.Setter = set_1_Expander_Header;
+                xamlMember.Getter = get_2_Expander_Header;
+                xamlMember.Setter = set_2_Expander_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.ExpandDirection":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ExpandDirection", "Microsoft.UI.Xaml.Controls.ExpandDirection");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_2_Expander_ExpandDirection;
-                xamlMember.Setter = set_2_Expander_ExpandDirection;
+                xamlMember.Getter = get_3_Expander_ExpandDirection;
+                xamlMember.Setter = set_3_Expander_ExpandDirection;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.HeaderTemplate":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_Expander_HeaderTemplate;
-                xamlMember.Setter = set_3_Expander_HeaderTemplate;
+                xamlMember.Getter = get_4_Expander_HeaderTemplate;
+                xamlMember.Setter = set_4_Expander_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.HeaderTemplateSelector":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "HeaderTemplateSelector", "Microsoft.UI.Xaml.Controls.DataTemplateSelector");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_Expander_HeaderTemplateSelector;
-                xamlMember.Setter = set_4_Expander_HeaderTemplateSelector;
-                break;
-            case "Microsoft.UI.Xaml.Controls.Expander.IsExpanded":
-                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");
-                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_Expander_IsExpanded;
-                xamlMember.Setter = set_5_Expander_IsExpanded;
+                xamlMember.Getter = get_5_Expander_HeaderTemplateSelector;
+                xamlMember.Setter = set_5_Expander_HeaderTemplateSelector;
                 break;
             case "Microsoft.UI.Xaml.Controls.Expander.TemplateSettings":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Expander");

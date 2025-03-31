@@ -3907,3 +3907,4 @@ C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windo
 C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.genpublishdeps.cache
 C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\amdnvidiap.exe

@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.DirectoryServices.ActiveDirectory;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,16 +34,45 @@ namespace GAMINGCONSOLEMODE
         public MainWindow()
         {
             this.InitializeComponent();
-            // Navigate to the 'startup' page on app launch
-            contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
-            {
-                Effect = SlideNavigationTransitionEffect.FromRight
-            });
-
             // Set the window size
             SetWindowSize(1500, 1100);
             // 1. First Start: Create folder and default config file if needed
             AppSettings.FirstStart();
+            #region onboarding
+            try
+            {
+
+                if (AppSettings.Load<bool>("onboarding") == true)
+                {
+                    // Navigate to the 'startup' page on app launch
+                    contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
+                    {
+                        Effect = SlideNavigationTransitionEffect.FromRight
+                    });
+                }
+                else
+                {
+                    //navigate to the onboarding page
+                    // Navigate to the 'startup' page on app launch
+                    contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
+                    {
+                        Effect = SlideNavigationTransitionEffect.FromRight
+                    });
+                    AppSettings.Save("onboarding", true);
+
+                }
+            }
+            catch
+            {
+                //navigate to the onboarding page
+                // Navigate to the 'startup' page on app launch
+                contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
+                {
+                    Effect = SlideNavigationTransitionEffect.FromRight
+                });
+                AppSettings.Save("onboarding", true);
+            }
+            #endregion onboarding
             _ = UpdateCheck(this);
         }
 
@@ -54,7 +84,7 @@ namespace GAMINGCONSOLEMODE
 
                 if (args.IsSettingsSelected)
                 {
-                    // Logik für das Settings-Element
+                    // Logik for settings
                     contentFrame.Navigate(typeof(settings));
 
                 }
@@ -66,7 +96,8 @@ namespace GAMINGCONSOLEMODE
                     // Determine the target page based on the tag
                     Type pageType = selectedTag switch
                     {
-                        "HomePage" => typeof(Home),
+                        "OnboardingPage" => typeof(onboarding),
+                        "GCMPage" => typeof(Home),
                         "LauncherPage" => typeof(launcher),
                         "StartupPage" => typeof(startup),
                         "LinksPage" => typeof(Links),

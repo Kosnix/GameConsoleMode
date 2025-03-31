@@ -56,6 +56,7 @@ namespace gcmloader
         private const uint WS_EX_NOACTIVATE = 0x08000000;
         private const uint SWP_NOZORDER = 0x0004;
         private const uint SWP_SHOWWINDOW = 0x0040;
+
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex);
         [DllImport("user32.dll", SetLastError = true)]
@@ -119,10 +120,12 @@ namespace gcmloader
         private static readonly string SettingsFilePath = Path.Combine(SettingsFolder, "settings.json");
         public MainWindow()
         {
+
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
             this.Content.KeyDown += MainWindow_KeyDown;
+            this.Content.KeyUp += MainWindow_KeyUp;
             Start();
             //ASYNC PROZES
             ShowTaskManager(); //after 10 seconds
@@ -224,6 +227,57 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
+
+        #region flowlauncher
+      
+        private void SendAltSpace()
+        {
+            // Press ALT
+            keybd_event(VK_MENU, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+
+            // Press SPACE
+            keybd_event(VK_SPACE, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+
+            // Release ALT
+            keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+
+            Console.WriteLine("ALT + SPACE simulated.");
+        }
+
+
+        public async void flowlauncher()
+        {
+            // Get the base directory where the app was started from
+            string basePath = AppContext.BaseDirectory;
+
+            // Build full path to the Flow Launcher executable
+            string flowLauncherPath = Path.Combine(basePath, "flowlauncher", "Flow.Launcher.exe");
+
+            // Check if the file exists
+            if (File.Exists(flowLauncherPath))
+            {
+                try
+                {
+                    // Start the Flow Launcher executable
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = flowLauncherPath,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error starting Flow Launcher: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Flow Launcher executable not found.");
+            }
+        }
+
+        #endregion flowlauncher
         public void prestartlist()
         {
             try
@@ -458,14 +512,18 @@ namespace gcmloader
                     // Ensure the path is valid
                     if (System.IO.File.Exists(imagePath))
                     {
-
                         // Set the image source
                         backgroundImage.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+
+                        // Fill the entire space while maintaining aspect ratio
                         backgroundImage.Stretch = Stretch.UniformToFill;
 
-                        // Set the size of the image to match the window size
-                        backgroundImage.Width = width;
-                        backgroundImage.Height = height;
+                        // Set image to stretch automatically by removing fixed Width and Height
+                        backgroundImage.HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Stretch;
+                        backgroundImage.VerticalAlignment = VerticalAlignment.Stretch;
+
+                        // Make sure the image is behind all other elements
+                        backgroundImage.SetValue(Canvas.ZIndexProperty, -1);
 
                         // Add the background image to the main content
                         if (this.Content is Grid mainGrid)
@@ -497,11 +555,9 @@ namespace gcmloader
             catch
             {
                 Console.WriteLine("wallpaper gui error");
-
             }
-
-
         }
+
         private string Settwallpaper()
         {
             try
@@ -524,36 +580,25 @@ namespace gcmloader
                 return null;
             }
         }
-        static void IsJoyxoffInstalledAndStart()
+        static void KillTargetProcess(string processName)
         {
-            try
+            // Get all processes with the specified name
+            Process[] processes = Process.GetProcessesByName(processName);
+
+            foreach (Process proc in processes)
             {
-                bool joyxofftogglestatus = AppSettings.Load<bool>("usejoyxoff");
-                if (joyxofftogglestatus == true)
+                try
                 {
-                    string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
-                    try
-                    {
-                        if (File.Exists(joyxoffExePath))
-                        {
-                            Process.Start(joyxoffExePath);
-                        }
-                    }
-                    catch
-                    {
-
-                    }
+                    // Attempt to kill the process
+                    proc.Kill();
+                    Console.WriteLine($"Terminated process: {proc.ProcessName} (ID: {proc.Id})");
                 }
-                else
+                catch (Exception ex)
                 {
-
+                    // Log if something goes wrong
+                    Console.WriteLine($"Could not terminate process {proc.ProcessName}: {ex.Message}");
                 }
             }
-            catch
-            {
-
-            }
-
         }
         public void displayfusion(string art)
         {
@@ -1102,6 +1147,10 @@ namespace gcmloader
                 {
                     await MonitorDiscordProcessAndWindow();
                 }
+                //flowlauncher autokill
+
+
+
             }
             catch (Exception ex)
             {
@@ -1238,6 +1287,9 @@ namespace gcmloader
         }
         // Method to append logs to the file on the Desktop
         #endregion discord
+
+
+
         #endregion functions
         #region launcher
         static void StartSteam()
@@ -1484,9 +1536,14 @@ namespace gcmloader
                     SettingsVerify();
                     StartupVideo.Play();
                     displayfusion("start");
-                    
-                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
+                    #region kill distubing process
+                    KillTargetProcess("JoyxSvc");
+                    KillTargetProcess("JoyXoff");
+                    KillTargetProcess("chrome");
+                    KillTargetProcess("spotify");
+                    #endregion kill distubing process
                     cssloader(); //only check if is installed, than start
+                    flowlauncher();
                     StartLauncher();
                     SetupGamepad();
                     // TaskManager //
@@ -1515,6 +1572,8 @@ namespace gcmloader
         }
         #endregion start
         #region TaskManager
+        
+
 
         public bool TaskManagerVisibility;
 
@@ -1892,6 +1951,66 @@ namespace gcmloader
 
         #endregion // TaskManager
         #region Gamepad/Keyboard_Navigation
+        #region shortcuts
+        #region alt tab
+        private const byte VK_MENU = 0x12; // ALT key
+        private const byte VK_TAB = 0x09;
+        private const byte VK_SPACE = 0x20;
+        private const byte VK_R = 0x52;    // R
+
+
+        [DllImport("user32.dll")]
+        private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+
+        private const uint KEYEVENTF_KEYDOWN = 0x0000;
+        private const uint KEYEVENTF_KEYUP = 0x0002;
+       
+        private void SendAltTab()
+        {
+            // Press ALT
+            keybd_event(VK_MENU, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+
+            // Press TAB
+            keybd_event(VK_TAB, 0, KEYEVENTF_KEYDOWN, UIntPtr.Zero);
+            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+
+            // Release ALT
+            keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+        }
+
+        #endregion alt tab
+        #region performance overlay shortcut AHK
+        private void TriggerPerformanceOverlay()
+        {
+            // Build full path to the overlay .exe located in the same folder 
+            string overlayPath = Path.Combine(AppContext.BaseDirectory, "amdnvidiap.exe");
+
+            if (File.Exists(overlayPath))
+            {
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = overlayPath,
+                        UseShellExecute = true
+                    });
+
+                    Console.WriteLine("Performance overlay trigger executed.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error launching overlay trigger: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Overlay trigger executable not found.");
+            }
+        }
+
+        #endregion performance overlay shortcut AHK
+        #endregion shortcuts
+
 
         private Controller _xinputController;
         private bool _controllerConnected = false;
@@ -1901,10 +2020,41 @@ namespace gcmloader
             _xinputController = new Controller(UserIndex.One);
             _controllerConnected = _xinputController.IsConnected;
 
-            DispatcherTimer gamepadInputTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(150) };
-            gamepadInputTimer.Tick += (s, e) => GamepadButtonCheck();
+            // Create and start a timer that checks for controller input/connection
+            DispatcherTimer gamepadInputTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(100)
+            };
+
+            gamepadInputTimer.Tick += (s, e) =>
+            {
+                // If controller is not connected yet, check for it
+                if (!_controllerConnected)
+                {
+                    _controllerConnected = _xinputController.IsConnected;
+
+                    if (_controllerConnected)
+                    {
+                        // Controller has just been connected
+                        Debug.WriteLine("Controller connected!");
+                    }
+                }
+
+                // Run the gamepad button check continuously if controller is connected
+                if (_controllerConnected)
+                {
+                    GamepadButtonCheck();
+                }
+            };
+
             gamepadInputTimer.Start();
         }
+
+        
+
+
+        //Taskmanager
+        private GamepadButtonFlags _lastButtonState = GamepadButtonFlags.None;
 
         private void GamepadButtonCheck()
         {
@@ -1914,38 +2064,58 @@ namespace gcmloader
             var state = _xinputController.GetState();
             var gamepad = state.Gamepad;
 
-            if ((gamepad.Buttons & GamepadButtonFlags.DPadDown) != 0)
+            // Only react when button state has changed from the last check
+            var currentButtons = gamepad.Buttons;
+            var newButtons = currentButtons & ~_lastButtonState; // Only buttons that are newly pressed
+
+            if ((newButtons & GamepadButtonFlags.DPadDown) != 0)
             {
                 MoveRow(1);
             }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadUp) != 0)
+            else if ((newButtons & GamepadButtonFlags.DPadUp) != 0)
             {
                 MoveRow(-1);
             }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadLeft) != 0)
+            else if ((newButtons & GamepadButtonFlags.DPadLeft) != 0)
             {
                 MoveCol(-1);
             }
-            else if ((gamepad.Buttons & GamepadButtonFlags.DPadRight) != 0)
+            else if ((newButtons & GamepadButtonFlags.DPadRight) != 0)
             {
                 MoveCol(1);
             }
-            else if ((gamepad.Buttons & GamepadButtonFlags.A) != 0)
+            else if ((newButtons & GamepadButtonFlags.A) != 0)
             {
                 ExecuteSelectedAction();
             }
-            else if ((gamepad.Buttons & GamepadButtonFlags.Start) != 0 &&
-                     (gamepad.Buttons & GamepadButtonFlags.Back) != 0)
+            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
+                     (newButtons & GamepadButtonFlags.Start) != 0)
             {
                 BringWindowToForeground();
             }
+            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
+                     (newButtons & GamepadButtonFlags.Y) != 0)
+            {
+                SendAltTab();
+               
+            }
+            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
+                     (newButtons & GamepadButtonFlags.X) != 0)
+            {
+                TriggerPerformanceOverlay();
+            }
+
+
+            // Save the current state for next tick comparison
+            _lastButtonState = currentButtons;
         }
 
 
-
+        private bool _altPressed = false;
 
         private void MainWindow_KeyDown(object sender, KeyRoutedEventArgs e)
         {
+            // Handle other keys
             switch (e.Key)
             {
                 case VirtualKey.Down:
@@ -1965,6 +2135,15 @@ namespace gcmloader
                     break;
             }
         }
+
+        private void MainWindow_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Menu) // ALT released
+            {
+                _altPressed = false;
+            }
+        }
+
 
         private void BringWindowToForeground()
         {
@@ -2028,6 +2207,7 @@ namespace gcmloader
             private const uint SWP_NOSIZE = 0x0001;
             private const uint SWP_NOMOVE = 0x0002;
             private const uint SWP_SHOWWINDOW = 0x0040;
+           
 
             #region SteamStartup
 

@@ -62,34 +62,75 @@
  Foreground="White"
  TextAlignment="Center"/>
 
+                        <StackPanel Padding="20" Spacing="20">
+
+                            <!-- Two expanders side by side -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="40">
+
+                                <!-- Keyboard control section -->
+                                <Expander Width="350" IsExpanded="False">
+
+                                    <!-- Header with icon and title for keyboard -->
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <TextBlock FontSize="28">⌨️</TextBlock>
+                                            <TextBlock FontSize="20" VerticalAlignment="Center">Keyboard Control</TextBlock>
+                                        </StackPanel>
+                                    </Expander.Header>
+
+                                    <!-- Keyboard control content -->
+                                    <StackPanel Spacing="10">
+                                        <!-- Description text -->
+                                        <TextBlock TextWrapping="Wrap">
+                        You can minimize your launcher at any time to access the GCM Task Manager. 
+                        From there, you can use the integrated Flow Launcher — the default key combination is ALT + SPACE. 
+                        You can launch or open any program from here. 
+                        ALT + TAB is also available to switch between windows.
+                                        </TextBlock>
+
+                                        <!-- Shortcut button -->
+                                        <Button Content="See Shortcuts" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Expander>
+
+                                <!-- Controller control section -->
+                                <Expander Width="350" IsExpanded="False">
+
+                                    <!-- Header with icon and title for controller -->
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <TextBlock FontSize="28">🎮</TextBlock>
+                                            <TextBlock FontSize="20" VerticalAlignment="Center">Controller Control</TextBlock>
+                                        </StackPanel>
+                                    </Expander.Header>
+
+                                    <!-- Controller control content -->
+                                    <StackPanel Spacing="10">
+                                        <!-- Description text -->
+                                        <TextBlock TextWrapping="Wrap">
+                        Your launcher supports controller input. 
+                        Additionally, you can minimize the launcher at any time and access the GCM Task Manager using your controller. 
+                        You can also open the Task Manager while playing any game. 
+                        Check the assigned shortcut to access it. Flow Launcher is not operable with the controller. 
+                        We will introduce a launcher for programs in future versions.
+                                        </TextBlock>
+
+                                        <!-- Shortcut button -->
+                                        <Button Content="See Shortcuts" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </StackPanel>
+
                         <!-- Features Abschnitt -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                             <FontIcon Glyph="&#xE945;" FontSize="24" Foreground="LightGray"/>
                             <!-- Lightning Bolt -->
                             <TextBlock Text="We offer additional features that you can activate alongside the core functionalities." 
-     FontSize="16" 
-     Foreground="LightGray"/>
+FontSize="16" 
+Foreground="LightGray"/>
                         </StackPanel>
-
-                        <!-- Customization Abschnitt -->
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                            <FontIcon Glyph="&#xE790;" FontSize="24" Foreground="LightGray"/>
-                            <!-- Settings Icon -->
-                            <TextBlock Text="Customize your launcher, select your preferred settings, and start the GCM." 
-     FontSize="16" 
-     Foreground="LightGray"/>
-                        </StackPanel>
-
-                        <!-- Seamless Gaming Abschnitt -->
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                            <FontIcon Glyph="&#xE7FC;" FontSize="24" Foreground="LightGray"/>
-                            <!-- Rocket Icon -->
-                            <TextBlock Text="Enjoy a seamless gaming session without interruptions." 
-     FontSize="16" 
-     Foreground="LightGray"/>
-                        </StackPanel>
-
-                        <!-- Exit to Desktop Abschnitt -->
+                        <!-- Exit to Desktop  -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                             <FontIcon Glyph="&#xE7F7;" FontSize="24" Foreground="LightGray"/>
                             <!-- Refresh Icon -->

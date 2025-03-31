@@ -56,14 +56,17 @@
 
             <!-- Menu -->
             <NavigationView.MenuItems>
-                <!-- Home -->
-                <NavigationViewItem Content="Home" Icon="Home" Tag="HomePage" />
+                <!-- Onboarding -->
+                <NavigationViewItem Content="Onboarding" Icon="Placeholder"  Tag="OnboardingPage" />
                 <!-- Launcher -->
                 <NavigationViewItem Content="Launcher" Icon="StopSlideShow" Tag="LauncherPage" />
                 <!-- STARTUP -->
                 <NavigationViewItem Content="Functions" Icon="Play" Tag="StartupPage" />
+                <!-- Start -->
+                <NavigationViewItem Content="Start GCM" Icon="Home" Tag="GCMPage" />
                 <!-- Links -->
                 <NavigationViewItem Content="Links" Icon="Link" Tag="LinksPage" />
+               
             </NavigationView.MenuItems>
 
             <!-- Frame for page content -->

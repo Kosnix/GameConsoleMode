@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {}
+    "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {
+    "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
+        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj",
         "projectName": "gcmloader",
-        "projectPath": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
-        "packagesPath": "C:\\Users\\luisg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\obj\\",
+        "projectPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\gcmloader.csproj",
+        "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\gcmloader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\luisg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0-windows10.0.19041": {
@@ -99,43 +99,43 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.57, 10.0.19041.57]"
+              "version": "[10.0.19041.54, 10.0.19041.54]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[8.0.14, 8.0.14]"
+              "version": "[8.0.11, 8.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -146,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
