@@ -13,6 +13,9 @@
     <Page Update="Links.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="overlaycontrolls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="settings.xaml">
       <SubType>Designer</SubType>
     </Page>

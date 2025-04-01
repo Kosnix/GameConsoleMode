@@ -3908,3 +3908,9 @@ C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windo
 C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.genpublishdeps.cache
 C:\Users\luisg\Source\Repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\amdnvidiap.exe
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\xbox-controller.png
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xbf
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.g.i.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.g.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xaml
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xbf

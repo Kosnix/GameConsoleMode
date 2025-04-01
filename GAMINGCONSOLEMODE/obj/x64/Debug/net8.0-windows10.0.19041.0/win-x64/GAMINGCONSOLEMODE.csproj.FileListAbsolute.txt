@@ -4892,3 +4892,9 @@ C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\n
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\taskmanager_gcmloader.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\functions_gcm.png
 C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\discord.jpg
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xbf
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.g.i.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.g.cs
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xaml
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\overlaycontrolls.xbf
+C:\Users\luis\Source\Repos\zeusGameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\xbox-controller.png

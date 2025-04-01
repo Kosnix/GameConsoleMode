@@ -16,6 +16,7 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
+using gcmloader;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.

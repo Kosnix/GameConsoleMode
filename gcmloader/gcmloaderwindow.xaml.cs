@@ -40,6 +40,10 @@ using System.Media;
 using WinRT.Interop;
 using System.Windows.Input;
 using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Controls.Primitives;
+using Windows.Foundation;
+using Point = System.Drawing.Point;
+
 
 
 namespace gcmloader
@@ -1539,7 +1543,7 @@ namespace gcmloader
                     #region kill distubing process
                     KillTargetProcess("JoyxSvc");
                     KillTargetProcess("JoyXoff");
-                    KillTargetProcess("chrome");
+                    //KillTargetProcess("chrome");
                     KillTargetProcess("spotify");
                     #endregion kill distubing process
                     cssloader(); //only check if is installed, than start
@@ -2009,6 +2013,45 @@ namespace gcmloader
         }
 
         #endregion performance overlay shortcut AHK
+        #region audio management
+        public static void SwitchToNextAudioDevice()
+        {
+            try
+            {
+                var enumerator = new MMDeviceEnumerator();
+                var defaultDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
+                string currentName = defaultDevice.FriendlyName;
+
+                // Get all active playback devices and exclude Steam-related devices
+                List<MMDevice> devices = enumerator
+                    .EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active)
+                    .Where(d => !d.FriendlyName.ToLower().Contains("steam streaming"))
+                    .ToList();
+
+                List<string> deviceNames = devices.Select(d => d.FriendlyName).ToList();
+
+                int currentIndex = deviceNames.FindIndex(name => name.Equals(currentName, StringComparison.OrdinalIgnoreCase));
+                int nextIndex = (currentIndex + 1) % deviceNames.Count;
+                string rawDeviceName = deviceNames[nextIndex];
+                string cleanedDeviceName = rawDeviceName.Split('(')[0].Trim();
+                NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{cleanedDeviceName}\"");
+                Console.WriteLine($"Switched to audio device: {cleanedDeviceName}");
+                NativeToastOverlay.Show("Switched to: " + cleanedDeviceName, SystemIcons.Information);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error switching audio device: {ex.Message}");
+            }
+        }
+        #endregion audio management
+        #region shortcut overlay
+      
+        public static void ShowOverlayControlsTemporarily()
+        {
+          
+
+        }
+        #endregion shortcut overlay
         #endregion shortcuts
 
 
@@ -2023,7 +2066,7 @@ namespace gcmloader
             // Create and start a timer that checks for controller input/connection
             DispatcherTimer gamepadInputTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(100)
+                Interval = TimeSpan.FromMilliseconds(125)
             };
 
             gamepadInputTimer.Tick += (s, e) =>
@@ -2050,11 +2093,10 @@ namespace gcmloader
             gamepadInputTimer.Start();
         }
 
-        
-
-
         //Taskmanager
         private GamepadButtonFlags _lastButtonState = GamepadButtonFlags.None;
+        //overlay ui
+        private static overlaycontrolls _overlayInstance;
 
         private void GamepadButtonCheck()
         {
@@ -2063,7 +2105,7 @@ namespace gcmloader
 
             var state = _xinputController.GetState();
             var gamepad = state.Gamepad;
-
+           
             // Only react when button state has changed from the last check
             var currentButtons = gamepad.Buttons;
             var newButtons = currentButtons & ~_lastButtonState; // Only buttons that are newly pressed
@@ -2104,7 +2146,26 @@ namespace gcmloader
             {
                 TriggerPerformanceOverlay();
             }
-
+            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
+                    (newButtons & GamepadButtonFlags.RightThumb) != 0)
+            {
+                SwitchToNextAudioDevice();
+            }
+            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
+         (newButtons & GamepadButtonFlags.B) != 0)
+            {
+                if (_overlayInstance == null)
+                {
+                    _overlayInstance = new overlaycontrolls();
+                    _overlayInstance.Closed += (s, e) => _overlayInstance = null;
+                    _overlayInstance.Activate();
+                }
+                else
+                {
+                    _overlayInstance.Close();
+                    _overlayInstance = null;
+                }
+            }
 
             // Save the current state for next tick comparison
             _lastButtonState = currentButtons;
@@ -2423,5 +2484,188 @@ namespace gcmloader
                 }
             }
         }
+    }
+    //Toast code
+    public static class NativeToastOverlay
+    {
+        private static readonly object syncLock = new();
+        private static readonly List<Form> activeToasts = new();
+
+        public static void Show(string message, Icon icon = null)
+        {
+            Thread toastThread = new Thread(() =>
+            {
+                Form toastForm = new Form
+                {
+                    Width = 520,
+                    Height = 80,
+                    FormBorderStyle = FormBorderStyle.None,
+                    TopMost = true,
+                    ShowInTaskbar = false,
+                    BackColor = System.Drawing.Color.Black,
+                    Opacity = 0, // Start transparent for fade-in
+                    StartPosition = FormStartPosition.Manual
+                };
+
+                // Layout
+                System.Windows.Forms.Panel panel = new System.Windows.Forms.Panel
+                {
+                    Dock = DockStyle.Fill,
+                    Padding = new Padding(10),
+                    BackColor = System.Drawing.Color.Black
+                };
+
+                PictureBox iconBox = new PictureBox
+                {
+                    Width = 32,
+                    Height = 32,
+                    Margin = new Padding(0, 0, 10, 0),
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Visible = icon != null
+                };
+
+                if (icon != null)
+                    iconBox.Image = icon.ToBitmap();
+
+                Label label = new Label
+                {
+                    Text = message,
+                    ForeColor = System.Drawing.Color.White,
+                    AutoSize = true,
+                    Dock = DockStyle.Fill,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    Font = new Font("Segoe UI", 12),
+                    MinimumSize = new System.Drawing.Size(0, 32)
+
+                };
+
+                FlowLayoutPanel flow = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Fill,
+                    FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight
+                };
+
+                flow.Controls.Add(iconBox);
+                flow.Controls.Add(label);
+                panel.Controls.Add(flow);
+                toastForm.Controls.Add(panel);
+
+                // Stack positioning
+                lock (syncLock)
+                {
+                    var screen = Screen.PrimaryScreen.WorkingArea;
+                    int offset = (activeToasts.Count * (toastForm.Height + 10)) + 20;
+                    toastForm.Location = new System.Drawing.Point(screen.Right - toastForm.Width - 20, screen.Bottom - offset);
+                    activeToasts.Add(toastForm);
+                }
+
+                toastForm.Load += (s, e) => SetWindowStyles(toastForm);
+
+                toastForm.Shown += (s, e) =>
+                {
+                    FadeIn(toastForm, () =>
+                    {
+                        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer { Interval = 3000 };
+                        timer.Tick += (s2, e2) =>
+                        {
+                            timer.Stop();
+                            FadeOut(toastForm, () =>
+                            {
+                                lock (syncLock)
+                                {
+                                    activeToasts.Remove(toastForm);
+                                    RepositionToasts();
+                                }
+                                toastForm.Close();
+                            });
+                        };
+                        timer.Start();
+                    });
+                };
+
+                System.Windows.Forms.Application.Run(toastForm);
+            });
+
+            toastThread.SetApartmentState(ApartmentState.STA);
+            toastThread.IsBackground = true;
+            toastThread.Start();
+        }
+
+        private static void RepositionToasts()
+        {
+            var screen = Screen.PrimaryScreen.WorkingArea;
+            for (int i = 0; i < activeToasts.Count; i++)
+            {
+                var f = activeToasts[i];
+                f.Invoke(() =>
+                {
+                    int offset = (i * (f.Height + 10)) + 20;
+                    f.Location = new Point(screen.Right - f.Width - 20, screen.Bottom - offset);
+                });
+            }
+        }
+
+        private static void FadeIn(Form form, Action onComplete)
+        {
+            System.Windows.Forms.Timer fadeIn = new System.Windows.Forms.Timer { Interval = 15 };
+            fadeIn.Tick += (s, e) =>
+            {
+                form.Opacity += 0.05;
+                if (form.Opacity >= 0.95)
+                {
+                    form.Opacity = 0.95;
+                    fadeIn.Stop();
+                    onComplete?.Invoke();
+                }
+            };
+            fadeIn.Start();
+        }
+
+        private static void FadeOut(Form form, Action onComplete)
+        {
+            System.Windows.Forms.Timer fadeOut = new System.Windows.Forms.Timer { Interval = 15 };
+            fadeOut.Tick += (s, e) =>
+            {
+                form.Opacity -= 0.05;
+                if (form.Opacity <= 0)
+                {
+                    fadeOut.Stop();
+                    onComplete?.Invoke();
+                }
+            };
+            fadeOut.Start();
+        }
+
+        private static void SetWindowStyles(Form form)
+        {
+            IntPtr hwnd = form.Handle;
+            int exStyle = (int)GetWindowLong(hwnd, GWL_EXSTYLE);
+            exStyle |= WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE | WS_EX_TOPMOST;
+            SetWindowLong(hwnd, GWL_EXSTYLE, (IntPtr)exStyle);
+
+            SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0,
+                SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
+        }
+
+        private const int GWL_EXSTYLE = -20;
+        private const int WS_EX_TOOLWINDOW = 0x00000080;
+        private const int WS_EX_NOACTIVATE = 0x08000000;
+        private const int WS_EX_TOPMOST = 0x00000008;
+
+        private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+        private const uint SWP_NOMOVE = 0x0002;
+        private const uint SWP_NOSIZE = 0x0001;
+        private const uint SWP_NOACTIVATE = 0x0010;
+        private const uint SWP_SHOWWINDOW = 0x0040;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter,
+            int X, int Y, int cx, int cy, uint uFlags);
     }
 }

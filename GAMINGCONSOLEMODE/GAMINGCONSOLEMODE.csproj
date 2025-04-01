@@ -42,6 +42,7 @@
     <Content Remove="Assets\steam_logo.png" />
     <Content Remove="Assets\Uninstall Programs.png" />
     <Content Remove="Assets\Xbox Controller.png" />
+    <Content Remove="Assets\xbox-controller.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\displayfusion.png" />
@@ -61,6 +62,7 @@
     <None Remove="Assets\steambp.png" />
     <None Remove="Assets\Uninstall Programs.png" />
     <None Remove="Assets\Xbox Controller.png" />
+    <None Remove="Assets\xbox-controller.png" />
     <None Remove="functions\deckyloader.png" />
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
@@ -106,6 +108,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\settings\usblogon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\xbox-controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\deckyloader.png">
@@ -190,6 +195,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="overlaycontrolls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
