@@ -15,7 +15,7 @@
             <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
 
-        <!-- 🎮 Controller Visual als Bild -->
+        <!-- 🎮 Controller Visual -->
         <Border Grid.Column="0" CornerRadius="20" Background="#2D2D30" Margin="0,0,40,0">
             <Image Source="ms-appx:///Assets/xbox-controller.png"
                    Stretch="Uniform"
@@ -25,7 +25,7 @@
                    Width="Auto"/>
         </Border>
 
-        <!-- 📋 Shortcut-Liste -->
+        <!-- 📋 Shortcut -->
         <StackPanel Grid.Column="1" Spacing="20">
             <TextBlock Text="Controller Shortcuts"
                        FontSize="36"

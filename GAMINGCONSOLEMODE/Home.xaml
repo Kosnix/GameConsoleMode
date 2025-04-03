@@ -88,8 +88,7 @@
                         ALT + TAB is also available to switch between windows.
                                         </TextBlock>
 
-                                        <!-- Shortcut button -->
-                                        <Button Content="See Shortcuts" HorizontalAlignment="Center"/>
+                                       
                                     </StackPanel>
                                 </Expander>
 
@@ -109,14 +108,11 @@
                                         <!-- Description text -->
                                         <TextBlock TextWrapping="Wrap">
                         Your launcher supports controller input. 
-                        Additionally, you can minimize the launcher at any time and access the GCM Task Manager using your controller. 
+                        Additionally, you can minimize the launcher at any time and access the GCM Task Manager using your controller SELECT+START. 
                         You can also open the Task Manager while playing any game. 
                         Check the assigned shortcut to access it. Flow Launcher is not operable with the controller. 
                         We will introduce a launcher for programs in future versions.
                                         </TextBlock>
-
-                                        <!-- Shortcut button -->
-                                        <Button Content="See Shortcuts" HorizontalAlignment="Center"/>
                                     </StackPanel>
                                 </Expander>
                             </StackPanel>
@@ -125,10 +121,7 @@
                         <!-- Features Abschnitt -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                             <FontIcon Glyph="&#xE945;" FontSize="24" Foreground="LightGray"/>
-                            <!-- Lightning Bolt -->
-                            <TextBlock Text="We offer additional features that you can activate alongside the core functionalities." 
-FontSize="16" 
-Foreground="LightGray"/>
+                          
                         </StackPanel>
                         <!-- Exit to Desktop  -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">

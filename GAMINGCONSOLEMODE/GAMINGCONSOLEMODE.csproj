@@ -33,6 +33,7 @@
     <Content Remove="Assets\onboarding\discord.jpg" />
     <Content Remove="Assets\onboarding\flowlauncher.png" />
     <Content Remove="Assets\onboarding\functions_gcm.png" />
+    <Content Remove="Assets\onboarding\shortcuts.gif" />
     <Content Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <Content Remove="Assets\Play.png" />
     <Content Remove="Assets\playnite_logo.png" />
@@ -56,6 +57,7 @@
     <None Remove="Assets\onboarding\discord.jpg" />
     <None Remove="Assets\onboarding\flowlauncher.png" />
     <None Remove="Assets\onboarding\functions_gcm.png" />
+    <None Remove="Assets\onboarding\shortcuts.gif" />
     <None Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <None Remove="Assets\Play.png" />
     <None Remove="Assets\settings\usblogon.png" />
@@ -102,6 +104,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\onboarding\functions_gcm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\shortcuts.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\onboarding\taskmanager_gcmloader.png">

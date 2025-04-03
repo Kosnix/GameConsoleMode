@@ -31,7 +31,7 @@ namespace GAMINGCONSOLEMODE
     {
     string owner = "Kosnix";  // Repository owner
     string repo = "GameConsoleMode";  // Repository name
-    string currentVersion = "2.0.1";  // Your current version
+    string currentVersion = "2.1.0";  // Your current version
         public MainWindow()
         {
             this.InitializeComponent();

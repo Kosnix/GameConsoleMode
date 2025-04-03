@@ -30,14 +30,20 @@
                        Margin="0,0,0,20"
                        HorizontalAlignment="Center"/>
 
-            <!-- Image -->
-            <Image x:Name="OnboardingImage"
-                   Source="/Assets/logo_gcm.png" 
-                   Height="250"
-                   Stretch="Uniform"
-                   Margin="0,0,0,20"
-                   Grid.Row="1"
-                   HorizontalAlignment="Center"/>
+            <!-- Image mit abgerundeten Ecken -->
+            <Viewbox Grid.Row="1"
+                     Margin="0,0,0,20"
+                     HorizontalAlignment="Center"
+                     MaxWidth="600"
+                     MaxHeight="400">
+                <!-- Border wraps the image and applies corner radius -->
+                <Border CornerRadius="30"
+                        >
+                    <Image x:Name="OnboardingImage"
+                           Source="/Assets/logo_gcm.png"
+                           Stretch="Uniform"/>
+                </Border>
+            </Viewbox>
 
             <!-- Description and dynamic content area -->
             <StackPanel Grid.Row="2"

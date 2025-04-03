@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OQmT9a1RDtI=",
+  "dgSpecHash": "nlfPFNlXW7Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\zeusGameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
+  "projectFilePath": "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\GAMINGCONSOLEMODE\\GAMINGCONSOLEMODE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
@@ -60,16 +60,16 @@
     "C:\\Users\\luis\\.nuget\\packages\\uno.fonts.fluent\\2.3.0\\uno.fonts.fluent.2.3.0.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\uno.foundation.logging\\5.2.132\\uno.foundation.logging.5.2.132.nupkg.sha512",
     "C:\\Users\\luis\\.nuget\\packages\\uno.winui\\5.2.132\\uno.winui.5.2.132.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.11\\microsoft.netcore.app.runtime.win-x86.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.54\\microsoft.windows.sdk.net.ref.10.0.19041.54.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x86.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\8.0.11\\microsoft.netcore.app.runtime.win-arm64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-arm64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-arm64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.11\\microsoft.netcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.11.nupkg.sha512"
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.14\\microsoft.netcore.app.runtime.win-x86.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.14\\microsoft.aspnetcore.app.runtime.win-x86.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\8.0.14\\microsoft.netcore.app.runtime.win-arm64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.14\\microsoft.aspnetcore.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\8.0.14\\microsoft.windowsdesktop.app.runtime.win-arm64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.14\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\8.0.14\\microsoft.aspnetcore.app.runtime.win-arm64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.14\\microsoft.netcore.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\luis\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.14\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.14.nupkg.sha512"
   ],
   "logs": [
     {

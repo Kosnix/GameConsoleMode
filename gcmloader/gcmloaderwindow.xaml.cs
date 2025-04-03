@@ -252,32 +252,43 @@ namespace gcmloader
 
         public async void flowlauncher()
         {
-            // Get the base directory where the app was started from
-            string basePath = AppContext.BaseDirectory;
 
-            // Build full path to the Flow Launcher executable
-            string flowLauncherPath = Path.Combine(basePath, "flowlauncher", "Flow.Launcher.exe");
+            bool launcher = AppSettings.Load<bool>("useflowlauncher");
 
-            // Check if the file exists
-            if (File.Exists(flowLauncherPath))
+            if (launcher == true)
             {
-                try
+                // Get the base directory where the app was started from
+                string basePath = AppContext.BaseDirectory;
+
+                // Build full path to the Flow Launcher executable
+                string flowLauncherPath = Path.Combine(basePath, "flowlauncher", "Flow.Launcher.exe");
+
+                // Check if the file exists
+                if (File.Exists(flowLauncherPath))
                 {
-                    // Start the Flow Launcher executable
-                    Process.Start(new ProcessStartInfo
+                    try
                     {
-                        FileName = flowLauncherPath,
-                        UseShellExecute = true
-                    });
+                        // Start the Flow Launcher executable
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = flowLauncherPath,
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error starting Flow Launcher: {ex.Message}");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine($"Error starting Flow Launcher: {ex.Message}");
+                    Console.WriteLine("Flow Launcher executable not found.");
                 }
             }
             else
             {
-                Console.WriteLine("Flow Launcher executable not found.");
+
+                Console.WriteLine("flowlauncher is off or not set");
             }
         }
 
@@ -1543,8 +1554,6 @@ namespace gcmloader
                     #region kill distubing process
                     KillTargetProcess("JoyxSvc");
                     KillTargetProcess("JoyXoff");
-                    //KillTargetProcess("chrome");
-                    KillTargetProcess("spotify");
                     #endregion kill distubing process
                     cssloader(); //only check if is installed, than start
                     flowlauncher();
@@ -2066,7 +2075,7 @@ namespace gcmloader
             // Create and start a timer that checks for controller input/connection
             DispatcherTimer gamepadInputTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(125)
+                Interval = TimeSpan.FromMilliseconds(140)
             };
 
             gamepadInputTimer.Tick += (s, e) =>

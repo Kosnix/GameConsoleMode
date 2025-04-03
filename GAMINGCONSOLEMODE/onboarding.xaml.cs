@@ -60,7 +60,7 @@ namespace GAMINGCONSOLEMODE
                 new OnboardingStep
                 {
                     Title = "Taskmanager",
-                    Description = "GCM includes a built-in task manager. You can access it by minimizing the launcher or using the controller shortcut.[BACK]+[RSB] " +
+                    Description = "GCM includes a built-in task manager. You can access it by minimizing the launcher or using the controller shortcut.[BACK]+[START] " +
                     "It can be operated using either a keyboard or a controller. The purpose of the task manager is to let you easily switch back and forth " +
                     "between your launcher and any game that might start in the background.",
                     ImagePath = "ms-appx:///Assets/onboarding/taskmanager_gcmloader.png",
@@ -68,7 +68,6 @@ namespace GAMINGCONSOLEMODE
                     ActionButtonText = "Start Now",
                     ActionButtonCallback = () =>
                     {
-
                     }
                 },
                 //Functions
@@ -84,7 +83,21 @@ namespace GAMINGCONSOLEMODE
                     ActionButtonText = "Start Now",
                     ActionButtonCallback = () =>
                     {
-
+                    }
+                },
+                //Shortcuts
+                new OnboardingStep
+                {
+                    Title = "Shortcuts",
+                    Description = "GCM includes a shortcut feature that can be used at any time—whether you're gaming or in any other situation. " +
+                    "This is designed to be a core feature of GCM. In future versions, users will be able to customize their own shortcuts and assign " +
+                    "specific functions to them. The buttons must be pressed at the same time. To avoid any interference, we've set the precision so that " +
+                    "they have to be clicked within the exact same second.",
+                    ImagePath = "ms-appx:///Assets/onboarding/shortcuts.gif",
+                    ShowActionButton = false,
+                    ActionButtonText = "Start Now",
+                    ActionButtonCallback = () =>
+                    {
                     }
                 },
                 //flow launcher

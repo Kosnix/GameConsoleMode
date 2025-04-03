@@ -63,7 +63,7 @@
                 <!-- STARTUP -->
                 <NavigationViewItem Content="Functions" Icon="Play" Tag="StartupPage" />
                 <!-- Start -->
-                <NavigationViewItem Content="Start GCM" Icon="Home" Tag="GCMPage" />
+                <NavigationViewItem Content="Game Console Mode" Icon="Home" Tag="GCMPage" />
                 <!-- Links -->
                 <NavigationViewItem Content="Links" Icon="Link" Tag="LinksPage" />
                
