@@ -108,7 +108,8 @@ namespace GAMINGCONSOLEMODE
                     var defaultSettings = new JObject
                     {
                         ["launcher"] = "steam",
-                        ["steamlauncherpath"] = @"C:\Program Files (x86)\Steam\steam.exe"
+                        ["steamlauncherpath"] = @"C:\Program Files (x86)\Steam\steam.exe",
+                        ["onboarding"] = false
                     };
 
                     File.WriteAllText(SettingsFilePath, defaultSettings.ToString(Formatting.Indented));

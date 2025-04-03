@@ -30,6 +30,11 @@
     <Content Remove="Assets\launcher\playnite_logo.png" />
     <Content Remove="Assets\launcher\steam_logo.png" />
     <Content Remove="Assets\logo_gcm.png" />
+    <Content Remove="Assets\onboarding\discord.jpg" />
+    <Content Remove="Assets\onboarding\flowlauncher.png" />
+    <Content Remove="Assets\onboarding\functions_gcm.png" />
+    <Content Remove="Assets\onboarding\shortcuts.gif" />
+    <Content Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <Content Remove="Assets\Play.png" />
     <Content Remove="Assets\playnite_logo.png" />
     <Content Remove="Assets\Screenshot 2025-01-02 104920.png" />
@@ -38,6 +43,7 @@
     <Content Remove="Assets\steam_logo.png" />
     <Content Remove="Assets\Uninstall Programs.png" />
     <Content Remove="Assets\Xbox Controller.png" />
+    <Content Remove="Assets\xbox-controller.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\displayfusion.png" />
@@ -48,11 +54,17 @@
     <None Remove="Assets\launcher\playnite_logo.png" />
     <None Remove="Assets\launcher\steam_logo.png" />
     <None Remove="Assets\logo_gcm.png" />
+    <None Remove="Assets\onboarding\discord.jpg" />
+    <None Remove="Assets\onboarding\flowlauncher.png" />
+    <None Remove="Assets\onboarding\functions_gcm.png" />
+    <None Remove="Assets\onboarding\shortcuts.gif" />
+    <None Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <None Remove="Assets\Play.png" />
     <None Remove="Assets\settings\usblogon.png" />
     <None Remove="Assets\steambp.png" />
     <None Remove="Assets\Uninstall Programs.png" />
     <None Remove="Assets\Xbox Controller.png" />
+    <None Remove="Assets\xbox-controller.png" />
     <None Remove="functions\deckyloader.png" />
     <None Remove="functions\discord.png" />
     <None Remove="functions\joyxoff_logo.png" />
@@ -65,8 +77,7 @@
     <None Remove="launcher.xaml" />
     <None Remove="Links.xaml" />
     <None Remove="nircmd.exe" />
-    <None Remove="opensource_apps\audiochanger.ps1" />
-    <None Remove="opensource_apps\nircmd.exe" />
+    <None Remove="onboarding.xaml" />
     <None Remove="settings.xaml" />
     <None Remove="startup.xaml" />
   </ItemGroup>
@@ -86,7 +97,25 @@
     <EmbeddedResource Include="Assets\GCM_Startup_Video.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\discord.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\flowlauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\functions_gcm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\shortcuts.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\onboarding\taskmanager_gcmloader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\settings\usblogon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\xbox-controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\deckyloader.png">
@@ -146,12 +175,6 @@
     <EmbeddedResource Include="nircmd.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="opensource_apps\audiochanger.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="opensource_apps\nircmd.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -177,6 +200,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="overlaycontrolls.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,6 +223,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="opensource_apps\" />
     <Folder Include="Update\" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +267,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="functions\ffmpeg\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="onboarding.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Links.xaml">

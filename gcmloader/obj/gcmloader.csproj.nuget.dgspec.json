@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {}
+    "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {
+    "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
+        "projectUniqueName": "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
         "projectName": "gcmloader",
-        "projectPath": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
-        "packagesPath": "C:\\Users\\luisg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luisg\\Source\\Repos\\GameConsoleMode\\gcmloader\\obj\\",
+        "projectPath": "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\gcmloader\\gcmloader.csproj",
+        "packagesPath": "C:\\Users\\luis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis\\Source\\Repos\\GameConsoleMode\\gcmloader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\luisg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

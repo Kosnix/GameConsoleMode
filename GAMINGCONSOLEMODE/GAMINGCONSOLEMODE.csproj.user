@@ -7,7 +7,13 @@
     <None Update="App.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Update="onboarding.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Links.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="overlaycontrolls.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="settings.xaml">
