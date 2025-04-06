@@ -151,7 +151,7 @@ GameConsoleMode is open to contributions from the community.
 ## 📞 Contact
 
 For inquiries or support, reach out via Discord: **`.kosnix`** or **`.Toonymak`**  
-Join our Discord server: [**GameConsoleMode Discord**](https://discord.gg/xGD2GV6zS2)
+Join our Discord server: [**GameConsoleMode Discord**](https://discord.gg/FbjYDeEJce)
 
 ---
 
