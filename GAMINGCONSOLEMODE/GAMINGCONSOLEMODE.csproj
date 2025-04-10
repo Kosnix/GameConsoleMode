@@ -37,6 +37,8 @@
     <Content Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <Content Remove="Assets\Play.png" />
     <Content Remove="Assets\playnite_logo.png" />
+    <Content Remove="Assets\rogally\allybackside.png" />
+    <Content Remove="Assets\rogally\allyfrontside.png" />
     <Content Remove="Assets\Screenshot 2025-01-02 104920.png" />
     <Content Remove="Assets\settings\usblogon.png" />
     <Content Remove="Assets\steambp.png" />
@@ -60,6 +62,8 @@
     <None Remove="Assets\onboarding\shortcuts.gif" />
     <None Remove="Assets\onboarding\taskmanager_gcmloader.png" />
     <None Remove="Assets\Play.png" />
+    <None Remove="Assets\rogally\allybackside.png" />
+    <None Remove="Assets\rogally\allyfrontside.png" />
     <None Remove="Assets\settings\usblogon.png" />
     <None Remove="Assets\steambp.png" />
     <None Remove="Assets\Uninstall Programs.png" />
@@ -78,7 +82,9 @@
     <None Remove="Links.xaml" />
     <None Remove="nircmd.exe" />
     <None Remove="onboarding.xaml" />
+    <None Remove="rogally.xaml" />
     <None Remove="settings.xaml" />
+    <None Remove="shortcuts.xaml" />
     <None Remove="startup.xaml" />
   </ItemGroup>
 
@@ -110,6 +116,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\onboarding\taskmanager_gcmloader.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\rogally\allyfrontside.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\settings\usblogon.png">
@@ -198,6 +207,7 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="NAudio.Core" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Management" Version="9.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="overlaycontrolls.xaml">
@@ -267,6 +277,21 @@
   </PropertyGroup>
   <ItemGroup>
     <PRIResource Remove="functions\ffmpeg\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\rogally\allybackside.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="shortcuts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="rogally.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="onboarding.xaml">

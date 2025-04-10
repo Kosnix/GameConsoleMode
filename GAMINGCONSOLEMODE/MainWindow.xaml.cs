@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Windows.Graphics;
+using System.Management;
 using WinRT.Interop;
 using GAMINGCONSOLEMODE;
 using Windows.UI.ApplicationSettings;
@@ -39,19 +40,39 @@ namespace GAMINGCONSOLEMODE
             SetWindowSize(1500, 1100);
             // 1. First Start: Create folder and default config file if needed
             AppSettings.FirstStart();
-            #region onboarding
-            try
+            if(IsROGAlly() == true)
             {
+                ///Is Rog Ally
+                contentFrame.Navigate(typeof(rogally));
 
-                if (AppSettings.Load<bool>("onboarding") == true)
+            }
+            else
+            {
+                #region onboarding
+                try
                 {
-                    // Navigate to the 'startup' page on app launch
-                    contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
+
+                    if (AppSettings.Load<bool>("onboarding") == true)
                     {
-                        Effect = SlideNavigationTransitionEffect.FromRight
-                    });
+                        // Navigate to the 'startup' page on app launch
+                        contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
+                        {
+                            Effect = SlideNavigationTransitionEffect.FromRight
+                        });
+                    }
+                    else
+                    {
+                        //navigate to the onboarding page
+                        // Navigate to the 'startup' page on app launch
+                        contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
+                        {
+                            Effect = SlideNavigationTransitionEffect.FromRight
+                        });
+                        AppSettings.Save("onboarding", true);
+
+                    }
                 }
-                else
+                catch
                 {
                     //navigate to the onboarding page
                     // Navigate to the 'startup' page on app launch
@@ -60,20 +81,10 @@ namespace GAMINGCONSOLEMODE
                         Effect = SlideNavigationTransitionEffect.FromRight
                     });
                     AppSettings.Save("onboarding", true);
-
                 }
+                #endregion onboarding
             }
-            catch
-            {
-                //navigate to the onboarding page
-                // Navigate to the 'startup' page on app launch
-                contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
-                {
-                    Effect = SlideNavigationTransitionEffect.FromRight
-                });
-                AppSettings.Save("onboarding", true);
-            }
-            #endregion onboarding
+
             _ = UpdateCheck(this);
         }
 
@@ -100,6 +111,7 @@ namespace GAMINGCONSOLEMODE
                         "OnboardingPage" => typeof(onboarding),
                         "GCMPage" => typeof(Home),
                         "LauncherPage" => typeof(launcher),
+                        "shortcuts" => typeof(shortcuts),
                         "StartupPage" => typeof(startup),
                         "LinksPage" => typeof(Links),
                         _ => null
@@ -290,5 +302,32 @@ namespace GAMINGCONSOLEMODE
 
         #region filter
         #endregion filter
+
+        #region rog ally
+        static bool IsROGAlly()
+        {
+            try
+            {
+                using var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystemProduct");
+                foreach (var o in searcher.Get())
+                {
+                    var obj = (ManagementObject)o;
+                    string name = obj["Name"]?.ToString() ?? "";
+                    if (name.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("[WARN] Could not determine system model: " + ex.Message);
+            }
+
+            return false;
+        }
+        #endregion rog ally
+
+
     }
 }

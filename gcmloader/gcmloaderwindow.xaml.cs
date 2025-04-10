@@ -132,11 +132,13 @@ namespace gcmloader
             this.Content.KeyUp += MainWindow_KeyUp;
             Start();
             //ASYNC PROZES
+            
             ShowTaskManager(); //after 10 seconds
             StartAsynctasks();
+
         }
 
-
+        
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
             // Get the window handle
@@ -1559,6 +1561,7 @@ namespace gcmloader
                     flowlauncher();
                     StartLauncher();
                     SetupGamepad();
+                    LoadShortcutsFromSettings();
                     // TaskManager //
                     LoadTaskManagerList();
                     InitializeTaskManagerRefresh();
@@ -2075,7 +2078,7 @@ namespace gcmloader
             // Create and start a timer that checks for controller input/connection
             DispatcherTimer gamepadInputTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(140)
+                Interval = TimeSpan.FromMilliseconds(10)
             };
 
             gamepadInputTimer.Tick += (s, e) =>
@@ -2107,78 +2110,147 @@ namespace gcmloader
         //overlay ui
         private static overlaycontrolls _overlayInstance;
 
+        private Dictionary<(string, string), string> _activeShortcuts = new();
+
+
+
+        // Fix for recognizing pressed buttons via bitwise and allowing held + second key combo
+        private static readonly Dictionary<string, GamepadButtonFlags> _buttonMap = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["A"] = GamepadButtonFlags.A,
+            ["B"] = GamepadButtonFlags.B,
+            ["X"] = GamepadButtonFlags.X,
+            ["Y"] = GamepadButtonFlags.Y,
+            ["Start"] = GamepadButtonFlags.Start,
+            ["Back"] = GamepadButtonFlags.Back,
+            ["DPadUp"] = GamepadButtonFlags.DPadUp,
+            ["DPadDown"] = GamepadButtonFlags.DPadDown,
+            ["DPadLeft"] = GamepadButtonFlags.DPadLeft,
+            ["DPadRight"] = GamepadButtonFlags.DPadRight,
+            ["LeftShoulder"] = GamepadButtonFlags.LeftShoulder,
+            ["RightShoulder"] = GamepadButtonFlags.RightShoulder
+        };
+
+        private bool IsButtonPressed(GamepadButtonFlags state, string key)
+        {
+            key = key?.Trim();
+            if (string.IsNullOrEmpty(key)) return false;
+
+            if (!_buttonMap.TryGetValue(key, out var button))
+            {
+                try { button = (GamepadButtonFlags)Enum.Parse(typeof(GamepadButtonFlags), key, true); }
+                catch { return false; }
+            }
+
+            return (state & button) != 0;
+        }
+
+       
+        private HashSet<(string, string)> _triggeredCombos = new();
+        private Dictionary<string, Action> _shortcutActions = new();
+        private Dictionary<string, DateTime> _heldButtonTimestamps = new();
+        private readonly TimeSpan _comboTimeout = TimeSpan.FromMilliseconds(1000);
+
+        private void LoadShortcutsFromSettings()
+        {
+            try
+            {
+                string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gcmsettings", "shortcuts");
+                if (!Directory.Exists(folderPath)) return;
+
+                _activeShortcuts.Clear();
+
+                foreach (var filePath in Directory.GetFiles(folderPath, "*.json"))
+                {
+                    try
+                    {
+                        string content = File.ReadAllText(filePath);
+                        var entry = JsonSerializer.Deserialize<Dictionary<string, object>>(content);
+                        if (entry == null) continue;
+
+                        if (entry.TryGetValue("Key1", out var k1) && entry.TryGetValue("Key2", out var k2) && entry.TryGetValue("Function", out var fn))
+                        {
+                            string key1 = k1?.ToString()?.Trim();
+                            string key2 = k2?.ToString()?.Trim();
+                            string function = fn?.ToString()?.Trim();
+
+                            if (!string.IsNullOrEmpty(key1) && !string.IsNullOrEmpty(key2) && !string.IsNullOrEmpty(function))
+                            {
+                                _activeShortcuts[(key1, key2)] = function;
+                            }
+                        }
+                    }
+                    catch { }
+                }
+
+                _shortcutActions.Clear();
+                _shortcutActions["Taskmanager"] = BringWindowToForeground;
+                _shortcutActions["Switch Tab"] = SendAltTab;
+                _shortcutActions["Switch Audio"] = SwitchToNextAudioDevice;
+                _shortcutActions["Performance overlay"] = TriggerPerformanceOverlay;
+                _shortcutActions["Custom Message"] = () => NativeToastOverlay.Show("Custom Shortcut Triggered!");
+            }
+            catch { }
+        }
+
         private void GamepadButtonCheck()
         {
-            if (!_controllerConnected || !_xinputController.IsConnected)
-                return;
+            if (!_controllerConnected || !_xinputController.IsConnected) return;
 
             var state = _xinputController.GetState();
             var gamepad = state.Gamepad;
-           
-            // Only react when button state has changed from the last check
             var currentButtons = gamepad.Buttons;
-            var newButtons = currentButtons & ~_lastButtonState; // Only buttons that are newly pressed
 
-            if ((newButtons & GamepadButtonFlags.DPadDown) != 0)
+            if ((currentButtons & GamepadButtonFlags.DPadDown) != 0 && (_lastButtonState & GamepadButtonFlags.DPadDown) == 0) MoveRow(1);
+            else if ((currentButtons & GamepadButtonFlags.DPadUp) != 0 && (_lastButtonState & GamepadButtonFlags.DPadUp) == 0) MoveRow(-1);
+            else if ((currentButtons & GamepadButtonFlags.DPadLeft) != 0 && (_lastButtonState & GamepadButtonFlags.DPadLeft) == 0) MoveCol(-1);
+            else if ((currentButtons & GamepadButtonFlags.DPadRight) != 0 && (_lastButtonState & GamepadButtonFlags.DPadRight) == 0) MoveCol(1);
+            else if ((currentButtons & GamepadButtonFlags.A) != 0 && (_lastButtonState & GamepadButtonFlags.A) == 0) ExecuteSelectedAction();
+ 
+            foreach (var pair in _activeShortcuts)
             {
-                MoveRow(1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadUp) != 0)
-            {
-                MoveRow(-1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadLeft) != 0)
-            {
-                MoveCol(-1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadRight) != 0)
-            {
-                MoveCol(1);
-            }
-            else if ((newButtons & GamepadButtonFlags.A) != 0)
-            {
-                ExecuteSelectedAction();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.Start) != 0)
-            {
-                BringWindowToForeground();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.Y) != 0)
-            {
-                SendAltTab();
-               
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.X) != 0)
-            {
-                TriggerPerformanceOverlay();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                    (newButtons & GamepadButtonFlags.RightThumb) != 0)
-            {
-                SwitchToNextAudioDevice();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-         (newButtons & GamepadButtonFlags.B) != 0)
-            {
-                if (_overlayInstance == null)
+                var key1 = pair.Key.Item1;
+                var key2 = pair.Key.Item2;
+                var function = pair.Value;
+
+                bool key1Pressed = IsButtonPressed(currentButtons, key1);
+                bool key2Pressed = IsButtonPressed(currentButtons, key2);
+
+                if (key1Pressed && !_heldButtonTimestamps.ContainsKey(key1))
                 {
-                    _overlayInstance = new overlaycontrolls();
-                    _overlayInstance.Closed += (s, e) => _overlayInstance = null;
-                    _overlayInstance.Activate();
+                    _heldButtonTimestamps[key1] = DateTime.UtcNow;
+                }
+
+                if (_heldButtonTimestamps.TryGetValue(key1, out var heldTime))
+                {
+                    if (DateTime.UtcNow - heldTime < _comboTimeout && key2Pressed)
+                    {
+                        if (!_triggeredCombos.Contains(pair.Key))
+                        {
+                            _triggeredCombos.Add(pair.Key);
+                            if (_shortcutActions.TryGetValue(function, out var action))
+                            {
+                                action?.Invoke();
+                            }
+                        }
+                    }
+                    else if (!key1Pressed)
+                    {
+                        _heldButtonTimestamps.Remove(key1);
+                    }
                 }
                 else
                 {
-                    _overlayInstance.Close();
-                    _overlayInstance = null;
+                    _triggeredCombos.Remove(pair.Key);
                 }
             }
 
-            // Save the current state for next tick comparison
             _lastButtonState = currentButtons;
         }
+
+
+
+
 
 
         private bool _altPressed = false;

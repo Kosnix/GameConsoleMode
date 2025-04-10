@@ -5741,3 +5741,16 @@ C:\Users\luis\source\repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.
 C:\Users\luis\source\repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luis\source\repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
 C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\shortcuts.gif
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\rogally\allyfrontside.png
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\rogally\allybackside.png
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\rogally.xbf
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\System.Management.dll
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\rogally.g.i.cs
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\rogally.g.cs
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\rogally.xaml
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\rogally.xbf
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.xbf
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.g.i.cs
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.g.cs
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.xaml
+C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.xbf
