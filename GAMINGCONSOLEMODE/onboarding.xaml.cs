@@ -150,7 +150,7 @@ namespace GAMINGCONSOLEMODE
                     ActionButtonText = "Join GCM Discord Server",
                     ActionButtonCallback = () =>
                     {
-                        string discordInvite = "https://discord.gg/mc2R5SV9vS";
+                        string discordInvite = "https://discord.gg/FbjYDeEJce";
 
         try
         {

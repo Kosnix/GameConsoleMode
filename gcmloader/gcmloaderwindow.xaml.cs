@@ -130,9 +130,10 @@ namespace gcmloader
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
             this.Content.KeyDown += MainWindow_KeyDown;
             this.Content.KeyUp += MainWindow_KeyUp;
+            LoadShortcutsFromSettings();
+            SetupGamepad();
             Start();
             //ASYNC PROZES
-            
             ShowTaskManager(); //after 10 seconds
             StartAsynctasks();
 
@@ -1551,6 +1552,7 @@ namespace gcmloader
                 {
                     
                     SettingsVerify();
+                    
                     StartupVideo.Play();
                     displayfusion("start");
                     #region kill distubing process
@@ -1560,8 +1562,7 @@ namespace gcmloader
                     cssloader(); //only check if is installed, than start
                     flowlauncher();
                     StartLauncher();
-                    SetupGamepad();
-                    LoadShortcutsFromSettings();
+                   
                     // TaskManager //
                     LoadTaskManagerList();
                     InitializeTaskManagerRefresh();
@@ -2070,32 +2071,39 @@ namespace gcmloader
         private Controller _xinputController;
         private bool _controllerConnected = false;
 
+        private Controller GetConnectedController()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var controller = new Controller((UserIndex)i);
+                if (controller.IsConnected)
+                    return controller;
+            }
+            return null;
+        }
+
+
         private void SetupGamepad()
         {
-            _xinputController = new Controller(UserIndex.One);
-            _controllerConnected = _xinputController.IsConnected;
-
-            // Create and start a timer that checks for controller input/connection
+            // Timer für Gamepad-Abfrage
             DispatcherTimer gamepadInputTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(10)
+                Interval = TimeSpan.FromMilliseconds(50)
             };
 
             gamepadInputTimer.Tick += (s, e) =>
             {
-                // If controller is not connected yet, check for it
-                if (!_controllerConnected)
+                if (_xinputController == null || !_xinputController.IsConnected)
                 {
-                    _controllerConnected = _xinputController.IsConnected;
+                    _xinputController = GetConnectedController();
+                    _controllerConnected = _xinputController != null;
 
                     if (_controllerConnected)
                     {
-                        // Controller has just been connected
-                        Debug.WriteLine("Controller connected!");
+                        Debug.WriteLine($"Controller connected on index: {_xinputController.UserIndex}");
                     }
                 }
 
-                // Run the gamepad button check continuously if controller is connected
                 if (_controllerConnected)
                 {
                     GamepadButtonCheck();
@@ -2104,6 +2112,7 @@ namespace gcmloader
 
             gamepadInputTimer.Start();
         }
+
 
         //Taskmanager
         private GamepadButtonFlags _lastButtonState = GamepadButtonFlags.None;
@@ -2184,11 +2193,11 @@ namespace gcmloader
                 }
 
                 _shortcutActions.Clear();
-                _shortcutActions["Taskmanager"] = BringWindowToForeground;
-                _shortcutActions["Switch Tab"] = SendAltTab;
-                _shortcutActions["Switch Audio"] = SwitchToNextAudioDevice;
-                _shortcutActions["Performance overlay"] = TriggerPerformanceOverlay;
-                _shortcutActions["Custom Message"] = () => NativeToastOverlay.Show("Custom Shortcut Triggered!");
+                _shortcutActions["taskmanager"] = BringWindowToForeground;
+                _shortcutActions["switch tab"] = SendAltTab;
+                _shortcutActions["audio switch"] = SwitchToNextAudioDevice;
+                _shortcutActions["performance overlay"] = TriggerPerformanceOverlay;
+               
             }
             catch { }
         }
