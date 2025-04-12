@@ -119,7 +119,40 @@ With USB logon, we have found a way to maintain security while allowing access t
                 </Expander>
 
                 <!-- Card 3 -->
+                <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE8B8;" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+                            <TextBlock Text="CONFIG" Grid.Column="1" FontSize="16" FontWeight="Bold" Margin="10" />
+                        </Grid>
+                    </Expander.Header>
 
+                    <!-- Full-Width Inner Segment -->
+                    <StackPanel Spacing="10">
+                        <!-- 1 Layout -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="500" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <!-- Updated text in the center -->
+                            <TextBlock  Text="With this button you can delete the GCM configuration and reset the GCM" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
+
+                            <!-- Buttons on the right -->
+                            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="10">
+                                <Button x:Name="resetconfig"  Content="Reset GCM Config" Margin="5" Click="resetconfig_Click"  />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+
+
+                </Expander>
             </StackPanel>
         </ScrollViewer>
     </Grid>

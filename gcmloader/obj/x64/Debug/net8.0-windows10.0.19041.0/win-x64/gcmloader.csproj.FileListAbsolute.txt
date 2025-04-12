@@ -4705,3 +4705,6 @@ C:\Users\luis\source\repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-window
 C:\Users\luis\source\repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luis\source\repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\gcmloader.genpublishdeps.cache
 C:\Users\luis\source\repos\GameConsoleMode\gcmloader\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
+C:\Users\luis\Source\Repos\GameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\asforally.exe
+C:\Users\luis\Source\Repos\GameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Settings.xml
+C:\Users\luis\Source\Repos\GameConsoleMode\gcmloader\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\System.Management.dll

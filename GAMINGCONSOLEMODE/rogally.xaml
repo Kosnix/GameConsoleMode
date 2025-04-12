@@ -9,117 +9,43 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <!-- Layout: Title + Modes / Content / Mid-Options / Status -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Title + Modes -->
-            <RowDefinition Height="*"/>
-            <!-- Main content -->
-            <RowDefinition Height="Auto"/>
-            <!-- Mid section with line and selection -->
-            <RowDefinition Height="60"/>
-            <!-- Status bar -->
-        </Grid.RowDefinitions>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Spacing="20">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
+        <!-- Bild oben zentriert -->
+        <Image Source="ms-appx:///Assets/rogally/allyfrontside.png" Width="500" Height= "400" HorizontalAlignment="Center"/>
 
-        <!-- Title and modes stacked -->
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Margin="20,10,20,10">
-            <!-- Title -->
-            <TextBlock 
-                Text="ROG ALLY" 
-                FontSize="16" 
-                FontWeight="Bold"
-                HorizontalAlignment="Left"/>
+        <!-- Modusauswahl -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+            <RadioButton Content="Handheld Companion" GroupName="Modes" IsEnabled="False"/>
+            <RadioButton Content="Armoury Create" GroupName="Modes" IsEnabled="False"/>
+            <RadioButton Content="G Helper" GroupName="Modes" IsEnabled="False"/>
+        </StackPanel>
 
-            <!-- Mode Selection centered -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0" Spacing="20">
-                <RadioButton x:Name="SteamModeRadio" Content="Steam Mode" GroupName="ModeSelection" IsChecked="True"/>
-                <RadioButton x:Name="CustomModeRadio" Content="Custom Mode" GroupName="ModeSelection"/>
-            </StackPanel>
+        <!-- Trennlinie -->
+        <Rectangle Width="800" Height="1" Fill="Gray" Margin="0,0,0,10"/>
+
+        <StackPanel Spacing="10" HorizontalAlignment="Center">
+            <TextBlock Text="There will soon be much more to see here" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             
         </StackPanel>
+        <!-- Trennlinie -->
+        <Rectangle Width="400" Height="1" Fill="Gray" Margin="0,0,0,10"/>
+        <TextBlock Text="HELP" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <!-- Statusanzeige unten -->
+        <!-- Dezente Statusanzeige unten -->
+        <!-- Button unten -->
+        <Button x:Name="audiobuttonfixally" Click="audiobuttonfixally_Click" Content="Repair Volume Buttons"
+        Width="250"
+        Height="40"
+        Margin="0,10,0,0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        FontSize="16"
+        Background="#0078D7"
+        Foreground="White"
+        CornerRadius="6"/>
 
-        <!-- Left section -->
-        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
-            <TextBlock Text="Command Center" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="LeftComboBox" Width="180" Height="40"/>
 
-            <TextBlock Text="M2" FontSize="14" FontWeight="SemiBold" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="M2ComboBox" Width="180" Height="40"/>
-        </StackPanel>
 
-        <!-- Center image -->
-        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image x:Name="MainImage"
-                   Stretch="Uniform"
-                   Source="ms-appx:///Assets/rogally/allyfrontside.png"/>
-        </Grid>
-
-        <!-- Right section -->
-        <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
-            <TextBlock Text="Armoury Crate" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="RightComboBox" Width="180" Height="40"/>
-
-            <TextBlock Text="M1" FontSize="14" FontWeight="SemiBold" Margin="0,20,0,0" HorizontalAlignment="Center"/>
-            <ComboBox x:Name="M1ComboBox" Width="180" Height="40"/>
-        </StackPanel>
-
-        <!-- Mid section with line and selectable options -->
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Margin="0,20,0,10" HorizontalAlignment="Center">
-            <!-- Trennlinie -->
-            <Rectangle Width="800" Height="1" Fill="Gray" Margin="0,0,0,10"/>
-
-            <!-- Auswahlbereich in der Mitte -->
-            <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
-                <!-- Side Panel Auswahl -->
-                <StackPanel>
-                    <TextBlock Text="SIDE PANEL" FontSize="12" HorizontalAlignment="Center"/>
-                    <ComboBox x:Name="FanModeComboBox" Width="150">
-                        <ComboBoxItem Content="Ghelper"/>
-                        <ComboBoxItem Content="Handheld Companion"/>
-                        <ComboBoxItem Content="Armoury SE"/>
-                    </ComboBox>
-                </StackPanel>
-
-                <!-- TDP Auswahl -->
-                <StackPanel>
-                    <TextBlock Text="Start TDP" FontSize="12" HorizontalAlignment="Center"/>
-                    <ComboBox x:Name="TdpComboBox" Width="150">
-                        <ComboBoxItem Content="15W"/>
-                        <ComboBoxItem Content="25W"/>
-                        <ComboBoxItem Content="30W"/>
-                    </ComboBox>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-
-        <!-- Status bar -->
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30">
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Ellipse Width="20" Height="20" Fill="Green" x:Name="StatusWifi"/>
-                <TextBlock Text="WiFi Connected" VerticalAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Ellipse Width="20" Height="20" Fill="Red" x:Name="StatusController"/>
-                <TextBlock Text="Audio functions in GCM" VerticalAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Ellipse Width="20" Height="20" Fill="Green" x:Name="StatusDriver"/>
-                <TextBlock Text="Drivers OK" VerticalAlignment="Center"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Ellipse Width="20" Height="20" Fill="Red" x:Name="StatusPower"/>
-                <TextBlock Text="Functions for ally" VerticalAlignment="Center"/>
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+    </StackPanel>
 </Page>

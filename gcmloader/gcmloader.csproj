@@ -24,10 +24,12 @@
     <Content Remove="Assets\xbox-controller.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="asforally.exe" />
     <None Remove="Assets\activation.wav" />
     <None Remove="Assets\GCM_Startup_Video.webm" />
     <None Remove="Assets\navigation.wav" />
     <None Remove="overlaycontrolls.xaml" />
+    <None Remove="Settings.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +46,9 @@
     <EmbeddedResource Include="amdnvidiap.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="asforally.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\activation.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -57,6 +62,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\xbox-controller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -85,6 +93,7 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
+    <PackageReference Include="System.Management" Version="9.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="overlaycontrolls.xaml">
