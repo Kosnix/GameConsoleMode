@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
 using gcmloader;
 using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -45,17 +46,6 @@ namespace GAMINGCONSOLEMODE
             SetWindowSize(1500, 1100);
             // 1. First Start: Create folder and default config file if needed
             AppSettings.FirstStart();
-            if(IsROGAlly() == true)
-            {
-                ///Is Rog Ally
-                contentFrame.Navigate(typeof(rogally));
-
-                //Test if Audio function is installed 
-
-
-            }
-            else
-            {
                 #region onboarding
                 try
                 {
@@ -91,8 +81,6 @@ namespace GAMINGCONSOLEMODE
                     AppSettings.Save("onboarding", true);
                 }
                 #endregion onboarding
-            }
-
             _ = UpdateCheck(this);
         }
 
@@ -311,111 +299,5 @@ namespace GAMINGCONSOLEMODE
 
         #region filter
         #endregion filter
-
-        #region rog ally
-
-        private void allyaudiobuttonfix()
-        {
-            string audioSwitchExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "AudioSwitch", "AudioSwitch.exe");
-            string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string configSourcePath = Path.Combine(AppContext.BaseDirectory, "Settings.xml");
-            string configTargetDir = Path.Combine(localAppData, "AudioSwitch");
-            string configTargetPath = Path.Combine(configTargetDir, "Settings.xml");
-            string startupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-            string startupLink = Path.Combine(startupFolder, "AudioSwitch.lnk");
-
-            bool softwareExists = File.Exists(audioSwitchExe);
-            bool configExists = File.Exists(configTargetPath);
-
-            if (softwareExists && configExists)
-            {
-                return; // Nothing to do, silent exit
-            }
-
-            var result = MessageBox(IntPtr.Zero, "A software is required to enable your volume buttons. We will now start the installation.", "AudioSwitch Setup", 1);
-            if (result != 1) return; // IDOK = 1
-
-            try
-            {
-                bool alreadyInstalled = softwareExists;
-                string installerPath = Path.Combine(AppContext.BaseDirectory, "asforally.exe");
-
-                if (!alreadyInstalled)
-                {
-                    if (!File.Exists(installerPath))
-                    {
-                        MessageBox(IntPtr.Zero, "Installer file not found: " + installerPath, "Installation Status", 0);
-                        return;
-                    }
-
-                    Process installer = new Process();
-                    installer.StartInfo.FileName = installerPath;
-                    installer.StartInfo.Arguments = "/verySilent";
-                    installer.StartInfo.UseShellExecute = false;
-                    installer.StartInfo.CreateNoWindow = true;
-
-                    installer.Start();
-                    installer.WaitForExit();
-                }
-
-                // After install or if already installed:
-
-                if (File.Exists(startupLink))
-                {
-                    File.Delete(startupLink);
-                }
-
-                Directory.CreateDirectory(configTargetDir);
-
-                if (File.Exists(configSourcePath))
-                {
-                    File.Copy(configSourcePath, configTargetPath, true);
-                }
-                else
-                {
-                    MessageBox(IntPtr.Zero, "Config XML not found: " + configSourcePath, "Config Copy", 0);
-                }
-
-                if (alreadyInstalled)
-                {
-                    MessageBox(IntPtr.Zero, "AudioSwitch already installed.", "Installation Status", 0);
-                }
-                else
-                {
-                    MessageBox(IntPtr.Zero, "AudioSwitch installed successfully. Config set", "Installation Status", 0);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox(IntPtr.Zero, "Error: " + ex.Message, "Execution Error", 0);
-            }
-        }
-
-
-        static bool IsROGAlly()
-        {
-            try
-            {
-                using var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystemProduct");
-                foreach (var o in searcher.Get())
-                {
-                    var obj = (ManagementObject)o;
-                    string name = obj["Name"]?.ToString() ?? "";
-                    if (name.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("[WARN] Could not determine system model: " + ex.Message);
-            }
-
-            return false;
-        }
-        #endregion rog ally
-
-
     }
 }

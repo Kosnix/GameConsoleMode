@@ -135,39 +135,6 @@ namespace gcmloader
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
             this.Content.KeyDown += MainWindow_KeyDown;
             this.Content.KeyUp += MainWindow_KeyUp;
-            #region pre install/start check if needed
-            if(IsROGAlly() == true)
-            {
-                //Device is Rog ally
-                // check for Audio Button Software
-                // Define the path to the AudioSwitch executable
-                string exePath = @"C:\Program Files (x86)\AudioSwitch\AudioSwitch.exe";
-
-                // Define the path to the AudioSwitch settings XML file
-                string settingsPath = @"C:\Users\luis\AppData\Local\AudioSwitch\Settings.xml";
-
-                // Check if both the executable and the settings file exist
-                if (File.Exists(exePath) && File.Exists(settingsPath))
-                {
-                    try
-                    {
-                        // Start the AudioSwitch executable
-                        Process.Start(exePath);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Log any error while trying to start the process
-                        Console.WriteLine("Failed to start AudioSwitch: " + ex.Message);
-                    }
-                }
-                else
-                {
-                    //install and start the fix
-                    allybuttonfix();
-                }
-
-            }
-            #endregion pre install/start check if needed
             LoadShortcutsFromSettings();
             SetupGamepad();
             Start();
@@ -224,24 +191,23 @@ namespace gcmloader
         private DiscordSocketClient _client;
 
         #region rog ally
-        static bool IsROGAlly()
+        public static bool IsROGAlly()
         {
             try
             {
-                using var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystemProduct");
-                foreach (var o in searcher.Get())
+                using var key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\\DESCRIPTION\\System\\BIOS");
+                if (key != null)
                 {
-                    var obj = (ManagementObject)o;
-                    string name = obj["Name"]?.ToString() ?? "";
-                    if (name.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase))
+                    string family = key.GetValue("SystemFamily")?.ToString() ?? "<null>";
+                    if (family.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("[WARN] Could not determine system model: " + ex.Message);
+                // Fail silently
             }
 
             return false;
@@ -355,38 +321,52 @@ namespace gcmloader
                 // Show final status
                 if (alreadyInstalled)
                 {
-                   
+
                 }
                 else
                 {
+
                     //start
                     //Device is Rog ally
                     // check for Audio Button Software
                     // Define the path to the AudioSwitch executable
-                    string exePath = @"C:\Program Files (x86)\AudioSwitch\AudioSwitch.exe";
+                    string exePath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                            "AudioSwitch",
+                            "AudioSwitch.exe"
+                        );
 
-                    // Define the path to the AudioSwitch settings XML file
-                    string settingsPath = @"C:\Users\luis\AppData\Local\AudioSwitch\Settings.xml";
+                    // path to audioswitch settings
+                    string settingsPath = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "AudioSwitch",
+                        "Settings.xml"
+                    );
 
                     // Check if both the executable and the settings file exist
                     if (File.Exists(exePath) && File.Exists(settingsPath))
                     {
                         try
                         {
+                            // Wait for 3 seconds before starting
+                            Thread.Sleep(3000);
+
                             // Start the AudioSwitch executable
                             Process.Start(exePath);
+                            Console.WriteLine("start AudioSwitch after newly install");
                         }
                         catch (Exception ex)
                         {
                             // Log any error while trying to start the process
-                            Console.WriteLine("Failed to start AudioSwitch: " + ex.Message);
+                            Console.WriteLine("Failed to start AudioSwitch after install: " + ex.Message);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                
+                // Log any error while trying to start the process
+                Console.WriteLine("Failed to start AudioSwitch after new install: " + ex.Message);
             }
         }
         #endregion rog ally
@@ -1707,7 +1687,47 @@ namespace gcmloader
                 {
                     
                     SettingsVerify();
-                    
+                    #region pre install/start check if needed
+                    if (IsROGAlly() == true)
+                    {
+                        //Device is Rog ally
+                        // check for Audio Button Software
+                        // Define the path to the AudioSwitch executable
+                        string exePath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                            "AudioSwitch",
+                            "AudioSwitch.exe"
+                        );
+
+                        // path to audioswitch settings
+                        string settingsPath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                            "AudioSwitch",
+                            "Settings.xml"
+                        );
+
+                        // Check if both the executable and the settings file exist
+                        if (File.Exists(exePath) && File.Exists(settingsPath))
+                        {
+                            try
+                            {
+                                // Start the AudioSwitch executable
+                                Process.Start(exePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Log any error while trying to start the process
+                                Console.WriteLine("Failed to start AudioSwitch: " + ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            //install and start the fix
+                            allybuttonfix();
+                        }
+
+                    }
+                    #endregion pre install/start check if needed
                     StartupVideo.Play();
                     displayfusion("start");
                     #region kill distubing process

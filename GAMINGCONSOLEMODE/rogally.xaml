@@ -25,26 +25,10 @@
         <Rectangle Width="800" Height="1" Fill="Gray" Margin="0,0,0,10"/>
 
         <StackPanel Spacing="10" HorizontalAlignment="Center">
-            <TextBlock Text="There will soon be much more to see here" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Nothing to see here yet - but soon..." FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             
         </StackPanel>
-        <!-- Trennlinie -->
-        <Rectangle Width="400" Height="1" Fill="Gray" Margin="0,0,0,10"/>
-        <TextBlock Text="HELP" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <!-- Statusanzeige unten -->
-        <!-- Dezente Statusanzeige unten -->
-        <!-- Button unten -->
-        <Button x:Name="audiobuttonfixally" Click="audiobuttonfixally_Click" Content="Repair Volume Buttons"
-        Width="250"
-        Height="40"
-        Margin="0,10,0,0"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        FontSize="16"
-        Background="#0078D7"
-        Foreground="White"
-        CornerRadius="6"/>
-
+   
 
 
     </StackPanel>

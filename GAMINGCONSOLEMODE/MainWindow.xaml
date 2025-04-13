@@ -66,7 +66,7 @@
                 <!-- Handheld Submenu -->
                 <NavigationViewItem Content="Handheld specific" Icon="SwitchApps"  Tag="Handheld">
                     <NavigationViewItem.MenuItems>
-                        <NavigationViewItem Content="ROG ALLY" Icon="DockBottom"  Tag="RogAllyPage" />
+                        <NavigationViewItem Content="Rog Ally" Icon="DockBottom"  Tag="RogAllyPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <!-- Start -->

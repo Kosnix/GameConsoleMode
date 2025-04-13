@@ -76,10 +76,10 @@ namespace GAMINGCONSOLEMODE
 
             var removeBtn = new Button
             {
-                Content = "Delete",
+                Content = "DEL",
                 Background = new SolidColorBrush(ColorHelper.FromArgb(255, 51, 51, 51)),
                 Foreground = new SolidColorBrush(Colors.White),
-                Padding = new Thickness(10, 5, 10, 5),
+                Padding = new Thickness(5, 5, 5, 5),
                 BorderThickness = new Thickness(0),
                 VerticalAlignment = VerticalAlignment.Center
             };
