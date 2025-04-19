@@ -13,6 +13,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.Json;
+using System.Windows.Forms;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -113,5 +114,32 @@ namespace GAMINGCONSOLEMODE
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void resetconfig_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string gcmSettings = Path.Combine(appData, "gcmsettings");
+
+                if (Directory.Exists(gcmSettings))
+                {
+                    Directory.Delete(gcmSettings, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler: {ex.Message}");
+            }
+
+            // Anwendung beenden
+            Environment.Exit(0);
+        }
+    
     }
 }

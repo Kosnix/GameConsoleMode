@@ -108,7 +108,7 @@
                                         <!-- Description text -->
                                         <TextBlock TextWrapping="Wrap">
                         Your launcher supports controller input. 
-                        Additionally, you can minimize the launcher at any time and access the GCM Task Manager using your controller SELECT+START. 
+                        Additionally, you can minimize the launcher at any time and access the GCM Task Manager using your controller and GCM Shortcuts. 
                         You can also open the Task Manager while playing any game. 
                         Check the assigned shortcut to access it. Flow Launcher is not operable with the controller. 
                         We will introduce a launcher for programs in future versions.

@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Windows.Graphics;
+using System.Management;
 using WinRT.Interop;
 using GAMINGCONSOLEMODE;
 using Windows.UI.ApplicationSettings;
@@ -17,6 +18,8 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
 using gcmloader;
+using System.Runtime.InteropServices;
+using Microsoft.Win32;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,9 +32,13 @@ namespace GAMINGCONSOLEMODE
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-    string owner = "Kosnix";  // Repository owner
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type);
+
+        string owner = "Kosnix";  // Repository owner
     string repo = "GameConsoleMode";  // Repository name
-    string currentVersion = "2.1.0";  // Your current version
+    string currentVersion = "2.1.1";  // Your current version // <change when new Verison
         public MainWindow()
         {
             this.InitializeComponent();
@@ -39,19 +46,32 @@ namespace GAMINGCONSOLEMODE
             SetWindowSize(1500, 1100);
             // 1. First Start: Create folder and default config file if needed
             AppSettings.FirstStart();
+            versioninfopanel(currentVersion);
             #region onboarding
             try
-            {
-
-                if (AppSettings.Load<bool>("onboarding") == true)
                 {
-                    // Navigate to the 'startup' page on app launch
-                    contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
+
+                    if (AppSettings.Load<bool>("onboarding") == true)
                     {
-                        Effect = SlideNavigationTransitionEffect.FromRight
-                    });
+                        // Navigate to the 'startup' page on app launch
+                        contentFrame.Navigate(typeof(Home), null, new SlideNavigationTransitionInfo()
+                        {
+                            Effect = SlideNavigationTransitionEffect.FromRight
+                        });
+                    }
+                    else
+                    {
+                        //navigate to the onboarding page
+                        // Navigate to the 'startup' page on app launch
+                        contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
+                        {
+                            Effect = SlideNavigationTransitionEffect.FromRight
+                        });
+                        AppSettings.Save("onboarding", true);
+
+                    }
                 }
-                else
+                catch
                 {
                     //navigate to the onboarding page
                     // Navigate to the 'startup' page on app launch
@@ -60,20 +80,8 @@ namespace GAMINGCONSOLEMODE
                         Effect = SlideNavigationTransitionEffect.FromRight
                     });
                     AppSettings.Save("onboarding", true);
-
                 }
-            }
-            catch
-            {
-                //navigate to the onboarding page
-                // Navigate to the 'startup' page on app launch
-                contentFrame.Navigate(typeof(onboarding), null, new SlideNavigationTransitionInfo()
-                {
-                    Effect = SlideNavigationTransitionEffect.FromRight
-                });
-                AppSettings.Save("onboarding", true);
-            }
-            #endregion onboarding
+                #endregion onboarding
             _ = UpdateCheck(this);
         }
 
@@ -100,8 +108,10 @@ namespace GAMINGCONSOLEMODE
                         "OnboardingPage" => typeof(onboarding),
                         "GCMPage" => typeof(Home),
                         "LauncherPage" => typeof(launcher),
+                        "shortcuts" => typeof(shortcuts),
                         "StartupPage" => typeof(startup),
                         "LinksPage" => typeof(Links),
+                        "RogAllyPage" => typeof(rogally),
                         _ => null
                     };
 
@@ -290,5 +300,78 @@ namespace GAMINGCONSOLEMODE
 
         #region filter
         #endregion filter
+
+        #region Versioninfos
+        private void versioninfopanel(string newversion)
+        {
+            
+            try
+            {
+                var savedVersion = AppSettings.Load<string>("version")?.Trim();
+                var current = currentVersion?.Trim();
+                if (string.Equals(savedVersion, current, StringComparison.OrdinalIgnoreCase))
+                {
+                    //Verison is identical, not show
+                }
+                else
+                {
+                  
+                    AppSettings.Save("version", newversion);
+                    //show Verison Panel
+                    var versionpanel = new version_news();
+                    versionpanel.ShowCenteredTo(this, 420, 600);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //first Time not Version Implement
+                AppSettings.Save("version", newversion);
+                //show Verison Panel
+                var versionpanel = new version_news();
+                versionpanel.ShowCenteredTo(this, 420, 600);
+            }
+        }
+        #endregion Versioninfos
     }
-}
+
+    public static class WindowExtensions
+    {
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private const int SW_SHOWNORMAL = 1;
+
+        public static async void ShowCenteredTo(this Window child, Window parent, int width = 400, int height = 600)
+        {
+            IntPtr hwndParent = WinRT.Interop.WindowNative.GetWindowHandle(parent);
+            WindowId parentId = Win32Interop.GetWindowIdFromWindow(hwndParent);
+            AppWindow parentApp = AppWindow.GetFromWindowId(parentId);
+
+            IntPtr hwndChild = WinRT.Interop.WindowNative.GetWindowHandle(child);
+            WindowId childId = Win32Interop.GetWindowIdFromWindow(hwndChild);
+            AppWindow childApp = AppWindow.GetFromWindowId(childId);
+
+            int centerX = parentApp.Position.X + (parentApp.Size.Width - width) / 2;
+            int centerY = parentApp.Position.Y + (parentApp.Size.Height - height) / 2;
+
+            childApp.MoveAndResize(new RectInt32
+            {
+                X = centerX,
+                Y = centerY,
+                Width = width,
+                Height = height
+            });
+
+            child.Activate();
+
+            // Kurze Verzögerung, damit Fensterhandle gültig und sichtbar ist
+            await Task.Delay(100);
+            ShowWindow(hwndChild, SW_SHOWNORMAL);
+            SetForegroundWindow(hwndChild);
+        }
+    }
+    }

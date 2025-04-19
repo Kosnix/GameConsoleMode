@@ -83,6 +83,10 @@
             "SharpDX.XInput": {
               "target": "Package",
               "version": "[4.2.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             }
           },
           "imports": [

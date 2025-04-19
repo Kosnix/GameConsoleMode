@@ -60,8 +60,8 @@ namespace GAMINGCONSOLEMODE
                 new OnboardingStep
                 {
                     Title = "Taskmanager",
-                    Description = "GCM includes a built-in task manager. You can access it by minimizing the launcher or using the controller shortcut.[BACK]+[START] " +
-                    "It can be operated using either a keyboard or a controller. The purpose of the task manager is to let you easily switch back and forth " +
+                    Description = "GCM includes a built-in task manager. You can access it by minimizing the launcher or using the GCM shortcuts function" +
+                    " It can be operated using either a keyboard or a controller. The purpose of the task manager is to let you easily switch back and forth " +
                     "between your launcher and any game that might start in the background.",
                     ImagePath = "ms-appx:///Assets/onboarding/taskmanager_gcmloader.png",
                     ShowActionButton = false,
@@ -88,12 +88,9 @@ namespace GAMINGCONSOLEMODE
                 //Shortcuts
                 new OnboardingStep
                 {
-                    Title = "Shortcuts",
-                    Description = "GCM includes a shortcut feature that can be used at any time—whether you're gaming or in any other situation. " +
-                    "This is designed to be a core feature of GCM. In future versions, users will be able to customize their own shortcuts and assign " +
-                    "specific functions to them. The buttons must be pressed at the same time. To avoid any interference, we've set the precision so that " +
-                    "they have to be clicked within the exact same second.",
-                    ImagePath = "ms-appx:///Assets/onboarding/shortcuts.gif",
+                    Title = "GCM Shortcuts",
+                    Description = "GCM Shortcuts offers you a shortcut function, please be sure to create shortcuts to use the task manager as an example and much more",
+                    ImagePath = "ms-appx:///Assets/onboarding/shortcuts.png",
                     ShowActionButton = false,
                     ActionButtonText = "Start Now",
                     ActionButtonCallback = () =>
@@ -150,7 +147,7 @@ namespace GAMINGCONSOLEMODE
                     ActionButtonText = "Join GCM Discord Server",
                     ActionButtonCallback = () =>
                     {
-                        string discordInvite = "https://discord.gg/mc2R5SV9vS";
+                        string discordInvite = "https://discord.gg/FbjYDeEJce";
 
         try
         {

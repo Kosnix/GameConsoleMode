@@ -45,30 +45,45 @@
 
 		</CommandBar>
 
-
-
 		<!-- NavigationView filling the remaining space -->
         <NavigationView Grid.Row="1"
                         x:Name="nvMain"
                         PaneDisplayMode="Left"
                         SelectionChanged="NavigationView_SelectionChanged"
                         Background="#2A2A2A">
-
+            
             <!-- Menu -->
             <NavigationView.MenuItems>
+
                 <!-- Onboarding -->
-                <NavigationViewItem Content="Onboarding" Icon="Placeholder"  Tag="OnboardingPage" />
+                <NavigationViewItem Content="Onboarding" Icon="Placeholder" Tag="OnboardingPage" />
                 <!-- Launcher -->
                 <NavigationViewItem Content="Launcher" Icon="StopSlideShow" Tag="LauncherPage" />
                 <!-- STARTUP -->
                 <NavigationViewItem Content="Functions" Icon="Play" Tag="StartupPage" />
+                <!-- shortcuts -->
+                <NavigationViewItem Content="GCM Shortcuts" Icon="Add" Tag="shortcuts" />
+                <!-- Handheld Submenu -->
+                <NavigationViewItem Content="Handheld specific" Icon="SwitchApps"  Tag="Handheld">
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem Content="Rog Ally" Icon="DockBottom"  Tag="RogAllyPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
                 <!-- Start -->
                 <NavigationViewItem Content="Game Console Mode" Icon="Home" Tag="GCMPage" />
-                <!-- Links -->
-                <NavigationViewItem Content="Links" Icon="Link" Tag="LinksPage" />
-               
-            </NavigationView.MenuItems>
 
+          
+                <!-- Trennlinie -->
+                <NavigationViewItemSeparator />
+                <!-- Handheld Submenu -->
+                <NavigationViewItem Content="additional features" Icon="ViewAll"  Tag="Handheld">
+                    <NavigationViewItem.MenuItems>
+                        <!-- Links -->
+                        <NavigationViewItem Content="Links" Icon="Link" Tag="LinksPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            
             <!-- Frame for page content -->
             <Frame x:Name="contentFrame"> 
                 <Frame.ContentTransitions>

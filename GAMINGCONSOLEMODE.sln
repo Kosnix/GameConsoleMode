@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAMINGCONSOLEMODE", "GAMING
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gcmloader", "gcmloader\gcmloader.csproj", "{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamepadinput", "gamepadinput\gamepadinput.csproj", "{B89A30FB-A595-40EB-97E1-0243E80C4287}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -53,8 +55,23 @@ Global
 		{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}.Release|x86.ActiveCfg = Release|x86
 		{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}.Release|x86.Build.0 = Release|x86
 		{CA93A8F3-C821-4B98-A6D2-F4878974E4F4}.Release|x86.Deploy.0 = Release|x86
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|x64.Build.0 = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Debug|x86.Build.0 = Debug|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|ARM64.Build.0 = Release|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|x64.ActiveCfg = Release|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|x64.Build.0 = Release|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|x86.ActiveCfg = Release|Any CPU
+		{B89A30FB-A595-40EB-97E1-0243E80C4287}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BFA607D-D244-428E-A7BB-5862BA5249A3}
 	EndGlobalSection
 EndGlobal

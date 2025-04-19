@@ -43,6 +43,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Windows.Foundation;
 using Point = System.Drawing.Point;
+using System.Management;
 
 
 
@@ -122,6 +123,10 @@ namespace gcmloader
         private static StreamWriter logWriter;
         private static readonly string SettingsFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "settings");
         private static readonly string SettingsFilePath = Path.Combine(SettingsFolder, "settings.json");
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type);
+
         public MainWindow()
         {
 
@@ -130,13 +135,16 @@ namespace gcmloader
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
             this.Content.KeyDown += MainWindow_KeyDown;
             this.Content.KeyUp += MainWindow_KeyUp;
+            LoadShortcutsFromSettings();
+            SetupGamepad();
             Start();
             //ASYNC PROZES
             ShowTaskManager(); //after 10 seconds
             StartAsynctasks();
+
         }
 
-
+        
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
             // Get the window handle
@@ -182,6 +190,32 @@ namespace gcmloader
 
         private DiscordSocketClient _client;
 
+        #region Handhelds
+        public static bool   IsHandheld()
+        {
+            try
+            {
+                using var key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\BIOS");
+                if (key != null)
+                {
+                    string family = key.GetValue("SystemFamily")?.ToString() ?? string.Empty;
+
+                    if (!string.IsNullOrEmpty(family))
+                    {
+                        return family.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase) ||
+                               family.Contains("Claw", StringComparison.OrdinalIgnoreCase);
+                    }
+                }
+            }
+            catch
+            {
+                // fail silently
+            }
+
+            return false;
+        }
+
+        #endregion Handhelds
         #endregion needed
         #region methodes
         #region methodes for code
@@ -231,9 +265,116 @@ namespace gcmloader
 
         #endregion methodes for code
         #region functions
+        #region rog ally
+        private void allybuttonfix()
+        {
+            string audioSwitchExe = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "AudioSwitch", "AudioSwitch.exe");
+            string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string configSourcePath = Path.Combine(AppContext.BaseDirectory, "Settings.xml");
+            string configTargetDir = Path.Combine(localAppData, "AudioSwitch");
+            string configTargetPath = Path.Combine(configTargetDir, "Settings.xml");
 
+            string startupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string startupLink = Path.Combine(startupFolder, "AudioSwitch.lnk");
+
+            try
+            {
+                bool alreadyInstalled = File.Exists(audioSwitchExe);
+                string installerPath = Path.Combine(AppContext.BaseDirectory, "asforally.exe");
+
+                if (!alreadyInstalled)
+                {
+                    if (!File.Exists(installerPath))
+                    {
+                       
+                        return;
+                    }
+
+                    Process installer = new Process();
+                    installer.StartInfo.FileName = installerPath;
+                    installer.StartInfo.Arguments = "/verySilent";
+                    installer.StartInfo.UseShellExecute = false;
+                    installer.StartInfo.CreateNoWindow = true;
+
+                    installer.Start();
+                    installer.WaitForExit();
+                }
+
+                // After install or if already installed:
+
+                // Delete startup shortcut if it exists
+                if (File.Exists(startupLink))
+                {
+                    File.Delete(startupLink);
+                }
+
+                // Ensure target config directory exists
+                Directory.CreateDirectory(configTargetDir);
+
+                // Replace config (XML file)
+                if (File.Exists(configSourcePath))
+                {
+                    File.Copy(configSourcePath, configTargetPath, true);
+                }
+                else
+                {
+                   
+                }
+
+                // Show final status
+                if (alreadyInstalled)
+                {
+
+                }
+                else
+                {
+
+                    //start
+                    //Device is Rog ally
+                    // check for Audio Button Software
+                    // Define the path to the AudioSwitch executable
+                    string exePath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                            "AudioSwitch",
+                            "AudioSwitch.exe"
+                        );
+
+                    // path to audioswitch settings
+                    string settingsPath = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "AudioSwitch",
+                        "Settings.xml"
+                    );
+
+                    // Check if both the executable and the settings file exist
+                    if (File.Exists(exePath) && File.Exists(settingsPath))
+                    {
+                        try
+                        {
+                            // Wait for 3 seconds before starting
+                            Thread.Sleep(3000);
+
+                            // Start the AudioSwitch executable
+                            Process.Start(exePath);
+                            Console.WriteLine("start AudioSwitch after newly install");
+                        }
+                        catch (Exception ex)
+                        {
+                            // Log any error while trying to start the process
+                            Console.WriteLine("Failed to start AudioSwitch after install: " + ex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log any error while trying to start the process
+                Console.WriteLine("Failed to start AudioSwitch after new install: " + ex.Message);
+            }
+        }
+        #endregion rog ally
         #region flowlauncher
-      
+
         private void SendAltSpace()
         {
             // Press ALT
@@ -627,7 +768,7 @@ namespace gcmloader
                 // Check if DisplayFusionCommand.exe exists
                 if (!File.Exists(displayFusionCommandPath))
                 {
-                    Console.WriteLine("DisplayFusionCommand.exe not found at the expected location.");
+                    Console.WriteLine("DisplayFusionCommand.exe not found at the expected location or not set");
                     return;
                 }
                 // Check if action is "start"
@@ -705,6 +846,37 @@ namespace gcmloader
             {
                 Console.WriteLine("DisplayFusion problem-");
             }
+        }
+        static void IsJoyxoffInstalledAndStart()
+        {
+            try
+            {
+                bool joyxofftogglestatus = AppSettings.Load<bool>("usejoyxoff");
+                if (joyxofftogglestatus == true)
+                {
+                    string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+                    try
+                    {
+                        if (File.Exists(joyxoffExePath))
+                        {
+                            Process.Start(joyxoffExePath);
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+
         }
         static void cssloader()
         {
@@ -1549,16 +1721,57 @@ namespace gcmloader
                 {
                     
                     SettingsVerify();
+                    #region pre install/start check if needed
+                    if (IsHandheld() == true)
+                    {
+                        //Device is Rog ally
+                        // check for Audio Button Software
+                        // Define the path to the AudioSwitch executable
+                        string exePath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
+                            "AudioSwitch",
+                            "AudioSwitch.exe"
+                        );
+
+                        // path to audioswitch settings
+                        string settingsPath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                            "AudioSwitch",
+                            "Settings.xml"
+                        );
+
+                        // Check if both the executable and the settings file exist
+                        if (File.Exists(exePath) && File.Exists(settingsPath))
+                        {
+                            try
+                            {
+                                // Start the AudioSwitch executable
+                                Process.Start(exePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                // Log any error while trying to start the process
+                                Console.WriteLine("Failed to start AudioSwitch: " + ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            //install and start the fix
+                            allybuttonfix();
+                        }
+
+                    }
+                    #endregion pre install/start check if needed
                     StartupVideo.Play();
                     displayfusion("start");
+                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     #region kill distubing process
-                    KillTargetProcess("JoyxSvc");
-                    KillTargetProcess("JoyXoff");
+                    //KillTargetProcess("");
                     #endregion kill distubing process
                     cssloader(); //only check if is installed, than start
                     flowlauncher();
                     StartLauncher();
-                    SetupGamepad();
+                   
                     // TaskManager //
                     LoadTaskManagerList();
                     InitializeTaskManagerRefresh();
@@ -1578,6 +1791,16 @@ namespace gcmloader
                     }
                     catch { }
                     preaudio(false, true);
+
+                    #region Handheld
+                    #region Ally
+                    if(IsHandheld() == true)
+                    {
+                        KillTargetProcess("AudioSwitch");
+                    }
+                    #endregion Ally
+                    #endregion Handheld
+
                     uac("on");
                     this.Close();
                 }
@@ -1726,6 +1949,16 @@ namespace gcmloader
                     // Exclusions
                     if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
                         || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true;
+                    }
+                    if (productName?.Contains("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase) == true
+                       || p.ProcessName.Equals("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase))
+                    {
+                        return true;
+                    }
+                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
+                       || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
                     {
                         return true;
                     }
@@ -2067,32 +2300,39 @@ namespace gcmloader
         private Controller _xinputController;
         private bool _controllerConnected = false;
 
+        private Controller GetConnectedController()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                var controller = new Controller((UserIndex)i);
+                if (controller.IsConnected)
+                    return controller;
+            }
+            return null;
+        }
+
+
         private void SetupGamepad()
         {
-            _xinputController = new Controller(UserIndex.One);
-            _controllerConnected = _xinputController.IsConnected;
-
-            // Create and start a timer that checks for controller input/connection
+            // Timer für Gamepad-Abfrage
             DispatcherTimer gamepadInputTimer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(140)
+                Interval = TimeSpan.FromMilliseconds(50)
             };
 
             gamepadInputTimer.Tick += (s, e) =>
             {
-                // If controller is not connected yet, check for it
-                if (!_controllerConnected)
+                if (_xinputController == null || !_xinputController.IsConnected)
                 {
-                    _controllerConnected = _xinputController.IsConnected;
+                    _xinputController = GetConnectedController();
+                    _controllerConnected = _xinputController != null;
 
                     if (_controllerConnected)
                     {
-                        // Controller has just been connected
-                        Debug.WriteLine("Controller connected!");
+                        Debug.WriteLine($"Controller connected on index: {_xinputController.UserIndex}");
                     }
                 }
 
-                // Run the gamepad button check continuously if controller is connected
                 if (_controllerConnected)
                 {
                     GamepadButtonCheck();
@@ -2102,83 +2342,153 @@ namespace gcmloader
             gamepadInputTimer.Start();
         }
 
+
         //Taskmanager
         private GamepadButtonFlags _lastButtonState = GamepadButtonFlags.None;
         //overlay ui
         private static overlaycontrolls _overlayInstance;
 
+        private Dictionary<(string, string), string> _activeShortcuts = new();
+
+
+
+        // Fix for recognizing pressed buttons via bitwise and allowing held + second key combo
+        private static readonly Dictionary<string, GamepadButtonFlags> _buttonMap = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["A"] = GamepadButtonFlags.A,
+            ["B"] = GamepadButtonFlags.B,
+            ["X"] = GamepadButtonFlags.X,
+            ["Y"] = GamepadButtonFlags.Y,
+            ["Start"] = GamepadButtonFlags.Start,
+            ["Back"] = GamepadButtonFlags.Back,
+            ["DPadUp"] = GamepadButtonFlags.DPadUp,
+            ["DPadDown"] = GamepadButtonFlags.DPadDown,
+            ["DPadLeft"] = GamepadButtonFlags.DPadLeft,
+            ["DPadRight"] = GamepadButtonFlags.DPadRight,
+            ["LeftShoulder"] = GamepadButtonFlags.LeftShoulder,
+            ["RightShoulder"] = GamepadButtonFlags.RightShoulder
+        };
+
+        private bool IsButtonPressed(GamepadButtonFlags state, string key)
+        {
+            key = key?.Trim();
+            if (string.IsNullOrEmpty(key)) return false;
+
+            if (!_buttonMap.TryGetValue(key, out var button))
+            {
+                try { button = (GamepadButtonFlags)Enum.Parse(typeof(GamepadButtonFlags), key, true); }
+                catch { return false; }
+            }
+
+            return (state & button) != 0;
+        }
+
+       
+        private HashSet<(string, string)> _triggeredCombos = new();
+        private Dictionary<string, Action> _shortcutActions = new();
+        private Dictionary<string, DateTime> _heldButtonTimestamps = new();
+        private readonly TimeSpan _comboTimeout = TimeSpan.FromMilliseconds(1000);
+
+        private void LoadShortcutsFromSettings()
+        {
+            try
+            {
+                string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gcmsettings", "shortcuts");
+                if (!Directory.Exists(folderPath)) return;
+
+                _activeShortcuts.Clear();
+
+                foreach (var filePath in Directory.GetFiles(folderPath, "*.json"))
+                {
+                    try
+                    {
+                        string content = File.ReadAllText(filePath);
+                        var entry = JsonSerializer.Deserialize<Dictionary<string, object>>(content);
+                        if (entry == null) continue;
+
+                        if (entry.TryGetValue("Key1", out var k1) && entry.TryGetValue("Key2", out var k2) && entry.TryGetValue("Function", out var fn))
+                        {
+                            string key1 = k1?.ToString()?.Trim();
+                            string key2 = k2?.ToString()?.Trim();
+                            string function = fn?.ToString()?.Trim();
+
+                            if (!string.IsNullOrEmpty(key1) && !string.IsNullOrEmpty(key2) && !string.IsNullOrEmpty(function))
+                            {
+                                _activeShortcuts[(key1, key2)] = function;
+                            }
+                        }
+                    }
+                    catch { }
+                }
+
+                _shortcutActions.Clear();
+                _shortcutActions["taskmanager"] = BringWindowToForeground;
+                _shortcutActions["switch tab"] = SendAltTab;
+                _shortcutActions["audio switch"] = SwitchToNextAudioDevice;
+                _shortcutActions["performance overlay"] = TriggerPerformanceOverlay;
+               
+            }
+            catch { }
+        }
+
         private void GamepadButtonCheck()
         {
-            if (!_controllerConnected || !_xinputController.IsConnected)
-                return;
+            if (!_controllerConnected || !_xinputController.IsConnected) return;
 
             var state = _xinputController.GetState();
             var gamepad = state.Gamepad;
-           
-            // Only react when button state has changed from the last check
             var currentButtons = gamepad.Buttons;
-            var newButtons = currentButtons & ~_lastButtonState; // Only buttons that are newly pressed
 
-            if ((newButtons & GamepadButtonFlags.DPadDown) != 0)
+            if ((currentButtons & GamepadButtonFlags.DPadDown) != 0 && (_lastButtonState & GamepadButtonFlags.DPadDown) == 0) MoveRow(1);
+            else if ((currentButtons & GamepadButtonFlags.DPadUp) != 0 && (_lastButtonState & GamepadButtonFlags.DPadUp) == 0) MoveRow(-1);
+            else if ((currentButtons & GamepadButtonFlags.DPadLeft) != 0 && (_lastButtonState & GamepadButtonFlags.DPadLeft) == 0) MoveCol(-1);
+            else if ((currentButtons & GamepadButtonFlags.DPadRight) != 0 && (_lastButtonState & GamepadButtonFlags.DPadRight) == 0) MoveCol(1);
+            else if ((currentButtons & GamepadButtonFlags.A) != 0 && (_lastButtonState & GamepadButtonFlags.A) == 0) ExecuteSelectedAction();
+ 
+            foreach (var pair in _activeShortcuts)
             {
-                MoveRow(1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadUp) != 0)
-            {
-                MoveRow(-1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadLeft) != 0)
-            {
-                MoveCol(-1);
-            }
-            else if ((newButtons & GamepadButtonFlags.DPadRight) != 0)
-            {
-                MoveCol(1);
-            }
-            else if ((newButtons & GamepadButtonFlags.A) != 0)
-            {
-                ExecuteSelectedAction();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.Start) != 0)
-            {
-                BringWindowToForeground();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.Y) != 0)
-            {
-                SendAltTab();
-               
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                     (newButtons & GamepadButtonFlags.X) != 0)
-            {
-                TriggerPerformanceOverlay();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-                    (newButtons & GamepadButtonFlags.RightThumb) != 0)
-            {
-                SwitchToNextAudioDevice();
-            }
-            else if ((newButtons & GamepadButtonFlags.Back) != 0 &&
-         (newButtons & GamepadButtonFlags.B) != 0)
-            {
-                if (_overlayInstance == null)
+                var key1 = pair.Key.Item1;
+                var key2 = pair.Key.Item2;
+                var function = pair.Value;
+
+                bool key1Pressed = IsButtonPressed(currentButtons, key1);
+                bool key2Pressed = IsButtonPressed(currentButtons, key2);
+
+                if (key1Pressed && !_heldButtonTimestamps.ContainsKey(key1))
                 {
-                    _overlayInstance = new overlaycontrolls();
-                    _overlayInstance.Closed += (s, e) => _overlayInstance = null;
-                    _overlayInstance.Activate();
+                    _heldButtonTimestamps[key1] = DateTime.UtcNow;
+                }
+
+                if (_heldButtonTimestamps.TryGetValue(key1, out var heldTime))
+                {
+                    if (DateTime.UtcNow - heldTime < _comboTimeout && key2Pressed)
+                    {
+                        if (!_triggeredCombos.Contains(pair.Key))
+                        {
+                            _triggeredCombos.Add(pair.Key);
+                            if (_shortcutActions.TryGetValue(function, out var action))
+                            {
+                                action?.Invoke();
+                            }
+                        }
+                    }
+                    else if (!key1Pressed)
+                    {
+                        _heldButtonTimestamps.Remove(key1);
+                    }
                 }
                 else
                 {
-                    _overlayInstance.Close();
-                    _overlayInstance = null;
+                    _triggeredCombos.Remove(pair.Key);
                 }
             }
 
-            // Save the current state for next tick comparison
             _lastButtonState = currentButtons;
         }
+
+
+
+
 
 
         private bool _altPressed = false;
