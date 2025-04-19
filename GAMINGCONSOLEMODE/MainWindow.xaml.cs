@@ -38,7 +38,7 @@ namespace GAMINGCONSOLEMODE
 
         string owner = "Kosnix";  // Repository owner
     string repo = "GameConsoleMode";  // Repository name
-    string currentVersion = "2.1.0";  // Your current version
+    string currentVersion = "2.1.1";  // Your current version // <change when new Verison
         public MainWindow()
         {
             this.InitializeComponent();
@@ -46,8 +46,9 @@ namespace GAMINGCONSOLEMODE
             SetWindowSize(1500, 1100);
             // 1. First Start: Create folder and default config file if needed
             AppSettings.FirstStart();
-                #region onboarding
-                try
+            versioninfopanel(currentVersion);
+            #region onboarding
+            try
                 {
 
                     if (AppSettings.Load<bool>("onboarding") == true)
@@ -299,5 +300,78 @@ namespace GAMINGCONSOLEMODE
 
         #region filter
         #endregion filter
+
+        #region Versioninfos
+        private void versioninfopanel(string newversion)
+        {
+            
+            try
+            {
+                var savedVersion = AppSettings.Load<string>("version")?.Trim();
+                var current = currentVersion?.Trim();
+                if (string.Equals(savedVersion, current, StringComparison.OrdinalIgnoreCase))
+                {
+                    //Verison is identical, not show
+                }
+                else
+                {
+                  
+                    AppSettings.Save("version", newversion);
+                    //show Verison Panel
+                    var versionpanel = new version_news();
+                    versionpanel.ShowCenteredTo(this, 420, 600);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //first Time not Version Implement
+                AppSettings.Save("version", newversion);
+                //show Verison Panel
+                var versionpanel = new version_news();
+                versionpanel.ShowCenteredTo(this, 420, 600);
+            }
+        }
+        #endregion Versioninfos
     }
-}
+
+    public static class WindowExtensions
+    {
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private const int SW_SHOWNORMAL = 1;
+
+        public static async void ShowCenteredTo(this Window child, Window parent, int width = 400, int height = 600)
+        {
+            IntPtr hwndParent = WinRT.Interop.WindowNative.GetWindowHandle(parent);
+            WindowId parentId = Win32Interop.GetWindowIdFromWindow(hwndParent);
+            AppWindow parentApp = AppWindow.GetFromWindowId(parentId);
+
+            IntPtr hwndChild = WinRT.Interop.WindowNative.GetWindowHandle(child);
+            WindowId childId = Win32Interop.GetWindowIdFromWindow(hwndChild);
+            AppWindow childApp = AppWindow.GetFromWindowId(childId);
+
+            int centerX = parentApp.Position.X + (parentApp.Size.Width - width) / 2;
+            int centerY = parentApp.Position.Y + (parentApp.Size.Height - height) / 2;
+
+            childApp.MoveAndResize(new RectInt32
+            {
+                X = centerX,
+                Y = centerY,
+                Width = width,
+                Height = height
+            });
+
+            child.Activate();
+
+            // Kurze Verzögerung, damit Fensterhandle gültig und sichtbar ist
+            await Task.Delay(100);
+            ShowWindow(hwndChild, SW_SHOWNORMAL);
+            SetForegroundWindow(hwndChild);
+        }
+    }
+    }

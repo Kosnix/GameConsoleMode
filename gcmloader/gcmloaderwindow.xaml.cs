@@ -190,29 +190,32 @@ namespace gcmloader
 
         private DiscordSocketClient _client;
 
-        #region rog ally
-        public static bool IsROGAlly()
+        #region Handhelds
+        public static bool   IsHandheld()
         {
             try
             {
-                using var key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\\DESCRIPTION\\System\\BIOS");
+                using var key = Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\BIOS");
                 if (key != null)
                 {
-                    string family = key.GetValue("SystemFamily")?.ToString() ?? "<null>";
-                    if (family.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase))
+                    string family = key.GetValue("SystemFamily")?.ToString() ?? string.Empty;
+
+                    if (!string.IsNullOrEmpty(family))
                     {
-                        return true;
+                        return family.Contains("ROG Ally", StringComparison.OrdinalIgnoreCase) ||
+                               family.Contains("Claw", StringComparison.OrdinalIgnoreCase);
                     }
                 }
             }
             catch
             {
-                // Fail silently
+                // fail silently
             }
 
             return false;
         }
-        #endregion rog ally
+
+        #endregion Handhelds
         #endregion needed
         #region methodes
         #region methodes for code
@@ -765,7 +768,7 @@ namespace gcmloader
                 // Check if DisplayFusionCommand.exe exists
                 if (!File.Exists(displayFusionCommandPath))
                 {
-                    Console.WriteLine("DisplayFusionCommand.exe not found at the expected location.");
+                    Console.WriteLine("DisplayFusionCommand.exe not found at the expected location or not set");
                     return;
                 }
                 // Check if action is "start"
@@ -843,6 +846,37 @@ namespace gcmloader
             {
                 Console.WriteLine("DisplayFusion problem-");
             }
+        }
+        static void IsJoyxoffInstalledAndStart()
+        {
+            try
+            {
+                bool joyxofftogglestatus = AppSettings.Load<bool>("usejoyxoff");
+                if (joyxofftogglestatus == true)
+                {
+                    string joyxoffExePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Joyxoff", "Joyxoff.exe");
+                    try
+                    {
+                        if (File.Exists(joyxoffExePath))
+                        {
+                            Process.Start(joyxoffExePath);
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+
+            }
+
         }
         static void cssloader()
         {
@@ -1688,7 +1722,7 @@ namespace gcmloader
                     
                     SettingsVerify();
                     #region pre install/start check if needed
-                    if (IsROGAlly() == true)
+                    if (IsHandheld() == true)
                     {
                         //Device is Rog ally
                         // check for Audio Button Software
@@ -1730,9 +1764,9 @@ namespace gcmloader
                     #endregion pre install/start check if needed
                     StartupVideo.Play();
                     displayfusion("start");
+                    IsJoyxoffInstalledAndStart(); //only check if is installed, than start
                     #region kill distubing process
-                    KillTargetProcess("JoyxSvc");
-                    KillTargetProcess("JoyXoff");
+                    //KillTargetProcess("");
                     #endregion kill distubing process
                     cssloader(); //only check if is installed, than start
                     flowlauncher();
@@ -1760,7 +1794,7 @@ namespace gcmloader
 
                     #region Handheld
                     #region Ally
-                    if(IsROGAlly() == true)
+                    if(IsHandheld() == true)
                     {
                         KillTargetProcess("AudioSwitch");
                     }

@@ -5754,3 +5754,8 @@ C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.
 C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.xaml
 C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\shortcuts.xbf
 C:\Users\Luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\Assets\onboarding\shortcuts.png
+C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\version_news.xbf
+C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\version_news.g.i.cs
+C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\version_news.g.cs
+C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\version_news.xaml
+C:\Users\luis\Source\Repos\GameConsoleMode\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\version_news.xbf
