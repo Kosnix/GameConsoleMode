@@ -16,6 +16,9 @@
 	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="OverlayWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Remove="Assets\activation.wav" />
     <Content Remove="Assets\GCM_Startup_Video.webm" />
     <Content Remove="Assets\logo.ico" />
@@ -28,7 +31,6 @@
     <None Remove="Assets\activation.wav" />
     <None Remove="Assets\GCM_Startup_Video.webm" />
     <None Remove="Assets\navigation.wav" />
-    <None Remove="overlaycontrolls.xaml" />
     <None Remove="Settings.xml" />
   </ItemGroup>
 
@@ -82,6 +84,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ClickableTransparentOverlay" Version="11.1.0" />
     <PackageReference Include="Discord.Net" Version="3.17.1" />
     <PackageReference Include="Discord.Net.Core" Version="3.17.1" />
     <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.106">
@@ -94,11 +97,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
     <PackageReference Include="System.Management" Version="9.0.4" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="overlaycontrolls.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 
   <!--

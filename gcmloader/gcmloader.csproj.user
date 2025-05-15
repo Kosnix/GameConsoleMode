@@ -8,9 +8,6 @@
     <None Update="gcmloaderwindow.xaml">
       <SubType>Designer</SubType>
     </None>
-    <Page Update="overlaycontrolls.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <None Update="Package.appxmanifest">
       <SubType>Designer</SubType>
     </None>

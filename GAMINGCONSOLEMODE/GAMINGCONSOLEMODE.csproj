@@ -74,9 +74,12 @@
     <None Remove="functions\joyxoff_logo.png" />
     <None Remove="functions\joyxoff_panel.png" />
     <None Remove="functions\preloadlist.png" />
+    <None Remove="functions\rogally_statusicon.png" />
     <None Remove="functions\speaker.png" />
     <None Remove="functions\Startup_Video.gif" />
     <None Remove="functions\TV.png" />
+    <None Remove="functions\windows_statusicon.png" />
+    <None Remove="functions\winpart.png" />
     <None Remove="Home.xaml" />
     <None Remove="launcher.xaml" />
     <None Remove="Links.xaml" />
@@ -176,10 +179,19 @@
     <EmbeddedResource Include="functions\preloadlist.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="functions\rogally_statusicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="functions\speaker.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="functions\TV.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functions\windows_statusicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="functions\winpart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="nircmd.exe">
@@ -209,6 +221,7 @@
     <PackageReference Include="NAudio.Core" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Management" Version="9.0.3" />
+    <PackageReference Include="TaskScheduler" Version="2.12.1" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="overlaycontrolls.xaml">

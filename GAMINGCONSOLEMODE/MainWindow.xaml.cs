@@ -20,6 +20,7 @@ using System.DirectoryServices.ActiveDirectory;
 using gcmloader;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Reflection;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -333,6 +334,25 @@ namespace GAMINGCONSOLEMODE
             }
         }
         #endregion Versioninfos
+
+        #region topbarbutton
+
+        static string exeFolder()
+        {
+            string exePath = Assembly.GetExecutingAssembly().Location;
+            string folderPath = Path.GetDirectoryName(exePath);
+            return folderPath;
+        }
+
+        private void TopbarButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            Process.Start(new ProcessStartInfo(Path.Combine(exeFolder(), "gcmloader.exe")));
+        
+    }
+
+        #endregion topbarbutton
     }
 
     public static class WindowExtensions

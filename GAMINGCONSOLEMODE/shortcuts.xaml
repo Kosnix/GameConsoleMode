@@ -11,8 +11,59 @@
                 <FontIcon Glyph="&#xE8D4;" FontSize="24" Foreground="White"/>
                 <TextBlock Text="SHORTCUTS" FontSize="28" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
+
+            
+            <TextBlock Text="INSIDE WINDOWS MODE"/>
+            <StackPanel Background="#1E1E1E" Padding="20" Spacing="16">
+                <TextBlock Text="Seamless Switch to GCM"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                    
+                    <ComboBox x:Name="ComboBoxswitchgcm1" Width="150" Height="35">
+                       
+                    </ComboBox>
+
+                    <TextBlock Text="+" Foreground="White" FontSize="24" VerticalAlignment="Center"/>
+
+                    <ComboBox x:Name="ComboBoxswitchgcm2" Width="150" Height="35">
+                       
+                    </ComboBox>
+
+                    <TextBlock Text="=" Foreground="White" FontSize="24" VerticalAlignment="Center" Margin="10,0"/>
+
+                    <ToggleSwitch x:Name="winswitchgcm" Header="" OffContent="Off" OnContent="On" Toggled="winswitchgcm_Toggled"/>
+                    <Button Width="28" Height="28"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Padding="0"
+        Background="Transparent"
+        BorderBrush="Transparent">
+                        <FontIcon Glyph="&#xE946;" FontFamily="Segoe MDL2 Assets" Foreground="LightGray" FontSize="20"/>
+                        <Button.Flyout>
+                            <Flyout Placement="Top">
+                                <TextBlock Text="Enabling this triggers a UAC prompt to run the background task as local admin. This ensures security and a seamless Windows experience. Please click 'Yes'."
+                       Width="250"
+                       TextWrapping="WrapWholeWords"
+                       Foreground="White"
+                       FontSize="12"
+                       Padding="5"/>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+
+
+
+                </StackPanel>
+                
+                
+            </StackPanel>
+            <TextBlock Text="INSIDE GCM MODE"/>
             <Button Content="Add Shortcut" Click="AddCustomShortcut" Margin="0,0,0,20"
-                    Background="Green"  Foreground="White" Padding="10,5" BorderThickness="0"/>
+        Background="Green" Foreground="White" Padding="10,5" BorderThickness="0"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

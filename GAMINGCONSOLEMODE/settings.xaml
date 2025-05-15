@@ -65,8 +65,35 @@ With USB logon, we have found a way to maintain security while allowing access t
                         </StackPanel>
                     </Expander>
                 </StackPanel>
-
                 <!-- Card 2 -->
+                <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon Glyph="&#xE72E;" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+                            <TextBlock Text="SECURITY - UAC" Grid.Column="1" FontSize="16" FontWeight="Bold" Margin="10" />
+                        </Grid>
+                    </Expander.Header>
+                    <StackPanel Spacing="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="500" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Text="GCM respects your decision and UAC is set immediately" Grid.Column="1" VerticalAlignment="Center" FontSize="14" />
+                            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="10">
+                                <Button x:Name="uactoggleon"  Content="Disable UAC completely" Margin="5" Click="uactoggle_Click"  />
+                                <Button x:Name="uactoggleoff"  Content="Enable UAC completely" Margin="5" Click="uactoggleoff_Click"  />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Expander>
+                <!-- Card 3 -->
                 <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
                     <Expander.Header>
                         <Grid>
@@ -95,7 +122,7 @@ With USB logon, we have found a way to maintain security while allowing access t
                     </StackPanel>
                 </Expander>
 
-                <!-- Card 3 -->
+                <!-- Card 4 -->
                 <Expander IsExpanded="False" Padding="10" BorderThickness="1"  HorizontalAlignment="Stretch">
                     <Expander.Header>
                         <Grid>
@@ -122,6 +149,7 @@ With USB logon, we have found a way to maintain security while allowing access t
                         </Grid>
                     </StackPanel>
                 </Expander>
+               
             </StackPanel>
         </ScrollViewer>
 

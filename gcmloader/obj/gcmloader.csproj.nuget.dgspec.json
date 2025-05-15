@@ -50,6 +50,10 @@
         "net8.0-windows10.0.19041": {
           "targetAlias": "net8.0-windows10.0.19041.0",
           "dependencies": {
+            "ClickableTransparentOverlay": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
             "Discord.Net": {
               "target": "Package",
               "version": "[3.17.1, )"

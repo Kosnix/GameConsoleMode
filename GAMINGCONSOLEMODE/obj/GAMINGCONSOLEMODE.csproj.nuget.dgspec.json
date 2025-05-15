@@ -85,6 +85,10 @@
             "System.Management": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "TaskScheduler": {
+              "target": "Package",
+              "version": "[2.12.1, )"
             }
           },
           "imports": [

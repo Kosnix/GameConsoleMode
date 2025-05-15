@@ -9,6 +9,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using Discord;
+using System.Text;
 using Discord.WebSocket;
 using System.Linq;
 using System.Reflection;
@@ -29,7 +30,6 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using Microsoft.UI.Windowing;
 using System.Xml.Linq;
-using System.Text;
 using Windows.System;
 using SharpDX.XInput;
 using System.Timers;
@@ -44,6 +44,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Windows.Foundation;
 using Point = System.Drawing.Point;
 using System.Management;
+using System.IO.Pipes;
 
 
 
@@ -53,6 +54,8 @@ namespace gcmloader
     public sealed partial class MainWindow : Window
     {
         #region needed
+
+       
 
         private const int GWL_STYLE = -16;
         private const int GWL_EXSTYLE = -20;
@@ -129,7 +132,7 @@ namespace gcmloader
 
         public MainWindow()
         {
-
+            
             this.InitializeComponent();
             this.Activated += MainWindow_Activated;
             this.Activated += (s, e) => this.Content.Focus(FocusState.Programmatic);
@@ -139,9 +142,8 @@ namespace gcmloader
             SetupGamepad();
             Start();
             //ASYNC PROZES
-            ShowTaskManager(); //after 10 seconds
+            ShowTaskManager(); //after 10 seconds AND Start Windows Partmode
             StartAsynctasks();
-
         }
 
         
@@ -673,44 +675,47 @@ namespace gcmloader
 
                         // Fill the entire space while maintaining aspect ratio
                         backgroundImage.Stretch = Stretch.UniformToFill;
-
-                        // Set image to stretch automatically by removing fixed Width and Height
                         backgroundImage.HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Stretch;
                         backgroundImage.VerticalAlignment = VerticalAlignment.Stretch;
-
-                        // Make sure the image is behind all other elements
                         backgroundImage.SetValue(Canvas.ZIndexProperty, -1);
 
-                        // Add the background image to the main content
+                        // Check if the main content is already a Grid
                         if (this.Content is Grid mainGrid)
                         {
-                            mainGrid.Children.Insert(0, backgroundImage); // Add background to the first layer
+                            // Check if a background image already exists
+                            var existingBackground = mainGrid.Children.OfType<Microsoft.UI.Xaml.Controls.Image>().FirstOrDefault();
+                            if (existingBackground != null)
+                            {
+                                // Update the existing background
+                                existingBackground.Source = backgroundImage.Source;
+                            }
+                            else
+                            {
+                                // Insert the new background at index 0
+                                mainGrid.Children.Insert(0, backgroundImage);
+                            }
                         }
                         else
                         {
-                            // Use a new Grid as a container
+                            // Create a new Grid container
                             Grid grid = new Grid();
-                            grid.Children.Add(backgroundImage); // Add background image
+                            grid.Children.Add(backgroundImage);
+
                             if (this.Content != null)
-                                grid.Children.Add((UIElement)this.Content); // Add the existing content
+                                grid.Children.Add((UIElement)this.Content);
+
                             this.Content = grid;
                         }
                     }
                     else
                     {
-                        // Log an error if the path is invalid
                         System.Diagnostics.Debug.WriteLine($"Image path not found: {imagePath}");
                     }
-
-                }
-                else
-                {
-                    return;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Console.WriteLine("wallpaper gui error");
+                Console.WriteLine("Wallpaper error: " + ex.Message);
             }
         }
 
@@ -1045,6 +1050,26 @@ namespace gcmloader
         {
             try
             {
+                //check  startup apps winpart
+                try
+                {
+                    bool usewinpartstartapps = AppSettings.Load<bool>("usewinpartstartapps");
+                    if (usewinpartstartapps == true)
+                    {
+                        //First Disable all Autostartapps Not POPUPS
+                        StartupControl.RestoreStartupApps();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch
+                {
+
+                }
+               
+
                 const string keyName = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
                 const string valueName = "Shell";
                 const string newValue = @"explorer.exe";
@@ -1075,6 +1100,7 @@ namespace gcmloader
 
                         //End Decky Loader process if running
                         Process[] deckyLoaderProcesses = Process.GetProcessesByName("PluginLoader_noconsole");
+                      
                         if (deckyLoaderProcesses.Length > 0)
                         {
                             foreach (var process in deckyLoaderProcesses)
@@ -1088,6 +1114,7 @@ namespace gcmloader
                         // Restart explorer.exe
                         Process.Start("explorer.exe");
                         Console.WriteLine("explorer.exe restarted.");
+                       
                     }
                     else
                     {
@@ -1103,6 +1130,36 @@ namespace gcmloader
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+
+            //restart wingamepad when needed.
+            bool usewingamepad = AppSettings.Load<bool>("useseamlessswitchtogcm");
+            if(usewingamepad)
+            {
+                try
+                {
+                    string exePath = @"C:\Program Files (x86)\GCMcrew\GCM\GCM\wingamepad\wingamepad.exe";
+
+                    if (!File.Exists(exePath))
+                    {
+                        throw new FileNotFoundException("wingamepad.exe not found.", exePath);
+                    }
+
+                    var startInfo = new ProcessStartInfo
+                    {
+                        FileName = exePath,
+                        UseShellExecute = true,
+                        Verb = "runas" 
+                    };
+
+                    Process.Start(startInfo);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[ERROR] Failed to launch wingamepad.exe: {ex.Message}");
+                }
+
+            }
+
         }
         static void StartLauncher()
         {
@@ -1134,7 +1191,6 @@ namespace gcmloader
         }
         static void uac(string art)
         {
-
             if (art == "on")
             {
                 try
@@ -1171,59 +1227,57 @@ namespace gcmloader
         }
         static void ConsoleModeToShell()
         {
-
-
-            try
-            {
-                const string keyName = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
-                const string valueName = "Shell";
-
-                // Get the path of the current directory and append the target executable name
-                string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string targetExecutable = Path.Combine(currentDirectory, "gcmloader.exe");
-
-
-
-                if (!File.Exists(targetExecutable))
+                try
                 {
-                    //Logger.Logger.Log($"Error: The file '{targetExecutable}' does not exist.");
-                    return;
-                }
+                    const string keyName = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
+                    const string valueName = "Shell";
 
-                // Open registry key for writing
-                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(keyName, writable: true))
-                {
-                    if (key != null)
+                    // Get the path of the current directory and append the target executable name
+                    string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    string targetExecutable = Path.Combine(currentDirectory, "gcmloader.exe");
+
+
+
+                    if (!File.Exists(targetExecutable))
                     {
-                        // Modify value in registry key
-                        key.SetValue(valueName, targetExecutable, RegistryValueKind.String);
+                        //Logger.Logger.Log($"Error: The file '{targetExecutable}' does not exist.");
+                        return;
+                    }
 
-                        // Verify the change
-                        string currentValue = key.GetValue(valueName)?.ToString();
-                        if (currentValue == targetExecutable)
+                    // Open registry key for writing
+                    using (RegistryKey key = Registry.LocalMachine.OpenSubKey(keyName, writable: true))
+                    {
+                        if (key != null)
                         {
+                            // Modify value in registry key
+                            key.SetValue(valueName, targetExecutable, RegistryValueKind.String);
 
-                            KillProcess("explorer.exe");
+                            // Verify the change
+                            string currentValue = key.GetValue(valueName)?.ToString();
+                            if (currentValue == targetExecutable)
+                            {
+
+                                KillProcess("explorer.exe");
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Failed to set '{valueName}'. Current value: {currentValue}");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine($"Failed to set '{valueName}'. Current value: {currentValue}");
+                            Console.WriteLine($"Unable to open registry key '{keyName}'.");
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine($"Unable to open registry key '{keyName}'.");
-                    }
                 }
-            }
-            catch (UnauthorizedAccessException)
-            {
-                Console.WriteLine("Error: Access Denied. Run the application as an administrator.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+                catch (UnauthorizedAccessException)
+                {
+                    Console.WriteLine("Error: Access Denied. Run the application as an administrator.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
         }
         private void SettingsVerify()
         {
@@ -1328,13 +1382,7 @@ namespace gcmloader
         {
             try
             {
-                //discord
-                bool usediscord = AppSettings.Load<bool>("usediscord");
-                if (usediscord)
-                {
-                    await MonitorDiscordProcessAndWindow();
-                }
-                //flowlauncher autokill
+              
 
 
 
@@ -1344,138 +1392,205 @@ namespace gcmloader
 
             }
         }
-        public void deckyloader()
-        { 
-        
-        
-        
-        }
-        #region discord 
-        #region discord automatic need
-        // Importing user32.dll functions to interact with window handles
 
-        [DllImport("user32.dll")]
-        private static extern bool IsIconic(IntPtr hWnd); // Checks if a window is minimized
+        #region winparts
+        //needed
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetClassName(IntPtr hWnd, StringBuilder lpClassName, int nMaxCount);
+        private const int SW_HIDE = 0;
 
-        [DllImport("user32.dll")]
-        private static extern int GetWindowText(IntPtr hWnd, System.Text.StringBuilder text, int count);
-        #endregion discord automatic need
-        private static async Task MonitorDiscordProcessAndWindow()
+        public static void winpart()
         {
-            // Initial
-            // Load the saved device ID from the configuration
-            string startdiscord = AppSettings.Load<string>("discordstart");
-            // Load the saved device ID from the configuration
-            string enddiscord = AppSettings.Load<string>("discordend");
-            bool handlestate = false;
-
-            while (true)
+            try
             {
-                try
+                bool usewinpart = AppSettings.Load<bool>("usewinpart");
+                
+                if (usewinpart == true)
                 {
-                    // Check if Discord process is running
-                    Process[] discordProcesses = Process.GetProcessesByName("Discord");
-                    if (discordProcesses.Length > 0)
+
+            try
+            {
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(
+                    @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon", writable: true))
+                {
+                    if (key != null)
                     {
-                        // Get the main window handle of the Discord process
-                        IntPtr discordHandle = discordProcesses[0].MainWindowHandle;
+                        key.SetValue("Shell", "explorer.exe", RegistryValueKind.String);
+                        Console.WriteLine("Shell successfully set to explorer.exe.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Registry key not found.");
+                    }
+                }
 
-                        if (discordHandle == IntPtr.Zero)
+                Console.WriteLine("Starting explorer.exe...");
+                Process.Start("explorer.exe");
+
+                Thread.Sleep(5000);
+                //setTaskbar();
+                //HideShellWindow("Windows.UI.StartMenu");
+                KillProcess("WidgetBoard");
+                KillProcess("WidgetService");
+                //HideShellWindow("Shell_SecondaryTrayWnd");
+                //HideShellWindow("Progman");
+                //HideShellWindow("NotifyIconOverflowWindow");
+                //HideShellWindow("Windows.UI.Core.CoreWindow");
+                //HideWorkerWindows();
+
+                Console.WriteLine("Shell windows hidden.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            //set gcmloader again
+            try
+            {
+                const string keyName = @"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon";
+                const string valueName = "Shell";
+
+                // Get the path of the current directory and append the target executable name
+                string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string targetExecutable = Path.Combine(currentDirectory, "gcmloader.exe");
+
+
+
+                if (!File.Exists(targetExecutable))
+                {
+                    //Logger.Logger.Log($"Error: The file '{targetExecutable}' does not exist.");
+                    return;
+                }
+
+                // Open registry key for writing
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(keyName, writable: true))
+                {
+                    if (key != null)
+                    {
+                        // Modify value in registry key
+                        key.SetValue(valueName, targetExecutable, RegistryValueKind.String);
+
+                        // Verify the change
+                        string currentValue = key.GetValue(valueName)?.ToString();
+                        if (currentValue == targetExecutable)
                         {
-                            // Discord is running, but no window is detected
-
-                            if (string.IsNullOrEmpty(enddiscord))
-                            {
-                                //No audio device ID found in start the configuration
-
-                                return;
-                            }
-                            else
-                            {
-                                if (handlestate == true)
-                                {
-                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
-                                    handlestate = false;
-                                }
-                                else
-                                {
-                                    //nothing
-                                }
-
-                            }
-                        }
-                        else if (IsIconic(discordHandle))
-                        {
-                            // Discord is running, but the window is minimized;
-
-                            if (string.IsNullOrEmpty(enddiscord))
-                            {
-                                //"No audio device ID found in start the configuration
-
-                                return;
-                            }
-                            else
-                            {
-                                if (handlestate == true)
-                                {
-                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{enddiscord}\"");
-                                    handlestate = false;
-                                }
-                                else
-                                {
-                                    //nothing
-                                }
-
-                            }
-
+                            Console.WriteLine($" set Current value: {currentValue} without kill for later");
                         }
                         else
                         {
-                            // Discord is running, and the window is open
-                            if (string.IsNullOrEmpty(startdiscord))
-                            {
-
-                                //No audio device ID found in start the configuration
-
-                                return;
-                            }
-                            else
-                            {
-
-                                if (handlestate == false)
-                                {
-                                    NirCmdUtil.NirCmdHelper.ExecuteCommand($"setdefaultsounddevice \"{startdiscord}\"");
-                                    handlestate = true;
-                                }
-                                else
-                                {
-                                    //nothing
-                                }
-                            }
-
-
+                            Console.WriteLine($"Failed to set '{valueName}'. Current value: {currentValue}");
                         }
                     }
                     else
                     {
-
+                        Console.WriteLine($"Unable to open registry key '{keyName}'.");
                     }
-
-                    // Wait for 5 seconds before checking again
-                    await Task.Delay(3000);
                 }
-                catch (Exception ex)
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine("Error: Access Denied. Run the application as an administrator.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+
+
+
+                }
+                else
                 {
 
-                    await Task.Delay(3000); // Avoid rapid retries on error
                 }
+            }
+            catch
+            {
+                AppSettings.Save("usewinpart", false);
+                AppSettings.Save("usewinpartstartapps", false);
             }
 
         }
-        // Method to append logs to the file on the Desktop
-        #endregion discord
+
+        private static void setTaskbar()
+        {
+            IntPtr taskbar = FindWindow("Shell_TrayWnd", null);
+            if (taskbar != IntPtr.Zero)
+            {
+                ShowWindow(taskbar, SW_HIDE);
+                Console.WriteLine("Taskbar hidden.");
+            }
+            else
+            {
+                Console.WriteLine("Taskbar not found.");
+            }
+        }
+
+        private static void HideShellWindow(string className)
+        {
+            IntPtr hWnd = FindWindow(className, null);
+            if (hWnd != IntPtr.Zero)
+            {
+                ShowWindow(hWnd, SW_HIDE);
+                Console.WriteLine($"Window '{className}' hidden.");
+            }
+        }
+
+        private static void HideWorkerWindows()
+        {
+            EnumWindows((hWnd, lParam) =>
+            {
+                StringBuilder sb = new StringBuilder(256);
+                GetClassName(hWnd, sb, sb.Capacity);
+                string className = sb.ToString();
+
+                if (className == "WorkerW")
+                {
+                    ShowWindow(hWnd, SW_HIDE);
+                    Console.WriteLine("WorkerW window hidden.");
+                }
+
+                return true;
+            }, IntPtr.Zero);
+        }
 
 
+        private void Showwinpart()
+        {
+            //check  startup apps winpart
+            try {
+                bool usewinpartstartapps = AppSettings.Load<bool>("usewinpartstartapps");
+                if (usewinpartstartapps == true)
+                {
+                    //First Disable all Autostartapps for Not Popups and Windows Partstart
+                    StartupControl.DisableAllStartupApps();
+                }
+                else
+                {
+
+                }
+            }
+            catch
+            {
+                
+            }
+            // Creates a timer for 10 seconds
+            var hideTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(3)
+            };
+            hideTimer.Tick += (s, e) =>
+            {
+                // Stops the timer and shows the StackPanel
+                hideTimer.Stop();
+                winpart();
+            };
+            hideTimer.Start();
+        }
+
+        #endregion winparts
 
         #endregion functions
         #region launcher
@@ -1721,6 +1836,7 @@ namespace gcmloader
                 {
                     
                     SettingsVerify();
+                    Showwinpart();
                     #region pre install/start check if needed
                     if (IsHandheld() == true)
                     {
@@ -1800,8 +1916,28 @@ namespace gcmloader
                     }
                     #endregion Ally
                     #endregion Handheld
-
-                    uac("on");
+                    #region uac
+                    try
+                    {
+                        bool useuac = AppSettings.Load<bool>("useuac");
+                        if (useuac == true)
+                        {
+                            //useuac is aktive 
+                            uac("on");
+                        }
+                        else if (useuac == false)
+                        {
+                            //User set it to off
+                            uac("off");
+                        }
+                    }
+                    catch
+                    {
+                        //error in read
+                        AppSettings.Save("useuac", true);
+                        uac("on");
+                    }
+                    #endregion uac
                     this.Close();
                 }
             }
@@ -1900,6 +2036,8 @@ namespace gcmloader
             hideTimer.Start();
         }
 
+
+
         // ====================================================================
         // Loads the list of applications
         // ====================================================================
@@ -1913,66 +2051,71 @@ namespace gcmloader
             // Enumerates windows (P/Invoke already declared elsewhere)
             EnumWindows((hWnd, lParam) =>
             {
-                if (IsWindowVisible(hWnd))
+                if (!IsWindowVisible(hWnd)) return true;
+
+                // Ensure it is a main window (no owner and has a title)
+                if (GetWindow(hWnd, GW_OWNER) != IntPtr.Zero || string.IsNullOrWhiteSpace(GetWindowTitle(hWnd)))
                 {
-                    // Retrieve the process
-                    uint pid;
-                    GetWindowThreadProcessId(hWnd, out pid);
-
-                    Process p;
-                    try
-                    {
-                        p = Process.GetProcessById((int)pid);
-                    }
-                    catch
-                    {
-                        return true;
-                    }
-
-                    // Ignore if it's GCMLoader
-                    if (pid == (uint)Process.GetCurrentProcess().Id)
-                        return true;
-
-                    // Program name
-                    string productName;
-                    try
-                    {
-                        productName = p.MainModule?.FileVersionInfo?.ProductName;
-                    }
-                    catch
-                    {
-                        productName = null;
-                    }
-                    if (string.IsNullOrWhiteSpace(productName))
-                        productName = p.ProcessName;
-
-                    // Exclusions
-                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
-                        || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                    if (productName?.Contains("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase) == true
-                       || p.ProcessName.Equals("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                    if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
-                       || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                    if (productName?.Contains("Steam Client WebHelper", StringComparison.OrdinalIgnoreCase) == true)
-                    {
-                        productName = "Steam";
-                    }
-
-                    // Builds the row
-                    var row = CreateProgramRow(productName, p, hWnd);
-                    TaskManagerPanel.Children.Add(row.RowPanel);
-
-                    _rows.Add(row);
+                    return true;
                 }
+
+                // Retrieve the process
+                uint pid;
+                GetWindowThreadProcessId(hWnd, out pid);
+
+                Process p;
+                try
+                {
+                    p = Process.GetProcessById((int)pid);
+                }
+                catch
+                {
+                    return true;
+                }
+
+                // Ignore if it's the current process
+                if (pid == (uint)Process.GetCurrentProcess().Id)
+                    return true;
+
+                // Program name
+                string productName;
+                try
+                {
+                    productName = p.MainModule?.FileVersionInfo?.ProductName;
+                }
+                catch
+                {
+                    productName = null;
+                }
+                if (string.IsNullOrWhiteSpace(productName))
+                    productName = p.ProcessName;
+
+                // Exclusions
+                if (productName?.Contains("Windows", StringComparison.OrdinalIgnoreCase) == true
+                    || p.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                if (productName?.Contains("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase) == true
+                   || p.ProcessName.Equals("ASUS Hotplug Controller", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                if (productName?.Contains("Steam Client WebHelper", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    productName = "Steam";
+                }
+                if (productName?.Contains("GAMECONSOLEMODE", StringComparison.OrdinalIgnoreCase) == true
+                    || productName?.Contains("NVIDIA", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    return true;
+                }
+
+                // Builds the row
+                var row = CreateProgramRow(productName, p, hWnd);
+                TaskManagerPanel.Children.Add(row.RowPanel);
+                _rows.Add(row);
+
                 return true;
             }, IntPtr.Zero);
 
@@ -1986,6 +2129,28 @@ namespace gcmloader
                 UpdateRowSelection();
             }
         }
+        private const uint GW_OWNER = 4;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        private string GetWindowTitle(IntPtr hWnd)
+        {
+            const int nChars = 256;
+            StringBuilder Buff = new StringBuilder(nChars);
+            if (GetWindowText(hWnd, Buff, nChars) > 0)
+            {
+                return Buff.ToString();
+            }
+            return string.Empty;
+        }
+
+
+
+
 
         private ProgramRow CreateProgramRow(string programName, Process proc, IntPtr hwnd)
         {
@@ -2287,13 +2452,63 @@ namespace gcmloader
         }
         #endregion audio management
         #region shortcut overlay
-      
-        public static void ShowOverlayControlsTemporarily()
+        public static void showoverlay()
         {
-          
+            
+                using var client = new NamedPipeClientStream(".", "GCMOverlayPipe", PipeDirection.Out);
+                client.Connect(100); // max 100ms warten
+                using var writer = new StreamWriter(client);
+                writer.WriteLine("TOGGLE");
+                writer.Flush();
 
         }
         #endregion shortcut overlay
+        private void Triggerbacktowin()
+        {
+            // back to windows 
+            displayfusion("end");
+            BackToWindows();
+            CleanupLogging();
+            try
+            {
+                StartupVideo.RenameSteamStartupVideo_End();
+            }
+            catch { }
+            preaudio(false, true);
+
+            #region Handheld
+            #region Ally
+            if (IsHandheld() == true)
+            {
+                KillTargetProcess("AudioSwitch");
+            }
+            #endregion Ally
+            #endregion Handheld
+            #region uac
+            try
+            {
+                bool useuac = AppSettings.Load<bool>("useuac");
+                if (useuac == true)
+                {
+                    //useuac is aktive 
+                    uac("on");
+                }
+                else if (useuac == false)
+                {
+                    uac("off");
+                }
+            }
+            catch
+            {
+                //error in read
+                AppSettings.Save("useuac", true);
+                uac("on");
+            }
+
+
+            #endregion uac
+            this.Close();
+        }
         #endregion shortcuts
 
 
@@ -2345,8 +2560,7 @@ namespace gcmloader
 
         //Taskmanager
         private GamepadButtonFlags _lastButtonState = GamepadButtonFlags.None;
-        //overlay ui
-        private static overlaycontrolls _overlayInstance;
+      
 
         private Dictionary<(string, string), string> _activeShortcuts = new();
 
@@ -2426,7 +2640,9 @@ namespace gcmloader
                 _shortcutActions["switch tab"] = SendAltTab;
                 _shortcutActions["audio switch"] = SwitchToNextAudioDevice;
                 _shortcutActions["performance overlay"] = TriggerPerformanceOverlay;
-               
+                _shortcutActions["seamless switch to win"] = Triggerbacktowin;
+                _shortcutActions["show overlay"] = showoverlay;
+
             }
             catch { }
         }
@@ -2987,4 +3203,85 @@ namespace gcmloader
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter,
             int X, int Y, int cx, int cy, uint uFlags);
     }
+    //startup apps controll
+    public static class StartupControl
+    {
+        private const string HKCU_Run = @"Software\Microsoft\Windows\CurrentVersion\Run";
+        private const string HKLM_Run = @"Software\Microsoft\Windows\CurrentVersion\Run";
+        private const string HKCU_Backup = @"Software\gcm\BackupStartup\HKCU";
+        private const string HKLM_Backup = @"Software\gcm\BackupStartup\HKLM";
+        private static readonly string StartupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+        private static readonly string StartupBackupFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gcm\\StartupBackup");
+
+        public static void DisableAllStartupApps()
+        {
+            DisableRegistryStartup(Registry.CurrentUser, HKCU_Run, HKCU_Backup);
+            DisableRegistryStartup(Registry.LocalMachine, HKLM_Run, HKLM_Backup);
+            BackupAndClearStartupFolder();
+        }
+
+        public static void RestoreStartupApps()
+        {
+            RestoreRegistryStartup(Registry.CurrentUser, HKCU_Run, HKCU_Backup);
+            RestoreRegistryStartup(Registry.LocalMachine, HKLM_Run, HKLM_Backup);
+            RestoreStartupFolder();
+        }
+
+        private static void DisableRegistryStartup(RegistryKey root, string runPath, string backupPath)
+        {
+            using RegistryKey runKey = root.OpenSubKey(runPath, writable: true);
+            using RegistryKey backupKey = root.CreateSubKey(backupPath);
+            if (runKey == null || backupKey == null) return;
+
+            foreach (string valueName in runKey.GetValueNames())
+            {
+                object value = runKey.GetValue(valueName);
+                RegistryValueKind kind = runKey.GetValueKind(valueName);
+                backupKey.SetValue(valueName, value, kind);
+                runKey.DeleteValue(valueName);
+            }
+        }
+
+        private static void RestoreRegistryStartup(RegistryKey root, string runPath, string backupPath)
+        {
+            using RegistryKey runKey = root.OpenSubKey(runPath, writable: true);
+            using RegistryKey backupKey = root.OpenSubKey(backupPath, writable: true);
+            if (runKey == null || backupKey == null) return;
+
+            foreach (string valueName in backupKey.GetValueNames())
+            {
+                object value = backupKey.GetValue(valueName);
+                RegistryValueKind kind = backupKey.GetValueKind(valueName);
+                runKey.SetValue(valueName, value, kind);
+            }
+            root.DeleteSubKeyTree(backupPath);
+        }
+
+        private static void BackupAndClearStartupFolder()
+        {
+            if (!Directory.Exists(StartupFolder)) return;
+            Directory.CreateDirectory(StartupBackupFolder);
+
+            foreach (string file in Directory.GetFiles(StartupFolder))
+            {
+                string destFile = Path.Combine(StartupBackupFolder, Path.GetFileName(file));
+                File.Move(file, destFile, overwrite: true);
+            }
+        }
+
+        private static void RestoreStartupFolder()
+        {
+            if (!Directory.Exists(StartupBackupFolder)) return;
+            Directory.CreateDirectory(StartupFolder);
+
+            foreach (string file in Directory.GetFiles(StartupBackupFolder))
+            {
+                string destFile = Path.Combine(StartupFolder, Path.GetFileName(file));
+                File.Move(file, destFile, overwrite: true);
+            }
+
+            Directory.Delete(StartupBackupFolder, recursive: true);
+        }
+    }
+
 }

@@ -140,6 +140,91 @@ namespace GAMINGCONSOLEMODE
             // Anwendung beenden
             Environment.Exit(0);
         }
-    
+
+        private void uactoggle_Click(object sender, RoutedEventArgs e)
+        {
+            //On
+           
+
+            try
+            {
+                var psi = new ProcessStartInfo
+                {
+                    FileName = @"C:\Program Files (x86)\GCMcrew\GCM\GCM\TaskHelper.exe",
+                    Arguments = "--uac=disable",
+                    Verb = "runas",              // triggers UAC prompt
+                    UseShellExecute = true
+                };
+
+                var process = Process.Start(psi);
+                AppSettings.Save("useuac", false);
+
+                if (process == null)
+                {
+                    // This should rarely happen, but handle it just in case
+                    //MessageBox.Show("Failed to start TaskHelper.");
+                }
+                else
+                {
+                    // Optionally: Wait or log that it started successfully
+                    MessageBox.Show("UAC has been disabled,A system restart is required for the change to take effect");
+                }
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                // This exception is thrown when the user clicks "No" on the UAC prompt
+                if (ex.NativeErrorCode == 1223) // ERROR_CANCELLED
+                {
+                   // MessageBox.Show("Operation was canceled by the user.");
+                    AppSettings.Save("useuac", true);
+                }
+                else
+                {
+                    //MessageBox.Show($"Unexpected error: {ex.Message}");
+                }
+            }
+
+        }
+
+        private void uactoggleoff_Click(object sender, RoutedEventArgs e)
+        {
+            //off
+            try
+            {
+                var psi = new ProcessStartInfo
+                {
+                    FileName = @"C:\Program Files (x86)\GCMcrew\GCM\GCM\TaskHelper.exe", // change this path accordingly
+                    Arguments = "--uac=enable",
+                    Verb = "runas",               // triggers UAC prompt
+                    UseShellExecute = true        // required for runas
+                };
+
+                var process = Process.Start(psi);
+
+                AppSettings.Save("useuac", true);
+                if (process == null)
+                {
+                    //MessageBox.Show("Failed to start TaskHelper.");
+                }
+                else
+                {
+                    MessageBox.Show("UAC has been enabled,A system restart is required for the change to take effect");
+                }
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                // ERROR_CANCELLED = 1223 — User clicked "No"
+                if (ex.NativeErrorCode == 1223)
+                {
+                    //MessageBox.Show("UAC change was canceled by the user.");
+                    AppSettings.Save("useuac", true);
+                }
+                else
+                {
+                    //MessageBox.Show($"Unexpected error: {ex.Message}");
+                }
+            }
+
+        }
     }
 }

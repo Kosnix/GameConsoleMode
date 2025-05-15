@@ -1,4 +1,4 @@
-// Fix: Avoid setting function index on load unless creating new
+﻿// Fix: Avoid setting function index on load unless creating new
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -9,6 +9,12 @@ using Microsoft.UI;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using System.Text.Json;
+using System.Diagnostics;
+using Microsoft.Win32.TaskScheduler;
+using System.Windows.Forms;
+using Button = Microsoft.UI.Xaml.Controls.Button;
+using ComboBox = Microsoft.UI.Xaml.Controls.ComboBox;
+using Orientation = Microsoft.UI.Xaml.Controls.Orientation;
 
 namespace GAMINGCONSOLEMODE
 {
@@ -21,18 +27,30 @@ namespace GAMINGCONSOLEMODE
             "LeftShoulder", "RightShoulder", "A", "B", "X", "Y"
         };
 
+        private readonly string[] gamepadButtonswin = new[]
+        {
+            "DPadUp", "DPadDown", "DPadLeft", "DPadRight",
+            "Start", "Back","A", "B", "X", "Y"
+        };
+
         private readonly List<string> functions = new()
         {
             "taskmanager",
             "switch tab",
             "audio switch",
-            "performance overlay"
+            "performance overlay",
+            "seamless switch to win",
+            "show overlay"
         };
 
         public shortcuts()
         {
             this.InitializeComponent();
             LoadExistingShortcuts();
+            insertgamepaddata();
+
+
+
         }
 
         private void AddCustomShortcut(object sender, RoutedEventArgs e) => AddCustomShortcut();
@@ -257,5 +275,248 @@ namespace GAMINGCONSOLEMODE
             public string Function { get; set; }
             public bool Enabled { get; set; }
         }
+
+        #region winshortcuts
+
+        //helper
+        public static bool IsTaskActive(string taskName)
+        {
+            using (TaskService ts = new TaskService())
+            {
+                var task = ts.FindTask(taskName, true);
+                return task != null && task.Enabled;
+            }
+        }
+
+        // Populates the ComboBoxes with available gamepad buttons and initializes toggle state
+        private void insertgamepaddata()
+        {
+            string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCMSettings", "shortcutswin");
+            string path = Path.Combine(dir, "winmode_change.json");
+
+            string loadedKey1 = "";
+            string loadedKey2 = "";
+            ComboBoxItem selectedItem1 = null;
+            ComboBoxItem selectedItem2 = null;
+
+            // Try to read saved shortcut data if file exists
+            if (File.Exists(path))
+            {
+                try
+                {
+                    string json = File.ReadAllText(path);
+                    var data = JsonSerializer.Deserialize<ShortcutData>(json);
+                    if (data != null)
+                    {
+                        loadedKey1 = data.Key1?.Trim();
+                        loadedKey2 = data.Key2?.Trim();
+                    }
+                }
+                catch
+                {
+                    System.Diagnostics.Debug.WriteLine("Failed to load winmode_change.json");
+                }
+            }
+
+            // Populate gamepad button ComboBoxes
+            foreach (var btn in gamepadButtonswin)
+            {
+                var item1 = new ComboBoxItem { Content = btn };
+                ComboBoxswitchgcm1.Items.Add(item1);
+                if (btn == loadedKey1) selectedItem1 = item1;
+
+                var item2 = new ComboBoxItem { Content = btn };
+                ComboBoxswitchgcm2.Items.Add(item2);
+                if (btn == loadedKey2) selectedItem2 = item2;
+            }
+
+            // Set selected items AFTER items are added
+            ComboBoxswitchgcm1.SelectedItem = selectedItem1;
+            ComboBoxswitchgcm2.SelectedItem = selectedItem2;
+
+            // Disable toggle switch until valid selections are made
+            winswitchgcm.IsEnabled = false;
+
+            // Attach event handlers to enable switch when valid selection is made
+            ComboBoxswitchgcm1.SelectionChanged += GamepadComboBox_SelectionChanged;
+            ComboBoxswitchgcm2.SelectionChanged += GamepadComboBox_SelectionChanged;
+
+            // Manually trigger once after loading
+            GamepadComboBox_SelectionChanged(null, null);
+
+            // Set toggle ON only if valid selection and file exists
+            if (selectedItem1 != null && selectedItem2 != null && File.Exists(path))
+            {
+                winswitchgcm.IsOn = true;
+                ComboBoxswitchgcm1.IsEnabled = false;
+                ComboBoxswitchgcm2.IsEnabled = false;
+            }
+            else
+            {
+                winswitchgcm.IsOn = false;
+            }
+        }
+        private void ShowSimpleDialog(string title, string content)
+        {
+            var dialog = new ContentDialog
+            {
+                Title = title,
+                Content = content,
+                CloseButtonText = "OK",
+                XamlRoot = App.MainWindow.Content.XamlRoot
+            };
+
+            _ = dialog.ShowAsync();
+        }
+        // Enables the toggle switch only if both ComboBoxes have a valid selection
+        private void GamepadComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string key1 = (ComboBoxswitchgcm1.SelectedItem as ComboBoxItem)?.Content?.ToString()?.Trim() ?? "";
+            string key2 = (ComboBoxswitchgcm2.SelectedItem as ComboBoxItem)?.Content?.ToString()?.Trim() ?? "";
+
+            winswitchgcm.IsEnabled = !string.IsNullOrWhiteSpace(key1) && !string.IsNullOrWhiteSpace(key2);
+        }
+
+        // Handles toggle switch ON/OFF behavior for saving/removing the gamepad shortcut
+        private void winswitchgcm_Toggled(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string key1 = (ComboBoxswitchgcm1.SelectedItem as ComboBoxItem)?.Content?.ToString()?.Trim() ?? "";
+                string key2 = (ComboBoxswitchgcm2.SelectedItem as ComboBoxItem)?.Content?.ToString()?.Trim() ?? "";
+                string func = "winmodechange";
+
+                if (string.IsNullOrWhiteSpace(key1) || string.IsNullOrWhiteSpace(key2))
+                {
+                    // Invalid selection: block toggle and exit
+                    System.Diagnostics.Debug.WriteLine("Toggle blocked: both keys must be selected.");
+                    winswitchgcm.IsOn = false;
+                    return;
+                }
+
+                if (sender is ToggleSwitch toggle && toggle.IsOn)
+                {
+                    // ON: Save shortcut file
+                    var data = new ShortcutData
+                    {
+                        Key1 = key1,
+                        Key2 = key2,
+                        Function = func,
+                    };
+
+                    string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCMSettings", "shortcutswin");
+                    Directory.CreateDirectory(dir);
+
+                    string path = Path.Combine(dir, "winmode_change.json");
+                    string json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(path, json);
+
+                    System.Diagnostics.Debug.WriteLine($"[ON] Shortcut saved: {key1} + {key2} -> {func} at {path}");
+
+
+                    //Task sheduller on 
+                    bool taskExistsAndEnabled = IsTaskActive("GCM_wingamepad");
+
+                    if (!taskExistsAndEnabled)
+                    {
+                        try
+                        {
+                            var psi = new ProcessStartInfo
+                            {
+                                FileName = @"C:\\Program Files (x86)\\GCMcrew\\GCM\\GCM\\TaskHelper.exe",
+                                Arguments = "--enable",
+                                UseShellExecute = true,
+                                Verb = "runas"
+                            };
+
+                            Process.Start(psi);
+
+                            ComboBoxswitchgcm1.IsEnabled = false;
+                            ComboBoxswitchgcm2.IsEnabled = false;
+                            AppSettings.Save("useseamlessswitchtogcm", true);
+                        }
+                        catch (System.ComponentModel.Win32Exception ex)
+                        {
+                            if (ex.NativeErrorCode == 1223)
+                            {
+                                ShowSimpleDialog("Canceled", "Autostart could not be deactivated because the process was canceled.");
+                                winswitchgcm.IsOn = false;
+                                AppSettings.Save("useseamlessswitchtogcm", false);
+                            }
+                            else
+                            {
+                                ShowSimpleDialog("Error", $"Error when stopping the TaskHelper:\n{ex.Message}");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("[INFO] Task is already active.");
+                    }
+
+                }
+                else
+                {
+                    // OFF: Delete shortcut file
+                    string dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCMSettings", "shortcutswin");
+                    string path = Path.Combine(dir, "winmode_change.json");
+
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                        System.Diagnostics.Debug.WriteLine($"[OFF] Shortcut file deleted: {path}");
+
+                        //task sheduller off
+                        bool taskExistsAndEnabled = IsTaskActive("GCM_wingamepad");
+
+                        if (taskExistsAndEnabled)
+                        {
+                            try
+                            {
+                                var psi = new ProcessStartInfo
+                                {
+                                    FileName = @"C:\\Program Files (x86)\\GCMcrew\\GCM\\GCM\\TaskHelper.exe",
+                                    Arguments = "--disable",
+                                    UseShellExecute = true,
+                                    Verb = "runas"
+                                };
+
+                                Process.Start(psi);
+
+                                ComboBoxswitchgcm1.IsEnabled = true;
+                                ComboBoxswitchgcm2.IsEnabled = true;
+                                AppSettings.Save("useseamlessswitchtogcm", false);
+                            }
+                            catch (System.ComponentModel.Win32Exception ex)
+                            {
+                                if (ex.NativeErrorCode == 1223)
+                                {
+                                    ShowSimpleDialog("Canceled", "Autostart could not be deactivated because the process was canceled.");
+                                    winswitchgcm.IsOn = true;
+                                    AppSettings.Save("useseamlessswitchtogcm", true);
+                                   
+                                }
+                                else
+                                {
+                                    ShowSimpleDialog("Error", $"Error when stopping the TaskHelper:\n{ex.Message}");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //Task is already deactivated or does not exist.
+                        }
+                    }
+                    }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ERROR in winswitchgcm_Toggled: {ex.Message}");
+            }
+        }
+
+        #endregion winshortcuts
+
+
     }
 }
