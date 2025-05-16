@@ -13,13 +13,19 @@
             </StackPanel>
 
             
-            <TextBlock Text="INSIDE WINDOWS MODE"/>
+            <TextBlock Text="Seamless Switch"/>
             <StackPanel Background="#1E1E1E" Padding="20" Spacing="16">
-                <TextBlock Text="Seamless Switch to GCM"
+                <TextBlock Text="Seamless Switch"
                            Foreground="White"
                            FontSize="18"
                            FontWeight="SemiBold"
                            HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Seamless switching between modes"
+           Foreground="White"
+           FontSize="13"
+           FontWeight="SemiBold"
+           HorizontalAlignment="Center"/>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
                     
@@ -61,7 +67,7 @@
                 
                 
             </StackPanel>
-            <TextBlock Text="INSIDE GCM MODE"/>
+            <TextBlock Text="Custom Shortcuts"/>
             <Button Content="Add Shortcut" Click="AddCustomShortcut" Margin="0,0,0,20"
         Background="Green" Foreground="White" Padding="10,5" BorderThickness="0"/>
         </StackPanel>
