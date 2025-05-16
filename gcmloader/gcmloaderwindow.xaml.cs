@@ -118,6 +118,7 @@ namespace gcmloader
         private static extern uint GetCurrentThreadId();
 
         #endregion TaskManager
+        
 
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
@@ -145,8 +146,41 @@ namespace gcmloader
             ShowTaskManager(); //after 10 seconds AND Start Windows Partmode
             StartAsynctasks();
         }
+        #region overlay window
+        private static Process _overlayProcess;
+        private static void StartOverlay()
+        {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string overlayPath = Path.Combine(baseDir, "overlaywindow", "OverlayWindow.exe");
 
-        
+            if (!File.Exists(overlayPath))
+                throw new FileNotFoundException($"OverlayWindow.exe nicht gefunden unter: {overlayPath}");
+
+            _overlayProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = overlayPath,
+                    WorkingDirectory = Path.GetDirectoryName(overlayPath),
+                    UseShellExecute = false
+                }
+            };
+            _overlayProcess.Start();
+        }
+
+        private static void StopOverlay()
+        {
+            if (_overlayProcess != null && !_overlayProcess.HasExited)
+            {
+                _overlayProcess.Kill();
+                _overlayProcess.WaitForExit();
+                _overlayProcess.Dispose();
+                _overlayProcess = null;
+            }
+        }
+
+        #endregion overlay window
+
         private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
             // Get the window handle
@@ -1881,6 +1915,7 @@ namespace gcmloader
                     StartupVideo.Play();
                     displayfusion("start");
                     IsJoyxoffInstalledAndStart(); //only check if is installed, than start
+                    StartOverlay();
                     #region kill distubing process
                     //KillTargetProcess("");
                     #endregion kill distubing process
@@ -1938,6 +1973,7 @@ namespace gcmloader
                         uac("on");
                     }
                     #endregion uac
+                    StopOverlay();
                     this.Close();
                 }
             }
@@ -2507,6 +2543,8 @@ namespace gcmloader
 
 
             #endregion uac
+            //minimize all
+            StopOverlay();
             this.Close();
         }
         #endregion shortcuts
@@ -2603,6 +2641,24 @@ namespace gcmloader
         private Dictionary<string, DateTime> _heldButtonTimestamps = new();
         private readonly TimeSpan _comboTimeout = TimeSpan.FromMilliseconds(1000);
 
+
+        private void LogGamepadInit(string message)
+        {
+            try
+            {
+                string logDir = Path.Combine(AppContext.BaseDirectory, "log");
+                Directory.CreateDirectory(logDir); // erstellt Ordner, falls nicht da
+
+                string logFile = Path.Combine(logDir, "gamepadinitial.txt");
+
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                File.AppendAllText(logFile, $"[{timestamp}] {message}{Environment.NewLine}");
+            }
+            catch
+            {
+                // Logging darf niemals crashen
+            }
+        }
         private void LoadShortcutsFromSettings()
         {
             try
@@ -2611,42 +2667,128 @@ namespace gcmloader
                 if (!Directory.Exists(folderPath)) return;
 
                 _activeShortcuts.Clear();
+                bool winmodeLoaded = false;
 
                 foreach (var filePath in Directory.GetFiles(folderPath, "*.json"))
                 {
+                    LogGamepadInit($"🔍 Checking: {filePath}");
+
                     try
                     {
                         string content = File.ReadAllText(filePath);
                         var entry = JsonSerializer.Deserialize<Dictionary<string, object>>(content);
-                        if (entry == null) continue;
+                        if (entry == null)
+                        {
+                            LogGamepadInit("⚠️ Skipped (null entry)");
+                            continue;
+                        }
 
-                        if (entry.TryGetValue("Key1", out var k1) && entry.TryGetValue("Key2", out var k2) && entry.TryGetValue("Function", out var fn))
+                        // WINMODE-Datei einlesen, wenn noch nicht geschehen
+                        if (!winmodeLoaded)
+                        {
+                            string winFile = Path.Combine(
+                                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                "gcmsettings", "shortcutswin", "winmode_change.json");
+
+                            LogGamepadInit($"🧭 Checking WinMode File: {winFile}");
+
+                            if (File.Exists(winFile))
+                            {
+                                LogGamepadInit("📁 WinMode file exists!");
+
+                                try
+                                {
+                                    string winContent = File.ReadAllText(winFile);
+                                    var winEntry = JsonSerializer.Deserialize<Dictionary<string, object>>(winContent);
+
+                                    if (winEntry != null &&
+                                     winEntry.TryGetValue("Key1", out var wk1) &&
+                                     winEntry.TryGetValue("Key2", out var wk2) &&
+                                     winEntry.TryGetValue("Function", out var wfn))
+
+                                    {
+                                        string key1 = wk1?.ToString()?.Trim();
+                                        string key2 = wk2?.ToString()?.Trim();
+                                        string function = wfn?.ToString()?.Trim();
+
+                                        LogGamepadInit($"➡️ WinMode Parsed: {key1} + {key2} → {function}");
+
+                                        if (!string.IsNullOrEmpty(key1) && !string.IsNullOrEmpty(key2) && !string.IsNullOrEmpty(function))
+                                        {
+                                            _activeShortcuts[(key1, key2)] = function;
+                                            LogGamepadInit($"✅ WinMode Shortcut Loaded: {key1} + {key2} → {function}");
+                                        }
+                                        else
+                                        {
+                                            LogGamepadInit("❌ WinMode data incomplete.");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        LogGamepadInit("❌ WinMode data structure invalid or not enabled.");
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    LogGamepadInit($"❌ Error reading winmode_change.json: {ex.Message}");
+                                }
+
+                                winmodeLoaded = true;
+                            }
+                            else
+                            {
+                                LogGamepadInit("⛔ WinMode file NOT found.");
+                            }
+                        }
+
+                        // Normale Datei auswerten
+                        if (entry.TryGetValue("Key1", out var k1) &&
+                            entry.TryGetValue("Key2", out var k2) &&
+                            entry.TryGetValue("Function", out var fn))
                         {
                             string key1 = k1?.ToString()?.Trim();
                             string key2 = k2?.ToString()?.Trim();
                             string function = fn?.ToString()?.Trim();
 
-                            if (!string.IsNullOrEmpty(key1) && !string.IsNullOrEmpty(key2) && !string.IsNullOrEmpty(function))
+                            if (!string.IsNullOrEmpty(key1) &&
+                                !string.IsNullOrEmpty(key2) &&
+                                !string.IsNullOrEmpty(function))
                             {
                                 _activeShortcuts[(key1, key2)] = function;
+                                LogGamepadInit($"📥 Loaded Shortcut: {key1} + {key2} → {function}");
+                            }
+                            else
+                            {
+                                LogGamepadInit("⚠️ Skipped file due to empty values.");
                             }
                         }
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        LogGamepadInit($"❌ Error reading shortcut: {filePath} → {ex.Message}");
+                    }
                 }
 
+                // 🧠 Funktionale Aktionen zuweisen
                 _shortcutActions.Clear();
                 _shortcutActions["taskmanager"] = BringWindowToForeground;
                 _shortcutActions["switch tab"] = SendAltTab;
                 _shortcutActions["audio switch"] = SwitchToNextAudioDevice;
                 _shortcutActions["performance overlay"] = TriggerPerformanceOverlay;
-                _shortcutActions["seamless switch to win"] = Triggerbacktowin;
+                _shortcutActions["winmodechange"] = Triggerbacktowin;
                 _shortcutActions["show overlay"] = showoverlay;
 
+                // 🔎 Übersicht anzeigen
+                foreach (var s in _activeShortcuts)
+                {
+                    LogGamepadInit($"✅ ACTIVE SHORTCUT: {s.Key.Item1} + {s.Key.Item2} → {s.Value}");
+                }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                LogGamepadInit($"[ShortcutLoader] General Error: {ex.Message}");
+            }
         }
-
         private void GamepadButtonCheck()
         {
             if (!_controllerConnected || !_xinputController.IsConnected) return;
@@ -2701,11 +2843,6 @@ namespace gcmloader
 
             _lastButtonState = currentButtons;
         }
-
-
-
-
-
 
         private bool _altPressed = false;
 

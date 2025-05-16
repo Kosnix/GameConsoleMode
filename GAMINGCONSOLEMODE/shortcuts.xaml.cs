@@ -39,7 +39,6 @@ namespace GAMINGCONSOLEMODE
             "switch tab",
             "audio switch",
             "performance overlay",
-            "seamless switch to win",
             "show overlay"
         };
 
