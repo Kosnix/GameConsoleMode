@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gcmloader")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79274a823a2b92b7621f8a7041de7413da812fd4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f7122a88f97c71ac3a8c83ba6d739188fa4c820")]
 [assembly: System.Reflection.AssemblyProductAttribute("gcmloader")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gcmloader")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
