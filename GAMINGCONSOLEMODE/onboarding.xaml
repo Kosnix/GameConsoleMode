@@ -41,7 +41,8 @@
                         >
                     <Image x:Name="OnboardingImage"
                            Source="/Assets/logo_gcm.png"
-                           Stretch="Uniform"/>
+                           Stretch="Uniform"
+                           />
                 </Border>
             </Viewbox>
 

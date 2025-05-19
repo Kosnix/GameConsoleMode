@@ -74,8 +74,8 @@
                         PaneDisplayMode="Left"
                         SelectionChanged="NavigationView_SelectionChanged"
                         Background="#2A2A2A"
-                        IsBackEnabled="True"
-                        >
+                        IsBackEnabled="True">
+            
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Onboarding" Icon="Placeholder" Tag="OnboardingPage" />
                 <NavigationViewItem Content="Launcher" Icon="StopSlideShow" Tag="LauncherPage" />
