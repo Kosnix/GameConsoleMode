@@ -6,6 +6,7 @@ using WinRT.Interop;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.UI.Xaml.Media;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -25,6 +26,14 @@ namespace GAMINGCONSOLEMODE
         }
 
         #region methodes
+
+        // Button for SplitView to open/close
+        private void TogglePaneButton_Click(object sender, RoutedEventArgs e)
+        {
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
+        }
+
+
         private void initialui()
         {
 
@@ -153,10 +162,14 @@ namespace GAMINGCONSOLEMODE
                 AppSettings.Save("launcher", "steam");
                 //ui 
                 initialui();
+                SteamPanel.Visibility = Visibility.Visible;
+                PlaynitePanel.Visibility = Visibility.Collapsed;
+                CustomPanel.Visibility = Visibility.Collapsed;
             }
             else
             {
                await  checkLauncherActivatedAsync();
+               SteamPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -221,10 +234,14 @@ namespace GAMINGCONSOLEMODE
                 AppSettings.Save("launcher", "playnite");
                 //ui 
                 initialui();
+                SteamPanel.Visibility = Visibility.Collapsed;
+                PlaynitePanel.Visibility = Visibility.Visible;
+                CustomPanel.Visibility = Visibility.Collapsed;
             }
             else
             {
                 await checkLauncherActivatedAsync();
+                PlaynitePanel.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -265,11 +282,15 @@ namespace GAMINGCONSOLEMODE
                         AppSettings.Save("launcher", "custom");
                         //ui 
                         initialui();
-                    }
+                        SteamPanel.Visibility = Visibility.Collapsed;
+                        PlaynitePanel.Visibility = Visibility.Collapsed;
+                        CustomPanel.Visibility = Visibility.Visible;
+            }
                     else
                     {
                         await checkLauncherActivatedAsync();
-                    }
+                        CustomPanel.Visibility = Visibility.Collapsed;
+            }
                 }
 
         private void textbox_custom_path_TextChanged(object sender, TextChangedEventArgs e)

@@ -969,8 +969,7 @@ namespace GAMINGCONSOLEMODE
                 // 5. Open the folder in File Explorer so the user can directly access the downloaded zip file
                 try
                 {
-                    //Installinstructions
-                    instruction_deckyloader.IsOpen = true;
+                    
 
                     Process.Start(new ProcessStartInfo
                     {

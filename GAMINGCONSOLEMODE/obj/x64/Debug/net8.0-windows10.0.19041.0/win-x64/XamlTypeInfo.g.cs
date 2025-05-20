@@ -226,7 +226,7 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[61];
+            _typeNameTable = new string[63];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -277,19 +277,21 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             _typeNameTable[47] = "GAMINGCONSOLEMODE.settings";
             _typeNameTable[48] = "GAMINGCONSOLEMODE.shortcuts";
             _typeNameTable[49] = "Microsoft.UI.Xaml.Controls.Button";
-            _typeNameTable[50] = "Microsoft.UI.Xaml.Controls.InfoBar";
-            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
-            _typeNameTable[52] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
-            _typeNameTable[53] = "System.Windows.Input.ICommand";
-            _typeNameTable[54] = "Microsoft.UI.Xaml.Controls.IconSource";
-            _typeNameTable[55] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
-            _typeNameTable[56] = "GAMINGCONSOLEMODE.startup";
-            _typeNameTable[57] = "GAMINGCONSOLEMODE.version_news";
-            _typeNameTable[58] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[59] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
-            _typeNameTable[60] = "Int32";
+            _typeNameTable[50] = "CommunityToolkit.WinUI.Controls.SettingsCard";
+            _typeNameTable[51] = "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase";
+            _typeNameTable[52] = "CommunityToolkit.WinUI.Controls.ContentAlignment";
+            _typeNameTable[53] = "Microsoft.UI.Xaml.Controls.InfoBar";
+            _typeNameTable[54] = "Microsoft.UI.Xaml.Controls.InfoBarSeverity";
+            _typeNameTable[55] = "System.Windows.Input.ICommand";
+            _typeNameTable[56] = "Microsoft.UI.Xaml.Controls.IconSource";
+            _typeNameTable[57] = "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings";
+            _typeNameTable[58] = "GAMINGCONSOLEMODE.startup";
+            _typeNameTable[59] = "GAMINGCONSOLEMODE.version_news";
+            _typeNameTable[60] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[61] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[62] = "Int32";
 
-            _typeTable = new global::System.Type[61];
+            _typeTable = new global::System.Type[63];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -340,17 +342,19 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             _typeTable[47] = typeof(global::GAMINGCONSOLEMODE.settings);
             _typeTable[48] = typeof(global::GAMINGCONSOLEMODE.shortcuts);
             _typeTable[49] = typeof(global::Microsoft.UI.Xaml.Controls.Button);
-            _typeTable[50] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
-            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
-            _typeTable[52] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
-            _typeTable[53] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[54] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
-            _typeTable[55] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
-            _typeTable[56] = typeof(global::GAMINGCONSOLEMODE.startup);
-            _typeTable[57] = typeof(global::GAMINGCONSOLEMODE.version_news);
-            _typeTable[58] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[59] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
-            _typeTable[60] = typeof(global::System.Int32);
+            _typeTable[50] = typeof(global::CommunityToolkit.WinUI.Controls.SettingsCard);
+            _typeTable[51] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase);
+            _typeTable[52] = typeof(global::CommunityToolkit.WinUI.Controls.ContentAlignment);
+            _typeTable[53] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBar);
+            _typeTable[54] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity);
+            _typeTable[55] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[56] = typeof(global::Microsoft.UI.Xaml.Controls.IconSource);
+            _typeTable[57] = typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings);
+            _typeTable[58] = typeof(global::GAMINGCONSOLEMODE.startup);
+            _typeTable[59] = typeof(global::GAMINGCONSOLEMODE.version_news);
+            _typeTable[60] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[61] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[62] = typeof(global::System.Int32);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -402,11 +406,12 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         private object Activate_46_rogally() { return new global::GAMINGCONSOLEMODE.rogally(); }
         private object Activate_47_settings() { return new global::GAMINGCONSOLEMODE.settings(); }
         private object Activate_48_shortcuts() { return new global::GAMINGCONSOLEMODE.shortcuts(); }
-        private object Activate_50_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
-        private object Activate_55_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
-        private object Activate_56_startup() { return new global::GAMINGCONSOLEMODE.startup(); }
-        private object Activate_57_version_news() { return new global::GAMINGCONSOLEMODE.version_news(); }
-        private object Activate_58_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_50_SettingsCard() { return new global::CommunityToolkit.WinUI.Controls.SettingsCard(); }
+        private object Activate_53_InfoBar() { return new global::Microsoft.UI.Xaml.Controls.InfoBar(); }
+        private object Activate_57_InfoBarTemplateSettings() { return new global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings(); }
+        private object Activate_58_startup() { return new global::GAMINGCONSOLEMODE.startup(); }
+        private object Activate_59_version_news() { return new global::GAMINGCONSOLEMODE.version_news(); }
+        private object Activate_60_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_Expander() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.Expander).TypeHandle);
         private void StaticInitializer_6_ExpandDirection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.ExpandDirection).TypeHandle);
@@ -437,14 +442,16 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
         private void StaticInitializer_46_rogally() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.rogally).TypeHandle);
         private void StaticInitializer_47_settings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.settings).TypeHandle);
         private void StaticInitializer_48_shortcuts() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.shortcuts).TypeHandle);
-        private void StaticInitializer_50_InfoBar() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBar).TypeHandle);
-        private void StaticInitializer_51_InfoBarSeverity() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity).TypeHandle);
-        private void StaticInitializer_53_ICommand() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Windows.Input.ICommand).TypeHandle);
-        private void StaticInitializer_55_InfoBarTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings).TypeHandle);
-        private void StaticInitializer_56_startup() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.startup).TypeHandle);
-        private void StaticInitializer_57_version_news() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.version_news).TypeHandle);
-        private void StaticInitializer_58_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_59_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_50_SettingsCard() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::CommunityToolkit.WinUI.Controls.SettingsCard).TypeHandle);
+        private void StaticInitializer_52_ContentAlignment() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::CommunityToolkit.WinUI.Controls.ContentAlignment).TypeHandle);
+        private void StaticInitializer_53_InfoBar() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBar).TypeHandle);
+        private void StaticInitializer_54_InfoBarSeverity() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarSeverity).TypeHandle);
+        private void StaticInitializer_55_ICommand() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Windows.Input.ICommand).TypeHandle);
+        private void StaticInitializer_57_InfoBarTemplateSettings() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings).TypeHandle);
+        private void StaticInitializer_58_startup() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.startup).TypeHandle);
+        private void StaticInitializer_59_version_news() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::GAMINGCONSOLEMODE.version_news).TypeHandle);
+        private void StaticInitializer_60_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_61_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -458,7 +465,7 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             var newItem = (global::System.Object)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_59_IList(object instance, object item)
+        private void VectorAdd_61_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -844,10 +851,38 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 50:   //  Microsoft.UI.Xaml.Controls.InfoBar
+            case 50:   //  CommunityToolkit.WinUI.Controls.SettingsCard
+                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Primitives.ButtonBase"));
+                userType.Activator = Activate_50_SettingsCard;
+                userType.StaticInitializer = StaticInitializer_50_SettingsCard;
+                userType.AddMemberName("Header");
+                userType.AddMemberName("Description");
+                userType.AddMemberName("HeaderIcon");
+                userType.AddMemberName("ActionIcon");
+                userType.AddMemberName("ActionIconToolTip");
+                userType.AddMemberName("IsClickEnabled");
+                userType.AddMemberName("ContentAlignment");
+                userType.AddMemberName("IsActionIconVisible");
+                xamlType = userType;
+                break;
+
+            case 51:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
+                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 52:   //  CommunityToolkit.WinUI.Controls.ContentAlignment
+                userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.StaticInitializer = StaticInitializer_52_ContentAlignment;
+                userType.AddEnumValue("Right", global::CommunityToolkit.WinUI.Controls.ContentAlignment.Right);
+                userType.AddEnumValue("Left", global::CommunityToolkit.WinUI.Controls.ContentAlignment.Left);
+                userType.AddEnumValue("Vertical", global::CommunityToolkit.WinUI.Controls.ContentAlignment.Vertical);
+                xamlType = userType;
+                break;
+
+            case 53:   //  Microsoft.UI.Xaml.Controls.InfoBar
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_50_InfoBar;
-                userType.StaticInitializer = StaticInitializer_50_InfoBar;
+                userType.Activator = Activate_53_InfoBar;
+                userType.StaticInitializer = StaticInitializer_53_InfoBar;
                 userType.SetContentPropertyName("Microsoft.UI.Xaml.Controls.InfoBar.Content");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("IsOpen");
@@ -866,9 +901,9 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 51:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
+            case 54:   //  Microsoft.UI.Xaml.Controls.InfoBarSeverity
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_51_InfoBarSeverity;
+                userType.StaticInitializer = StaticInitializer_54_InfoBarSeverity;
                 userType.AddEnumValue("Informational", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Informational);
                 userType.AddEnumValue("Success", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Success);
                 userType.AddEnumValue("Warning", global::Microsoft.UI.Xaml.Controls.InfoBarSeverity.Warning);
@@ -876,48 +911,44 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 52:   //  Microsoft.UI.Xaml.Controls.Primitives.ButtonBase
-                xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 53:   //  System.Windows.Input.ICommand
+            case 55:   //  System.Windows.Input.ICommand
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_53_ICommand;
+                userType.StaticInitializer = StaticInitializer_55_ICommand;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 54:   //  Microsoft.UI.Xaml.Controls.IconSource
+            case 56:   //  Microsoft.UI.Xaml.Controls.IconSource
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 55:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
+            case 57:   //  Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.StaticInitializer = StaticInitializer_55_InfoBarTemplateSettings;
+                userType.StaticInitializer = StaticInitializer_57_InfoBarTemplateSettings;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 56:   //  GAMINGCONSOLEMODE.startup
+            case 58:   //  GAMINGCONSOLEMODE.startup
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_56_startup;
-                userType.StaticInitializer = StaticInitializer_56_startup;
+                userType.Activator = Activate_58_startup;
+                userType.StaticInitializer = StaticInitializer_58_startup;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 57:   //  GAMINGCONSOLEMODE.version_news
+            case 59:   //  GAMINGCONSOLEMODE.version_news
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.Activator = Activate_57_version_news;
-                userType.StaticInitializer = StaticInitializer_57_version_news;
+                userType.Activator = Activate_59_version_news;
+                userType.StaticInitializer = StaticInitializer_59_version_news;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 58:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 60:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_58_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_58_TreeViewNode;
+                userType.Activator = Activate_60_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_60_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -929,15 +960,15 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 59:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 61:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_59_IList;
-                userType.CollectionAdd = VectorAdd_59_IList;
+                userType.StaticInitializer = StaticInitializer_61_IList;
+                userType.CollectionAdd = VectorAdd_61_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 60:   //  Int32
+            case 62:   //  Int32
                 xamlType = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -954,6 +985,8 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                     var otherProviders = new global::System.Collections.Generic.List<global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider provider;
                     provider = new global::Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::CommunityToolkit.WinUI.Controls.SettingsControlsRns.CommunityToolkit_WinUI_Controls_SettingsControls_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     provider = new global::Uno.UI.Toolkit.Uno_UI_Toolkit_Windows_XamlTypeInfo.XamlMetaDataProvider() as global::Microsoft.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
@@ -1536,187 +1569,267 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
             var that = (global::Microsoft.UI.Xaml.Controls.ProgressBar)instance;
             return that.TemplateSettings;
         }
-        private object get_58_InfoBar_Content(object instance)
+        private object get_58_SettingsCard_Header(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.Header;
+        }
+        private void set_58_SettingsCard_Header(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.Header = (global::System.Object)Value;
+        }
+        private object get_59_SettingsCard_Description(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.Description;
+        }
+        private void set_59_SettingsCard_Description(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.Description = (global::System.Object)Value;
+        }
+        private object get_60_SettingsCard_HeaderIcon(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.HeaderIcon;
+        }
+        private void set_60_SettingsCard_HeaderIcon(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.HeaderIcon = (global::Microsoft.UI.Xaml.Controls.IconElement)Value;
+        }
+        private object get_61_SettingsCard_ActionIcon(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.ActionIcon;
+        }
+        private void set_61_SettingsCard_ActionIcon(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.ActionIcon = (global::Microsoft.UI.Xaml.Controls.IconElement)Value;
+        }
+        private object get_62_SettingsCard_ActionIconToolTip(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.ActionIconToolTip;
+        }
+        private void set_62_SettingsCard_ActionIconToolTip(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.ActionIconToolTip = (global::System.String)Value;
+        }
+        private object get_63_SettingsCard_IsClickEnabled(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.IsClickEnabled;
+        }
+        private void set_63_SettingsCard_IsClickEnabled(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.IsClickEnabled = (global::System.Boolean)Value;
+        }
+        private object get_64_SettingsCard_ContentAlignment(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.ContentAlignment;
+        }
+        private void set_64_SettingsCard_ContentAlignment(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.ContentAlignment = (global::CommunityToolkit.WinUI.Controls.ContentAlignment)Value;
+        }
+        private object get_65_SettingsCard_IsActionIconVisible(object instance)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            return that.IsActionIconVisible;
+        }
+        private void set_65_SettingsCard_IsActionIconVisible(object instance, object Value)
+        {
+            var that = (global::CommunityToolkit.WinUI.Controls.SettingsCard)instance;
+            that.IsActionIconVisible = (global::System.Boolean)Value;
+        }
+        private object get_66_InfoBar_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Content;
         }
-        private void set_58_InfoBar_Content(object instance, object Value)
+        private void set_66_InfoBar_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_59_InfoBar_IsOpen(object instance)
+        private object get_67_InfoBar_IsOpen(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsOpen;
         }
-        private void set_59_InfoBar_IsOpen(object instance, object Value)
+        private void set_67_InfoBar_IsOpen(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsOpen = (global::System.Boolean)Value;
         }
-        private object get_60_InfoBar_Severity(object instance)
+        private object get_68_InfoBar_Severity(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Severity;
         }
-        private void set_60_InfoBar_Severity(object instance, object Value)
+        private void set_68_InfoBar_Severity(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Severity = (global::Microsoft.UI.Xaml.Controls.InfoBarSeverity)Value;
         }
-        private object get_61_InfoBar_Title(object instance)
+        private object get_69_InfoBar_Title(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Title;
         }
-        private void set_61_InfoBar_Title(object instance, object Value)
+        private void set_69_InfoBar_Title(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_62_InfoBar_Message(object instance)
+        private object get_70_InfoBar_Message(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.Message;
         }
-        private void set_62_InfoBar_Message(object instance, object Value)
+        private void set_70_InfoBar_Message(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.Message = (global::System.String)Value;
         }
-        private object get_63_InfoBar_ActionButton(object instance)
+        private object get_71_InfoBar_ActionButton(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.ActionButton;
         }
-        private void set_63_InfoBar_ActionButton(object instance, object Value)
+        private void set_71_InfoBar_ActionButton(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.ActionButton = (global::Microsoft.UI.Xaml.Controls.Primitives.ButtonBase)Value;
         }
-        private object get_64_InfoBar_CloseButtonCommand(object instance)
+        private object get_72_InfoBar_CloseButtonCommand(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonCommand;
         }
-        private void set_64_InfoBar_CloseButtonCommand(object instance, object Value)
+        private void set_72_InfoBar_CloseButtonCommand(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_65_InfoBar_CloseButtonCommandParameter(object instance)
+        private object get_73_InfoBar_CloseButtonCommandParameter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonCommandParameter;
         }
-        private void set_65_InfoBar_CloseButtonCommandParameter(object instance, object Value)
+        private void set_73_InfoBar_CloseButtonCommandParameter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonCommandParameter = (global::System.Object)Value;
         }
-        private object get_66_InfoBar_CloseButtonStyle(object instance)
+        private object get_74_InfoBar_CloseButtonStyle(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.CloseButtonStyle;
         }
-        private void set_66_InfoBar_CloseButtonStyle(object instance, object Value)
+        private void set_74_InfoBar_CloseButtonStyle(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.CloseButtonStyle = (global::Microsoft.UI.Xaml.Style)Value;
         }
-        private object get_67_InfoBar_ContentTemplate(object instance)
+        private object get_75_InfoBar_ContentTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.ContentTemplate;
         }
-        private void set_67_InfoBar_ContentTemplate(object instance, object Value)
+        private void set_75_InfoBar_ContentTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.ContentTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_68_InfoBar_IconSource(object instance)
+        private object get_76_InfoBar_IconSource(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IconSource;
         }
-        private void set_68_InfoBar_IconSource(object instance, object Value)
+        private void set_76_InfoBar_IconSource(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IconSource = (global::Microsoft.UI.Xaml.Controls.IconSource)Value;
         }
-        private object get_69_InfoBar_IsClosable(object instance)
+        private object get_77_InfoBar_IsClosable(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsClosable;
         }
-        private void set_69_InfoBar_IsClosable(object instance, object Value)
+        private void set_77_InfoBar_IsClosable(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsClosable = (global::System.Boolean)Value;
         }
-        private object get_70_InfoBar_IsIconVisible(object instance)
+        private object get_78_InfoBar_IsIconVisible(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.IsIconVisible;
         }
-        private void set_70_InfoBar_IsIconVisible(object instance, object Value)
+        private void set_78_InfoBar_IsIconVisible(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             that.IsIconVisible = (global::System.Boolean)Value;
         }
-        private object get_71_InfoBar_TemplateSettings(object instance)
+        private object get_79_InfoBar_TemplateSettings(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.InfoBar)instance;
             return that.TemplateSettings;
         }
-        private object get_72_TreeViewNode_Children(object instance)
+        private object get_80_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_73_TreeViewNode_Content(object instance)
+        private object get_81_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_73_TreeViewNode_Content(object instance, object Value)
+        private void set_81_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_74_TreeViewNode_Depth(object instance)
+        private object get_82_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_75_TreeViewNode_HasChildren(object instance)
+        private object get_83_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_76_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_84_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_76_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_84_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_77_TreeViewNode_IsExpanded(object instance)
+        private object get_85_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_77_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_85_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_78_TreeViewNode_Parent(object instance)
+        private object get_86_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -2133,148 +2246,204 @@ namespace GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo
                 xamlMember.Getter = get_57_ProgressBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.Header":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Header", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_58_SettingsCard_Header;
+                xamlMember.Setter = set_58_SettingsCard_Header;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.Description":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Description", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_59_SettingsCard_Description;
+                xamlMember.Setter = set_59_SettingsCard_Description;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.HeaderIcon":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "HeaderIcon", "Microsoft.UI.Xaml.Controls.IconElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_60_SettingsCard_HeaderIcon;
+                xamlMember.Setter = set_60_SettingsCard_HeaderIcon;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.ActionIcon":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ActionIcon", "Microsoft.UI.Xaml.Controls.IconElement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_61_SettingsCard_ActionIcon;
+                xamlMember.Setter = set_61_SettingsCard_ActionIcon;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.ActionIconToolTip":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ActionIconToolTip", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_62_SettingsCard_ActionIconToolTip;
+                xamlMember.Setter = set_62_SettingsCard_ActionIconToolTip;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.IsClickEnabled":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsClickEnabled", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_63_SettingsCard_IsClickEnabled;
+                xamlMember.Setter = set_63_SettingsCard_IsClickEnabled;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.ContentAlignment":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ContentAlignment", "CommunityToolkit.WinUI.Controls.ContentAlignment");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_64_SettingsCard_ContentAlignment;
+                xamlMember.Setter = set_64_SettingsCard_ContentAlignment;
+                break;
+            case "CommunityToolkit.WinUI.Controls.SettingsCard.IsActionIconVisible":
+                userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("CommunityToolkit.WinUI.Controls.SettingsCard");
+                xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsActionIconVisible", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_65_SettingsCard_IsActionIconVisible;
+                xamlMember.Setter = set_65_SettingsCard_IsActionIconVisible;
+                break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Content":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_58_InfoBar_Content;
-                xamlMember.Setter = set_58_InfoBar_Content;
+                xamlMember.Getter = get_66_InfoBar_Content;
+                xamlMember.Setter = set_66_InfoBar_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsOpen":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsOpen", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_59_InfoBar_IsOpen;
-                xamlMember.Setter = set_59_InfoBar_IsOpen;
+                xamlMember.Getter = get_67_InfoBar_IsOpen;
+                xamlMember.Setter = set_67_InfoBar_IsOpen;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Severity":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Severity", "Microsoft.UI.Xaml.Controls.InfoBarSeverity");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_60_InfoBar_Severity;
-                xamlMember.Setter = set_60_InfoBar_Severity;
+                xamlMember.Getter = get_68_InfoBar_Severity;
+                xamlMember.Setter = set_68_InfoBar_Severity;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Title":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Title", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_61_InfoBar_Title;
-                xamlMember.Setter = set_61_InfoBar_Title;
+                xamlMember.Getter = get_69_InfoBar_Title;
+                xamlMember.Setter = set_69_InfoBar_Title;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.Message":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Message", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_62_InfoBar_Message;
-                xamlMember.Setter = set_62_InfoBar_Message;
+                xamlMember.Getter = get_70_InfoBar_Message;
+                xamlMember.Setter = set_70_InfoBar_Message;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.ActionButton":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ActionButton", "Microsoft.UI.Xaml.Controls.Primitives.ButtonBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_63_InfoBar_ActionButton;
-                xamlMember.Setter = set_63_InfoBar_ActionButton;
+                xamlMember.Getter = get_71_InfoBar_ActionButton;
+                xamlMember.Setter = set_71_InfoBar_ActionButton;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonCommand":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "CloseButtonCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_64_InfoBar_CloseButtonCommand;
-                xamlMember.Setter = set_64_InfoBar_CloseButtonCommand;
+                xamlMember.Getter = get_72_InfoBar_CloseButtonCommand;
+                xamlMember.Setter = set_72_InfoBar_CloseButtonCommand;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonCommandParameter":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "CloseButtonCommandParameter", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_65_InfoBar_CloseButtonCommandParameter;
-                xamlMember.Setter = set_65_InfoBar_CloseButtonCommandParameter;
+                xamlMember.Getter = get_73_InfoBar_CloseButtonCommandParameter;
+                xamlMember.Setter = set_73_InfoBar_CloseButtonCommandParameter;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.CloseButtonStyle":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "CloseButtonStyle", "Microsoft.UI.Xaml.Style");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_66_InfoBar_CloseButtonStyle;
-                xamlMember.Setter = set_66_InfoBar_CloseButtonStyle;
+                xamlMember.Getter = get_74_InfoBar_CloseButtonStyle;
+                xamlMember.Setter = set_74_InfoBar_CloseButtonStyle;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.ContentTemplate":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "ContentTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_67_InfoBar_ContentTemplate;
-                xamlMember.Setter = set_67_InfoBar_ContentTemplate;
+                xamlMember.Getter = get_75_InfoBar_ContentTemplate;
+                xamlMember.Setter = set_75_InfoBar_ContentTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IconSource":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IconSource", "Microsoft.UI.Xaml.Controls.IconSource");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_68_InfoBar_IconSource;
-                xamlMember.Setter = set_68_InfoBar_IconSource;
+                xamlMember.Getter = get_76_InfoBar_IconSource;
+                xamlMember.Setter = set_76_InfoBar_IconSource;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsClosable":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsClosable", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_69_InfoBar_IsClosable;
-                xamlMember.Setter = set_69_InfoBar_IsClosable;
+                xamlMember.Getter = get_77_InfoBar_IsClosable;
+                xamlMember.Setter = set_77_InfoBar_IsClosable;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.IsIconVisible":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsIconVisible", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_70_InfoBar_IsIconVisible;
-                xamlMember.Setter = set_70_InfoBar_IsIconVisible;
+                xamlMember.Getter = get_78_InfoBar_IsIconVisible;
+                xamlMember.Setter = set_78_InfoBar_IsIconVisible;
                 break;
             case "Microsoft.UI.Xaml.Controls.InfoBar.TemplateSettings":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.InfoBar");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "TemplateSettings", "Microsoft.UI.Xaml.Controls.InfoBarTemplateSettings");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_71_InfoBar_TemplateSettings;
+                xamlMember.Getter = get_79_InfoBar_TemplateSettings;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_72_TreeViewNode_Children;
+                xamlMember.Getter = get_80_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_73_TreeViewNode_Content;
-                xamlMember.Setter = set_73_TreeViewNode_Content;
+                xamlMember.Getter = get_81_TreeViewNode_Content;
+                xamlMember.Setter = set_81_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_74_TreeViewNode_Depth;
+                xamlMember.Getter = get_82_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_75_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_83_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_76_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_76_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_84_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_84_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_77_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_77_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_85_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_85_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::GAMINGCONSOLEMODE.GAMINGCONSOLEMODE_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_78_TreeViewNode_Parent;
+                xamlMember.Getter = get_86_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }
