@@ -8,66 +8,64 @@
 
     <Page.Resources>
         <Style TargetType="Button" x:Key="DashboardButtonStyle">
-            <Setter Property="Background" Value="#333"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="200"/>
             <Setter Property="Margin" Value="10"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="3"/>
-            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-            <!-- Wichtig für Button selbst -->
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#0f0E47" Offset="0.0"/>
+                        <GradientStop Color="#272757" Offset="0.5"/>
+                        <GradientStop Color="#505081" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid"
-      RenderTransformOrigin="0.5,0.5"
-      Background="{TemplateBinding Background}"
-      CornerRadius="15"
-      BorderThickness="3"
-      BorderBrush="Transparent">
+                        <Border x:Name="RootBorder"
+                CornerRadius="10"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                RenderTransformOrigin="0.5,0.5">
 
-                            <Grid.RenderTransform>
+                            <Border.RenderTransform>
                                 <ScaleTransform x:Name="ButtonScale" ScaleX="1" ScaleY="1"/>
-                            </Grid.RenderTransform>
+                            </Border.RenderTransform>
 
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal"/>
-
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="ButtonScale"
-                                                     Storyboard.TargetProperty="ScaleX"
-                                                     To="1.05" Duration="0:0:0.2"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             To="1.05" Duration="0:0:0.2"/>
                                             <DoubleAnimation Storyboard.TargetName="ButtonScale"
-                                                     Storyboard.TargetProperty="ScaleY"
-                                                     To="1.05" Duration="0:0:0.2"/>
-                                            <ColorAnimation Storyboard.TargetName="RootGrid"
-                                                    Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
-                                                    To="#555" Duration="0:0:0.2"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             To="1.05" Duration="0:0:0.2"/>
                                         </Storyboard>
                                     </VisualState>
-
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="ButtonScale"
-                                                     Storyboard.TargetProperty="ScaleX"
-                                                     To="0.98" Duration="0:0:0.1"/>
+                                             Storyboard.TargetProperty="ScaleX"
+                                             To="0.98" Duration="0:0:0.1"/>
                                             <DoubleAnimation Storyboard.TargetName="ButtonScale"
-                                                     Storyboard.TargetProperty="ScaleY"
-                                                     To="0.98" Duration="0:0:0.1"/>
-                                            <ColorAnimation Storyboard.TargetName="RootGrid"
-                                                    Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
-                                                    To="#777" Duration="0:0:0.1"/>
+                                             Storyboard.TargetProperty="ScaleY"
+                                             To="0.98" Duration="0:0:0.1"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
 
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
+                            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -137,8 +135,8 @@ VerticalAlignment="Bottom"/>
             <Grid x:Name="DashboardView" Visibility="Visible" CornerRadius="20" Margin="10">
                 <Grid.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="Black"  Offset="0.0" />
-                        <GradientStop Color="SlateGray"  Offset="1.0" />
+                        <GradientStop Color="#505081"  Offset="0.0" />
+                        <GradientStop Color="White"  Offset="1.0" />
                     </LinearGradientBrush>
                 </Grid.Background>
                 <ScrollViewer  VerticalScrollBarVisibility="Visible">
@@ -592,72 +590,71 @@ VerticalAlignment="Bottom"/>
                             </Grid>
                             <!--deckyloader - ready-->
                             <Grid x:Name="deckyloader" Visibility="Collapsed"
-xmlns:controls="using:CommunityToolkit.WinUI.Controls">
+                                  xmlns:controls="using:CommunityToolkit.WinUI.Controls">
 
                                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalScrollMode="Enabled">
                                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Padding="24">
                                         <StackPanel Spacing="4">
 
 
-                                            <TextBlock Text="JOYXOFF"  Margin="10" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Decky Loader"  Margin="10" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
+                                            
+                                            <TextBlock Text="Settings" FontSize="14" FontWeight="SemiBold" Margin="0,8,36,0"/>
+                                            
+                                            
                                             <controls:SettingsCard Width="850" Description="Set GCM so that it starts Joyxoff for you in GCM mode"
                                               Header="ON/OFF" >
                                                 <ToggleSwitch x:Name="use_decky_loader"
-Toggled="use_decky_loader_Toggled_1"
-HorizontalAlignment="Center"/>
+                                                              Toggled="use_decky_loader_Toggled_1"
+                                                              HorizontalAlignment="Center"/>
                                             </controls:SettingsCard>
 
-                                            <controls:SettingsCard Header="INSTALLATION PANEL"
-                               >
+                                            
+                                            <controls:SettingsCard Header="INSTALLATION PANEL">
                                                 <controls:SettingsCard.Description>
                                                     <Border x:Name="border_install_state_decky_loader"
-Grid.Column="1"
-Background="Green"
-CornerRadius="8"
-Padding="10,5"
-Margin="0,10,0,0"
-HorizontalAlignment="Left">
+                                                            Grid.Column="1"
+                                                            Background="Green"
+                                                            CornerRadius="8"
+                                                            Padding="10,5"
+                                                            Margin="0,10,0,0"
+                                                            HorizontalAlignment="Left">
                                                         <TextBlock x:Name="text_install_state_decky_loader"
-       Text="INSTALLED"
-       Foreground="White"
-       FontSize="13"
-       FontWeight="Bold"
-       TextAlignment="Center"/>
+                                                                   Text="INSTALLED"
+                                                                   Foreground="White"
+                                                                   FontSize="13"
+                                                                   FontWeight="Bold"
+                                                                   TextAlignment="Center"/>     
                                                     </Border>
                                                 </controls:SettingsCard.Description>
 
                                                 <StackPanel VerticalAlignment="Center">
                                                     <Button x:Name="button_install_decky_loader" Content="DOWNLOAD" Margin="10" Width="150" Click="button_install_decky_loader_Click"/>
                                                 </StackPanel>
-
-
+                                            </controls:SettingsCard>
+      
+                                            <controls:SettingsCard Header="Github Repo">
+                                                <controls:SettingsCard.Description>
+                                                    <HyperlinkButton Content="Learn more about Decky Loader" NavigateUri="https://wiki.deckbrew.xyz/"/>
+                                                </controls:SettingsCard.Description>
+                                                <HyperlinkButton Content="Link to Github Repo" NavigateUri="https://github.com/SteamDeckHomebrew/decky-loader#-installation"/>
                                             </controls:SettingsCard>
 
+
+                                            <TextBlock Text="Documentary" FontSize="14" FontWeight="SemiBold" Margin="0,8,24,0"/>
+
                                             <controls:SettingsCard  Description="Please extract all files into a folder and run the executable inside. Then, return to GCM."
-Header="Installation instructions" >
+                                                                    Header="Installation instructions" >
                                                 <controls:SettingsCard.Resources>
                                                     <x:Double x:Key="SettingsCardWrapThreshold">800</x:Double>
                                                     <x:Double x:Key="SettingsCardWrapNoIconThreshold">600</x:Double>
-
                                                 </controls:SettingsCard.Resources>
-
                                             </controls:SettingsCard>
-
-                                            <controls:SettingsCard Header="Github Repo"
->
-                                                <controls:SettingsCard.Description>
-                                                    <HyperlinkButton Content="Learn more about Phone Link" />
-                                                </controls:SettingsCard.Description>
-                                                <Button Content="Link to Github Repo"/>
-                                            </controls:SettingsCard>
-
-
-
+                                            
 
                                             <controls:SettingsCard x:Name="settingsCard"
-                       Header="Compatible plugins"
-                       >
+                                                                   Header="Compatible plugins">
                                                 <StackPanel>
                                                     <TextBlock Text="• Audio Loader" Margin="0,2,0,0"/>
                                                     <TextBlock Text="• CSS Loader" Margin="0,2,0,0"/>

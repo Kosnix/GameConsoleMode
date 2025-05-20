@@ -7531,3 +7531,8 @@ C:\Users\luis\Source\Repos\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.
 C:\Users\luis\Source\Repos\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Users\luis\Source\Repos\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\luis\Source\Repos\GCM\GAMINGCONSOLEMODE\obj\x64\Debug\net8.0-windows10.0.19041.0\win-x64\ProjectArchitectures.txt
+C:\Users\Phi\Source\Repos\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\CommunityToolkit.WinUI.Animations.dll
+C:\Users\Phi\Source\Repos\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\CommunityToolkit.WinUI.Controls.SettingsControls.dll
+C:\Users\Phi\Source\Repos\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\CommunityToolkit.WinUI.Extensions.dll
+C:\Users\Phi\Source\Repos\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\CommunityToolkit.WinUI.Helpers.dll
+C:\Users\Phi\Source\Repos\GCM\GAMINGCONSOLEMODE\bin\x64\Debug\net8.0-windows10.0.19041.0\win-x64\CommunityToolkit.WinUI.Triggers.dll

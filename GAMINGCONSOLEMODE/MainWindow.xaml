@@ -79,7 +79,7 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Onboarding" Icon="Placeholder" Tag="OnboardingPage" />
                 <NavigationViewItem Content="Launcher" Icon="StopSlideShow" Tag="LauncherPage" />
-                <NavigationViewItem Content="Functions" Icon="List"  Tag="StartupPage" />
+                <NavigationViewItem Content="Extensions" Icon="List"  Tag="StartupPage" />
                 <NavigationViewItem Content="GCM Shortcuts" Icon="Add" Tag="shortcuts" />
                 <NavigationViewItem Content="Handheld specific" Icon="SwitchApps" Tag="Handheld">
                     <NavigationViewItem.MenuItems>

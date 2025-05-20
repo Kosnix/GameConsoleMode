@@ -127,6 +127,7 @@
             
             <!-- Playnite Panel -->
             <Grid x:Name="PlaynitePanel">
+                
                 <!-- Color -->
                     <Grid.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
